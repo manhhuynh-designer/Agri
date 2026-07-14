@@ -6,13 +6,13 @@ permalink: /about/
 
 <div class="about-layout">
   <header class="about-header">
-    <h1>Về Dự Án Nông Nghiệp Sinh Thái</h1>
+    <h1>Về Dự Án AgriSynthe</h1>
     <p>Thư viện số tự động hóa bằng AI, chuyên tổng hợp và đối chiếu tri thức nông nghiệp hữu cơ bền vững.</p>
   </header>
 
   <div class="about-content">
     <div class="highlight-box">
-      <p>"Nông Nghiệp Sinh Thái là một thử nghiệm công nghệ kết hợp trí tuệ nhân tạo (AI) và tri thức bản địa, tự động chuyển đổi các giáo trình khoa học nặng tính học thuật thành các bài viết thực tiễn dễ tiếp cận cho mọi nông hộ."</p>
+      <p>"AgriSynthe là một thử nghiệm công nghệ kết hợp trí tuệ nhân tạo (AI) và tri thức bản địa, tự động chuyển đổi các giáo trình khoa học nặng tính học thuật thành các bài viết thực tiễn dễ tiếp cận cho mọi nông hộ."</p>
     </div>
 
     <h2>Bản chất của Dự án: Biên soạn tự động bởi AI</h2>
