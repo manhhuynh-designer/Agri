@@ -31,7 +31,20 @@ Quy trình nhân nuôi IMO thường được thực hiện qua các giai đoạ
 
 <div class="diagram-card">
 <div class="mermaid">
-\ngraph TD\n    A[Thu thập nguồn vi sinh vật bản địa<br/>Lấy từ đất rừng màu mỡ hoặc vùng rễ khỏe mạnh] --> B[Chuẩn bị giá thể và nguồn năng lượng<br/>Sử dụng cám gạo, bột tinh bột và mật rỉ đường]\n    B --> C[Phối trộn và điều chỉnh độ ẩm<br/>Trộn đều nguyên liệu, đạt độ ẩm tối ưu 60%]\n    C --> D[Thiết lập đống ủ nhân nuôi<br/>Tạo đống ủ cao tối đa 1.5m, che phủ để giữ nhiệt]\n    D --> E[Kiểm soát nhiệt độ và thông khí<br/>Duy trì 55-60°C, đảo trộn định kỳ để cung cấp Oxy]\n    E --> F[Kiểm tra chất lượng thành phẩm<br/>Mùi thơm chua nhẹ, màu sẫm, không còn mùi hôi]\n    F --> G[Ứng dụng cải tạo đất trồng<br/>Bón trực tiếp vào tầng đất mặt hoặc tủ gốc]\n\n    subgraph "Cơ chế cải tạo đất\n        G --> H[Thúc đẩy quá trình mùn hóa<br/>Chuyển hóa xác hữu cơ thành mùn dinh dưỡng]\n        G --> I[Cải thiện cấu trúc vật lý<br/>Tăng kết cấu viên, độ tơi xốp và khả năng giữ nước]\n        G --> J[Kích hoạt chu trình sinh học<br/>Cố định đạm, hòa tan lân và ức chế mầm bệnh]\n    end\n"
+graph TD
+    A[Thu thập nguồn vi sinh vật bản địa<br/>Lấy từ đất rừng màu mỡ hoặc vùng rễ khỏe mạnh] --> B[Chuẩn bị giá thể và nguồn năng lượng<br/>Sử dụng cám gạo, bột tinh bột và mật rỉ đường]
+    B --> C[Phối trộn và điều chỉnh độ ẩm<br/>Trộn đều nguyên liệu, đạt độ ẩm tối ưu 60%]
+    C --> D[Thiết lập đống ủ nhân nuôi<br/>Tạo đống ủ cao tối đa 1.5m, che phủ để giữ nhiệt]
+    D --> E[Kiểm soát nhiệt độ và thông khí<br/>Duy trì 55-60°C, đảo trộn định kỳ để cung cấp Oxy]
+    E --> F[Kiểm tra chất lượng thành phẩm<br/>Mùi thơm chua nhẹ, màu sẫm, không còn mùi hôi]
+    F --> G[Ứng dụng cải tạo đất trồng<br/>Bón trực tiếp vào tầng đất mặt hoặc tủ gốc]
+
+    subgraph "Cơ chế cải tạo đất
+        G --> H[Thúc đẩy quá trình mùn hóa<br/>Chuyển hóa xác hữu cơ thành mùn dinh dưỡng]
+        G --> I[Cải thiện cấu trúc vật lý<br/>Tăng kết cấu viên, độ tơi xốp và khả năng giữ nước]
+        G --> J[Kích hoạt chu trình sinh học<br/>Cố định đạm, hòa tan lân và ức chế mầm bệnh]
+    end
+"
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm lược các giai đoạn nhân nuôi vi sinh vật bản địa từ thu thập mẫu gốc đến ứng dụng thực tế.</p></div>

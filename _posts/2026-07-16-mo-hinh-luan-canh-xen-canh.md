@@ -31,7 +31,39 @@ Một chu kỳ luân canh điển hình có thể kéo dài 4 kỳ: Cây phân x
 
 <div class="diagram-card">
 <div class="mermaid">
-\ngraph TD\n    Root[\"NGHỆ THUẬT LUÂN CANH VÀ XEN CANH\"]\n    \n    Root --> LC[\"Luân canh Cây trồng\"]\n    Root --> XC[\"Xen canh & Trồng hỗn hợp\"]\n    \n    subgraph \"Tiêu chí Lựa chọn [1-3]\"\n        LC --> LC1[\"Tiêu thụ dinh dưỡng: Họ Đậu -> Lấy củ -> Rau -> Cốc [4, 5]\"]\n        LC --> LC2[\"Độ sâu rễ: Luân phiên cây rễ sâu và rễ nông [6-8]\"]\n        LC --> LC3[\"Kháng sâu bệnh: Cây họ Cốc giúp 'chữa bệnh' cho đất [9, 10]\"]\n        \n        XC --> XC1[\"Tầng tán: Kết hợp cây cao ưa sáng và cây thấp chịu bóng [11-13]\"]\n        XC --> XC2[\"Cây bầu bạn: Tiết chất xua đuổi côn trùng hại [12, 14, 15]\"]\n        XC --> XC3[\"Dinh dưỡng: Cây họ Đậu cố định đạm hỗ trợ cây chính [14, 15]\"]\n    end\n    \n    subgraph \"Quy trình & Mô hình [16-18]\"\n        Step1[\"Thiết lập chu kỳ luân canh (Ví dụ: 4 kỳ canh tác) [17]\"]\n        Step2[\"Bố trí xen canh theo hàng hoặc băng cây xanh [18, 19]\"]\n        Step3[\"Sử dụng cây che phủ và quản lý tàn dư hữu cơ [20, 21]\"]\n    end\n    \n    LC1 & LC2 & LC3 & XC1 & XC2 & XC3 --> Step1\n    Step1 --> Step2 --> Step3\n    \n    Step3 --> Out[\"HIỆU QUẢ SỬ DỤNG ĐẤT TỔNG HỢP\"]\n    \n    Out --> Out1[\"Dinh dưỡng: Chu trình khép kín & Bồi dưỡng mùn đất [20, 22]\"]\n    Out --> Out2[\"Bảo vệ: Khống chế dịch hại tự nhiên & Chống xói mòn [20, 23]\"]\n    Out --> Out3[\"Kinh tế: Tăng tổng sản lượng & Đa dạng hóa nguồn thu [2, 24, 25]\"]\n\n    style Root fill:#f96,stroke:#333,stroke-width:2px\n    style Out fill:#6f6,stroke:#333,stroke-width:2px\n
+graph TD
+    Root["NGHỆ THUẬT LUÂN CANH VÀ XEN CANH"]
+    
+    Root --> LC["Luân canh Cây trồng"]
+    Root --> XC["Xen canh & Trồng hỗn hợp"]
+    
+    subgraph "Tiêu chí Lựa chọn [1-3]"
+        LC --> LC1["Tiêu thụ dinh dưỡng: Họ Đậu -> Lấy củ -> Rau -> Cốc [4, 5]"]
+        LC --> LC2["Độ sâu rễ: Luân phiên cây rễ sâu và rễ nông [6-8]"]
+        LC --> LC3["Kháng sâu bệnh: Cây họ Cốc giúp 'chữa bệnh' cho đất [9, 10]"]
+        
+        XC --> XC1["Tầng tán: Kết hợp cây cao ưa sáng và cây thấp chịu bóng [11-13]"]
+        XC --> XC2["Cây bầu bạn: Tiết chất xua đuổi côn trùng hại [12, 14, 15]"]
+        XC --> XC3["Dinh dưỡng: Cây họ Đậu cố định đạm hỗ trợ cây chính [14, 15]"]
+    end
+    
+    subgraph "Quy trình & Mô hình [16-18]"
+        Step1["Thiết lập chu kỳ luân canh (Ví dụ: 4 kỳ canh tác) [17]"]
+        Step2["Bố trí xen canh theo hàng hoặc băng cây xanh [18, 19]"]
+        Step3["Sử dụng cây che phủ và quản lý tàn dư hữu cơ [20, 21]"]
+    end
+    
+    LC1 & LC2 & LC3 & XC1 & XC2 & XC3 --> Step1
+    Step1 --> Step2 --> Step3
+    
+    Step3 --> Out["HIỆU QUẢ SỬ DỤNG ĐẤT TỔNG HỢP"]
+    
+    Out --> Out1["Dinh dưỡng: Chu trình khép kín & Bồi dưỡng mùn đất [20, 22]"]
+    Out --> Out2["Bảo vệ: Khống chế dịch hại tự nhiên & Chống xói mòn [20, 23]"]
+    Out --> Out3["Kinh tế: Tăng tổng sản lượng & Đa dạng hóa nguồn thu [2, 24, 25]"]
+
+    style Root fill:#f96,stroke:#333,stroke-width:2px
+    style Out fill:#6f6,stroke:#333,stroke-width:2px
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ mô tả mối quan hệ tương hỗ giữa các nhóm cây trong vòng luân canh giúp tái tạo năng lực sản xuất của đất.</p></div>

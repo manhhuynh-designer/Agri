@@ -29,7 +29,46 @@ Trong nông nghiệp hữu cơ và bền vững, VAC được coi là một hệ
 
 <div class="diagram-card">
 <div class="mermaid">
-\ngraph TD\n    subgraph VAC_System [Hệ sinh thái VAC - Chu trình tuần hoàn]\n        V[<b>Vườn</b><br/>Trồng trọt]\n        A[<b>Ao</b><br/>Nuôi trồng thủy sản]\n        C[<b>Chuồng</b><br/>Chăn nuôi]\n        B[<b>Xử lý chất thải</b><br/>Biogas / Ủ phân hữu cơ]\n    end\n\n    %% Mối quan hệ từ Vườn\n    V -- \"Sản phẩm phụ, rau cỏ, thực phẩm\" --> C\n    V -- \"Rau bèo, phế phẩm thực vật\" --> A\n    \n    %% Mối quan hệ từ Chuồng\n    C -- \"Phân và nước thải chăn nuôi\" --> B\n    C -- \"Nước phân, thức ăn dư thừa\" --> A\n    \n    %% Mối quan hệ từ Ao\n    A -- \"Nước tưới giàu dinh dưỡng\" --> V\n    A -- \"Bùn ao (bồi bùn, phân bón)\" --> V\n    A -- \"Phụ phẩm thủy sản (xác cá, tôm)\" --> C\n    \n    %% Mối quan hệ từ Biogas/Ủ phân\n    B -- \"Phân hữu cơ hoai mục / Nước thải sau Biogas\" --> V\n    B -- \"Năng lượng sạch (đun nấu, thắp sáng)\" --> P[<b>Con người</b>]\n\n    %% Đầu ra cho con người\n    V -- \"Rau, củ, quả, lương thực\" --> P\n    A -- \"Cá, tôm, thủy sản\" --> P\n    C -- \"Thịt, trứng, sữa\" --> P\n\n    %% Vai trò điều tiết của con người\n    P -- \"Quản lý, điều tiết & Đầu vào bên ngoài\" --> VAC_System\n\n    %% Định dạng trực quan\n    style VAC_System fill:#f9f9f9,stroke:#333,stroke-width:2px\n    style V fill:#e8f5e9,stroke:#2e7d32\n    style A fill:#e1f5fe,stroke:#0277bd\n    style C fill:#fff3e0,stroke:#ef6c00\n    style B fill:#f3e5f5,stroke:#7b1fa2\n    style P fill:#eceff1,stroke:#455a64\n
+graph TD
+    subgraph "VAC_System [Hệ sinh thái VAC - Chu trình tuần hoàn]"
+        V[<b>Vườn</b><br/>Trồng trọt]
+        A[<b>Ao</b><br/>Nuôi trồng thủy sản]
+        C[<b>Chuồng</b><br/>Chăn nuôi]
+        B[<b>Xử lý chất thải</b><br/>Biogas / Ủ phân hữu cơ]
+    end
+
+    %% Mối quan hệ từ Vườn
+    V -- "Sản phẩm phụ, rau cỏ, thực phẩm" --> C
+    V -- "Rau bèo, phế phẩm thực vật" --> A
+    
+    %% Mối quan hệ từ Chuồng
+    C -- "Phân và nước thải chăn nuôi" --> B
+    C -- "Nước phân, thức ăn dư thừa" --> A
+    
+    %% Mối quan hệ từ Ao
+    A -- "Nước tưới giàu dinh dưỡng" --> V
+    A -- "Bùn ao (bồi bùn, phân bón)" --> V
+    A -- "Phụ phẩm thủy sản (xác cá, tôm)" --> C
+    
+    %% Mối quan hệ từ Biogas/Ủ phân
+    B -- "Phân hữu cơ hoai mục / Nước thải sau Biogas" --> V
+    B -- "Năng lượng sạch (đun nấu, thắp sáng)" --> P[<b>Con người</b>]
+
+    %% Đầu ra cho con người
+    V -- "Rau, củ, quả, lương thực" --> P
+    A -- "Cá, tôm, thủy sản" --> P
+    C -- "Thịt, trứng, sữa" --> P
+
+    %% Vai trò điều tiết của con người
+    P -- "Quản lý, điều tiết & Đầu vào bên ngoài" --> VAC_System
+
+    %% Định dạng trực quan
+    style VAC_System fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style V fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#e1f5fe,stroke:#0277bd
+    style C fill:#fff3e0,stroke:#ef6c00
+    style B fill:#f3e5f5,stroke:#7b1fa2
+    style P fill:#eceff1,stroke:#455a64
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ mô phỏng các dòng vật chất tuần hoàn giữa ba hợp phần Vườn - Ao - Chuồng trong hệ sinh thái nông nghiệp bền vững.</p></div>

@@ -25,7 +25,30 @@ Quy trình thực hiện bao gồm:
 
 <div class="diagram-card">
 <div class="mermaid">
-\ngraph TD\n    A[Chuẩn bị và Thiết lập] --> A1[Phân tích chất lượng đất và nước]\n    A --> A2[Thiết lập vùng đệm cách ly 1-5m]\n    A --> A3[Lập kế hoạch luân canh và xen canh]\n\n    A1 --> B[Làm đất và Cải tạo]\n    A2 --> B\n    B --> B1[Bón lót Phân hữu cơ hoai mục/Compost]\n    B --> B2[Bón vôi bột để khử chua đất]\n    B --> B3[Xới đất: Làm nhỏ lớp mặt, làm lỏng lớp dưới]\n    B --> B4[Lên luống thoát nước & tạo môi trường tơi xốp]\n\n    B3 --> C[Gieo trồng hữu cơ]\n    B4 --> C\n    C --> C1[Chọn hạt giống bản địa/Giống kháng sâu bệnh]\n    C --> C2[Xử lý hạt giống bằng nước nóng hoặc thảo mộc]\n    C --> C3[Gieo hạt/Trồng cây con vào hốc]\n    C --> C4[Che phủ đất bằng rơm rạ hoặc vật liệu sống]\n\n    C3 --> D[Chăm sóc và Bảo vệ]\n    D --> D1[Tưới bằng nguồn nước sạch không ô nhiễm]\n    D --> D2[Làm cỏ hoàn toàn bằng tay]\n    D --> D3[Phòng trừ sâu bệnh bằng bẫy/chế phẩm sinh học]\n    D --> D4[Ghi chép nhật ký canh tác để truy xuất nguồn gốc]\n
+graph TD
+    A[Chuẩn bị và Thiết lập] --> A1[Phân tích chất lượng đất và nước]
+    A --> A2[Thiết lập vùng đệm cách ly 1-5m]
+    A --> A3[Lập kế hoạch luân canh và xen canh]
+
+    A1 --> B[Làm đất và Cải tạo]
+    A2 --> B
+    B --> B1[Bón lót Phân hữu cơ hoai mục/Compost]
+    B --> B2[Bón vôi bột để khử chua đất]
+    B --> B3[Xới đất: Làm nhỏ lớp mặt, làm lỏng lớp dưới]
+    B --> B4[Lên luống thoát nước & tạo môi trường tơi xốp]
+
+    B3 --> C[Gieo trồng hữu cơ]
+    B4 --> C
+    C --> C1[Chọn hạt giống bản địa/Giống kháng sâu bệnh]
+    C --> C2[Xử lý hạt giống bằng nước nóng hoặc thảo mộc]
+    C --> C3[Gieo hạt/Trồng cây con vào hốc]
+    C --> C4[Che phủ đất bằng rơm rạ hoặc vật liệu sống]
+
+    C3 --> D[Chăm sóc và Bảo vệ]
+    D --> D1[Tưới bằng nguồn nước sạch không ô nhiễm]
+    D --> D2[Làm cỏ hoàn toàn bằng tay]
+    D --> D3[Phòng trừ sâu bệnh bằng bẫy/chế phẩm sinh học]
+    D --> D4[Ghi chép nhật ký canh tác để truy xuất nguồn gốc]
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm tắt quy trình chuẩn bị và gieo trồng rau hữu cơ cơ bản cho hộ gia đình.</p></div>

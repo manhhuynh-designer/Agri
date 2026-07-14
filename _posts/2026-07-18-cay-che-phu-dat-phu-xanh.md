@@ -36,7 +36,53 @@ Cây che phủ đất tác động toàn diện lên cấu trúc và hóa tính 
 
 <div class="diagram-card">
 <div class="mermaid">
-\ngraph TD\n    A[Cây che phủ đất và Phân xanh] -- \"Tấm khiên bảo vệ\" --> B{Bảo vệ Đất dốc}\n\n    subgraph \"Cơ chế bảo vệ vật lý\"\n        B --> B1[Che chắn bề mặt đất]\n        B1 --> B1a[Giảm lực va đập trực tiếp của hạt mưa]\n        B1 --> B1b[Hạn chế xói mòn bắn tóe và rửa trôi lớp đất mặt]\n        \n        B --> B2[Tạo hàng rào sinh học]\n        B2 --> B2a[Làm chậm tốc độ dòng chảy mặt]\n        B2 --> B2b[Giữ lại phù sa và bùn đất bị cuốn trôi]\n        B2b --> B2c[Kiến tạo ruộng bậc thang tự nhiên theo thời gian]\n    end\n\n    subgraph \"Cơ chế cải tạo sinh học\"\n        B --> C1[Hệ thống rễ phát triển]\n        C1 --> C1a[Giữ chặt kết cấu đất, chống sạt lở]\n        C1 --> C1b[Phá vỡ các tầng đất cứng chai]\n        C1 --> C1c[Tạo đường dẫn giúp nước thấm sâu vào lòng đất]\n\n        B --> C2[Cung cấp chất hữu cơ]\n        C2 --> C2a[Phân hủy sinh khối thân lá thành mùn]\n        C2 --> C2b[Cố định đạm - đặc biệt là các cây họ Đậu]\n        C2 --> C2c[Duy trì và nâng cao độ phì nhiêu đất lâu dài]\n    end\n\n    subgraph \"Điều tiết vi khí hậu & Nước\"\n        B --> D1[Giữ ẩm cho đất]\n        D1 --> D1a[Giảm bốc hơi nước vào mùa khô]\n        D1 --> D1b[Ổn định nhiệt độ tầng đất mặt]\n        \n        B --> D2[Quản lý dịch hại]\n        D2 --> D2a[Lấn át và kiểm soát cỏ dại]\n        D2 --> D2b[Tạo môi trường sống cho thiên địch]\n    end\n\n    subgraph \"Các loài cây tiêu biểu\"\n        E1[Cỏ Vetiver - Bê tông sinh học]\n        E2[Cốt khí, Keo dậu, Đậu triều]\n        E3[Lạc dại, Đậu mèo, Đậu nho nhe]\n    end\n\n    E1 -.-> B2\n    E2 -.-> C2b\n    E3 -.-> B1\n\n    B1a & B2a & C1a & C2c --> F[Nông nghiệp bền vững trên đất dốc]\n
+graph TD
+    A[Cây che phủ đất và Phân xanh] -- "Tấm khiên bảo vệ" --> B{Bảo vệ Đất dốc}
+
+    subgraph "Cơ chế bảo vệ vật lý"
+        B --> B1[Che chắn bề mặt đất]
+        B1 --> B1a[Giảm lực va đập trực tiếp của hạt mưa]
+        B1 --> B1b[Hạn chế xói mòn bắn tóe và rửa trôi lớp đất mặt]
+        
+        B --> B2[Tạo hàng rào sinh học]
+        B2 --> B2a[Làm chậm tốc độ dòng chảy mặt]
+        B2 --> B2b[Giữ lại phù sa và bùn đất bị cuốn trôi]
+        B2b --> B2c[Kiến tạo ruộng bậc thang tự nhiên theo thời gian]
+    end
+
+    subgraph "Cơ chế cải tạo sinh học"
+        B --> C1[Hệ thống rễ phát triển]
+        C1 --> C1a[Giữ chặt kết cấu đất, chống sạt lở]
+        C1 --> C1b[Phá vỡ các tầng đất cứng chai]
+        C1 --> C1c[Tạo đường dẫn giúp nước thấm sâu vào lòng đất]
+
+        B --> C2[Cung cấp chất hữu cơ]
+        C2 --> C2a[Phân hủy sinh khối thân lá thành mùn]
+        C2 --> C2b[Cố định đạm - đặc biệt là các cây họ Đậu]
+        C2 --> C2c[Duy trì và nâng cao độ phì nhiêu đất lâu dài]
+    end
+
+    subgraph "Điều tiết vi khí hậu & Nước"
+        B --> D1[Giữ ẩm cho đất]
+        D1 --> D1a[Giảm bốc hơi nước vào mùa khô]
+        D1 --> D1b[Ổn định nhiệt độ tầng đất mặt]
+        
+        B --> D2[Quản lý dịch hại]
+        D2 --> D2a[Lấn át và kiểm soát cỏ dại]
+        D2 --> D2b[Tạo môi trường sống cho thiên địch]
+    end
+
+    subgraph "Các loài cây tiêu biểu"
+        E1[Cỏ Vetiver - Bê tông sinh học]
+        E2[Cốt khí, Keo dậu, Đậu triều]
+        E3[Lạc dại, Đậu mèo, Đậu nho nhe]
+    end
+
+    E1 -.-> B2
+    E2 -.-> C2b
+    E3 -.-> B1
+
+    B1a & B2a & C1a & C2c --> F[Nông nghiệp bền vững trên đất dốc]
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ cơ chế tác động của cây che phủ đất trong việc bảo vệ tầng canh tác khỏi các yếu tố thiên tai và bổ sung dinh dưỡng.</p></div>
