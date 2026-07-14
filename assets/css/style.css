@@ -1416,18 +1416,19 @@ html[data-theme="light"] .lightbox-overlay {
 /* Inline Citation Hyperlinks & Footnotes */
 .citation-ref {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--ember) !important;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ash-dim) !important;
   text-decoration: none;
-  padding: 0 3px;
-  border-radius: 4px;
+  padding: 0 1px;
+  opacity: 0.75;
   transition: var(--transition-smooth);
 }
 
 .citation-ref:hover {
-  background-color: rgba(232, 89, 12, 0.1);
-  color: #ff7c2a !important;
+  color: var(--ember) !important;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .back-to-citation {
