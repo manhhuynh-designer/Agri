@@ -119,68 +119,224 @@ function initNewsletter() {
 }
 
 /* ==========================================================================
-   4. HOMEPAGE SEARCH & TAG FILTERING
+   4. HOMEPAGE SEARCH, TAG FILTERING, SORTING & PAGINATION
    ========================================================================== */
 function initBlogFilters() {
+  const postsGrid = document.querySelector('.posts-grid');
+  if (!postsGrid) return;
+
   const searchInput = document.getElementById('search-input');
   const filterButtons = document.querySelectorAll('.filter-btn');
+  const sortSelect = document.getElementById('sort-select');
+  const gridViewBtn = document.getElementById('grid-view-btn');
+  const listViewBtn = document.getElementById('list-view-btn');
   const postCards = document.querySelectorAll('.post-card');
+  const postCardsArray = Array.from(postCards);
   
   let activeTag = 'all';
   let searchQuery = '';
+  let currentSort = 'newest';
+  let currentPage = 1;
+  const pageSize = 6;
   
-  function filterPosts() {
-    let visibleCount = 0;
-    
-    postCards.forEach(card => {
-      const cardTags = card.getAttribute('data-tags').split(' ');
+  function sortAndFilterPosts() {
+    // 1. Filter posts first
+    const filteredCards = postCardsArray.filter(card => {
+      const cardTags = card.getAttribute('data-tags').split(' ').map(t => t.trim().toLowerCase());
       const title = card.querySelector('h3').textContent.toLowerCase();
       const desc = card.querySelector('p').textContent.toLowerCase();
       
-      const matchesTag = activeTag === 'all' || cardTags.includes(activeTag);
+      const matchesTag = activeTag === 'all' || cardTags.includes(activeTag.toLowerCase());
       const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
       
-      if (matchesTag && matchesSearch) {
+      return matchesTag && matchesSearch;
+    });
+
+    // 2. Sort filtered posts
+    filteredCards.sort((a, b) => {
+      const dateA = parseInt(a.getAttribute('data-date')) || 0;
+      const dateB = parseInt(b.getAttribute('data-date')) || 0;
+      const timeA = parseInt(a.getAttribute('data-readtime')) || 5;
+      const timeB = parseInt(b.getAttribute('data-readtime')) || 5;
+
+      if (currentSort === 'newest') {
+        return dateB - dateA;
+      } else if (currentSort === 'oldest') {
+        return dateA - dateB;
+      } else if (currentSort === 'time-asc') {
+        return timeA - timeB;
+      } else if (currentSort === 'time-desc') {
+        return timeB - timeA;
+      }
+      return 0;
+    });
+
+    // 3. Re-append and show/hide
+    postCardsArray.forEach(card => card.style.display = 'none'); // Hide all first
+
+    const totalItems = filteredCards.length;
+    const totalPages = Math.ceil(totalItems / pageSize) || 1;
+    
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    filteredCards.forEach((card, idx) => {
+      postsGrid.appendChild(card); // Re-order DOM elements
+      
+      if (idx >= startIndex && idx < endIndex) {
         card.style.display = 'flex';
-        visibleCount++;
       } else {
         card.style.display = 'none';
       }
     });
-    
-    // Manage empty state
+
+    // 4. Render Pagination UI
+    renderPagination(totalPages);
+
+    // 5. Manage empty state
     let emptyState = document.getElementById('empty-state');
-    if (visibleCount === 0) {
+    if (totalItems === 0) {
       if (!emptyState) {
         emptyState = document.createElement('div');
         emptyState.id = 'empty-state';
+        emptyState.className = 'empty-state';
         emptyState.style.textAlign = 'center';
-        emptyState.style.padding = '40px 0';
+        emptyState.style.padding = '60px 0';
         emptyState.style.color = 'var(--ash-dim)';
-        emptyState.innerHTML = '<p>Không tìm thấy bài viết nào phù hợp.</p>';
-        document.querySelector('.posts-grid').after(emptyState);
+        emptyState.innerHTML = `
+          <svg viewBox="0 0 20 20" fill="currentColor" width="48" height="48" style="color: var(--line); margin-bottom: 16px; margin-left: auto; margin-right: auto; display: block;">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.8 11.2a1 1 0 101.733 1L9 11.536V14a1 1 0 102 0v-2.464l.467.264a1 1 0 101.733-1L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd" />
+          </svg>
+          <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 6px;">Không tìm thấy bài viết nào phù hợp.</p>
+          <p style="font-size: 0.9rem;">Hãy thử tìm kiếm với từ khóa khác hoặc xóa bộ lọc.</p>
+        `;
+        postsGrid.after(emptyState);
       }
     } else if (emptyState) {
       emptyState.remove();
     }
   }
-  
+
+  function renderPagination(totalPages) {
+    let pagContainer = document.getElementById('pagination-controls');
+    if (!pagContainer) {
+      pagContainer = document.createElement('div');
+      pagContainer.id = 'pagination-controls';
+      pagContainer.className = 'pagination-container';
+      postsGrid.after(pagContainer);
+    }
+
+    if (totalPages <= 1) {
+      pagContainer.style.display = 'none';
+      return;
+    } else {
+      pagContainer.style.display = 'flex';
+    }
+
+    let html = `<button class="pag-btn prev" ${currentPage === 1 ? 'disabled' : ''}>&larr; Trang trước</button>`;
+    html += `<div class="pag-pages">`;
+    for (let i = 1; i <= totalPages; i++) {
+      html += `<button class="pag-page-num ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+    }
+    html += `</div>`;
+    html += `<button class="pag-btn next" ${currentPage === totalPages ? 'disabled' : ''}>Trang sau &rarr;</button>`;
+
+    pagContainer.innerHTML = html;
+
+    // Attach pagination events
+    pagContainer.querySelector('.prev').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        sortAndFilterPosts();
+        scrollToGrid();
+      }
+    });
+
+    pagContainer.querySelector('.next').addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        sortAndFilterPosts();
+        scrollToGrid();
+      }
+    });
+
+    pagContainer.querySelectorAll('.pag-page-num').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        currentPage = parseInt(e.target.getAttribute('data-page'));
+        sortAndFilterPosts();
+        scrollToGrid();
+      });
+    });
+  }
+
+  function scrollToGrid() {
+    const rect = postsGrid.getBoundingClientRect();
+    if (rect.top < 0) {
+      window.scrollTo({
+        top: window.scrollY + rect.top - 120,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Setup search input listener
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value.toLowerCase().trim();
-      filterPosts();
+      currentPage = 1; // Reset to page 1 on new search
+      sortAndFilterPosts();
     });
   }
-  
+
+  // Setup category tag listeners
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       
       activeTag = btn.getAttribute('data-tag');
-      filterPosts();
+      currentPage = 1; // Reset to page 1 on tag change
+      sortAndFilterPosts();
     });
   });
+
+  // Setup sort dropdown listener
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      currentPage = 1; // Reset to page 1 on sort change
+      sortAndFilterPosts();
+    });
+  }
+
+  // Setup layout view togglers
+  if (gridViewBtn && listViewBtn) {
+    gridViewBtn.addEventListener('click', () => {
+      gridViewBtn.classList.add('active');
+      listViewBtn.classList.remove('active');
+      postsGrid.classList.remove('list-view');
+      localStorage.setItem('blog-layout', 'grid');
+    });
+
+    listViewBtn.addEventListener('click', () => {
+      listViewBtn.classList.add('active');
+      gridViewBtn.classList.remove('active');
+      postsGrid.classList.add('list-view');
+      localStorage.setItem('blog-layout', 'list');
+    });
+
+    // Restore saved layout preference
+    const savedLayout = localStorage.getItem('blog-layout');
+    if (savedLayout === 'list') {
+      listViewBtn.click();
+    }
+  }
+
+  // Initial call to sort, filter, and paginate
+  sortAndFilterPosts();
 }
 
 /* ==========================================================================

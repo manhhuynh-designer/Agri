@@ -4,3 +4,5 @@ _site/
 .sass-cache/
 node_modules/
 .vscode/
+.env
+.env*.local

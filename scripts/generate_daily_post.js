@@ -3,6 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
+// Manually load .env file if it exists (avoids adding npm dependencies)
+const envPath = path.join(__dirname, '..', '.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf-8');
+  envContent.split('\n').forEach(line => {
+    const parts = line.split('=');
+    if (parts.length === 2) {
+      process.env[parts[0].trim()] = parts[1].trim();
+    }
+  });
+}
+
 const NOTEBOOK_ID = '47861196-dfb2-42e4-8dcd-cfc9eeb28ced';
 const TOPICS_FILE = path.join(__dirname, '..', '_data', 'topics.json');
 const POSTS_DIR = path.join(__dirname, '..', '_posts');
@@ -42,32 +54,59 @@ function getYoutubeId(url) {
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
-// 1. Read topics and find an unwritten one
-if (!fs.existsSync(TOPICS_FILE)) {
-  console.error('Error: topics.json not found!');
-  process.exit(1);
+// Pexels API Helper to fetch high-quality images
+function fetchPexelsImages(query, perPage = 5) {
+  return new Promise((resolve) => {
+    const apiKey = process.env.PEXELS_API_KEY;
+    if (!apiKey) {
+      console.warn('[Pexels] Warning: PEXELS_API_KEY not found in environment variables.');
+      return resolve([]);
+    }
+    
+    // Choose a random page between 1 and 20 for variety
+    const page = Math.floor(Math.random() * 20) + 1;
+    const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=${perPage}&page=${page}`;
+    
+    const options = {
+      headers: {
+        'Authorization': apiKey
+      }
+    };
+    
+    https.get(url, options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed.photos && parsed.photos.length > 0) {
+            const urls = parsed.photos.map(p => p.src.large2x || p.src.large || p.src.original);
+            resolve(urls);
+          } else {
+            resolve([]);
+          }
+        } catch (e) {
+          resolve([]);
+        }
+      });
+    }).on('error', (err) => {
+      console.error('[Pexels] Connection error:', err.message);
+      resolve([]);
+    });
+  });
 }
 
-const topics = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf-8'));
-const postFiles = fs.readdirSync(POSTS_DIR);
+const pexelsSearchQueries = {
+  'u-phan-chuong-hoai-muc': 'organic compost soil',
+  'quan-ly-dich-hai-ipm': 'beneficial insects garden',
+  'cay-che-phu-dat-phu-xanh': 'cover crops agriculture',
+  'mo-hinh-luan-canh-xen-canh': 'crop rotation farm',
+  'he-sinh-thai-vac-truyen-thong': 'integrated farming agriculture',
+  'ky-thuat-trong-rau-sach-huu-co': 'vegetable garden organic',
+  'thuoc-tru-sau-thao-moc': 'organic pest control',
+  'vi-sinh-vat-ban-dia-imo': 'soil microbes agriculture'
+};
 
-let selectedTopic = null;
-for (const topic of topics) {
-  const hasBeenWritten = postFiles.some(file => file.includes(topic.id));
-  if (!hasBeenWritten) {
-    selectedTopic = topic;
-    break;
-  }
-}
-
-if (!selectedTopic) {
-  console.log('All topics have been written! Selecting a random one.');
-  selectedTopic = topics[Math.floor(Math.random() * topics.length)];
-}
-
-console.log(`Selected Topic: "${selectedTopic.title}" (ID: ${selectedTopic.id})`);
-
-// Map topics to existing images
 const imageMapping = {
   'u-phan-chuong-hoai-muc': '/assets/images/than_sinh_hoc_biochar.png',
   'quan-ly-dich-hai-ipm': '/assets/images/thien_dich_vuon_huu_co.png',
@@ -78,18 +117,61 @@ const imageMapping = {
   'thuoc-tru-sau-thao-moc': '/assets/images/thien_dich_vuon_huu_co.png',
   'vi-sinh-vat-ban-dia-imo': '/assets/images/than_sinh_hoc_biochar.png'
 };
-const selectedImage = imageMapping[selectedTopic.id] || '/assets/images/cach_mang_mot_cong_rom.png';
 
-// Check if YouTube link is active and valid
-verifyYoutubeLink(selectedTopic.youtube).then((isValidYt) => {
+async function main() {
+  // 1. Read topics and find an unwritten one
+  if (!fs.existsSync(TOPICS_FILE)) {
+    console.error('Error: topics.json not found!');
+    process.exit(1);
+  }
+
+  const topics = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf-8'));
+  const postFiles = fs.readdirSync(POSTS_DIR);
+
+  let selectedTopic = null;
+  for (const topic of topics) {
+    const hasBeenWritten = postFiles.some(file => file.includes(topic.id));
+    if (!hasBeenWritten) {
+      selectedTopic = topic;
+      break;
+    }
+  }
+
+  if (!selectedTopic) {
+    console.log('All topics have been written! Selecting a random one.');
+    selectedTopic = topics[Math.floor(Math.random() * topics.length)];
+  }
+
+  console.log(`Selected Topic: "${selectedTopic.title}" (ID: ${selectedTopic.id})`);
+
+  // 2. Fetch 5 random agriculture images from Pexels for the Hero Section carousel
+  console.log('Fetching 5 new Pexels images for the homepage Hero section...');
+  const heroUrls = await fetchPexelsImages('sustainable agriculture', 5);
+  if (heroUrls.length > 0) {
+    const dataDir = path.join(__dirname, '..', '_data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir);
+    }
+    fs.writeFileSync(path.join(dataDir, 'hero_images.json'), JSON.stringify(heroUrls, null, 2));
+    console.log('Successfully updated _data/hero_images.json with 5 Pexels images.');
+  }
+
+  // 3. Fetch a custom Pexels background image for the specific post
+  console.log(`Fetching custom post background image for query: "${pexelsSearchQueries[selectedTopic.id] || 'organic farming'}"...`);
+  const topicPhotos = await fetchPexelsImages(pexelsSearchQueries[selectedTopic.id] || 'organic farming', 1);
+  const selectedImage = (topicPhotos && topicPhotos[0]) ? topicPhotos[0] : (imageMapping[selectedTopic.id] || '/assets/images/cach_mang_mot_cong_rom.png');
+  console.log(`Using post image: ${selectedImage}`);
+
+  // 4. Verify YouTube link
+  const isValidYt = await verifyYoutubeLink(selectedTopic.youtube);
   if (isValidYt) {
     console.log(`[YouTube Verification] Link is ACTIVE and valid: ${selectedTopic.youtube}`);
   } else {
-    console.warn(`[YouTube Verification] Warning: Link is BROKEN or inactive: ${selectedTopic.youtube}. It will be omitted from the post.`);
-    selectedTopic.youtube = null; // Omit broken link
+    console.warn(`[YouTube Verification] Warning: Link is BROKEN or inactive: ${selectedTopic.youtube}. It will be omitted.`);
+    selectedTopic.youtube = null;
   }
 
-  // Start MCP server
+  // 5. Query NotebookLM
   const child = spawn('npx', ['notebooklm-mcp-server', 'server'], {
     shell: true
   });
@@ -136,7 +218,7 @@ verifyYoutubeLink(selectedTopic.youtube).then((isValidYt) => {
     child.stdin.write(JSON.stringify(msg) + '\n');
   }
 
-  // Start handshake
+  // Handshake
   send('initialize', {
     protocolVersion: '2024-11-05',
     capabilities: {},
@@ -151,7 +233,6 @@ verifyYoutubeLink(selectedTopic.youtube).then((isValidYt) => {
     }
 
     if (msg.id === 1) {
-      // Initialized, refresh auth
       send('notifications/initialized');
       send('tools/call', {
         name: 'refresh_auth',
@@ -159,7 +240,6 @@ verifyYoutubeLink(selectedTopic.youtube).then((isValidYt) => {
       }, 2);
     } 
     else if (msg.id === 2) {
-      // Auth refreshed, now query NotebookLM
       console.log('Sending query to NotebookLM...');
       const queryText = `Viết một bài viết blog kỹ thuật chi tiết bằng tiếng Việt về chủ đề: "${selectedTopic.title}".
       Yêu cầu cụ thể:
@@ -187,7 +267,6 @@ verifyYoutubeLink(selectedTopic.youtube).then((isValidYt) => {
       }, 100);
     } 
     else if (msg.id === 100) {
-      // NotebookLM response received
       let content = '';
       if (msg.result && msg.result.content && msg.result.content[0]) {
         content = msg.result.content[0].text;
@@ -197,29 +276,26 @@ verifyYoutubeLink(selectedTopic.youtube).then((isValidYt) => {
         process.exit(1);
       }
 
-      // Try to parse JSON envelope if returned by the tool
       try {
         const parsed = JSON.parse(content);
         if (parsed.answer) {
           content = parsed.answer;
         }
       } catch (e) {
-        // Not a JSON string, keep as-is
+        // Keep as-is
       }
 
-      // Clean up content (remove ```markdown blocks if present)
       content = content.replace(/^```markdown\s*/i, '');
       content = content.replace(/^```html\s*/i, '');
       content = content.replace(/```\s*$/, '');
       content = content.trim();
 
-      // Append YouTube iframe if present and verified as valid
       if (selectedTopic.youtube) {
         const ytId = getYoutubeId(selectedTopic.youtube);
         if (ytId) {
           const ytSection = `\n\n---
 ### Video tham khảo thực tế
-Dưới đây là video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
+Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
   <iframe src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
@@ -228,7 +304,6 @@ Dưới đây là video hướng dẫn chi tiết liên quan đến chủ đề 
         }
       }
 
-      // Write file
       const todayStr = getTodayString();
       const filename = `${todayStr}-${selectedTopic.id}.md`;
       const filepath = path.join(POSTS_DIR, filename);
@@ -239,4 +314,9 @@ Dưới đây là video hướng dẫn chi tiết liên quan đến chủ đề 
       child.kill();
     }
   }
+}
+
+main().catch(err => {
+  console.error('Fatal execution error:', err);
+  process.exit(1);
 });
