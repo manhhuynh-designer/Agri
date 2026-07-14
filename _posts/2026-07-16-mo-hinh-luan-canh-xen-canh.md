@@ -32,38 +32,38 @@ Một chu kỳ luân canh điển hình có thể kéo dài 4 kỳ: Cây phân x
 <div class="diagram-card">
 <div class="mermaid">
 graph TD
-    Root["NGHỆ THUẬT LUÂN CANH VÀ XEN CANH"]
-    
-    Root --> LC["Luân canh Cây trồng"]
-    Root --> XC["Xen canh & Trồng hỗn hợp"]
-    
-    subgraph "Tiêu chí Lựa chọn [1-3]"
-        LC --> LC1["Tiêu thụ dinh dưỡng: Họ Đậu -> Lấy củ -> Rau -> Cốc [4, 5]"]
-        LC --> LC2["Độ sâu rễ: Luân phiên cây rễ sâu và rễ nông [6-8]"]
-        LC --> LC3["Kháng sâu bệnh: Cây họ Cốc giúp 'chữa bệnh' cho đất [9, 10]"]
-        
-        XC --> XC1["Tầng tán: Kết hợp cây cao ưa sáng và cây thấp chịu bóng [11-13]"]
-        XC --> XC2["Cây bầu bạn: Tiết chất xua đuổi côn trùng hại [12, 14, 15]"]
-        XC --> XC3["Dinh dưỡng: Cây họ Đậu cố định đạm hỗ trợ cây chính [14, 15]"]
-    end
-    
-    subgraph "Quy trình & Mô hình [16-18]"
-        Step1["Thiết lập chu kỳ luân canh (Ví dụ: 4 kỳ canh tác) [17]"]
-        Step2["Bố trí xen canh theo hàng hoặc băng cây xanh [18, 19]"]
-        Step3["Sử dụng cây che phủ và quản lý tàn dư hữu cơ [20, 21]"]
-    end
-    
-    LC1 & LC2 & LC3 & XC1 & XC2 & XC3 --> Step1
-    Step1 --> Step2 --> Step3
-    
-    Step3 --> Out["HIỆU QUẢ SỬ DỤNG ĐẤT TỔNG HỢP"]
-    
-    Out --> Out1["Dinh dưỡng: Chu trình khép kín & Bồi dưỡng mùn đất [20, 22]"]
-    Out --> Out2["Bảo vệ: Khống chế dịch hại tự nhiên & Chống xói mòn [20, 23]"]
-    Out --> Out3["Kinh tế: Tăng tổng sản lượng & Đa dạng hóa nguồn thu [2, 24, 25]"]
+  Main[Nghệ thuật Luân canh và Xen canh] --> RC[Luân canh: Trình tự cây trồng theo thời gian]
+  Main --> IC[Xen canh: Kết hợp cây trồng trong không gian]
 
-    style Root fill:#f96,stroke:#333,stroke-width:2px
-    style Out fill:#6f6,stroke:#333,stroke-width:2px
+  RC --> RC_P[Nguyên tắc thiết kế luân canh]
+  RC_P --> RC_P1[Thay đổi cấu trúc rễ: Cây rễ sâu xen kẽ cây rễ nông]
+  RC_P --> RC_P2[Thay đổi nhu cầu dinh dưỡng: Cây cần nhiều N sau cây họ Đậu]
+  RC_P --> RC_P3[Quản lý sinh khối rễ: Thay đổi giữa cây sinh khối rễ cao và thấp]
+  RC_P --> RC_P4[Ngắt quãng dịch hại: Không trồng cây cùng họ liên tiếp]
+
+  IC --> IC_P[Nguyên tắc phối hợp xen canh]
+  IC_P --> IC_P1[Phân tầng tán: Cây ưa sáng tầng trên, cây chịu bóng tầng dưới]
+  IC_P --> IC_P2[Tương hỗ rễ: Rễ chiếm các thể tích đất khác nhau để tránh cạnh tranh]
+  IC_P --> IC_P3[Cây đồng hành: Sử dụng mùi xua đuổi sâu hại hoặc dẫn dụ thiên địch]
+  IC_P --> IC_P4[Lệch đỉnh dinh dưỡng: Các cây không trùng thời điểm cần dinh dưỡng cao nhất]
+
+  RC --> Outcome[Tăng hiệu quả sử dụng đất]
+  IC --> Outcome
+
+  Outcome --> Soil[Cải thiện sức khỏe và độ phì nhiêu của đất]
+  Soil --> Soil1[Duy trì hàm lượng mùn và chất hữu cơ]
+  Soil --> Soil2[Cố định đạm sinh học nhờ cây họ Đậu]
+  Soil --> Soil3[Ổn định kết cấu đất, chống xói mòn và rửa trôi]
+
+  Outcome --> Pest[Quản lý dịch hại và cỏ dại bền vững]
+  Pest --> Pest1[Cắt đứt chu kỳ sống của sâu bệnh chuyên tính]
+  Pest --> Pest2[Kiểm soát cỏ dại nhờ độ che phủ mặt đất liên tục]
+  Pest --> Pest3[Tăng tính đa dạng sinh học và bảo vệ thiên địch]
+
+  Outcome --> Econ[Hiệu quả kinh tế và tài nguyên]
+  Econ --> Econ1[Tăng tổng năng suất trên cùng một đơn vị diện tích]
+  Econ --> Econ2[Giảm chi phí đầu vào hóa học: Phân bón và thuốc BVTV]
+  Econ --> Econ3[Phân tán rủi ro mất mùa và biến động thị trường]
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ mô tả mối quan hệ tương hỗ giữa các nhóm cây trong vòng luân canh giúp tái tạo năng lực sản xuất của đất.</p></div>

@@ -14,33 +14,24 @@ description: Hướng dẫn chi tiết quy trình ủ phân chuồng kết hợp
 <div class="diagram-card">
 <div class="mermaid">
 graph TD
-    subgraph "Chuẩn bị nguyên liệu (Nguồn: [1, 2])"
-        A1[Phân chuồng: Trâu, bò, lợn, gà...]
-        A2[Phế thải thực vật: Rơm rạ, cây phân xanh, trấu...]
-        A3[Chế phẩm vi sinh: EM2, Biogro...]
-        A4[Phụ gia & Nước: Cám gạo, mật mía, nước sạch]
-    end
-
-    A1 & A2 & A3 & A4 --> B[Bước 1: Sơ chế & Pha chế (Nguồn: [1, 3])]
-    B --> B1[Chặt ngắn vật liệu thô: 20-30 cm]
-    B --> B2[Hòa loãng vi sinh & rỉ đường vào nước]
-
-    B1 & B2 --> C[Bước 2: Thiết lập đống ủ (Nguồn: [3, 4])]
-    C --> C1[Chọn vị trí: Cao ráo, có bóng râm, nền cứng]
-    C --> C2[Xếp lớp xen kẽ: Vật liệu thô - Phân chuồng - Cám gạo]
-    C --> C3[Tưới dung dịch vi sinh & Chỉnh ẩm: Đạt 60%]
-    C --> C4[Che phủ: Bằng bạt, lá cọ hoặc bao dứa]
-
-    C1 & C2 & C3 & C4 --> D[Bước 3: Theo dõi & Chăm sóc (Nguồn: [5, 6])]
-    D --> D1[Kiểm tra nhiệt độ: Sau 5-6 ngày đạt 55-60°C]
-    D --> D2[Đảo trộn lần 1: Sau 10-15 ngày]
-    D --> D3[Đảo trộn lần 2: Sau 1 tháng]
-    D --> D4[Duy trì ẩm độ: Tưới thêm nước nếu bị khô]
-
-    D1 & D2 & D3 & D4 --> E[Thành phẩm: Phân hoai mục (Nguồn: [6, 7])]
-    E --> E1[Thời gian: Sau 2-3 tháng ủ]
-    E --> E2[Đặc điểm: Màu nâu đen, tơi xốp, mùi thơm hơi chua]
-    E --> E3[Sử dụng: Bón lót hoặc bón thúc cho cây trồng]
+    A[Chuẩn bị nguyên liệu: Phân chuồng, rơm rạ/vỏ trấu, cám gạo, mật mía, chế phẩm vi sinh EM2] --> B[Sơ chế: Chặt ngắn rơm rạ 20-30cm, tưới ẩm vật liệu thô đạt 60%]
+    A --> C[Pha dung dịch: Hòa EM2 và mật mía/đường phên riêng biệt với nước sạch]
+    B --> D[Chọn vị trí ủ: Nơi cao ráo, thoát nước tốt, có bóng mát hoặc mái che]
+    C --> D
+    D --> E[Tiến hành xếp lớp đống ủ]
+    E --> E1[Lớp 1: Rơm rạ hoặc vật liệu thô dày 20-25cm]
+    E1 --> E2[Lớp 2: Rải một lớp phân chuồng mỏng lên trên]
+    E2 --> E3[Lớp 3: Rải một lớp cám gạo làm môi trường cho vi sinh]
+    E3 --> E4[Tưới hỗn hợp nước mật mía và dung dịch EM2 đã pha]
+    E4 --> F{Đã hết nguyên liệu?}
+    F -- Chưa --> E1
+    F -- Rồi --> G[Che phủ: Dùng bao dứa, lá cọ, nilon hoặc rơm rạ che kín để giữ nhiệt]
+    G --> H[Theo dõi và Chăm sóc đống ủ]
+    H --> H1[Kiểm tra nhiệt độ: Phải đạt 55-60°C sau 5-6 ngày để diệt mầm bệnh]
+    H1 --> H2[Đảo trộn lần 1: Thực hiện sau 10 ngày ủ từ trong ra ngoài]
+    H2 --> H3[Đảo trộn lần 2: Thực hiện sau 1 tháng ủ]
+    H3 --> I[Duy trì ẩm độ: Kiểm tra và tưới nước bổ sung để luôn đạt mức 60%]
+    I --> J[Thành phẩm: Sau 2-3 tháng, phân hoai mục hoàn toàn, có mùi thơm hơi chua]
 </div>
 </div>
 

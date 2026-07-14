@@ -30,45 +30,34 @@ Trong nông nghiệp hữu cơ và bền vững, VAC được coi là một hệ
 <div class="diagram-card">
 <div class="mermaid">
 graph TD
-    subgraph "VAC_System [Hệ sinh thái VAC - Chu trình tuần hoàn]"
-        V[<b>Vườn</b><br/>Trồng trọt]
-        A[<b>Ao</b><br/>Nuôi trồng thủy sản]
-        C[<b>Chuồng</b><br/>Chăn nuôi]
-        B[<b>Xử lý chất thải</b><br/>Biogas / Ủ phân hữu cơ]
+    subgraph "Hệ sinh thái VAC (Vườn - Ao - Chuồng)"
+        V[Vườn - Trồng trọt]
+        A[Ao - Thủy sản]
+        C[Chuồng - Chăn nuôi]
     end
 
+    H[Con người] -- "Điều phối & Quản lý" --> V
+    H -- "Điều phối & Quản lý" --> A
+    H -- "Điều phối & Quản lý" --> C
+
     %% Mối quan hệ từ Vườn
-    V -- "Sản phẩm phụ, rau cỏ, thực phẩm" --> C
-    V -- "Rau bèo, phế phẩm thực vật" --> A
-    
-    %% Mối quan hệ từ Chuồng
-    C -- "Phân và nước thải chăn nuôi" --> B
-    C -- "Nước phân, thức ăn dư thừa" --> A
-    
+    V -->|Rau quả, thực phẩm| H
+    V -->|Bèo, sản phẩm phụ| A
+    V -->|Thức ăn xanh, rơm rạ| C
+
     %% Mối quan hệ từ Ao
-    A -- "Nước tưới giàu dinh dưỡng" --> V
-    A -- "Bùn ao (bồi bùn, phân bón)" --> V
-    A -- "Phụ phẩm thủy sản (xác cá, tôm)" --> C
-    
-    %% Mối quan hệ từ Biogas/Ủ phân
-    B -- "Phân hữu cơ hoai mục / Nước thải sau Biogas" --> V
-    B -- "Năng lượng sạch (đun nấu, thắp sáng)" --> P[<b>Con người</b>]
+    A -->|Thủy sản: Cá, tôm| H
+    A -->|Nước tưới, bùn bón| V
+    A -->|Cá loại thải, bèo thủy sinh| C
 
-    %% Đầu ra cho con người
-    V -- "Rau, củ, quả, lương thực" --> P
-    A -- "Cá, tôm, thủy sản" --> P
-    C -- "Thịt, trứng, sữa" --> P
+    %% Mối quan hệ từ Chuồng
+    C -->|Sản phẩm: Thịt, trứng, sữa| H
+    C -->|Phân ủ, phân chuồng| V
+    C -->|Nước phân, chất thải hữu cơ| A
 
-    %% Vai trò điều tiết của con người
-    P -- "Quản lý, điều tiết & Đầu vào bên ngoài" --> VAC_System
-
-    %% Định dạng trực quan
-    style VAC_System fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style V fill:#e8f5e9,stroke:#2e7d32
-    style A fill:#e1f5fe,stroke:#0277bd
-    style C fill:#fff3e0,stroke:#ef6c00
-    style B fill:#f3e5f5,stroke:#7b1fa2
-    style P fill:#eceff1,stroke:#455a64
+    %% Chu trình tuần hoàn
+    V -.->|Tái sinh năng lượng Mặt trời| V
+    C -.->|Xử lý Biogas| H
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ mô phỏng các dòng vật chất tuần hoàn giữa ba hợp phần Vườn - Ao - Chuồng trong hệ sinh thái nông nghiệp bền vững.</p></div>

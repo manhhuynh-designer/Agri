@@ -149,13 +149,32 @@ Yêu cầu:
 
       const mermaidCode = mermaidMatch[1].trim();
 
+      // Unescape escaped strings (newlines, quotes, etc.) directly in memory
+      let unescapedMermaid = mermaidCode
+        .replace(/\\n/g, '\n')
+        .replace(/\\"/g, '"')
+        .replace(/\\'/g, "'")
+        .replace(/\\r/g, '');
+      
+      unescapedMermaid = unescapedMermaid.trim();
+
+      // Wrap unquoted subgraph names with spaces in quotes on separate lines
+      const subgraphRegex = /subgraph\s+([^"\r\n]+)$/gm;
+      unescapedMermaid = unescapedMermaid.replace(subgraphRegex, (match, p1) => {
+        const trimmed = p1.trim();
+        if (trimmed.includes(' ') && !trimmed.startsWith('"')) {
+          return `subgraph "${trimmed}"`;
+        }
+        return match;
+      });
+
       // Replace the SVG diagram card block
       const diagramCardRegex = /<div class="diagram-card">[\s\S]*?<\/div>/;
       
       if (diagramCardRegex.test(postContent)) {
         const updatedCard = `<div class="diagram-card">
 <div class="mermaid">
-${mermaidCode}
+${unescapedMermaid}
 </div>
 </div>`;
         postContent = postContent.replace(diagramCardRegex, updatedCard);
@@ -167,7 +186,7 @@ ${mermaidCode}
         if (firstH2Index !== -1) {
           const updatedCard = `\n<div class="diagram-card">
 <div class="mermaid">
-${mermaidCode}
+${unescapedMermaid}
 </div>
 </div>\n`;
           postContent = postContent.slice(0, firstH2Index) + updatedCard + postContent.slice(firstH2Index);

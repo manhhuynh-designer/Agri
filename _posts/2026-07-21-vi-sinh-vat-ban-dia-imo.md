@@ -32,19 +32,23 @@ Quy trình nhân nuôi IMO thường được thực hiện qua các giai đoạ
 <div class="diagram-card">
 <div class="mermaid">
 graph TD
-    A[Thu thập nguồn vi sinh vật bản địa<br/>Lấy từ đất rừng màu mỡ hoặc vùng rễ khỏe mạnh] --> B[Chuẩn bị giá thể và nguồn năng lượng<br/>Sử dụng cám gạo, bột tinh bột và mật rỉ đường]
-    B --> C[Phối trộn và điều chỉnh độ ẩm<br/>Trộn đều nguyên liệu, đạt độ ẩm tối ưu 60%]
-    C --> D[Thiết lập đống ủ nhân nuôi<br/>Tạo đống ủ cao tối đa 1.5m, che phủ để giữ nhiệt]
-    D --> E[Kiểm soát nhiệt độ và thông khí<br/>Duy trì 55-60°C, đảo trộn định kỳ để cung cấp Oxy]
-    E --> F[Kiểm tra chất lượng thành phẩm<br/>Mùi thơm chua nhẹ, màu sẫm, không còn mùi hôi]
-    F --> G[Ứng dụng cải tạo đất trồng<br/>Bón trực tiếp vào tầng đất mặt hoặc tủ gốc]
-
-    subgraph "Cơ chế cải tạo đất
-        G --> H[Thúc đẩy quá trình mùn hóa<br/>Chuyển hóa xác hữu cơ thành mùn dinh dưỡng]
-        G --> I[Cải thiện cấu trúc vật lý<br/>Tăng kết cấu viên, độ tơi xốp và khả năng giữ nước]
-        G --> J[Kích hoạt chu trình sinh học<br/>Cố định đạm, hòa tan lân và ức chế mầm bệnh]
+    A[Thu thập chủng vi sinh vật bản địa - IMO<br/>Nguồn từ đất rừng hoặc đất tại địa phương] --> B[Chuẩn bị môi trường và giá thể nhân nuôi<br/>Cám gạo, mật rỉ đường, nước sạch, thóc]
+    B --> C[Phối trộn vi sinh vật với giá thể và phụ phẩm]
+    C --> D[Điều chỉnh độ ẩm tối ưu - Khoảng 60%<br/>Nắm chặt vật liệu dính thành khối, không ra nước kẽ tay]
+    D --> E[Tiến hành quá trình ủ lên men]
+    E --> F{Kiểm soát điều kiện kỹ thuật}
+    F -->|Nhiệt độ| G[Duy trì nhiệt độ 55 - 60°C<br/>Tiêu diệt mầm bệnh và hạt cỏ dại]
+    F -->|Thông khí| H[Đảo trộn định kỳ<br/>Cung cấp Oxy cho vi sinh vật hảo khí]
+    G --> I[Kiểm tra và Thu hoạch thành phẩm<br/>Mùi thơm hơi chua, không còn mùi hôi thối]
+    H --> I
+    I --> J[Ứng dụng cải tạo đất canh tác]
+    
+    subgraph "Ket_qua_cai_tao [Tác động cải tạo đất trọt]"
+        J --> K[Thúc đẩy phân hủy hữu cơ và hình thành mùn]
+        J --> L[Tăng cường hệ sinh vật đất và cố định Đạm]
+        J --> M[Ức chế vi sinh vật gây bệnh nguồn gốc từ đất]
+        J --> N[Ổn định cấu trúc đất, tăng độ tơi xốp và giữ ẩm]
     end
-"
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm lược các giai đoạn nhân nuôi vi sinh vật bản địa từ thu thập mẫu gốc đến ứng dụng thực tế.</p></div>

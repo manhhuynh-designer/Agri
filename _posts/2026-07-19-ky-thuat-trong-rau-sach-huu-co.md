@@ -26,29 +26,46 @@ Quy trình thực hiện bao gồm:
 <div class="diagram-card">
 <div class="mermaid">
 graph TD
-    A[Chuẩn bị và Thiết lập] --> A1[Phân tích chất lượng đất và nước]
-    A --> A2[Thiết lập vùng đệm cách ly 1-5m]
-    A --> A3[Lập kế hoạch luân canh và xen canh]
+    A[Đánh giá và Lập kế hoạch] --> B[Chuẩn bị đất trồng]
+    
+    subgraph "B [Chuẩn bị đất trồng]"
+        B1[Đánh giá cấu trúc & Hoạt động sinh học]
+        B1 --> B2[Làm đất tối thiểu - Không lật tầng]
+        B2 --> B3[Làm nhỏ lớp mặt & Làm lỏng lớp dưới]
+        B3 --> B4[Lên luống & Tạo hệ thống thoát nước]
+    end
 
-    A1 --> B[Làm đất và Cải tạo]
-    A2 --> B
-    B --> B1[Bón lót Phân hữu cơ hoai mục/Compost]
-    B --> B2[Bón vôi bột để khử chua đất]
-    B --> B3[Xới đất: Làm nhỏ lớp mặt, làm lỏng lớp dưới]
-    B --> B4[Lên luống thoát nước & tạo môi trường tơi xốp]
+    B4 --> C[Quản lý dinh dưỡng hữu cơ]
 
-    B3 --> C[Gieo trồng hữu cơ]
-    B4 --> C
-    C --> C1[Chọn hạt giống bản địa/Giống kháng sâu bệnh]
-    C --> C2[Xử lý hạt giống bằng nước nóng hoặc thảo mộc]
-    C --> C3[Gieo hạt/Trồng cây con vào hốc]
-    C --> C4[Che phủ đất bằng rơm rạ hoặc vật liệu sống]
+    subgraph "C [Quản lý dinh dưỡng hữu cơ]"
+        C1[Sử dụng phân ủ hoai mục - Compost]
+        C1 --> C2[Bón lót phân hữu cơ & Cây phân xanh]
+        C2 --> C3[Bổ sung vôi bột đá/Phân khoáng tự nhiên]
+    end
 
-    C3 --> D[Chăm sóc và Bảo vệ]
-    D --> D1[Tưới bằng nguồn nước sạch không ô nhiễm]
-    D --> D2[Làm cỏ hoàn toàn bằng tay]
-    D --> D3[Phòng trừ sâu bệnh bằng bẫy/chế phẩm sinh học]
-    D --> D4[Ghi chép nhật ký canh tác để truy xuất nguồn gốc]
+    C3 --> D[Chuẩn bị hạt giống và Cây con]
+
+    subgraph "D [Chuẩn bị hạt giống và Cây con]"
+        D1[Chọn giống kháng bệnh & Không biến đổi gen]
+        D1 --> D2[Xử lý giống bằng nước nóng/Thảo mộc]
+        D2 --> D3[Ươm cây con trong bầu hoặc khay giá thể]
+    end
+
+    D3 --> E[Gieo trồng và Thiết lập hệ thống]
+
+    subgraph "E [Gieo trồng và Thiết lập hệ thống]"
+        E1[Trồng đúng thời vụ & Khoảng cách tối ưu]
+        E1 --> E2[Thiết kế vùng đệm cách ly ô nhiễm]
+        E2 --> E3[Xen canh cây đồng hành & Cây dẫn dụ]
+    end
+
+    E3 --> F[Duy trì và Bảo vệ đất]
+
+    subgraph "F [Duy trì và Bảo vệ đất]"
+        F1[Che phủ đất bằng rơm rạ/Vật liệu hữu cơ]
+        F1 --> F2[Luân canh cây trồng theo chu kỳ]
+        F2 --> F3[Tưới nước sạch & Quản lý cỏ dại thủ công]
+    end
 </div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm tắt quy trình chuẩn bị và gieo trồng rau hữu cơ cơ bản cho hộ gia đình.</p></div>
