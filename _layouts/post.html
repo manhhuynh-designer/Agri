@@ -61,3 +61,14 @@ layout: default
     </div>
   </aside>
 </article>
+
+<!-- Mermaid.js Dynamic Diagrams Rendering -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: isDark ? 'dark' : 'neutral',
+    securityLevel: 'loose'
+  });
+</script>

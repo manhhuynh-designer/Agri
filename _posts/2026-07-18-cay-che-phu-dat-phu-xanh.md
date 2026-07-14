@@ -35,42 +35,9 @@ Cây che phủ đất tác động toàn diện lên cấu trúc và hóa tính 
 4.  **Bảo tồn nước:** Lớp phủ làm giảm sự bốc hơi nước mặt, giữ cho đất luôn mát mẻ và duy trì độ ẩm cần thiết cho vi sinh vật hoạt động trong các thời kỳ khô hạn <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>.
 
 <div class="diagram-card">
-  <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-    <!-- Definitions for arrows -->
-    <defs>
-      <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-        <path d="M0,0 L0,10 L8,5 Z" class="d-line" />
-      </marker>
-    </defs>
-    
-    <text x="320" y="30" text-anchor="middle" class="d-label-title">HỆ SINH THÁI CHE PHỦ BẢO VỆ ĐẤT DỐC</text>
-    
-    <!-- Rain elements -->
-    <path d="M100 50 L100 70 M130 50 L130 70 M160 50 L160 70" class="d-ember-dash" />
-    <text x="130" y="45" text-anchor="middle" class="d-label">Mưa lớn/Nắng gắt</text>
-    
-    <!-- Shield Layer (Cover Crops) -->
-    <rect x="50" y="80" width="540" height="40" rx="10" class="d-line" />
-    <text x="320" y="105" text-anchor="middle" class="d-label-em">TẦM KHIÊN SINH HỌC (Cây che phủ & Phân xanh)</text>
-    
-    <!-- Arrows for Mechanism -->
-    <line x1="130" y1="120" x2="130" y2="160" class="d-line" marker-end="url(#arrow)" />
-    <text x="140" y="145" class="d-label">Giảm động năng</text>
-    
-    <line x1="320" y1="120" x2="320" y2="160" class="d-line" marker-end="url(#arrow)" />
-    <text x="330" y="145" class="d-label">Cố định Đạm (N)</text>
-    
-    <line x1="510" y1="120" x2="510" y2="160" class="d-line" marker-end="url(#arrow)" />
-    <text x="520" y="145" class="d-label">Giữ độ ẩm</text>
-    
-    <!-- Soil Layer -->
-    <rect x="50" y="170" width="540" height="60" rx="5" class="d-line-2" />
-    <text x="320" y="205" text-anchor="middle" class="d-label">TẦNG ĐẤT CANH TÁC (Tươi xốp, Giàu mùn)</text>
-    
-    <!-- Bottom line connection -->
-    <path d="M100 230 C 150 255, 490 255, 540 230" class="d-leader" />
-    <text x="320" y="250" text-anchor="middle" class="d-label">Duy trì độ phì nhiêu bền vững</text>
-  </svg>
+<div class="mermaid">
+\ngraph TD\n    A[Cây che phủ đất và Phân xanh] -- \"Tấm khiên bảo vệ\" --> B{Bảo vệ Đất dốc}\n\n    subgraph \"Cơ chế bảo vệ vật lý\"\n        B --> B1[Che chắn bề mặt đất]\n        B1 --> B1a[Giảm lực va đập trực tiếp của hạt mưa]\n        B1 --> B1b[Hạn chế xói mòn bắn tóe và rửa trôi lớp đất mặt]\n        \n        B --> B2[Tạo hàng rào sinh học]\n        B2 --> B2a[Làm chậm tốc độ dòng chảy mặt]\n        B2 --> B2b[Giữ lại phù sa và bùn đất bị cuốn trôi]\n        B2b --> B2c[Kiến tạo ruộng bậc thang tự nhiên theo thời gian]\n    end\n\n    subgraph \"Cơ chế cải tạo sinh học\"\n        B --> C1[Hệ thống rễ phát triển]\n        C1 --> C1a[Giữ chặt kết cấu đất, chống sạt lở]\n        C1 --> C1b[Phá vỡ các tầng đất cứng chai]\n        C1 --> C1c[Tạo đường dẫn giúp nước thấm sâu vào lòng đất]\n\n        B --> C2[Cung cấp chất hữu cơ]\n        C2 --> C2a[Phân hủy sinh khối thân lá thành mùn]\n        C2 --> C2b[Cố định đạm - đặc biệt là các cây họ Đậu]\n        C2 --> C2c[Duy trì và nâng cao độ phì nhiêu đất lâu dài]\n    end\n\n    subgraph \"Điều tiết vi khí hậu & Nước\"\n        B --> D1[Giữ ẩm cho đất]\n        D1 --> D1a[Giảm bốc hơi nước vào mùa khô]\n        D1 --> D1b[Ổn định nhiệt độ tầng đất mặt]\n        \n        B --> D2[Quản lý dịch hại]\n        D2 --> D2a[Lấn át và kiểm soát cỏ dại]\n        D2 --> D2b[Tạo môi trường sống cho thiên địch]\n    end\n\n    subgraph \"Các loài cây tiêu biểu\"\n        E1[Cỏ Vetiver - Bê tông sinh học]\n        E2[Cốt khí, Keo dậu, Đậu triều]\n        E3[Lạc dại, Đậu mèo, Đậu nho nhe]\n    end\n\n    E1 -.-> B2\n    E2 -.-> C2b\n    E3 -.-> B1\n\n    B1a & B2a & C1a & C2c --> F[Nông nghiệp bền vững trên đất dốc]\n
+</div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ cơ chế tác động của cây che phủ đất trong việc bảo vệ tầng canh tác khỏi các yếu tố thiên tai và bổ sung dinh dưỡng.</p></div>
 

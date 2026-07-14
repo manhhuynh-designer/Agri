@@ -30,57 +30,9 @@ Nguồn nguyên liệu chính để nhân nuôi thường bao gồm:
 Quy trình nhân nuôi IMO thường được thực hiện qua các giai đoạn từ thu thập, nhân sinh khối dạng lỏng đến dạng bột khô để bón vào đất [15], [16].
 
 <div class="diagram-card">
-<svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <!-- Definitions for arrows -->
-  <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="currentColor" />
-    </marker>
-  </defs>
-
-  <text x="320" y="30" text-anchor="middle" class="d-label-title">QUY TRÌNH NHÂN NUÔI VI SINH VẬT BẢN ĐỊA (IMO)</text>
-
-  <!-- Stage 1: Collection -->
-  <rect x="20" y="70" width="120" height="60" rx="5" class="d-line" />
-  <text x="80" y="95" text-anchor="middle" class="d-label-em">GĐ 1: THU THẬP</text>
-  <text x="80" y="115" text-anchor="middle" class="d-label">Bẫy VSV tại rừng</text>
-
-  <!-- Connection 1-2 -->
-  <line x1="140" y1="100" x2="170" y2="100" class="d-line" marker-end="url(#arrow)" />
-
-  <!-- Stage 2: Fermentation -->
-  <rect x="180" y="70" width="120" height="60" rx="5" class="d-line" />
-  <text x="240" y="95" text-anchor="middle" class="d-label-em">GĐ 2: Ủ LỎNG</text>
-  <text x="240" y="115" text-anchor="middle" class="d-label">Trộn đường + nước</text>
-
-  <!-- Connection 2-3 -->
-  <line x1="300" y1="100" x2="330" y2="100" class="d-line" marker-end="url(#arrow)" />
-
-  <!-- Stage 3: Multiplication -->
-  <rect x="340" y="70" width="120" height="60" rx="5" class="d-line" />
-  <text x="400" y="95" text-anchor="middle" class="d-label-em">GĐ 3: Ủ RẮN</text>
-  <text x="400" y="115" text-anchor="middle" class="d-label">Phối trộn cám gạo</text>
-
-  <!-- Connection 3-4 -->
-  <line x1="460" y1="100" x2="490" y2="100" class="d-line" marker-end="url(#arrow)" />
-
-  <!-- Stage 4: Application -->
-  <rect x="500" y="70" width="120" height="60" rx="5" class="d-line" />
-  <text x="560" y="95" text-anchor="middle" class="d-label-em">GĐ 4: THÀNH PHẨM</text>
-  <text x="560" y="115" text-anchor="middle" class="d-label">Bón cải tạo đất</text>
-
-  <!-- Sub-details / Warning -->
-  <path d="M240,130 Q240,180 180,180" class="d-leader" fill="none" />
-  <text x="100" y="195" class="d-label">Khuấy đảo định kỳ để</text>
-  <text x="100" y="215" class="d-label">cung cấp ô-xy (hiếu khí)</text>
-
-  <path d="M400,130 Q400,180 460,180" class="d-leader" fill="none" />
-  <text x="470" y="195" class="d-label-em">Đảm bảo độ ẩm 60%</text>
-  <text x="470" y="215" class="d-label">Nhiệt độ tối ưu 30-35°C</text>
-
-  <line x1="240" y1="70" x2="240" y2="50" class="d-ember-dash" />
-  <text x="240" y="45" text-anchor="middle" class="d-label">Lên men</text>
-</svg>
+<div class="mermaid">
+\ngraph TD\n    A[Thu thập nguồn vi sinh vật bản địa<br/>Lấy từ đất rừng màu mỡ hoặc vùng rễ khỏe mạnh] --> B[Chuẩn bị giá thể và nguồn năng lượng<br/>Sử dụng cám gạo, bột tinh bột và mật rỉ đường]\n    B --> C[Phối trộn và điều chỉnh độ ẩm<br/>Trộn đều nguyên liệu, đạt độ ẩm tối ưu 60%]\n    C --> D[Thiết lập đống ủ nhân nuôi<br/>Tạo đống ủ cao tối đa 1.5m, che phủ để giữ nhiệt]\n    D --> E[Kiểm soát nhiệt độ và thông khí<br/>Duy trì 55-60°C, đảo trộn định kỳ để cung cấp Oxy]\n    E --> F[Kiểm tra chất lượng thành phẩm<br/>Mùi thơm chua nhẹ, màu sẫm, không còn mùi hôi]\n    F --> G[Ứng dụng cải tạo đất trồng<br/>Bón trực tiếp vào tầng đất mặt hoặc tủ gốc]\n\n    subgraph Cơ chế cải tạo đất\n        G --> H[Thúc đẩy quá trình mùn hóa<br/>Chuyển hóa xác hữu cơ thành mùn dinh dưỡng]\n        G --> I[Cải thiện cấu trúc vật lý<br/>Tăng kết cấu viên, độ tơi xốp và khả năng giữ nước]\n        G --> J[Kích hoạt chu trình sinh học<br/>Cố định đạm, hòa tan lân và ức chế mầm bệnh]\n    end\n
+</div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm lược các giai đoạn nhân nuôi vi sinh vật bản địa từ thu thập mẫu gốc đến ứng dụng thực tế.</p></div>
 

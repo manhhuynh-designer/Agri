@@ -24,50 +24,9 @@ Quy trình thực hiện bao gồm:
 3. **Độ chín của đất:** Chỉ tiến hành làm đất khi đất đủ ẩm, tránh làm đất khi quá ướt dẫn đến nén chặt hoặc khi quá khô làm mất cấu trúc hạt <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup>.
 
 <div class="diagram-card">
-<svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" />
-    </marker>
-  </defs>
-  <text x="320" y="30" text-anchor="middle" class="d-label-title">QUY TRÌNH CHUẨN BỊ ĐẤT VÀ GIEO TRỒNG HỮU CƠ</text>
-  
-  <!-- Bước 1 -->
-  <rect x="20" y="60" width="130" height="60" rx="5" class="d-line" />
-  <text x="85" y="85" text-anchor="middle" class="d-label-em">BƯỚC 1</text>
-  <text x="85" y="105" text-anchor="middle" class="d-label">Cải tạo đất</text>
-  <path d="M 150 90 L 175 90" class="d-line" marker-end="url(#arrow)" />
-  
-  <!-- Bước 2 -->
-  <rect x="180" y="60" width="130" height="60" rx="5" class="d-line" />
-  <text x="245" y="85" text-anchor="middle" class="d-label-em">BƯỚC 2</text>
-  <text x="245" y="105" text-anchor="middle" class="d-label">Lên luống</text>
-  <path d="M 310 90 L 335 90" class="d-line" marker-end="url(#arrow)" />
-  
-  <!-- Bước 3 -->
-  <rect x="340" y="60" width="130" height="60" rx="5" class="d-line" />
-  <text x="405" y="85" text-anchor="middle" class="d-label-em">BƯỚC 3</text>
-  <text x="405" y="105" text-anchor="middle" class="d-label">Gieo hạt/Cấy</text>
-  <path d="M 470 90 L 495 90" class="d-line" marker-end="url(#arrow)" />
-  
-  <!-- Bước 4 -->
-  <rect x="500" y="60" width="120" height="60" rx="5" class="d-line" />
-  <text x="560" y="85" text-anchor="middle" class="d-label-em">BƯỚC 4</text>
-  <text x="560" y="105" text-anchor="middle" class="d-label">Che phủ/Tưới</text>
-
-  <!-- Phụ chú -->
-  <line x1="85" y1="120" x2="85" y2="160" class="d-leader" />
-  <text x="85" y="180" text-anchor="middle" class="d-label">Bón lót phân ủ</text>
-  <text x="85" y="200" text-anchor="middle" class="d-label">với vôi bột</text>
-
-  <line x1="245" y1="120" x2="245" y2="160" class="d-leader" />
-  <text x="245" y="180" text-anchor="middle" class="d-label">Luống cao 20-30cm</text>
-  <text x="245" y="200" text-anchor="middle" class="d-label">Rãnh rộng 30cm</text>
-
-  <path d="M 405 120 Q 405 150 350 150" class="d-ember-dash" />
-  <text x="345" y="155" text-anchor="end" class="d-label">Xử lý hạt bằng</text>
-  <text x="345" y="175" text-anchor="end" class="d-label-em">nước ấm (2 sôi 3 lạnh)</text>
-</svg>
+<div class="mermaid">
+\ngraph TD\n    A[Chuẩn bị và Thiết lập] --> A1[Phân tích chất lượng đất và nước]\n    A --> A2[Thiết lập vùng đệm cách ly 1-5m]\n    A --> A3[Lập kế hoạch luân canh và xen canh]\n\n    A1 --> B[Làm đất và Cải tạo]\n    A2 --> B\n    B --> B1[Bón lót Phân hữu cơ hoai mục/Compost]\n    B --> B2[Bón vôi bột để khử chua đất]\n    B --> B3[Xới đất: Làm nhỏ lớp mặt, làm lỏng lớp dưới]\n    B --> B4[Lên luống thoát nước & tạo môi trường tơi xốp]\n\n    B3 --> C[Gieo trồng hữu cơ]\n    B4 --> C\n    C --> C1[Chọn hạt giống bản địa/Giống kháng sâu bệnh]\n    C --> C2[Xử lý hạt giống bằng nước nóng hoặc thảo mộc]\n    C --> C3[Gieo hạt/Trồng cây con vào hốc]\n    C --> C4[Che phủ đất bằng rơm rạ hoặc vật liệu sống]\n\n    C3 --> D[Chăm sóc và Bảo vệ]\n    D --> D1[Tưới bằng nguồn nước sạch không ô nhiễm]\n    D --> D2[Làm cỏ hoàn toàn bằng tay]\n    D --> D3[Phòng trừ sâu bệnh bằng bẫy/chế phẩm sinh học]\n    D --> D4[Ghi chép nhật ký canh tác để truy xuất nguồn gốc]\n
+</div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm tắt quy trình chuẩn bị và gieo trồng rau hữu cơ cơ bản cho hộ gia đình.</p></div>
 

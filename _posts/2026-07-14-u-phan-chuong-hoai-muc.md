@@ -11,6 +11,12 @@ description: Hướng dẫn chi tiết quy trình ủ phân chuồng kết hợp
 > [!WARNING]
 > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
 
+<div class="diagram-card">
+<div class="mermaid">
+\ngraph TD\n    subgraph \"Chuẩn bị nguyên liệu (Nguồn: [1, 2])\"\n        A1[Phân chuồng: Trâu, bò, lợn, gà...]\n        A2[Phế thải thực vật: Rơm rạ, cây phân xanh, trấu...]\n        A3[Chế phẩm vi sinh: EM2, Biogro...]\n        A4[Phụ gia & Nước: Cám gạo, mật mía, nước sạch]\n    end\n\n    A1 & A2 & A3 & A4 --> B[Bước 1: Sơ chế & Pha chế (Nguồn: [1, 3])]\n    B --> B1[Chặt ngắn vật liệu thô: 20-30 cm]\n    B --> B2[Hòa loãng vi sinh & rỉ đường vào nước]\n\n    B1 & B2 --> C[Bước 2: Thiết lập đống ủ (Nguồn: [3, 4])]\n    C --> C1[Chọn vị trí: Cao ráo, có bóng râm, nền cứng]\n    C --> C2[Xếp lớp xen kẽ: Vật liệu thô - Phân chuồng - Cám gạo]\n    C --> C3[Tưới dung dịch vi sinh & Chỉnh ẩm: Đạt 60%]\n    C --> C4[Che phủ: Bằng bạt, lá cọ hoặc bao dứa]\n\n    C1 & C2 & C3 & C4 --> D[Bước 3: Theo dõi & Chăm sóc (Nguồn: [5, 6])]\n    D --> D1[Kiểm tra nhiệt độ: Sau 5-6 ngày đạt 55-60°C]\n    D --> D2[Đảo trộn lần 1: Sau 10-15 ngày]\n    D --> D3[Đảo trộn lần 2: Sau 1 tháng]\n    D --> D4[Duy trì ẩm độ: Tưới thêm nước nếu bị khô]\n\n    D1 & D2 & D3 & D4 --> E[Thành phẩm: Phân hoai mục (Nguồn: [6, 7])]\n    E --> E1[Thời gian: Sau 2-3 tháng ủ]\n    E --> E2[Đặc điểm: Màu nâu đen, tơi xốp, mùi thơm hơi chua]\n    E --> E3[Sử dụng: Bón lót hoặc bón thúc cho cây trồng]\n
+</div>
+</div>
+
 ## Vai trò và yêu cầu của việc ủ hoai mục phân chuồng
 
 Trong canh tác hữu cơ, phân chuồng là nguồn dinh dưỡng quan trọng cung cấp đầy đủ các nguyên tố đa, trung và vi lượng, đồng thời góp phần cải tạo cấu trúc đất và tăng cường hoạt động của hệ sinh vật đất <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Tuy nhiên, việc sử dụng phân chuồng tươi bón trực tiếp cho cây trồng là điều tuyệt đối cấm kỵ vì phân tươi tỏa nhiệt cao khi phân hủy gây héo rễ, chứa nhiều vi trùng gây bệnh, trứng giun sán và hạt cỏ dại <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. 

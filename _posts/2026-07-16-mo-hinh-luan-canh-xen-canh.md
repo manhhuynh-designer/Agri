@@ -30,43 +30,9 @@ Các nguyên tắc vàng trong luân canh bao gồm:
 Một chu kỳ luân canh điển hình có thể kéo dài 4 kỳ: Cây phân xanh (họ Đậu) → Cây rau ăn lá (cải bắp) → Cây rau ăn quả (cà chua, dưa chuột) → Cây rau ăn củ (khoai lang) <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup>, <sup><a href="#ref-17" class="citation-ref" id="cit-17">[17]</a></sup>.
 
 <div class="diagram-card">
-<svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" class="d-line" />
-    </marker>
-  </defs>
-  
-  <text x="320" y="30" text-anchor="middle" class="d-label-title">CHU TRÌNH LUÂN CANH & CÂN BẰNG DINH DƯỠNG ĐẤT</text>
-  
-  <!-- Boxes -->
-  <rect x="50" y="70" width="160" height="60" rx="5" class="d-line" />
-  <text x="130" y="95" text-anchor="middle" class="d-label-em">CÂY HỌ ĐẬU</text>
-  <text x="130" y="115" text-anchor="middle" class="d-label">(Cố định Đạm)</text>
-  
-  <rect x="430" y="70" width="160" height="60" rx="5" class="d-line" />
-  <text x="510" y="95" text-anchor="middle" class="d-label-em">CÂY ĂN LÁ/QUẢ</text>
-  <text x="510" y="115" text-anchor="middle" class="d-label">(Nhu cầu N cao)</text>
-  
-  <rect x="240" y="170" width="160" height="60" rx="5" class="d-line" />
-  <text x="320" y="195" text-anchor="middle" class="d-label-em">CÂY ĂN CỦ</text>
-  <text x="320" y="215" text-anchor="middle" class="d-label">(Cải thiện cấu trúc)</text>
-  
-  <!-- Connections -->
-  <path d="M 210 100 L 420 100" class="d-line" marker-end="url(#arrow)" />
-  <text x="315" y="90" text-anchor="middle" class="d-label">Tích lũy N tự nhiên</text>
-  
-  <path d="M 510 130 L 400 180" class="d-line" marker-end="url(#arrow)" />
-  <text x="500" y="165" text-anchor="middle" class="d-label">Khai thác dinh dưỡng tầng mặt</text>
-  
-  <path d="M 240 200 L 130 140" class="d-line" marker-end="url(#arrow)" />
-  <text x="130" y="185" text-anchor="middle" class="d-label">Phá vỡ đế cày</text>
-  
-  <!-- Microbes emphasis -->
-  <circle cx="320" y="110" r="20" class="d-line-2" />
-  <text x="320" y="115" text-anchor="middle" class="d-label-em" font-size="10">VSV ĐẤT</text>
-  <path d="M 320 130 L 320 170" class="d-leader" />
-</svg>
+<div class="mermaid">
+\ngraph TD\n    Root[\"NGHỆ THUẬT LUÂN CANH VÀ XEN CANH\"]\n    \n    Root --> LC[\"Luân canh Cây trồng\"]\n    Root --> XC[\"Xen canh & Trồng hỗn hợp\"]\n    \n    subgraph \"Tiêu chí Lựa chọn [1-3]\"\n        LC --> LC1[\"Tiêu thụ dinh dưỡng: Họ Đậu -> Lấy củ -> Rau -> Cốc [4, 5]\"]\n        LC --> LC2[\"Độ sâu rễ: Luân phiên cây rễ sâu và rễ nông [6-8]\"]\n        LC --> LC3[\"Kháng sâu bệnh: Cây họ Cốc giúp 'chữa bệnh' cho đất [9, 10]\"]\n        \n        XC --> XC1[\"Tầng tán: Kết hợp cây cao ưa sáng và cây thấp chịu bóng [11-13]\"]\n        XC --> XC2[\"Cây bầu bạn: Tiết chất xua đuổi côn trùng hại [12, 14, 15]\"]\n        XC --> XC3[\"Dinh dưỡng: Cây họ Đậu cố định đạm hỗ trợ cây chính [14, 15]\"]\n    end\n    \n    subgraph \"Quy trình & Mô hình [16-18]\"\n        Step1[\"Thiết lập chu kỳ luân canh (Ví dụ: 4 kỳ canh tác) [17]\"]\n        Step2[\"Bố trí xen canh theo hàng hoặc băng cây xanh [18, 19]\"]\n        Step3[\"Sử dụng cây che phủ và quản lý tàn dư hữu cơ [20, 21]\"]\n    end\n    \n    LC1 & LC2 & LC3 & XC1 & XC2 & XC3 --> Step1\n    Step1 --> Step2 --> Step3\n    \n    Step3 --> Out[\"HIỆU QUẢ SỬ DỤNG ĐẤT TỔNG HỢP\"]\n    \n    Out --> Out1[\"Dinh dưỡng: Chu trình khép kín & Bồi dưỡng mùn đất [20, 22]\"]\n    Out --> Out2[\"Bảo vệ: Khống chế dịch hại tự nhiên & Chống xói mòn [20, 23]\"]\n    Out --> Out3[\"Kinh tế: Tăng tổng sản lượng & Đa dạng hóa nguồn thu [2, 24, 25]\"]\n\n    style Root fill:#f96,stroke:#333,stroke-width:2px\n    style Out fill:#6f6,stroke:#333,stroke-width:2px\n
+</div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ mô tả mối quan hệ tương hỗ giữa các nhóm cây trong vòng luân canh giúp tái tạo năng lực sản xuất của đất.</p></div>
 

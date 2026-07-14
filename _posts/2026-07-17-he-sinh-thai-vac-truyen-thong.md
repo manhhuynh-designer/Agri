@@ -28,51 +28,9 @@ Trong nông nghiệp hữu cơ và bền vững, VAC được coi là một hệ
 3.  **Từ Ao đến Vườn và Chuồng:** Nước ao chứa nhiều dinh dưỡng được dùng để tưới cho cây trồng. Hàng năm, bùn đáy ao (giàu mùn và khoáng) được nạo vét để đắp gốc hoặc bón lót cho cây trong vườn <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Một phần cá loại thải có thể được chế biến bổ sung vào khẩu phần thức ăn cho vật nuôi <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 
 <div class="diagram-card">
-<svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" />
-    </marker>
-  </defs>
-  
-  <text x="320" y="30" text-anchor="middle" class="d-label-title">CHU TRÌNH NÔNG NGHIỆP TUẦN HOÀN TRONG VAC</text>
-  
-  <!-- Vườn -->
-  <rect x="50" y="70" width="120" height="60" rx="10" class="d-line" fill="none"/>
-  <text x="110" y="105" text-anchor="middle" class="d-label-em">VƯỜN (V)</text>
-  <text x="110" y="125" text-anchor="middle" class="d-label">Trồng trọt</text>
-  
-  <!-- Chuồng -->
-  <rect x="470" y="70" width="120" height="60" rx="10" class="d-line" fill="none"/>
-  <text x="530" y="105" text-anchor="middle" class="d-label-em">CHUỒNG (C)</text>
-  <text x="530" y="125" text-anchor="middle" class="d-label">Chăn nuôi</text>
-  
-  <!-- Ao -->
-  <rect x="260" y="170" width="120" height="60" rx="10" class="d-line" fill="none"/>
-  <text x="320" y="205" text-anchor="middle" class="d-label-em">AO (A)</text>
-  <text x="320" y="225" text-anchor="middle" class="d-label">Thủy sản</text>
-  
-  <!-- Flows -->
-  <!-- C to V -->
-  <path d="M 470 90 L 170 90" class="d-line" marker-end="url(#arrow)" fill="none"/>
-  <text x="320" y="85" text-anchor="middle" class="d-label">Phân bón hữu cơ</text>
-  
-  <!-- V to A -->
-  <path d="M 110 130 Q 110 200 260 200" class="d-line" marker-end="url(#arrow)" fill="none"/>
-  <text x="150" y="185" text-anchor="middle" class="d-label">Phụ phẩm, rau xanh</text>
-  
-  <!-- A to V -->
-  <path d="M 320 170 Q 320 130 170 110" class="d-line-2" marker-end="url(#arrow)" fill="none"/>
-  <text x="240" y="145" text-anchor="middle" class="d-label">Nước tưới, bùn ao</text>
-  
-  <!-- C to A -->
-  <path d="M 530 130 Q 530 200 380 200" class="d-line-2" marker-end="url(#arrow)" fill="none"/>
-  <text x="480" y="185" text-anchor="middle" class="d-label">Thức ăn bổ sung</text>
-  
-  <!-- Biogas linkage -->
-  <path d="M 530 70 L 530 50 L 320 50 L 320 170" class="d-ember-dash" marker-end="url(#arrow)" fill="none"/>
-  <text x="420" y="45" text-anchor="middle" class="d-label-em">Xử lý Biogas</text>
-</svg>
+<div class="mermaid">
+\ngraph TD\n    subgraph VAC_System [Hệ sinh thái VAC - Chu trình tuần hoàn]\n        V[<b>Vườn</b><br/>Trồng trọt]\n        A[<b>Ao</b><br/>Nuôi trồng thủy sản]\n        C[<b>Chuồng</b><br/>Chăn nuôi]\n        B[<b>Xử lý chất thải</b><br/>Biogas / Ủ phân hữu cơ]\n    end\n\n    %% Mối quan hệ từ Vườn\n    V -- \"Sản phẩm phụ, rau cỏ, thực phẩm\" --> C\n    V -- \"Rau bèo, phế phẩm thực vật\" --> A\n    \n    %% Mối quan hệ từ Chuồng\n    C -- \"Phân và nước thải chăn nuôi\" --> B\n    C -- \"Nước phân, thức ăn dư thừa\" --> A\n    \n    %% Mối quan hệ từ Ao\n    A -- \"Nước tưới giàu dinh dưỡng\" --> V\n    A -- \"Bùn ao (bồi bùn, phân bón)\" --> V\n    A -- \"Phụ phẩm thủy sản (xác cá, tôm)\" --> C\n    \n    %% Mối quan hệ từ Biogas/Ủ phân\n    B -- \"Phân hữu cơ hoai mục / Nước thải sau Biogas\" --> V\n    B -- \"Năng lượng sạch (đun nấu, thắp sáng)\" --> P[<b>Con người</b>]\n\n    %% Đầu ra cho con người\n    V -- \"Rau, củ, quả, lương thực\" --> P\n    A -- \"Cá, tôm, thủy sản\" --> P\n    C -- \"Thịt, trứng, sữa\" --> P\n\n    %% Vai trò điều tiết của con người\n    P -- \"Quản lý, điều tiết & Đầu vào bên ngoài\" --> VAC_System\n\n    %% Định dạng trực quan\n    style VAC_System fill:#f9f9f9,stroke:#333,stroke-width:2px\n    style V fill:#e8f5e9,stroke:#2e7d32\n    style A fill:#e1f5fe,stroke:#0277bd\n    style C fill:#fff3e0,stroke:#ef6c00\n    style B fill:#f3e5f5,stroke:#7b1fa2\n    style P fill:#eceff1,stroke:#455a64\n
+</div>
 </div>
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ mô phỏng các dòng vật chất tuần hoàn giữa ba hợp phần Vườn - Ao - Chuồng trong hệ sinh thái nông nghiệp bền vững.</p></div>
 
