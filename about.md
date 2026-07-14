@@ -6,28 +6,29 @@ permalink: /about/
 
 <div class="about-layout">
   <header class="about-header">
-    <h1>Về dự án Nông Nghiệp Sinh Thái</h1>
-    <p>Sáng kiến chia sẻ các giải pháp kỹ thuật tự chế thân thiện với môi trường dành cho nông hộ Việt Nam.</p>
+    <h1>Về Dự Án Nông Nghiệp Sinh Thái</h1>
+    <p>Thư viện số tự động hóa bằng AI, chuyên tổng hợp và đối chiếu tri thức nông nghiệp hữu cơ bền vững.</p>
   </header>
 
   <div class="about-content">
     <div class="highlight-box">
-      <p>"Mục tiêu duy nhất của chúng tôi là giúp người làm nông dễ dàng tiếp cận và tự chế tạo các công cụ sinh thái chi phí thấp, tối ưu phụ phẩm nông nghiệp để cải tạo đất đai và bảo vệ môi trường."</p>
+      <p>"Nông Nghiệp Sinh Thái là một thử nghiệm công nghệ kết hợp trí tuệ nhân tạo (AI) và tri thức bản địa, tự động chuyển đổi các giáo trình khoa học nặng tính học thuật thành các bài viết thực tiễn dễ tiếp cận cho mọi nông hộ."</p>
     </div>
 
-    <h2>Sứ mệnh của chúng tôi</h2>
-    <p>Trong canh tác nông nghiệp hiện đại, việc sử dụng quá mức phân bón hóa học và thuốc bảo vệ thực vật đang làm suy thoái tài nguyên đất nghiêm trọng. Nông nghiệp Sinh Thái ra đời nhằm khuyến khích cộng đồng nông dân quay lại các phương thức canh tác tự nhiên bền vững thông qua việc tự làm chủ công nghệ đơn giản.</p>
-    <p>Thay vì phải đầu tư các hệ thống đắt tiền từ nhà máy, người nông dân có thể tự tận dụng sắt vụn, phuy cũ và củi cành quanh vườn để chế tạo lò nhiệt phân, sản xuất phân bón chất lượng cao ngay tại vườn.</p>
+    <h2>Bản chất của Dự án: Biên soạn tự động bởi AI</h2>
+    <p>Blog này hoạt động dựa trên cơ chế tự động hóa hoàn toàn. Thay vì có ban biên tập viết bài thủ công, chúng tôi sử dụng mô hình ngôn ngữ lớn (LLM) thông qua kết nối trực tiếp với <b>Google NotebookLM</b> để phân tích nguồn tài liệu kỹ thuật đáng tin cậy. Quy trình diễn ra như sau:</p>
+    <ol>
+      <li><b>Cơ sở tài liệu gốc:</b> Hệ thống chỉ tổng hợp thông tin từ các tài liệu khoa học chính thống, giáo trình đại học nông lâm và sách kinh điển (như cuốn <i>"Cuộc cách mạng một cọng rơm"</i> của Masanobu Fukuoka) được nạp sẵn trong cơ sở dữ liệu.</li>
+      <li><b>Trích xuất thông minh (Jekyll Cronjob):</b> Hàng ngày, một tiến trình tự động (GitHub Actions) sẽ gửi truy vấn y học hoặc kỹ thuật đến NotebookLM để biên soạn một bài viết hoàn chỉnh.</li>
+      <li><b>Xác minh nguồn gốc chi tiết:</b> Mỗi thông tin kỹ thuật được viết ra đều đi kèm trích dẫn chính xác đến từng [Tên tài liệu, Tác giả, Chương, Trang] để người đọc dễ dàng đối chiếu nguồn gốc.</li>
+      <li><b>Kiểm chứng liên kết tự động:</b> Mọi video hướng dẫn thực tế từ YouTube được đưa vào bài viết đều đi qua bộ lọc kiểm thử tự động (oEmbed API) để ngăn chặn hoàn toàn các liên kết hỏng, link lỗi.</li>
+    </ol>
 
-    <h2>Tại sao lại là Biochar và Giấm Gỗ?</h2>
-    <p>Hai sản phẩm thu được từ quá trình nhiệt phân yếm khí là những trợ thủ đắc lực trong nông nghiệp tuần hoàn:</p>
-    <ul>
-      <li><b>Than sinh học (Biochar):</b> Là chất cải tạo đất vĩnh cửu. Nhờ cấu trúc carbon siêu xốp, nó giữ nước và dinh dưỡng không bị rửa trôi, đồng thời là ngôi nhà bền vững cho vi sinh vật đất có lợi sinh sôi. Than sinh học còn giúp lưu trữ carbon trong đất hàng trăm năm, góp phần giảm thiểu biến đổi khí hậu.</li>
-      <li><b>Giấm gỗ (Pyroligneous Acid):</b> Được ngưng tụ từ khói lò nhiệt phân, đóng vai trò như một chất bảo vệ thực vật sinh học. Giấm gỗ giúp xua đuổi côn trùng, kháng bệnh nấm hại lá và kích thích sự phát triển khỏe mạnh của bộ rễ mà không để lại bất kỳ dư lượng độc hại nào cho môi trường.</li>
-    </ul>
+    <h2>Tuyên bố miễn trừ trách nhiệm (AI Disclaimer)</h2>
+    <p>Mặc dù hệ thống AI của chúng tôi được thiết kế để trích dẫn chính xác từ các nguồn tài liệu tin cậy và lọc bỏ thông tin nhiễu, các mô hình ngôn ngữ lớn vẫn có khả năng xảy ra lỗi logic hoặc nhầm lẫn kỹ thuật. Do đó, tất cả các bài viết trên trang web này đều được gắn nhãn cảnh báo đầu trang.</p>
+    <p>Chúng tôi khuyến cáo bà con nông dân và các bạn độc giả luôn đối chiếu lại thông tin với tài liệu gốc hoặc tham khảo ý kiến của các chuyên gia nông nghiệp địa phương trước khi áp dụng rộng rãi vào thực tế sản xuất.</p>
 
-    <h2>Tham gia cùng cộng đồng</h2>
-    <p>Tất cả các tài liệu, bản vẽ kỹ thuật và công thức chia sẻ trên trang web này đều hoàn toàn miễn phí và phi lợi nhuận. Chúng tôi khuyến khích các bạn thử nghiệm, cải tiến các thiết kế lò retort để phù hợp hơn với nguyên liệu địa phương của mình (ví dụ vỏ cà phê ở Tây Nguyên, vỏ trấu ở Đồng bằng Sông Cửu Long, hoặc lõi ngô ở vùng Tây Bắc).</p>
-    <p>Nếu bạn có bất kỳ thắc mắc nào về kỹ thuật tự chế lò, công thức sạc dinh dưỡng hay cách ứng dụng chế phẩm sinh học, hãy gửi email chia sẻ kinh nghiệm về địa chỉ: <b>contact@nongnghiepsinhthai.vn</b>.</p>
+    <h2>Chia sẻ và Đóng góp</h2>
+    <p>Mọi mã nguồn của trang web, các công thức ủ phân hữu cơ, bản vẽ lò retort và giấm gỗ đều được công khai miễn phí và phi lợi nhuận. Nếu bạn có tài liệu nông nghiệp hay muốn chia sẻ kết quả thực nghiệm của mình, vui lòng liên hệ với chúng tôi qua địa chỉ email: <b>contact@nongnghiepsinhthai.vn</b>.</p>
   </div>
 </div>

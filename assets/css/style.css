@@ -112,6 +112,10 @@ header.site-header {
   color: var(--ember);
 }
 
+.logo:hover .logo-icon {
+  transform: rotate(5deg) scale(1.05);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
