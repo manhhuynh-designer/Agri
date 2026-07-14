@@ -64,6 +64,12 @@ Sau khoảng 2-4 tháng (tùy điều kiện thời tiết), phân đạt yêu c
 
 Khi bón phân, nên vùi sâu vào đất ở độ sâu 15-20cm để tránh thất thoát đạm do bay hơi amoniac và giúp vi sinh vật tiếp tục hoạt động cải thiện tầng đất mặt <sup><a href="#ref-19" class="citation-ref" id="cit-19">[19]</a></sup>.
 
+---
+### Video tham khảo thực tế
+Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);"><iframe src="https://www.youtube.com/embed/gOwZkShSjP0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe></div>
+
 ### Tài liệu trích dẫn chi tiết
 - <span id="ref-1">**[1]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 41-42 <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-2">**[2]**</span> Phân chuồng Phân xanh Sản xuất và Sử dụng, PGS.TS. Nguyễn Thanh Hùng, Mục II.A.3, Trang 26-27 <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
