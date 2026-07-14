@@ -64,15 +64,6 @@ Sau khoảng 2-4 tháng (tùy điều kiện thời tiết), phân đạt yêu c
 
 Khi bón phân, nên vùi sâu vào đất ở độ sâu 15-20cm để tránh thất thoát đạm do bay hơi amoniac và giúp vi sinh vật tiếp tục hoạt động cải thiện tầng đất mặt <sup><a href="#ref-19" class="citation-ref" id="cit-19">[19]</a></sup>.
 
-## Tài liệu trích dẫn chi tiết
-
-1.  **Giáo trình Nông nghiệp hữu cơ**, GS.TS. Nguyễn Thế Đặng (Chủ biên), Trường Đại học Nông Lâm Thái Nguyên, NXB Nông nghiệp, 2012.
-2.  **ADDA - Giáo trình đào tạo OA TOT** (Canh tác hữu cơ), ADDA Vietnam, NARENCA Publisher.
-3.  **Phân chuồng Phân xanh Sản xuất và Sử dụng**, PGS.TS. Nguyễn Thanh Hùng, NXB Thành phố Hồ Chí Minh, 1979.
-4.  **Ứng dụng công nghệ sinh học trong sản xuất và đời sống**, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tý (Biên soạn), NXB Lao Động, 2006.
-5.  **Phân tiêu Nước tiểu và Cách sử dụng**, Việt Chy, NXB Nông nghiệp.
-6.  **Nông nghiệp bền vững**, Rosemary Morrow, NXB Phụ Nữ, 2006.
-
 ### Tài liệu trích dẫn chi tiết
 - <span id="ref-1">**[1]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 41-42 <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-2">**[2]**</span> Phân chuồng Phân xanh Sản xuất và Sử dụng, PGS.TS. Nguyễn Thanh Hùng, Mục II.A.3, Trang 26-27 <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>

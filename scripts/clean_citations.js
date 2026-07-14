@@ -27,7 +27,7 @@ files.forEach(file => {
   // If no long citations found, but it has raw numbers, let's see if we should parse the references list first
   // to reconstruct the citations! This is useful if clean_citations has already been run once.
   if (citations.length === 0) {
-    const refSectionMatch = content.match(/### Tài liệu trích dẫn chi tiết\n([\s\S]*?)(?:\n\n---|\n*$)/i);
+    const refSectionMatch = content.match(/(?:##|###) Tài liệu trích dẫn chi tiết\n([\s\S]*?)(?:\n\n---|\n*$)/i);
     if (refSectionMatch) {
       const refLines = refSectionMatch[1].trim().split('\n');
       refLines.forEach(line => {
@@ -81,7 +81,7 @@ files.forEach(file => {
   const ytContent = ytMatch ? `\n\n---\n` + ytMatch[1] : '';
 
   // Remove old references and YouTube from content
-  content = content.replace(/### Tài liệu trích dẫn chi tiết[\s\S]*$/, '');
+  content = content.replace(/(?:##|###) Tài liệu trích dẫn chi tiết[\s\S]*$/, '');
   content = content.replace(/---[\s]*\n### Video tham khảo thực tế[\s\S]*$/, '');
   content = content.replace(/### Video tham khảo thực tế[\s\S]*$/, '');
 

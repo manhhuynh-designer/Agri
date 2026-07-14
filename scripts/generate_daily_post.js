@@ -20,11 +20,25 @@ const TOPICS_FILE = path.join(__dirname, '..', '_data', 'topics.json');
 const POSTS_DIR = path.join(__dirname, '..', '_posts');
 
 // Helper to format date as YYYY-MM-DD
-function getTodayString() {
-  const d = new Date();
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
+function getNextPostDateString() {
+  const postFiles = fs.readdirSync(POSTS_DIR);
+  let latestDate = new Date();
+  postFiles.forEach(file => {
+    const match = file.match(/^(\d{4}-\d{2}-\d{2})-/);
+    if (match) {
+      const fileDate = new Date(match[1]);
+      if (fileDate > latestDate) {
+        latestDate = fileDate;
+      }
+    }
+  });
+  
+  // Increment by 1 day
+  latestDate.setDate(latestDate.getDate() + 1);
+  
+  const year = latestDate.getFullYear();
+  const month = String(latestDate.getMonth() + 1).padStart(2, '0');
+  const day = String(latestDate.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
 }
 
@@ -258,6 +272,20 @@ async function main() {
       5. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
          - [1] Tên tài liệu, Tác giả, Chương, Trang.
          - [2] Tên tài liệu, Tác giả, Chương, Trang.
+      6. Trong bài viết, bắt buộc phải thiết kế và nhúng tối thiểu một sơ đồ quy trình hoặc sơ đồ tư duy (mindmap/infographic) bằng ngôn ngữ đồ họa Vector SVG chất lượng cao (bọc trong thẻ <div class="diagram-card">...</div> và kèm theo mô tả chú thích <div class="diagram-note"><p><b>Hình A:</b> ...</p></div>). Sơ đồ phải trực quan hóa các bước thực hiện hoặc mối quan hệ giữa các bộ phận.
+         Quy chuẩn vẽ SVG:
+         - ViewBox: <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
+         - Cấm tuyệt đối việc hardcode mã màu HEX (#fff, #000...). Chỉ dùng các class CSS có sẵn của blog:
+           + Tiêu đề sơ đồ: <text x="320" y="30" text-anchor="middle" class="d-label-title">TIÊU ĐỀ SƠ ĐỒ</text>
+           + Chú thích chữ thường: <text class="d-label">...</text>
+           + Nhãn chữ nhấn mạnh/Cảnh báo: <text class="d-label-em">...</text>
+           + Nét liền vẽ khung chính: class="d-line"
+           + Nét liền vẽ bộ phận phụ: class="d-line-2"
+           + Đường truyền khí nóng/Lửa/Ember: class="d-ember"
+           + Luồng khói yếm khí/Nét đứt cam: class="d-ember-dash"
+           + Đường xám đứt gióng chú thích: class="d-leader"
+           + Đầu mũi tên chỉ hướng kết nối: marker-end="url(#arrow)"
+         - Căn chỉnh tọa độ x, y hợp lý để sơ đồ thoáng đẹp, trực quan và không chồng chéo chữ.
       Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
 
       send('tools/call', {
@@ -306,7 +334,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
         }
       }
 
-      const todayStr = getTodayString();
+      const todayStr = getNextPostDateString();
       const filename = `${todayStr}-${selectedTopic.id}.md`;
       const filepath = path.join(POSTS_DIR, filename);
 
@@ -314,6 +342,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       console.log(`Successfully generated and saved daily post to: _posts/${filename}`);
 
       child.kill();
+      process.exit(0);
     }
   }
 }
