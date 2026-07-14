@@ -254,8 +254,10 @@ async function main() {
          > [!WARNING]
          > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
       3. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
-      4. Trong thân bài, hãy dẫn chứng nguồn rõ ràng bằng cách ghi chi tiết: [Tên tài liệu, Tác giả, Chương, Trang] (ví dụ: [Giáo trình Nông nghiệp hữu cơ, Nguyễn Văn A, Chương 2, Trang 45]). Tuyệt đối không trích dẫn chung chung chỉ ghi số thứ tự hay ghi chung chung tên tài liệu.
-      5. Ở cuối bài, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin: Tên tài liệu, Tác giả, Chương, Trang tương ứng của các thông tin đã trích dẫn trong bài viết.
+      4. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...). Tuyệt đối không ghi trực tiếp tên tài liệu hay tên tác giả bên trong các câu viết của thân bài.
+      5. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
+         - [1] Tên tài liệu, Tác giả, Chương, Trang.
+         - [2] Tên tài liệu, Tác giả, Chương, Trang.
       Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
 
       send('tools/call', {
