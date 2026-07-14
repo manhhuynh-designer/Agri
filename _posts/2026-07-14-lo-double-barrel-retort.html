@@ -1,0 +1,396 @@
+---
+layout: post
+title: "Hướng dẫn tự chế Lò Double Barrel Retort tạo than sinh học (Biochar)"
+date: 2026-07-14 12:00:00 +0700
+category: "Tự chế thiết bị"
+tags: ["tu-che", "biochar", "thiet-bi"]
+difficulty: "Trung bình"
+read_time: "7 phút"
+author: "Nông Nghiệp Sinh Thái"
+description: "Biến vỏ trấu, lõi ngô, cành cây, vỏ cà phê thành than sinh học (biochar) chất lượng cao bằng lò nhiệt phân hai thùng phuy tự chế tại nhà."
+---
+
+<section id="nguyen-ly">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Nguyên lý hoạt động</h2></div>
+  <p class="sec-desc">Nhiệt phân yếm khí gián tiếp — thùng trong không tiếp xúc trực tiếp với oxy, chỉ được nung nóng bởi lửa cháy ở khoảng trống giữa hai thùng.</p>
+
+  <div class="diagram-card">
+    <svg viewBox="0 0 340 400" xmlns="http://www.w3.org/2000/svg" aria-label="Sơ đồ nguyên lý lò nhiệt phân retort">
+      <defs>
+        <linearGradient id="fg" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#c7541c"/>
+          <stop offset="55%" stop-color="#e8590c"/>
+          <stop offset="100%" stop-color="#f2a63c"/>
+        </linearGradient>
+        <linearGradient id="heat" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#e8590c" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#e8590c" stop-opacity="0.03"/>
+        </linearGradient>
+        <clipPath id="ic"><rect x="95" y="70" width="150" height="230" rx="6"/></clipPath>
+      </defs>
+
+      <!-- chimney -->
+      <rect x="185" y="10" width="24" height="46" fill="none" stroke="#b8afa0" stroke-width="1.5"/>
+      <path d="M170 10 L233 10 L215 32 L185 32 Z" fill="none" stroke="#b8afa0" stroke-width="1"/>
+
+      <!-- outer barrel -->
+      <rect x="55" y="56" width="230" height="300" rx="10" fill="none" stroke="#b8afa0" stroke-width="1.8"/>
+
+      <!-- fire gap -->
+      <rect x="60" y="270" width="220" height="42" fill="url(#fg)" opacity="0.3"/>
+
+      <!-- inner barrel -->
+      <g clip-path="url(#ic)"><rect x="95" y="70" width="150" height="230" fill="url(#heat)"/></g>
+      <rect x="95" y="70" width="150" height="230" rx="5" fill="none" stroke="#ece6da" stroke-width="1.4"/>
+      <rect x="95" y="62" width="150" height="8" fill="none" stroke="#ece6da" stroke-width="1"/>
+
+      <!-- gas holes -->
+      <circle cx="115" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+      <circle cx="145" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+      <circle cx="175" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+      <circle cx="205" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+
+      <!-- flames -->
+      <path d="M75,352Q80,332 83,340Q86,328 89,352Z" fill="url(#fg)"/>
+      <path d="M110,352Q115,330 119,339Q123,326 127,352Z" fill="url(#fg)"/>
+      <path d="M150,352Q155,331 159,340Q163,327 167,352Z" fill="url(#fg)"/>
+      <path d="M195,352Q200,332 204,340Q208,328 212,352Z" fill="url(#fg)"/>
+      <path d="M235,352Q240,333 244,341Q248,329 252,352Z" fill="url(#fg)"/>
+      <rect x="60" y="355" width="220" height="4" rx="2" fill="#b8afa0" opacity="0.5"/>
+
+      <!-- gas flow -->
+      <path d="M205 296 C 220 270, 232 220, 220 100 Q 214 45, 210 32" fill="none" stroke="#e8590c" stroke-width="1.1" opacity="0.75" stroke-dasharray="4 4"/>
+      <path d="M115 296 C 100 270, 90 240, 95 190" fill="none" stroke="#e8590c" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+    </svg>
+
+    <div class="diagram-note">
+      <p><b>Thùng ngoài</b> — buồng đốt chứa lửa mồi ở đáy để cung cấp nhiệt ban đầu.</p>
+      <p><b>Thùng trong (Retort)</b> — chứa nguyên liệu hữu cơ cần sinh than. Do nắp đậy hờ nên không khí khó lọt vào, tạo ra phản ứng nhiệt phân yếm khí hoàn toàn.</p>
+      <p><b>Các lỗ đáy retort</b> — giải phóng khí nhiệt phân (syngas). Các khí này tự bốc cháy khi gặp ngọn lửa buồng ngoài, cấp nhiệt ngược lại cho quá trình.</p>
+      <p><b>Khoảng hở 5–8cm</b> — khoảng cách tối ưu để lửa và luồng khí nóng lưu thông đều xung quanh thành thùng trong.</p>
+    </div>
+  </div>
+</section>
+
+<section id="vat-lieu">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Vật liệu &amp; dụng cụ cần thiết</h2></div>
+  <p class="sec-desc">Mọi thứ đều có thể tìm thấy tại các vựa phế liệu hoặc cửa hàng vật liệu xây dựng với chi phí rất tiết kiệm.</p>
+  <div class="mat-grid">
+    <div class="mat-card">
+      <h3>Thùng phuy sắt</h3>
+      <ul>
+        <li>1 thùng phuy lớn 200 lít (loại có đáy kín) để làm buồng ngoài.</li>
+        <li>1 thùng phuy nhỏ 100–120 lít (có đường kính nhỏ hơn thùng lớn khoảng 10–15cm) để làm retort.</li>
+      </ul>
+    </div>
+    <div class="mat-card">
+      <h3>Dụng cụ cơ khí</h3>
+      <ul>
+        <li>Máy mài góc cầm tay (máy cắt sắt) để mở cửa buồng ngoài và cắt nắp thùng trong.</li>
+        <li>Máy khoan điện + mũi khoan kim loại cỡ Ø6mm và Ø12mm.</li>
+        <li>Thước mét, phấn vẽ đánh dấu và kính bảo hộ.</li>
+      </ul>
+    </div>
+    <div class="mat-card">
+      <h3>Vật tư phụ trợ</h3>
+      <ul>
+        <li>Ống thép đường kính Ø10–15cm, dài 1m – 1.5m làm ống dẫn khói.</li>
+        <li>Vài thanh thép chịu nhiệt hoặc 3–4 viên gạch chịu lửa làm bệ đỡ thùng trong.</li>
+      </ul>
+    </div>
+    <div class="mat-card">
+      <h3>Sinh khối (nguyên liệu)</h3>
+      <ul>
+        <li>Vỏ trấu, lõi ngô, cành củi khô băm khúc nhỏ (5–10cm), vỏ cà phê hoặc gáo dừa.</li>
+        <li>Độ ẩm lý tưởng: <b>dưới 20%</b> (đã phơi nắng kỹ).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="cac-buoc">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Quy trình chế tạo chi tiết</h2></div>
+  <p class="sec-desc">Hãy thực hiện theo đúng thứ tự các bước dưới đây để đảm bảo lò hoạt động hiệu quả nhất.</p>
+
+  <div class="step">
+    <div class="tag">1</div>
+    <div>
+      <h3>Chuẩn bị thùng trong (Retort)</h3>
+      <p>Cắt rời nắp trên của thùng phuy nhỏ. Giữ nắp này lại để đậy hờ trong quá trình đốt (không hàn kín).</p>
+      <p>Lật ngược thùng, khoan khoảng 6–8 lỗ Ø6mm quanh chân thành thùng, cách đáy khoảng 3cm. Đây sẽ là cổng thoát khí ga nhiệt phân khi sinh khối bên trong bị nung nóng.</p>
+
+      <div class="step-diagram">
+        <svg viewBox="0 0 700 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bản vẽ chế tạo thùng trong">
+          <rect x="60" y="40" width="150" height="210" rx="8" class="d-line"/>
+          <line x1="60" y1="70" x2="210" y2="70" class="d-line-2"/>
+          <line x1="60" y1="220" x2="210" y2="220" class="d-line-2"/>
+
+          <rect x="50" y="14" width="170" height="18" rx="9" class="d-ember"/>
+          <line x1="135" y1="32" x2="135" y2="40" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="145" y="52" class="d-label-em">khe hở mép</text>
+
+          <path d="M220 23 L268 23" class="d-leader"/>
+          <text x="274" y="20" class="d-label-title">Nắp gốc — cắt rời</text>
+          <text x="274" y="36" class="d-label">giữ lại, đậy hờ (không hàn kín)</text>
+
+          <circle cx="90" cy="205" r="3.2" class="d-hole"/>
+          <circle cx="120" cy="205" r="3.2" class="d-hole"/>
+          <circle cx="150" cy="205" r="3.2" class="d-hole"/>
+          <circle cx="180" cy="205" r="3.2" class="d-hole"/>
+          <line x1="90" y1="208" x2="90" y2="232" class="d-dim-ext"/>
+          <line x1="120" y1="208" x2="120" y2="232" class="d-dim-ext"/>
+          <line x1="150" y1="208" x2="150" y2="232" class="d-dim-ext"/>
+          <line x1="180" y1="208" x2="180" y2="232" class="d-dim-ext"/>
+          <line x1="90" y1="232" x2="180" y2="232" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="135" y="248" text-anchor="middle" class="d-label">cách đều nhau</text>
+
+          <path d="M184 203 L246 150" class="d-leader"/>
+          <text x="252" y="118" class="d-label-title">Khoan lỗ thoát khí</text>
+          <text x="252" y="134" class="d-label">Ø6mm × 6–8 lỗ</text>
+          <text x="252" y="150" class="d-label">cách đáy ~3cm</text>
+
+          <text x="500" y="74" text-anchor="middle" class="d-label-title">Mặt đáy nhìn từ dưới lên</text>
+          <circle cx="500" cy="150" r="60" class="d-line"/>
+          <circle cx="545" cy="150" r="3.2" class="d-hole"/>
+          <circle cx="531.8" cy="181.8" r="3.2" class="d-hole"/>
+          <circle cx="500" cy="195" r="3.2" class="d-hole"/>
+          <circle cx="468.2" cy="181.8" r="3.2" class="d-hole"/>
+          <circle cx="455" cy="150" r="3.2" class="d-hole"/>
+          <circle cx="468.2" cy="118.2" r="3.2" class="d-hole"/>
+          <circle cx="500" cy="105" r="3.2" class="d-hole"/>
+          <circle cx="531.8" cy="118.2" r="3.2" class="d-hole"/>
+          <text x="500" y="228" text-anchor="middle" class="d-label">8 lỗ Ø6mm, cách đều mỗi 45°</text>
+        </svg>
+        <p class="cap">Bản vẽ kỹ thuật gia công thùng trong (retort): Đục nắp đậy hờ và bố trí các lỗ gas phân bổ đối xứng xung quanh chu vi đáy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="tag">2</div>
+    <div>
+      <h3>Chuẩn bị thùng ngoài (Buồng đốt)</h3>
+      <p>Cắt một cửa nạp củi nhỏ kích thước khoảng 25×20cm ở sát mép đáy thùng lớn 200 lít để châm lửa và tiếp củi mồi.</p>
+      <p>Trên đỉnh hoặc vai của thùng lớn, khoét một lỗ tròn khớp với đường kính ống khói (Ø10–15cm) để dẫn khói thoát ra ngoài.</p>
+
+      <div class="step-diagram">
+        <svg viewBox="0 0 700 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bản vẽ chế tạo buồng đốt ngoài">
+          <text x="150" y="24" text-anchor="middle" class="d-label-title">Nếu thùng không đáy:</text>
+          <path d="M90 60 L90 220 M90 60 L210 60 L210 220" class="d-line"/>
+          <line x1="90" y1="90" x2="210" y2="90" class="d-line-2"/>
+          <line x1="80" y1="220" x2="100" y2="220" class="d-line-2"/>
+          <line x1="200" y1="220" x2="220" y2="220" class="d-line-2"/>
+          <rect x="98" y="232" width="30" height="14" class="d-line"/>
+          <rect x="135" y="232" width="30" height="14" class="d-line"/>
+          <rect x="172" y="232" width="30" height="14" class="d-line"/>
+          <path d="M145,229 Q150,216 153,223 Q157,213 160,229 Z" fill="#e8590c" opacity="0.55"/>
+          <line x1="150" y1="220" x2="150" y2="232" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="150" y="266" text-anchor="middle" class="d-label">kê gạch, để hở đáy làm buồng lửa</text>
+
+          <rect x="280" y="30" width="220" height="240" rx="10" class="d-line"/>
+          <line x1="280" y1="65" x2="500" y2="65" class="d-line-2"/>
+
+          <circle cx="390" cy="45" r="17" class="d-ember-dash"/>
+          <line x1="373" y1="45" x2="407" y2="45" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="390" y="20" text-anchor="middle" class="d-label">Ø10–15cm</text>
+          <path d="M408 48 L520 62" class="d-leader"/>
+          <text x="526" y="52" class="d-label-title">Lỗ lắp ống khói</text>
+          <text x="526" y="68" class="d-label">khoét ở nắp/vai thùng</text>
+
+          <rect x="330" y="195" width="120" height="70" class="d-hatch"/>
+          <line x1="330" y1="267" x2="330" y2="282" class="d-dim-ext"/>
+          <line x1="450" y1="267" x2="450" y2="282" class="d-dim-ext"/>
+          <line x1="330" y1="282" x2="450" y2="282" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="390" y="298" text-anchor="middle" class="d-label">~25cm</text>
+          <line x1="452" y1="195" x2="470" y2="195" class="d-dim-ext"/>
+          <line x1="452" y1="265" x2="470" y2="265" class="d-dim-ext"/>
+          <line x1="470" y1="195" x2="470" y2="265" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="480" y="234" class="d-label">~20cm</text>
+          <path d="M452 218 L540 165" class="d-leader"/>
+          <text x="546" y="155" class="d-label-title">Cửa đốt</text>
+          <text x="546" y="171" class="d-label">đưa củi mồi vào, châm lửa</text>
+        </svg>
+        <p class="cap">Cửa châm củi mồi buồng ngoài và phương pháp kê gạch thay thế nếu thùng ngoài bị mất đáy hoàn toàn.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="tag">3</div>
+    <div>
+      <h3>Lắp đặt ống khói</h3>
+      <p>Cắm ống thép khói vào lỗ tròn đã khoét trên đỉnh thùng lớn. Nên sử dụng keo silicon chịu nhiệt cao hoặc hàn gắn kín quanh chân ống khói để khí ga nóng không bị rò ra mép, đảm bảo áp suất hút kéo khói bay thẳng lên cao.</p>
+
+      <div class="step-diagram">
+        <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bản vẽ lắp ống khói">
+          <rect x="220" y="150" width="200" height="130" rx="10" class="d-line"/>
+          <text x="320" y="245" text-anchor="middle" class="d-label">Vai thùng ngoài</text>
+          <circle cx="320" cy="150" r="16" class="d-line"/>
+
+          <rect x="300" y="40" width="40" height="115" class="d-line"/>
+          <path d="M290 40 L350 40 L335 20 L305 20 Z" class="d-line"/>
+
+          <line x1="336" y1="150" x2="342" y2="150" class="d-ember"/>
+          <line x1="328" y1="163.9" x2="331" y2="169.8" class="d-ember"/>
+          <line x1="312" y1="163.9" x2="309" y2="169.8" class="d-ember"/>
+          <line x1="304" y1="150" x2="298" y2="150" class="d-ember"/>
+          <line x1="312" y1="136.1" x2="309" y2="130.2" class="d-ember"/>
+          <line x1="328" y1="136.1" x2="331" y2="130.2" class="d-ember"/>
+
+          <line x1="312" y1="145" x2="312" y2="55" class="d-ember" marker-end="url(#flowArrow)"/>
+          <line x1="328" y1="145" x2="328" y2="55" class="d-ember" marker-end="url(#flowArrow)"/>
+
+          <path d="M345 168 L420 205" class="d-leader"/>
+          <text x="426" y="197" class="d-label-title">Mối hàn / gắn chặt</text>
+          <text x="426" y="213" class="d-label">quanh chân ống vào lỗ</text>
+
+          <path d="M350 80 L458 80" class="d-leader"/>
+          <text x="464" y="72" class="d-label-title">Ống thép</text>
+          <text x="464" y="88" class="d-label">Ø10–15cm, dài 1–1.5m</text>
+
+          <path d="M334 60 L458 38" class="d-leader"/>
+          <text x="464" y="30" class="d-label-title">Khí ga thoát lên</text>
+          <text x="464" y="46" class="d-label">tạo lực hút (draft)</text>
+        </svg>
+        <p class="cap">Gắn chặt chân ống khói vào nắp buồng đốt để tạo dòng lưu thông khí đối lưu tối ưu.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="tag">4</div>
+    <div>
+      <h3>Lắp ráp hai thùng phuy</h3>
+      <p>Đặt 3–4 viên gạch hoặc thanh thép gia cố tại đáy thùng lớn. Đặt thùng nhỏ vào chính giữa thùng lớn sao cho khoảng cách trống xung quanh thân hai thùng được duy trì đều từ 5 đến 8cm. Khoảng cách này giúp khí nóng luân chuyển đều, nung chín sinh khối mọi hướng.</p>
+
+      <div class="step-diagram">
+        <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ lắp ráp lồng hai thùng phuy">
+          <text x="300" y="18" text-anchor="middle" class="d-label">Đậy nắp ngoài — chừa khe nhỏ ở nắp trong</text>
+          <rect x="150" y="30" width="300" height="270" rx="12" class="d-line"/>
+          <line x1="150" y1="65" x2="450" y2="65" class="d-line-2"/>
+
+          <line x1="300" y1="45" x2="300" y2="90" class="d-dim" marker-end="url(#dimArrow)"/>
+          <text x="310" y="70" class="d-label">hạ xuống</text>
+
+          <rect x="220" y="95" width="160" height="175" rx="8" class="d-line"/>
+          <line x1="220" y1="120" x2="380" y2="120" class="d-line-2"/>
+          <line x1="220" y1="245" x2="380" y2="245" class="d-line-2"/>
+
+          <line x1="150" y1="180" x2="220" y2="180" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="185" y="170" text-anchor="middle" class="d-label">5–8cm</text>
+          <line x1="380" y1="180" x2="450" y2="180" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="415" y="170" text-anchor="middle" class="d-label">5–8cm</text>
+
+          <rect x="228" y="272" width="34" height="26" class="d-line"/>
+          <rect x="283" y="272" width="34" height="26" class="d-line"/>
+          <rect x="338" y="272" width="34" height="26" class="d-line"/>
+
+          <path d="M372 285 L478 252" class="d-leader"/>
+          <text x="484" y="244" class="d-label-title">Gạch / thanh sắt kê chân</text>
+          <text x="484" y="260" class="d-label">nâng thùng trong khỏi đáy</text>
+        </svg>
+        <p class="cap">Căn chỉnh thùng nhỏ nằm đồng trục trong lòng thùng lớn, duy trì khe đối lưu lửa từ 5-8cm.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="tag">5</div>
+    <div>
+      <h3>Kiểm tra khe hở và an toàn</h3>
+      <p>Trước khi bắt đầu chất củi đốt, phải kiểm tra kỹ 2 điểm sau: <b>Đáy thùng trong phải cách đáy thùng ngoài</b> để không làm tắc luồng nhiệt đáy; và <b>Nắp thùng trong phải đậy lỏng</b> để khí ga thoát ra dễ dàng nhưng oxy không bị hút ngược vào.</p>
+
+      <div class="step-diagram">
+        <svg viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chi tiết kiểm tra an toàn khe hở">
+          <rect x="30" y="20" width="310" height="240" rx="10" class="d-frame"/>
+          <text x="185" y="52" text-anchor="middle" class="d-label-title">Kiểm tra đáy</text>
+          <circle cx="310" cy="52" r="16" class="d-check-circle"/>
+          <path d="M302,52 L308,59 L320,44" class="d-check"/>
+
+          <line x1="70" y1="150" x2="70" y2="210" class="d-line-2"/>
+          <line x1="310" y1="150" x2="310" y2="210" class="d-line-2"/>
+          <line x1="70" y1="210" x2="310" y2="210" class="d-line"/>
+          <line x1="110" y1="110" x2="110" y2="170" class="d-line-2"/>
+          <line x1="270" y1="110" x2="270" y2="170" class="d-line-2"/>
+          <line x1="110" y1="170" x2="270" y2="170" class="d-line"/>
+
+          <line x1="190" y1="170" x2="190" y2="210" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="200" y="194" class="d-label">không chạm đáy</text>
+          <text x="185" y="238" text-anchor="middle" class="d-label">lửa lan đều quanh đáy</text>
+
+          <rect x="380" y="20" width="290" height="240" rx="10" class="d-frame"/>
+          <text x="520" y="52" text-anchor="middle" class="d-label-title">Kiểm tra nắp</text>
+          <circle cx="640" cy="52" r="16" class="d-check-circle"/>
+          <path d="M632,52 L638,59 L650,44" class="d-check"/>
+
+          <line x1="410" y1="190" x2="630" y2="190" class="d-line"/>
+          <rect x="400" y="160" width="240" height="16" rx="8" class="d-line"/>
+          <line x1="520" y1="176" x2="520" y2="190" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+          <text x="530" y="187" class="d-label">khe hở đều</text>
+          <text x="520" y="238" text-anchor="middle" class="d-label">khí thoát, oxy không lọt nhiều</text>
+        </svg>
+        <p class="cap">Quy trình kiểm tra chéo bắt buộc để đảm bảo an toàn áp suất khí ga nóng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="van-hanh">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Hướng dẫn vận hành lò</h2></div>
+  <p class="sec-desc">Kỹ thuật đốt lò retort chủ yếu dựa vào việc quan sát màu sắc của khói thoát ra từ ống lò.</p>
+
+  <div class="flow">
+    <div class="flow-item">
+      <span class="t">BƯỚC 1: NẠP NGUYÊN LIỆU</span>
+      <p>Xếp đầy sinh khối hữu cơ khô (độ ẩm &lt;20%) vào thùng nhỏ. Đậy nắp nhỏ lại thật đều. Lồng thùng nhỏ vào buồng lớn.</p>
+    </div>
+    <div class="flow-item">
+      <span class="t">BƯỚC 2: MỒI LỬA BAN ĐẦU</span>
+      <p>Cho củi cành, giấy hoặc lá khô vào cửa đốt đáy thùng ngoài. Châm lửa mồi để nung nóng toàn bộ hệ thống từ ngoài vào.</p>
+    </div>
+    <div class="flow-item">
+      <span class="t">BƯỚC 3: QUAN SÁT TIẾN TRÌNH</span>
+      <p>Sau 15–20 phút, khói <b>màu trắng đục dày</b> (hơi nước bốc lên từ sinh khối) sẽ thoát ra từ ống khói. Đây là lúc nước bên trong bốc hơi hết.</p>
+    </div>
+    <div class="flow-item">
+      <span class="t">BƯỚC 4: PHA TỰ CHÁY KHÍ GA</span>
+      <p>Khi khói trắng giảm dần, bạn sẽ thấy <b>khói ngả sang màu hơi xanh nhạt hoặc trong suốt</b> và lửa bắt đầu phụt mạnh ở ống khói. Khí ga nhiệt phân (syngas) thoát ra từ các lỗ đáy đã tự bắt cháy. Bạn có thể giảm bớt củi mồi ngoài vì lúc này lò đang tự nung chính nó.</p>
+    </div>
+    <div class="flow-item">
+      <span class="t">BƯỚC 5: HOÀN TẤT NHIỆT PHÂN</span>
+      <p>Sau khoảng 45–90 phút, ngọn lửa gas ở ống khói lụi dần và tắt hẳn. Khói không còn thoát ra nữa. Nhiệt phân đã kết thúc. Dừng tiếp củi mồi ngoài hoàn toàn.</p>
+    </div>
+    <div class="flow-item">
+      <span class="t">BƯỚC 6: THU HOẠCH VÀ DẬP THAN</span>
+      <p><b>Rất quan trọng:</b> Nhấc thùng trong ra ngoài. Đậy thật kín nắp thùng trong bằng bùn cát hoặc phun sương nước nhẹ. Nếu để oxy lọt vào lúc than đang cực nóng, toàn bộ biochar sẽ cháy bùng thành tro xám chỉ trong vài phút.</p>
+    </div>
+  </div>
+</section>
+
+<section id="an-toan">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Quy tắc an toàn lao động</h2></div>
+  <div class="warn">
+    <h3>Bắt buộc nghiêm ngặt</h3>
+    <ul>
+      <li>Chỉ vận hành lò ở khu vực đất trống ngoài trời, cách xa nhà ở, rơm rạ hoặc các vật liệu dễ bắt lửa tối thiểu 10 mét.</li>
+      <li>Trang bị sẵn một bình chữa cháy mini hoặc xô nước lớn bên cạnh khu vực lò để ứng phó khẩn cấp.</li>
+      <li>Luôn mang găng tay da bảo hộ chịu nhiệt và kính khi tiếp củi mồi hay di chuyển thùng chứa than đang nóng.</li>
+      <li>Không bít kín ống khói của thùng ngoài khi lửa đang cháy lớn — áp suất tích tụ đột ngột có thể làm nổ nắp lò.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="meo-toi-uu">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Mẹo tối ưu chất lượng than</h2></div>
+  <div class="tip-list">
+    <div class="tip">
+      <p><b>Kiểm soát độ ẩm:</b> Nguyên liệu càng khô, thời gian đốt càng nhanh và năng lượng tiêu hao cho việc bốc hơi nước càng ít, than tạo ra sẽ xốp hơn.</p>
+    </div>
+    <div class="tip">
+      <p><b>Kích thước đồng đều:</b> Không trộn củi cành lớn với trấu vụn trong cùng một mẻ nung. Kích thước không đều làm cho trấu cháy thành tro trước khi củi cành kịp chín hoàn toàn.</p>
+    </div>
+    <div class="tip">
+      <p><b>"Sạc" than sinh học (Charging):</b> Than biochar mới thu hoạch rất háo dinh dưỡng. Hãy nghiền nhỏ than và ngâm ủ với phân chuồng hoai mục hoặc nước dịch chuối trong 2 tuần trước khi bón để biến than thành một "kho pin" dinh dưỡng cho rễ cây.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<header class="site-header">
+  <div class="wrap header-container">
+    <a href="{{ '/' | relative_url }}" class="logo">
+      Nông Nghiệp <span>Sinh Thái</span>
+    </a>
+    
+    <nav class="nav-links">
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Trang Chủ</a>
+      <a href="{{ '/about/' | relative_url }}" class="{% if page.url == '/about/' %}active{% endif %}">Giới Thiệu</a>
+      
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Chuyển chế độ sáng tối">
+        <!-- Moon Icon (Dark Mode) -->
+        <svg class="moon-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+        <!-- Sun Icon (Light Mode) -->
+        <svg class="sun-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05L5.75 4.35a1 1 0 10-1.41 1.41l.71.71zm-2.12 8.796a1 1 0 010-1.414l.706-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM5 9a1 1 0 000 2h1a1 1 0 100-2H5z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>

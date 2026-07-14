@@ -1,0 +1,27 @@
+title: "Nông Nghiệp Sinh Thái"
+email: contact@nongnghiepsinhthai.vn
+description: >-
+  Chia sẻ hướng dẫn tự chế thiết bị nông nghiệp, sản xuất than sinh học (biochar),
+  thu hoạch giấm gỗ và áp dụng các phương pháp canh tác sinh thái bền vững.
+baseurl: ""
+url: "https://yourusername.github.io"
+
+# Permalinks for blog posts
+permalink: /posts/:title/
+
+# Markdown configurations
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - lo-double-barrel-retort.html

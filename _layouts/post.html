@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<div class="reading-progress-container">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
+<article class="post-layout wrap">
+  <div class="post-body">
+    <!-- Post Header -->
+    <header class="post-header">
+      <div class="eyebrow">{% if page.category %}{{ page.category }}{% else %}Hướng dẫn{% endif %}</div>
+      <h1>{{ page.title }}</h1>
+      
+      <div class="post-meta-details">
+        <span>Ngày đăng: <b>{{ page.date | date: "%d/%m/%Y" }}</b></span>
+        {% if page.read_time %}
+        <span>Thời gian đọc: <b>{{ page.read_time }}</b></span>
+        {% endif %}
+        {% if page.difficulty %}
+        <span>Độ khó: <b>{{ page.difficulty }}</b></span>
+        {% endif %}
+        {% if page.author %}
+        <span>Tác giả: <b>{{ page.author }}</b></span>
+        {% endif %}
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Share Buttons -->
+    {% include share-buttons.html %}
+
+    <!-- Related Posts -->
+    {% include related-posts.html %}
+  </div>
+
+  <!-- Sticky Sidebar with Table of Contents -->
+  <aside class="post-sidebar">
+    <div class="sticky-sidebar">
+      <div class="toc-card">
+        <h4 class="toc-title">Mục lục bài viết</h4>
+        <ul id="toc-list" class="toc-list">
+          <!-- Generates dynamically via JS -->
+          <li class="toc-item"><a href="#">Đang nạp mục lục...</a></li>
+        </ul>
+      </div>
+
+      <!-- Author Card -->
+      {% include author-card.html %}
+    </div>
+  </aside>
+</article>

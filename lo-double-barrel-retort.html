@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lò Double Barrel Retort — Tự chế lò tạo biochar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1b1815;
+    --bg-2: #221e19;
+    --panel: #262019;
+    --line: #3a332a;
+    --ash: #ece6da;
+    --ash-dim: #b8afa0;
+    --ember: #e8590c;
+    --ember-dim: #c7541c;
+    --steel: #8b95a1;
+    --char: #6b8e4e;
+    --char-dim: #4f6a39;
+    --warn-bg: #2e1c14;
+    --warn-line: #a8461c;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 500px at 15% -10%, rgba(232,89,12,0.08), transparent 60%),
+      var(--bg);
+    color:var(--ash);
+    font-family:'Inter',sans-serif;
+    line-height:1.7;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  code, .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* HERO */
+  header.hero{
+    border-bottom:1px solid var(--line);
+    padding:72px 0 56px;
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 40px);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ember);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--ember);display:inline-block;}
+  h1{
+    font-family:'Archivo',sans-serif;
+    font-weight:900;
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    margin:0 0 20px;
+    color:var(--ash);
+  }
+  h1 span{color:var(--ember);}
+  .hero-sub{
+    font-size:17px;
+    color:var(--ash-dim);
+    max-width:640px;
+    margin:0 0 28px;
+  }
+  .spec-row{
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .spec-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    border:1px solid var(--line);
+    padding:7px 12px;
+    border-radius:3px;
+    color:var(--ash-dim);
+    background:var(--bg-2);
+  }
+  .spec-tag b{color:var(--char);font-weight:600;}
+
+  /* SECTION HEADERS */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .sec-num{font-family:'JetBrains Mono',monospace;color:var(--ember-dim);font-size:14px;}
+  h2{
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:28px;
+    margin:0;
+    color:var(--ash);
+  }
+  .sec-desc{color:var(--ash-dim);max-width:680px;margin:14px 0 32px;}
+
+  /* PRINCIPLE / DIAGRAM */
+  .diagram-card{
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:24px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    align-items:center;
+  }
+  .diagram-card svg{width:100%;height:auto;display:block;}
+  .diagram-note{font-size:14.5px;color:var(--ash-dim);}
+  .diagram-note b{color:var(--ash);font-weight:600;}
+  @media (max-width:720px){ .diagram-card{grid-template-columns:1fr;} }
+
+  /* MATERIALS GRID */
+  .mat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media (max-width:640px){.mat-grid{grid-template-columns:1fr;}}
+  .mat-card{
+    border:1px solid var(--line);
+    background:var(--bg-2);
+    border-radius:6px;
+    padding:20px 22px;
+  }
+  .mat-card h3{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--steel);
+    margin:0 0 12px;
+  }
+  .mat-card ul{margin:0;padding-left:18px;color:var(--ash-dim);font-size:15px;}
+  .mat-card li{margin-bottom:6px;}
+  .mat-card li::marker{color:var(--ember-dim);}
+
+  /* STEPS - drum tag style */
+  .step{
+    display:grid;
+    grid-template-columns:74px 1fr;
+    gap:22px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .step:first-child{border-top:none;}
+  .tag{
+    width:56px;height:56px;
+    border:2px solid var(--ember-dim);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+    font-weight:600;
+    font-size:20px;
+    color:var(--ember);
+    position:relative;
+  }
+  .tag::after{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border:1px dashed var(--line);
+    border-radius:50%;
+  }
+  .step h3{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    font-weight:700;
+    margin:2px 0 8px;
+    color:var(--ash);
+  }
+  .step p{margin:0;color:var(--ash-dim);font-size:15px;}
+  .step p + p{margin-top:10px;}
+
+  /* TECHNICAL STEP DIAGRAMS */
+  .step-diagram{
+    margin-top:18px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:18px 20px 14px;
+  }
+  .step-diagram svg{width:100%;height:auto;display:block;}
+  .step-diagram .cap{
+    margin-top:10px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    color:var(--ash-dim);
+    letter-spacing:0.02em;
+  }
+  .d-line{fill:none;stroke:var(--ash-dim);stroke-width:1.5;}
+  .d-line-2{fill:none;stroke:var(--ash-dim);stroke-width:1;}
+  .d-ember{fill:none;stroke:var(--ember);stroke-width:1.5;}
+  .d-ember-dash{fill:none;stroke:var(--ember);stroke-width:1.3;stroke-dasharray:5 4;}
+  .d-dim{fill:none;stroke:var(--steel);stroke-width:1;}
+  .d-dim-ext{fill:none;stroke:var(--steel);stroke-width:0.75;opacity:0.6;}
+  .d-hole{fill:var(--bg);stroke:var(--ember);stroke-width:1.3;}
+  .d-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;fill:var(--ash-dim);}
+  .d-label-em{font-family:'JetBrains Mono',monospace;font-size:11.5px;fill:var(--ember);}
+  .d-label-title{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;fill:var(--ash);}
+  .d-check{fill:none;stroke:var(--char);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .d-check-circle{fill:none;stroke:var(--char);stroke-width:1.5;}
+  .d-leader{fill:none;stroke:var(--ash-dim);stroke-width:0.75;stroke-dasharray:2 3;}
+  .d-hatch{fill:url(#hatch);stroke:var(--ember-dim);stroke-width:1.3;stroke-dasharray:5 3;}
+  .d-frame{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:6 4;}
+
+  /* OPERATION TIMELINE */
+  .flow{
+    display:flex;flex-direction:column;
+    border-left:2px solid var(--char-dim);
+    margin-left:8px;
+  }
+  .flow-item{
+    position:relative;
+    padding:6px 0 24px 26px;
+  }
+  .flow-item::before{
+    content:"";
+    position:absolute;left:-7px;top:8px;
+    width:12px;height:12px;
+    background:var(--bg);
+    border:2px solid var(--char);
+    border-radius:50%;
+  }
+  .flow-item .t{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--char);margin-bottom:4px;display:block;}
+  .flow-item p{margin:0;color:var(--ash-dim);font-size:15px;}
+  .flow-item b{color:var(--ash);font-weight:600;}
+
+  /* WARNING */
+  .warn{
+    background:var(--warn-bg);
+    border:1px solid var(--warn-line);
+    border-radius:6px;
+    padding:22px 24px;
+  }
+  .warn h3{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ember);
+    margin:0 0 12px;
+  }
+  .warn ul{margin:0;padding-left:18px;color:#e8d4c8;font-size:15px;}
+  .warn li{margin-bottom:8px;}
+  .warn li::marker{color:var(--ember);}
+
+  /* TIPS */
+  .tip-list{display:flex;flex-direction:column;gap:14px;}
+  .tip{
+    display:flex;gap:14px;
+    padding:16px 18px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-left:3px solid var(--char);
+    border-radius:0 6px 6px 0;
+  }
+  .tip p{margin:0;color:var(--ash-dim);font-size:15px;}
+  .tip p b{color:var(--ash);}
+
+  footer{padding:36px 0 60px;color:var(--ash-dim);font-size:13px;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Hướng dẫn tự chế · lò nhiệt phân nông hộ</div>
+    <h1>Lò <span>Double Barrel<br>Retort</span></h1>
+    <p class="hero-sub">Biến vỏ trấu, lõi ngô, cành cây, vỏ cà phê thành than sinh học (biochar) bằng hai thùng phuy lồng nhau — không cần điện, không cần lò công nghiệp.</p>
+    <div class="spec-row">
+      <span class="spec-tag">Thời gian đốt: <b>45–90 phút</b></span>
+      <span class="spec-tag">Vật liệu: <b>2 thùng phuy</b></span>
+      <span class="spec-tag">Chi phí: <b>thấp</b></span>
+      <span class="spec-tag">Độ khó: <b>trung bình</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Nguyên lý hoạt động</h2></div>
+    <p class="sec-desc">Nhiệt phân yếm khí gián tiếp — thùng trong không tiếp xúc trực tiếp với oxy, chỉ được nung nóng bởi lửa cháy ở khoảng trống giữa hai thùng.</p>
+
+    <div class="diagram-card">
+      <svg viewBox="0 0 340 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="fg" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#c7541c"/>
+            <stop offset="55%" stop-color="#e8590c"/>
+            <stop offset="100%" stop-color="#f2a63c"/>
+          </linearGradient>
+          <linearGradient id="heat" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#e8590c" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#e8590c" stop-opacity="0.03"/>
+          </linearGradient>
+          <clipPath id="ic"><rect x="95" y="70" width="150" height="230" rx="6"/></clipPath>
+        </defs>
+
+        <!-- chimney -->
+        <rect x="185" y="10" width="24" height="46" fill="none" stroke="#b8afa0" stroke-width="1.5"/>
+        <path d="M170 10 L233 10 L215 32 L185 32 Z" fill="none" stroke="#b8afa0" stroke-width="1"/>
+
+        <!-- outer barrel -->
+        <rect x="55" y="56" width="230" height="300" rx="10" fill="none" stroke="#b8afa0" stroke-width="1.8"/>
+
+        <!-- fire gap -->
+        <rect x="60" y="270" width="220" height="42" fill="url(#fg)" opacity="0.3"/>
+
+        <!-- inner barrel -->
+        <g clip-path="url(#ic)"><rect x="95" y="70" width="150" height="230" fill="url(#heat)"/></g>
+        <rect x="95" y="70" width="150" height="230" rx="5" fill="none" stroke="#ece6da" stroke-width="1.4"/>
+        <rect x="95" y="62" width="150" height="8" fill="none" stroke="#ece6da" stroke-width="1"/>
+
+        <!-- gas holes -->
+        <circle cx="115" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+        <circle cx="145" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+        <circle cx="175" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+        <circle cx="205" cy="296" r="3" fill="none" stroke="#e8590c" stroke-width="1.3"/>
+
+        <!-- flames -->
+        <path d="M75,352Q80,332 83,340Q86,328 89,352Z" fill="url(#fg)"/>
+        <path d="M110,352Q115,330 119,339Q123,326 127,352Z" fill="url(#fg)"/>
+        <path d="M150,352Q155,331 159,340Q163,327 167,352Z" fill="url(#fg)"/>
+        <path d="M195,352Q200,332 204,340Q208,328 212,352Z" fill="url(#fg)"/>
+        <path d="M235,352Q240,333 244,341Q248,329 252,352Z" fill="url(#fg)"/>
+        <rect x="60" y="355" width="220" height="4" rx="2" fill="#b8afa0" opacity="0.5"/>
+
+        <!-- gas flow -->
+        <path d="M205 296 C 220 270, 232 220, 220 100 Q 214 45, 210 32" fill="none" stroke="#e8590c" stroke-width="1.1" opacity="0.75" stroke-dasharray="4 4"/>
+        <path d="M115 296 C 100 270, 90 240, 95 190" fill="none" stroke="#e8590c" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+      </svg>
+
+      <div class="diagram-note">
+        <p><b>Thùng ngoài</b> — buồng đốt, chứa lửa mồi ở đáy.</p>
+        <p style="margin-top:10px"><b>Thùng trong</b> — chứa phụ phẩm nông nghiệp, được nung gián tiếp qua thành thùng.</p>
+        <p style="margin-top:10px"><b>Lỗ đáy</b> — khí ga nhiệt phân thoát ra, tự bốc cháy trong khoảng trống, thoát qua ống khói.</p>
+        <p style="margin-top:10px"><b>Khoảng hở 5–8cm</b> quanh thân thùng trong quyết định độ đều của nhiệt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Vật liệu &amp; dụng cụ</h2></div>
+    <p class="sec-desc">Toàn bộ có thể mua ở tiệm sắt vụn hoặc cửa hàng vật liệu xây dựng địa phương.</p>
+    <div class="mat-grid">
+      <div class="mat-card">
+        <h3>Thùng phuy</h3>
+        <ul>
+          <li>1 thùng phuy 200 lít, còn nguyên đáy — làm thùng ngoài</li>
+          <li>1 thùng phuy 100–120 lít, vừa lọt vào thùng lớn — làm thùng trong (retort)</li>
+        </ul>
+      </div>
+      <div class="mat-card">
+        <h3>Dụng cụ</h3>
+        <ul>
+          <li>Máy khoan + mũi khoan kim loại Ø6mm và Ø10–15mm</li>
+          <li>Máy cắt/mài góc để cắt nắp, mở cửa đốt</li>
+          <li>Thước dây, phấn/bút lông đánh dấu</li>
+          <li>Găng tay, kính bảo hộ</li>
+        </ul>
+      </div>
+      <div class="mat-card">
+        <h3>Vật tư phụ</h3>
+        <ul>
+          <li>Ống thép hoặc lon sắt cũ Ø10–15cm, dài 1–1.5m làm ống khói</li>
+          <li>Vài thanh sắt hoặc viên gạch kê chân thùng</li>
+        </ul>
+      </div>
+      <div class="mat-card">
+        <h3>Nguyên liệu đốt</h3>
+        <ul>
+          <li>Vỏ trấu, lõi ngô, cành cây nhỏ, vỏ cà phê — băm khúc 5–10cm</li>
+          <li>Độ ẩm dưới 20% (phơi khô trước khi đốt)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Các bước thực hiện</h2></div>
+    <p class="sec-desc">Thực hiện theo đúng thứ tự — mỗi bước ảnh hưởng trực tiếp đến hiệu quả đốt của bước sau. Mỗi bước kèm bản vẽ kỹ thuật với kích thước cụ thể.</p>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <marker id="dimArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#8b95a1"/>
+        </marker>
+        <marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2,1 L8,5 L2,9" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <pattern id="hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#3a332a" stroke-width="2"/>
+        </pattern>
+      </defs>
+    </svg>
+
+    <div class="step">
+      <div class="tag">1</div>
+      <div>
+        <h3>Chuẩn bị thùng trong (retort)</h3>
+        <p>Cắt bỏ nắp thùng nhỏ, giữ lại để đậy hờ — không hàn kín, chỉ đậy lỏng để khí thoát ra ở mép.</p>
+        <p>Khoan 6–8 lỗ Ø6mm quanh sát đáy thùng, cách đều nhau — đây là đường thoát khí nhiệt phân.</p>
+
+        <div class="step-diagram">
+          <svg viewBox="0 0 700 270" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>Chuẩn bị thùng trong</title>
+            <desc>Bản vẽ thùng trong với nắp cắt rời đậy hờ phía trên, các lỗ thoát khí khoan quanh đáy nhìn từ mặt trước, và mặt đáy nhìn từ dưới lên thể hiện 8 lỗ cách đều nhau quanh chu vi.</desc>
+
+            <rect x="60" y="40" width="150" height="210" rx="8" class="d-line"/>
+            <line x1="60" y1="70" x2="210" y2="70" class="d-line-2"/>
+            <line x1="60" y1="220" x2="210" y2="220" class="d-line-2"/>
+
+            <rect x="50" y="14" width="170" height="18" rx="9" class="d-ember"/>
+            <line x1="135" y1="32" x2="135" y2="40" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="145" y="52" class="d-label-em">khe hở mép</text>
+
+            <path d="M220 23 L268 23" class="d-leader"/>
+            <text x="274" y="20" class="d-label-title">Nắp gốc — cắt rời</text>
+            <text x="274" y="36" class="d-label">giữ lại, đậy hờ (không hàn kín)</text>
+
+            <circle cx="90" cy="205" r="3.2" class="d-hole"/>
+            <circle cx="120" cy="205" r="3.2" class="d-hole"/>
+            <circle cx="150" cy="205" r="3.2" class="d-hole"/>
+            <circle cx="180" cy="205" r="3.2" class="d-hole"/>
+            <line x1="90" y1="208" x2="90" y2="232" class="d-dim-ext"/>
+            <line x1="120" y1="208" x2="120" y2="232" class="d-dim-ext"/>
+            <line x1="150" y1="208" x2="150" y2="232" class="d-dim-ext"/>
+            <line x1="180" y1="208" x2="180" y2="232" class="d-dim-ext"/>
+            <line x1="90" y1="232" x2="180" y2="232" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="135" y="248" text-anchor="middle" class="d-label">cách đều nhau</text>
+
+            <path d="M184 203 L246 150" class="d-leader"/>
+            <text x="252" y="118" class="d-label-title">Khoan lỗ thoát khí</text>
+            <text x="252" y="134" class="d-label">Ø6mm × 6–8 lỗ</text>
+            <text x="252" y="150" class="d-label">cách đáy ~3cm</text>
+
+            <text x="500" y="74" text-anchor="middle" class="d-label-title">Mặt đáy nhìn từ dưới lên</text>
+            <circle cx="500" cy="150" r="60" class="d-line"/>
+            <circle cx="545" cy="150" r="3.2" class="d-hole"/>
+            <circle cx="531.8" cy="181.8" r="3.2" class="d-hole"/>
+            <circle cx="500" cy="195" r="3.2" class="d-hole"/>
+            <circle cx="468.2" cy="181.8" r="3.2" class="d-hole"/>
+            <circle cx="455" cy="150" r="3.2" class="d-hole"/>
+            <circle cx="468.2" cy="118.2" r="3.2" class="d-hole"/>
+            <circle cx="500" cy="105" r="3.2" class="d-hole"/>
+            <circle cx="531.8" cy="118.2" r="3.2" class="d-hole"/>
+            <text x="500" y="228" text-anchor="middle" class="d-label">8 lỗ Ø6mm, cách đều mỗi 45°</text>
+          </svg>
+          <p class="cap">Trái: mặt trước thùng trong. Phải: mặt đáy nhìn từ dưới lên — cho thấy các lỗ phân bố đều quanh toàn bộ chu vi, không chỉ một hàng.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="tag">2</div>
+      <div>
+        <h3>Chuẩn bị thùng ngoài (buồng đốt)</h3>
+        <p>Nếu thùng có đáy: cắt cửa đốt hình chữ nhật ~25×20cm sát đáy thân thùng để đưa củi mồi vào.</p>
+        <p>Nếu thùng không đáy: đặt trên bệ gạch có khoảng trống bên dưới làm buồng lửa.</p>
+        <p>Khoét lỗ tròn Ø10–15cm trên nắp/vai thùng để lắp ống khói.</p>
+
+        <div class="step-diagram">
+          <svg viewBox="0 0 700 310" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>Chuẩn bị thùng ngoài</title>
+            <desc>Bản vẽ thùng ngoài với cửa đốt hình chữ nhật cắt ở thân dưới kèm kích thước, lỗ tròn khoét ở vai thùng để lắp ống khói, và một biến thể phụ cho trường hợp thùng không có đáy được kê trên gạch.</desc>
+
+            <text x="150" y="24" text-anchor="middle" class="d-label-title">Nếu thùng không đáy:</text>
+            <path d="M90 60 L90 220 M90 60 L210 60 L210 220" class="d-line"/>
+            <line x1="90" y1="90" x2="210" y2="90" class="d-line-2"/>
+            <line x1="80" y1="220" x2="100" y2="220" class="d-line-2"/>
+            <line x1="200" y1="220" x2="220" y2="220" class="d-line-2"/>
+            <rect x="98" y="232" width="30" height="14" class="d-line"/>
+            <rect x="135" y="232" width="30" height="14" class="d-line"/>
+            <rect x="172" y="232" width="30" height="14" class="d-line"/>
+            <path d="M145,229 Q150,216 153,223 Q157,213 160,229 Z" fill="#e8590c" opacity="0.55"/>
+            <line x1="150" y1="220" x2="150" y2="232" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="150" y="266" text-anchor="middle" class="d-label">kê gạch, để hở đáy làm buồng lửa</text>
+
+            <rect x="280" y="30" width="220" height="240" rx="10" class="d-line"/>
+            <line x1="280" y1="65" x2="500" y2="65" class="d-line-2"/>
+
+            <circle cx="390" cy="45" r="17" class="d-ember-dash"/>
+            <line x1="373" y1="45" x2="407" y2="45" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="390" y="20" text-anchor="middle" class="d-label">Ø10–15cm</text>
+            <path d="M408 48 L520 62" class="d-leader"/>
+            <text x="526" y="52" class="d-label-title">Lỗ lắp ống khói</text>
+            <text x="526" y="68" class="d-label">khoét ở nắp/vai thùng</text>
+
+            <rect x="330" y="195" width="120" height="70" class="d-hatch"/>
+            <line x1="330" y1="267" x2="330" y2="282" class="d-dim-ext"/>
+            <line x1="450" y1="267" x2="450" y2="282" class="d-dim-ext"/>
+            <line x1="330" y1="282" x2="450" y2="282" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="390" y="298" text-anchor="middle" class="d-label">~25cm</text>
+            <line x1="452" y1="195" x2="470" y2="195" class="d-dim-ext"/>
+            <line x1="452" y1="265" x2="470" y2="265" class="d-dim-ext"/>
+            <line x1="470" y1="195" x2="470" y2="265" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="480" y="234" class="d-label">~20cm</text>
+            <path d="M452 218 L540 165" class="d-leader"/>
+            <text x="546" y="155" class="d-label-title">Cửa đốt</text>
+            <text x="546" y="171" class="d-label">đưa củi mồi vào, châm lửa</text>
+          </svg>
+          <p class="cap">Phải: thùng ngoài có đáy, với cửa đốt và lỗ ống khói. Trái: biến thể khi thùng không đáy — kê gạch tạo khoảng trống buồng lửa bên dưới.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="tag">3</div>
+      <div>
+        <h3>Lắp ống khói</h3>
+        <p>Hàn hoặc gắn chặt ống thép vào lỗ đã khoét. Ống khói tạo lực hút (draft), kéo khí ga cháy lên trên thay vì tạt ra ngoài gây khói.</p>
+
+        <div class="step-diagram">
+          <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>Lắp ống khói</title>
+            <desc>Bản vẽ vai thùng ngoài với ống khói thép được lắp vào lỗ đã khoét, mối gắn quanh chân ống, mũ chắn mưa phía trên, và mũi tên thể hiện chiều khí ga thoát lên tạo lực hút.</desc>
+
+            <rect x="220" y="150" width="200" height="130" rx="10" class="d-line"/>
+            <text x="320" y="245" text-anchor="middle" class="d-label">Vai thùng ngoài</text>
+            <circle cx="320" cy="150" r="16" class="d-line"/>
+
+            <rect x="300" y="40" width="40" height="115" class="d-line"/>
+            <path d="M290 40 L350 40 L335 20 L305 20 Z" class="d-line"/>
+
+            <line x1="336" y1="150" x2="342" y2="150" class="d-ember"/>
+            <line x1="328" y1="163.9" x2="331" y2="169.8" class="d-ember"/>
+            <line x1="312" y1="163.9" x2="309" y2="169.8" class="d-ember"/>
+            <line x1="304" y1="150" x2="298" y2="150" class="d-ember"/>
+            <line x1="312" y1="136.1" x2="309" y2="130.2" class="d-ember"/>
+            <line x1="328" y1="136.1" x2="331" y2="130.2" class="d-ember"/>
+
+            <line x1="312" y1="145" x2="312" y2="55" class="d-ember" marker-end="url(#flowArrow)"/>
+            <line x1="328" y1="145" x2="328" y2="55" class="d-ember" marker-end="url(#flowArrow)"/>
+
+            <path d="M345 168 L420 205" class="d-leader"/>
+            <text x="426" y="197" class="d-label-title">Mối hàn / gắn chặt</text>
+            <text x="426" y="213" class="d-label">quanh chân ống vào lỗ</text>
+
+            <path d="M350 80 L458 80" class="d-leader"/>
+            <text x="464" y="72" class="d-label-title">Ống thép</text>
+            <text x="464" y="88" class="d-label">Ø10–15cm, dài 1–1.5m</text>
+
+            <path d="M334 60 L458 38" class="d-leader"/>
+            <text x="464" y="30" class="d-label-title">Khí ga thoát lên</text>
+            <text x="464" y="46" class="d-label">tạo lực hút (draft)</text>
+          </svg>
+          <p class="cap">Mặt cắt vai thùng: ống thép cắm qua lỗ đã khoét, cố định chắc quanh chân ống để không hở khí ra ngoài.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="tag">4</div>
+      <div>
+        <h3>Lắp ráp hai thùng</h3>
+        <p>Kê gạch/thanh sắt dưới đáy thùng ngoài, đặt thùng trong lên trên, canh giữa để khoảng hở quanh thân đều nhau (5–8cm).</p>
+        <p>Đậy nắp thùng ngoài, chỉ chừa khe nhỏ ở nắp thùng trong.</p>
+
+        <div class="step-diagram">
+          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>Lắp ráp hai thùng</title>
+            <desc>Bản vẽ mặt cắt lắp ráp: thùng trong được hạ vào giữa thùng ngoài, kê trên gạch để nâng khỏi đáy, với khoảng hở đều hai bên 5 đến 8 xăng ti mét giữa thân hai thùng.</desc>
+
+            <text x="300" y="18" text-anchor="middle" class="d-label">Đậy nắp ngoài — chừa khe nhỏ ở nắp trong</text>
+            <rect x="150" y="30" width="300" height="270" rx="12" class="d-line"/>
+            <line x1="150" y1="65" x2="450" y2="65" class="d-line-2"/>
+
+            <line x1="300" y1="45" x2="300" y2="90" class="d-dim" marker-end="url(#dimArrow)"/>
+            <text x="310" y="70" class="d-label">hạ xuống</text>
+
+            <rect x="220" y="95" width="160" height="175" rx="8" class="d-line"/>
+            <line x1="220" y1="120" x2="380" y2="120" class="d-line-2"/>
+            <line x1="220" y1="245" x2="380" y2="245" class="d-line-2"/>
+
+            <line x1="150" y1="180" x2="220" y2="180" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="185" y="170" text-anchor="middle" class="d-label">5–8cm</text>
+            <line x1="380" y1="180" x2="450" y2="180" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="415" y="170" text-anchor="middle" class="d-label">5–8cm</text>
+
+            <rect x="228" y="272" width="34" height="26" class="d-line"/>
+            <rect x="283" y="272" width="34" height="26" class="d-line"/>
+            <rect x="338" y="272" width="34" height="26" class="d-line"/>
+
+            <path d="M372 285 L478 252" class="d-leader"/>
+            <text x="484" y="244" class="d-label-title">Gạch / thanh sắt kê chân</text>
+            <text x="484" y="260" class="d-label">nâng thùng trong khỏi đáy</text>
+          </svg>
+          <p class="cap">Mặt cắt lắp ráp hoàn chỉnh: thùng trong nằm giữa, cách đều thành và đáy thùng ngoài — khoảng hở này chính là buồng đốt gián tiếp.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="tag">5</div>
+      <div>
+        <h3>Kiểm tra khe hở khí</h3>
+        <p>Đáy thùng trong không chạm đáy thùng ngoài — để lửa lan đều quanh đáy. Nắp thùng trong đậy hờ, không kín tuyệt đối.</p>
+
+        <div class="step-diagram">
+          <svg viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>Kiểm tra khe hở khí</title>
+            <desc>Hai khung phóng to kiểm tra: khung trái xác nhận đáy thùng trong không chạm đáy thùng ngoài, khung phải xác nhận nắp thùng trong đậy hờ có khe hở đều quanh mép, mỗi khung kèm dấu tích xác nhận đạt yêu cầu.</desc>
+
+            <rect x="30" y="20" width="310" height="240" rx="10" class="d-frame"/>
+            <text x="185" y="52" text-anchor="middle" class="d-label-title">Kiểm tra đáy</text>
+            <circle cx="310" cy="52" r="16" class="d-check-circle"/>
+            <path d="M302,52 L308,59 L320,44" class="d-check"/>
+
+            <line x1="70" y1="150" x2="70" y2="210" class="d-line-2"/>
+            <line x1="310" y1="150" x2="310" y2="210" class="d-line-2"/>
+            <line x1="70" y1="210" x2="310" y2="210" class="d-line"/>
+            <line x1="110" y1="110" x2="110" y2="170" class="d-line-2"/>
+            <line x1="270" y1="110" x2="270" y2="170" class="d-line-2"/>
+            <line x1="110" y1="170" x2="270" y2="170" class="d-line"/>
+
+            <line x1="190" y1="170" x2="190" y2="210" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="200" y="194" class="d-label">không chạm đáy</text>
+            <text x="185" y="238" text-anchor="middle" class="d-label">lửa lan đều quanh đáy</text>
+
+            <rect x="380" y="20" width="290" height="240" rx="10" class="d-frame"/>
+            <text x="520" y="52" text-anchor="middle" class="d-label-title">Kiểm tra nắp</text>
+            <circle cx="640" cy="52" r="16" class="d-check-circle"/>
+            <path d="M632,52 L638,59 L650,44" class="d-check"/>
+
+            <line x1="410" y1="190" x2="630" y2="190" class="d-line"/>
+            <rect x="400" y="160" width="240" height="16" rx="8" class="d-line"/>
+            <line x1="520" y1="176" x2="520" y2="190" class="d-dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+            <text x="530" y="187" class="d-label">khe hở đều</text>
+            <text x="520" y="238" text-anchor="middle" class="d-label">khí thoát, oxy không lọt nhiều</text>
+          </svg>
+          <p class="cap">Hai điểm bắt buộc kiểm tra trước khi đốt: khe hở đáy và khe hở nắp — thiếu một trong hai sẽ làm nhiệt phân không đều hoặc than cháy thành tro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Cách vận hành</h2></div>
+    <p class="sec-desc">Theo dõi màu khói là cách chính xác nhất để biết tiến độ nhiệt phân.</p>
+
+    <div class="flow">
+      <div class="flow-item"><span class="t">BƯỚC 1</span><p>Chất phụ phẩm nông nghiệp khô, đã băm khúc, đầy vào thùng trong. Đậy nắp hờ.</p></div>
+      <div class="flow-item"><span class="t">BƯỚC 2</span><p>Đặt thùng trong vào thùng ngoài. Nhóm lửa mồi qua cửa đốt (củi nhỏ, giấy).</p></div>
+      <div class="flow-item"><span class="t">BƯỚC 3</span><p>Sau 10–15 phút, quan sát khói: <b>trắng đục</b> (hơi nước) → giảm dần → <b>ngọn lửa xanh nhạt</b> ở khe/ống khói (khí gas tự cháy).</p></div>
+      <div class="flow-item"><span class="t">BƯỚC 4</span><p>Duy trì lửa mồi thêm 45–90 phút tùy loại nguyên liệu và độ ẩm.</p></div>
+      <div class="flow-item"><span class="t">BƯỚC 5</span><p>Hết khói, ngọn lửa khí gas tắt hẳn → nhiệt phân hoàn tất. Dừng cấp lửa, để nguội.</p></div>
+      <div class="flow-item"><span class="t">BƯỚC 6</span><p><b>Dập tắt than ngay lập tức</b> — nhấc thùng trong ra, đậy kín nắp hoặc phun nước nhẹ, để than không cháy tiếp thành tro.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2>An toàn</h2></div>
+    <div class="warn">
+      <h3>Bắt buộc tuân thủ</h3>
+      <ul>
+        <li>Vận hành ngoài trời hoặc nơi thông thoáng, tránh xa vật liệu dễ cháy.</li>
+        <li>Luôn có xô cát/nước bên cạnh để dập lửa khẩn cấp.</li>
+        <li>Đeo găng tay chịu nhiệt khi thao tác — thùng rất nóng trong và sau khi đốt.</li>
+        <li>Không đậy kín tuyệt đối thùng ngoài khi đang cháy — áp suất khí tích tụ có thể gây nổ nắp.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Mẹo tối ưu chất lượng than</h2></div>
+    <div class="tip-list">
+      <div class="tip"><p><b>Độ ẩm nguyên liệu</b> dưới 20% giúp nhiệt phân nhanh hơn và than đều hơn.</p></div>
+      <div class="tip"><p><b>Kích thước đồng đều</b> giúp than chín đều, tránh chỗ cháy thành tro, chỗ chưa cháy tới.</p></div>
+      <div class="tip"><p><b>Ủ ẩm (charging)</b> than sau khi nghiền nhỏ với phân compost hoặc nước tiểu pha loãng trước khi bón đất để tăng hiệu quả cải tạo.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">lò double barrel retort · hướng dẫn tự chế biochar nông hộ</div>
+</footer>
+
+</body>
+</html>

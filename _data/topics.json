@@ -1,0 +1,58 @@
+[
+  {
+    "id": "u-phan-chuong-hoai-muc",
+    "title": "Kỹ thuật ủ phân chuồng hoai mục bằng chế phẩm vi sinh",
+    "prompt": "Viết bài viết chi tiết về kỹ thuật ủ phân chuồng hoai mục bằng chế phẩm vi sinh (như Trichoderma). Giải thích tại sao không nên bón phân tươi, cách xếp lớp, giữ độ ẩm, kiểm tra nhiệt độ đống ủ và thời gian hoai mục.",
+    "youtube": "https://www.youtube.com/watch?v=R234n85p8o8",
+    "categories": ["Dinh dưỡng", "Ủ phân"]
+  },
+  {
+    "id": "quan-ly-dich-hai-ipm",
+    "title": "Quản lý dịch hại tổng hợp (IPM) - Giải pháp bảo vệ thực vật bền vững",
+    "prompt": "Viết bài viết về hệ thống Quản lý dịch hại tổng hợp (IPM). Trình bày các biện pháp canh tác, vật lý, sinh học và thảo mộc để kiểm soát sâu hại mà không lạm dụng hóa chất độc hại.",
+    "youtube": "https://www.youtube.com/watch?v=R5eESQ-kj0g",
+    "categories": ["Bảo vệ thực vật", "Sinh thái học"]
+  },
+  {
+    "id": "cay-che-phu-dat-phu-xanh",
+    "title": "Cây che phủ đất và phân xanh - Tấm khiên bảo vệ đất dốc",
+    "prompt": "Viết bài viết chi tiết về vai trò của cây che phủ đất và cây phân xanh (đặc biệt là họ Đậu và cỏ Vetiver) giúp chống xói mòn rửa trôi dinh dưỡng trên đất dốc, cải tạo cấu trúc đất trọc.",
+    "youtube": "https://www.youtube.com/watch?v=1u4jH8E5X2k",
+    "categories": ["Đất đai", "Cải tạo đất"]
+  },
+  {
+    "id": "mo-hinh-luan-canh-xen-canh",
+    "title": "Nghệ thuật luân canh và xen canh tăng hiệu quả sử dụng đất",
+    "prompt": "Viết bài hướng dẫn cặn kẽ về cách luân canh và xen canh giữa các nhóm cây khác nhau (ví dụ: cây ăn lá, cây lấy củ, cây họ Đậu). Giải thích nguyên lý tương hỗ và khả năng phân tán rủi ro dịch bệnh.",
+    "youtube": "https://www.youtube.com/watch?v=33a5B8Xo2e8",
+    "categories": ["Canh tác sinh thái", "Kỹ thuật"]
+  },
+  {
+    "id": "he-sinh-thai-vac-truyen-thong",
+    "title": "Hệ sinh thái Vườn - Ao - Chuồng (VAC): Bài học nông nghiệp tuần hoàn",
+    "prompt": "Phân tích mô hình Vườn - Ao - Chuồng (VAC) truyền thống của Việt Nam dưới góc nhìn nông nghiệp tuần hoàn hiện đại. Làm sao để chất thải của chuồng nuôi nuôi ao cá, bùn ao bón vườn và phế phẩm vườn làm thức ăn chăn nuôi.",
+    "youtube": "https://www.youtube.com/watch?v=Q_m_0UPOzuI",
+    "categories": ["Mô hình bền vững", "Tuần hoàn"]
+  },
+  {
+    "id": "ky-thuat-trong-rau-sach-huu-co",
+    "title": "Kỹ thuật chuẩn bị đất và gieo trồng rau sạch hữu cơ quy mô hộ gia đình",
+    "prompt": "Viết bài viết hướng dẫn làm đất trồng rau sạch hữu cơ tại nhà: cách trộn giá thể xốp, bón lót phân hoai mục, kỹ thuật gieo hạt, che phủ rơm giữ ẩm và tưới tiêu đúng cách.",
+    "youtube": "https://www.youtube.com/watch?v=FqSj5i-R-Xg",
+    "categories": ["Kỹ thuật", "Rau sạch"]
+  },
+  {
+    "id": "thuoc-tru-sau-thao-moc",
+    "title": "Cách tự chế thuốc trừ sâu thảo mộc an toàn tại nhà",
+    "prompt": "Hướng dẫn chi tiết công thức ngâm ủ thuốc trừ sâu thảo mộc tự nhiên từ tỏi, ớt, gừng và rượu (GE gừng tỏi ớt) hoặc nước cô đặc lá neem để xua đuổi côn trùng hại rau mà không gây độc hại.",
+    "youtube": "https://www.youtube.com/watch?v=R5eESQ-kj0g",
+    "categories": ["Bảo vệ thực vật", "Tự chế"]
+  },
+  {
+    "id": "vi-sinh-vat-ban-dia-imo",
+    "title": "Kỹ thuật tự nhân nuôi vi sinh vật bản địa (IMO) cải tạo đất trọt",
+    "prompt": "Viết bài viết chi tiết về cách bẫy và nuôi cấy vi sinh vật bản địa (IMO) từ đất rừng tự nhiên bằng cơm nguội và rỉ mật đường để làm men phân hủy chất thải hữu cơ và tưới cải tạo đất bạc màu.",
+    "youtube": "https://www.youtube.com/watch?v=R234n85p8o8",
+    "categories": ["Dinh dưỡng", "Vi sinh"]
+  }
+]
