@@ -3,8 +3,8 @@ email: contact@nongnghiepsinhthai.vn
 description: >-
   Chia sẻ hướng dẫn tự chế thiết bị nông nghiệp, sản xuất than sinh học (biochar),
   thu hoạch giấm gỗ và áp dụng các phương pháp canh tác sinh thái bền vững.
-baseurl: ""
-url: "https://yourusername.github.io"
+baseurl: "/Agri"
+url: "https://manhhuynh-designer.github.io"
 
 # Permalinks for blog posts
 permalink: /posts/:title/
