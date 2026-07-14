@@ -577,6 +577,20 @@ html[data-theme="light"] .hero-banner {
   color: var(--ash);
 }
 
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 28px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.post-content img:hover {
+  transform: scale(1.01);
+}
+
 .sec-desc {
   color: var(--ash-dim);
   font-size: 15.5px;

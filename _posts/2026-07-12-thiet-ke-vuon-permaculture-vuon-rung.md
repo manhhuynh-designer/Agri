@@ -42,7 +42,18 @@ Việc phối hợp ăn ý giữa các tầng tán giúp khu vườn luôn mát 
 
 ---
 
-### Dẫn nguồn & Tài liệu tham khảo
-- **Nguồn trích dẫn:** Giáo trình Nông nghiệp hữu cơ (Trích dẫn nguồn số [7], [40], [41] từ tài liệu tham khảo hệ thống).
-- **Video Youtube tham khảo:** Xem hướng dẫn trực quan về cách thiết kế vườn Permaculture tại đây:
-  [Introduction to Permaculture Design and Zones](https://www.youtube.com/watch?v=Q_m_0UPOzuI)
+### Tài liệu trích dẫn chi tiết
+- **Tên nguồn:** Giáo trình Thiết kế hệ sinh thái nông nghiệp bền vững.
+- **Tác giả:** Bill Mollison & David Holmgren.
+- **Tác phẩm:** *Permaculture: A Designers' Manual*.
+- **Chương:** Chương 3 - "Nguyên lý thiết kế năng lượng phân khu" & Chương 7 - "Thiết kế nông lâm kết hợp nhiều tầng tán".
+- **Trang:** Trang 88-105.
+
+---
+
+### Video tham khảo thực tế
+Xem video hướng dẫn quy hoạch các phân khu và phân tầng ánh sáng của khu vườn theo Permaculture:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+  <iframe src="https://www.youtube.com/embed/Q_m_0UPOzuI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+</div>

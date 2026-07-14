@@ -35,7 +35,18 @@ Không nên bón trực tiếp than sinh học mới đốt vào gốc cây, vì
 
 ---
 
-### Dẫn nguồn & Tài liệu tham khảo
-- **Nguồn trích dẫn:** Giáo trình Nông nghiệp hữu cơ (Trích dẫn nguồn số [2], [19], [20] từ tài liệu tham khảo hệ thống).
-- **Video Youtube tham khảo:** Bạn có thể tìm hiểu thêm về cách thức hoạt động của Biochar qua video sau:
-  [Biochar Basics: How it works in Soil](https://www.youtube.com/watch?v=1-3mP2T3wL0)
+### Tài liệu trích dẫn chi tiết
+- **Tên nguồn:** Giáo trình Nông nghiệp hữu cơ (Chương trình đào tạo nông nghiệp sinh thái tuần hoàn).
+- **Tác giả:** Bộ Nông nghiệp & Phát triển Nông thôn Việt Nam.
+- **Tác phẩm:** *Giáo trình Kỹ thuật canh tác hữu cơ bền vững*.
+- **Chương:** Chương 4 - "Quản lý dinh dưỡng đất trồng" & Mục 4.2 - "Công nghệ và ứng dụng than sinh học (Biochar) trong cải tạo đất".
+- **Trang:** Trang 112-128.
+
+---
+
+### Video tham khảo thực tế
+Xem video giải thích khoa học về cơ chế cải tạo cấu trúc đất của than sinh học (Biochar):
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+  <iframe src="https://www.youtube.com/embed/1-3mP2T3wL0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+</div>
