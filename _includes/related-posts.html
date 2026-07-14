@@ -11,7 +11,7 @@
         {% assign is_related = false %}
         
         <!-- Check matching category -->
-        {% if post.category == page.category %}
+        {% if post.categories.first == page.categories.first or post.category == page.category and post.category != nil %}
           {% assign is_related = true %}
         {% endif %}
         
@@ -25,7 +25,7 @@
         {% if is_related and count < max_related %}
           <a href="{{ post.url | relative_url }}" class="related-card">
             <div class="related-card-meta">
-              <span class="related-card-tag">{{ post.category }}</span>
+              <span class="related-card-tag">{% if post.categories.first %}{{ post.categories.first }}{% else %}{{ post.category }}{% endif %}</span>
               <span>&bull;</span>
               <span>{{ post.date | date: "%d/%m/%Y" }}</span>
             </div>
@@ -47,7 +47,7 @@
             {% if count < max_related %}
               <a href="{{ post.url | relative_url }}" class="related-card">
                 <div class="related-card-meta">
-                  <span class="related-card-tag">{{ post.category }}</span>
+                  <span class="related-card-tag">{% if post.categories.first %}{{ post.categories.first }}{% else %}{{ post.category }}{% endif %}</span>
                   <span>&bull;</span>
                   <span>{{ post.date | date: "%d/%m/%Y" }}</span>
                 </div>

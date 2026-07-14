@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initReadingProgress();
     initCopyLink();
     initLightbox();
+    initAlertBoxes();
   }
 });
 
@@ -506,3 +507,29 @@ function initLightbox() {
     });
   });
 }
+
+/* ==========================================================================
+   10. AUTO ALERTS FORMATTER
+   ========================================================================== */
+function initAlertBoxes() {
+  const blockquotes = document.querySelectorAll('.post-content blockquote');
+  blockquotes.forEach(bq => {
+    const textContent = bq.textContent;
+    if (textContent.includes('[!WARNING]')) {
+      bq.classList.add('ai-alert-box', 'warning');
+      bq.innerHTML = bq.innerHTML
+        .replace(/\[!WARNING\]/g, '')
+        .replace(/⚠️/g, '')
+        .replace(/Lưu ý:/g, '<strong>⚠️ Lưu ý:</strong>')
+        .trim();
+    } else if (textContent.includes('[!NOTE]')) {
+      bq.classList.add('ai-alert-box', 'note');
+      bq.innerHTML = bq.innerHTML
+        .replace(/\[!NOTE\]/g, '')
+        .replace(/ℹ/g, '')
+        .replace(/Ghi chú:/g, '<strong>ℹ️ Ghi chú:</strong>')
+        .trim();
+    }
+  });
+}
+
