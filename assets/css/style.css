@@ -1483,6 +1483,20 @@ html[data-theme="light"] .lightbox-overlay {
   background-color: rgba(59, 130, 246, 0.03);
 }
 
+.ai-alert-box.tip {
+  background-color: rgba(16, 185, 129, 0.05);
+  border-left: 4px solid #10b981;
+  color: var(--ash);
+}
+
+.ai-alert-box.tip strong {
+  color: #10b981;
+}
+
+[data-theme="light"] .ai-alert-box.tip {
+  background-color: rgba(16, 185, 129, 0.03);
+}
+
 /* 5. Blog Utilities CSS (Sorting, Pagination, List View) */
 .sort-box {
   display: inline-flex;

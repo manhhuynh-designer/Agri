@@ -529,6 +529,14 @@ function initAlertBoxes() {
         .replace(/ℹ/g, '')
         .replace(/Ghi chú:/g, '<strong>ℹ️ Ghi chú:</strong>')
         .trim();
+    } else if (textContent.includes('[!TIP]')) {
+      bq.classList.add('ai-alert-box', 'tip');
+      bq.innerHTML = bq.innerHTML
+        .replace(/\[!TIP\]/g, '')
+        .replace(/💡/g, '')
+        .replace(/Mách nhỏ:/g, '<strong>💡 Mách nhỏ:</strong>')
+        .replace(/Gợi ý:/g, '<strong>💡 Gợi ý:</strong>')
+        .trim();
     }
   });
 }
