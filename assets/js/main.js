@@ -5,7 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initBackToTop();
-  initNewsletter();
   
   // Page-specific initialization
   if (document.querySelector('.posts-grid')) {
