@@ -463,6 +463,12 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       const filename = `${todayStr}-${selectedTopic.id}.md`;
       const filepath = path.join(POSTS_DIR, filename);
 
+      // 1. Format body citations: [1] -> <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>
+      content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
+      
+      // 2. Format citations list: - [1] -> - <span id="ref-1">**[1]**</span> ...
+      content = content.replace(/^([-*])\s*\[(\d+)\]\s*(.+)$/gm, '$1 <span id="ref-$2">**[$2]**</span> $3 <a href="#cit-$2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>');
+
       fs.writeFileSync(filepath, content);
       console.log(`Successfully generated and saved daily post to: _posts/${filename}`);
 
