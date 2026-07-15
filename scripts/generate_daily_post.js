@@ -376,6 +376,45 @@ async function main() {
   content = content.replace(/```\s*$/, '');
   content = content.trim();
 
+  // STAGE 2: Hậu kiểm đánh giá và tự động sửa văn phong (Self-Refinement & Style Review)
+  console.log('Đang thực hiện hậu kiểm đánh giá văn phong bài viết (Stage 2: Style Review & Refinement)...');
+  const reviewPrompt = `Bạn là một Tổng biên tập Học thuật và Chuyên gia Khuyến nông hữu cơ có kinh nghiệm.
+Nhiệm vụ của bạn là rà soát, đánh giá và tinh lọc lại văn phong của bài viết nông nghiệp dưới đây.
+
+YÊU CẦU NGHIÊM NGẶT VỀ VĂN PHONG (STYLE GUIDE):
+1. KHÔNG được sử dụng văn phong quảng cáo, giật tít, cường điệu hóa (hype) hoặc các từ ngữ sáo rỗng như: "thần kỳ", "bí mật", "bí kíp", "tuyệt vời", "hoàn hảo", "vô song", "vô giá", "cực kỳ hiệu quả".
+2. Sử dụng văn phong khách quan, khoa học, trung thực, mang tính khuyến nông thực tiễn cao. Diễn đạt điềm tĩnh, tập trung vào mô tả kỹ thuật và cơ chế sinh học thực nghiệm.
+3. Giữ nguyên toàn bộ:
+   - Cấu trúc YAML Front-matter ở đầu bài viết.
+   - Các tiêu đề (H2, H3), danh mục, các bảng biểu so sánh dữ liệu.
+   - Nguyên vẹn khối mã sơ đồ SVG bọc trong thẻ <div class="diagram-card">...</div> và phần chú thích kèm theo.
+   - Toàn bộ các ký hiệu trích dẫn nguồn dạng [1], [2] trong thân bài viết và danh sách nguồn dưới mục "Tài liệu trích dẫn chi tiết".
+4. Nếu bài viết vi phạm bất kỳ lỗi cường điệu hay quảng cáo nào, hãy tự động chỉnh sửa và viết lại các đoạn văn đó theo văn phong học thuật trung thực.
+
+Hãy trả về TRỰC TIẾP nội dung bài viết sau khi tinh lọc, không thêm bất kỳ dòng giải thích nào khác ở đầu hoặc cuối kết quả.
+
+NỘI DUNG BÀI VIẾT CẦN RÀ SOÁT:
+${content}`;
+
+  const reviewResult = spawnSync('agy', [
+    '--add-dir', documentsDir,
+    '-p', reviewPrompt
+  ], {
+    encoding: 'utf8',
+    maxBuffer: 50 * 1024 * 1024
+  });
+
+  if (reviewResult.status === 0 && reviewResult.stdout.trim().length > 100) {
+    console.log('[Style Review] Bài viết đã được hậu kiểm và tinh lọc văn phong thành công.');
+    content = reviewResult.stdout;
+    content = content.replace(/^```markdown\s*/i, '');
+    content = content.replace(/^```html\s*/i, '');
+    content = content.replace(/```\s*$/, '');
+    content = content.trim();
+  } else {
+    console.warn('[Style Review] Hậu kiểm thất bại hoặc trả về nội dung rỗng. Sử dụng bài viết gốc của Stage 1.');
+  }
+
   if (selectedTopic.youtube) {
     const ytId = getYoutubeId(selectedTopic.youtube);
     if (ytId) {

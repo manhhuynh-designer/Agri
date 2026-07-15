@@ -90,3 +90,12 @@ Mọi hình ảnh chèn trong thân bài viết bắt buộc phải tuân thủ 
 - Sử dụng cú pháp Markdown chuẩn: `![Mô tả ảnh](/assets/images/posts/name.png)`.
 - Không sử dụng các thẻ hình ảnh HTML cứng chiều rộng (`width`/`height`) để tránh phá vỡ giao diện trên các thiết bị di động.
 - Mọi hình ảnh sẽ tự động kế thừa bộ lọc bo tròn, căn giữa và tạo bóng từ lớp CSS `.post-content img` đã thiết lập.
+
+---
+
+## 6. Quy chuẩn Văn phong & Tone bài viết (Tone & Style Guide)
+
+- **Tuyệt đối tránh lối viết cường điệu, giật tít, quảng cáo:** Không bao giờ sử dụng các từ ngữ phóng đại sáo rỗng như: "bí kíp", "thần kỳ", "bí mật", "tuyệt hảo", "tuyệt vời", "hoàn hảo", "vô song", "vô giá", "cực kỳ hiệu quả".
+- **Văn phong học thuật, trung thực và khách quan:** Ngôn ngữ diễn đạt phải điềm tĩnh, chuyên nghiệp, tập trung giải thích cơ chế khoa học sinh vật học và các bước thực nghiệm nông nghiệp thực tế.
+- **Tính thực tiễn địa phương:** Luôn hướng về đối tượng nông hộ nhỏ tại Việt Nam với các giải pháp thực tế, tận dụng phế phẩm nông nghiệp địa phương có sẵn để tối ưu chi phí.
+
