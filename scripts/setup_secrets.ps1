@@ -1,6 +1,7 @@
 # Automation script to link Vercel and set GitHub Secrets
 
 $ErrorActionPreference = "Stop"
+$env:GITHUB_TOKEN = $null
 
 Write-Host "=== BẮT ĐẦU TỰ ĐỘNG CẤU HÌNH BẢO MẬT VERCEL & GITHUB ===" -ForegroundColor Green
 

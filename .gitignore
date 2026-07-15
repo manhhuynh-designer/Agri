@@ -44,3 +44,6 @@ next-env.d.ts
 /_site/
 /.jekyll-cache/
 /.jekyll-metadata
+
+.vercel
+.env*.local
