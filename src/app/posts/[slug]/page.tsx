@@ -5,6 +5,8 @@ import { marked } from "marked";
 import Link from "next/link";
 import RelatedPosts from "@/components/RelatedPosts";
 import ClientInteractions from "@/components/ClientInteractions";
+import NewsletterSection from "@/components/NewsletterSection";
+import FeedbackModal from "@/components/FeedbackModal";
 
 interface PostData {
   title: string;
@@ -323,7 +325,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                   Sáng kiến chia sẻ các thiết kế kỹ thuật tự chế và phương pháp nông nghiệp sinh thái tuần hoàn, phi lợi
                   nhuận hướng tới cộng đồng.
                 </p>
-                <a href="mailto:contact@nongnghiepsinhthai.vn" className="author-contact-btn">
+                <a href="#" className="author-contact-btn" id="open-feedback-btn">
                   Gửi thư đóng góp
                 </a>
               </div>
@@ -353,6 +355,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <button id="reader-theme-dark" className="reader-theme-btn dark" title="Chế độ màu tối đen">Tối đen</button>
         </div>
       </div>
+
+      {/* Newsletter signup under the article layout */}
+      <div className="wrap" style={{ paddingBottom: "60px", marginTop: "40px" }}>
+        <NewsletterSection />
+      </div>
+
+      <FeedbackModal />
 
       {/* Client Side Interactions Activator */}
       <ClientInteractions />

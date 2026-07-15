@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import BlogListing from "@/components/BlogListing";
+import NewsletterSection from "@/components/NewsletterSection";
 
 interface Post {
   slug: string;
@@ -105,8 +106,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="wrap" style={{ paddingTop: "10px", paddingBottom: "80px" }}>
+      <div className="wrap" style={{ paddingTop: "10px", paddingBottom: "30px" }}>
         <BlogListing initialPosts={posts} />
+      </div>
+
+      <div className="wrap" style={{ paddingBottom: "80px" }}>
+        <NewsletterSection />
       </div>
     </>
   );

@@ -488,6 +488,14 @@ Hãy đối chiếu thông tin bài viết với kiến thức khoa học nông 
 
     sidebarVerifyBtn?.addEventListener("click", handleVerifyOpen);
     
+    // Bind feedback modal trigger
+    const openFeedbackBtn = document.getElementById("open-feedback-btn");
+    const handleFeedbackOpen = (e: Event) => {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent("open-feedback-modal"));
+    };
+    openFeedbackBtn?.addEventListener("click", handleFeedbackOpen);
+    
     // Bind to any body triggers appended dynamically (like in alert warning boxes)
     const handleBodyVerifyClick = (e: Event) => {
       const target = e.target as HTMLElement;
@@ -513,6 +521,7 @@ Hãy đối chiếu thông tin bài viết với kiến thức khoa học nông 
       themeSepiaBtn?.removeEventListener("click", handleThemeSepia);
       themeDarkBtn?.removeEventListener("click", handleThemeDark);
       sidebarVerifyBtn?.removeEventListener("click", handleVerifyOpen);
+      openFeedbackBtn?.removeEventListener("click", handleFeedbackOpen);
       document.removeEventListener("click", handleBodyVerifyClick);
     };
   }, [pathname]);
