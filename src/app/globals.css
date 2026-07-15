@@ -1894,6 +1894,12 @@ html[data-theme="light"] .sidebar-action-btn:hover {
   display: none !important;
 }
 
+/* Đưa thanh tiến độ lên đỉnh màn hình ở chế độ đọc */
+.reader-mode-active .reading-progress-container {
+  top: 0 !important;
+  z-index: 201 !important;
+}
+
 /* Căn chỉnh bố cục bài viết */
 .reader-mode-active .post-layout {
   grid-template-columns: 1fr !important;
