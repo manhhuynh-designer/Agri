@@ -118,7 +118,7 @@ function downloadImageToBuffer(url) {
   });
 }
 
-// Generate image using Fal AI Flux Klein 4B model
+// Generate image using Fal AI Flux Klein 9B model with standard agriculture blog style framework
 function generateAiImage(prompt, imageName) {
   return new Promise((resolve) => {
     const falKey = process.env.FAL_KEY;
@@ -127,13 +127,14 @@ function generateAiImage(prompt, imageName) {
       return resolve(null);
     }
 
-    // Enrich the prompt to generate an extremely relevant, highly detailed professional photograph
-    // matching the context of the article rather than a generic illustration
-    const enrichedPrompt = `A realistic, highly detailed professional photography illustrating the specific agricultural subject: "${prompt}". Clean lighting, authentic documentary style, raw details, 8k resolution, shot on 35mm lens.`;
-    console.log(`[Fal AI] Generating image via Flux Klein 4B for prompt: "${enrichedPrompt}"...`);
+    const subject = prompt;
+    const background = `set in a clean modern organic agricultural farm, warm diffused morning light`;
+    const enrichedPrompt = `${subject}, ${background}, simple flat editorial illustration style, muted earth-tone color palette of olive green, warm ochre and soft terracotta, clean minimal linework, soft diffused natural lighting, uncluttered composition with generous negative space, warm and approachable mood, no text, no watermark, no logo`;
+    
+    console.log(`[Fal AI] Generating 16:9 illustration via Flux Klein 9B for prompt: "${enrichedPrompt}"...`);
 
-    const url = 'https://rest.fal.run/fal-ai/flux-2/klein/4b/base';
-    const reqData = JSON.stringify({ prompt: enrichedPrompt, image_size: 'square_hd' });
+    const url = 'https://fal.run/fal-ai/flux-2/klein/9b';
+    const reqData = JSON.stringify({ prompt: enrichedPrompt, image_size: 'landscape_16_9' });
     const urlParts = new URL(url);
 
     const options = {
