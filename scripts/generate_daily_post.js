@@ -483,7 +483,6 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
   }
 
   // 1. Tự động chuẩn hóa Front-matter
-  const todayStr = getNextPostDateString();
   const dateLine = `date: ${todayStr} 12:00:00 +0700`;
   
   // Đổi description thành subtitle
