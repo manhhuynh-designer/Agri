@@ -30,6 +30,14 @@ export default function AboutPage() {
           <p>Mặc dù hệ thống AI của chúng tôi được thiết kế để trích dẫn chính xác từ các nguồn tài liệu tin cậy và lọc bỏ thông tin nhiễu, các mô hình ngôn ngữ lớn vẫn có khả năng xảy ra lỗi logic hoặc nhầm lẫn thông tin. Do đó, tất cả các bài viết trên trang web này đều được gắn nhãn cảnh báo ở đầu trang.</p>
           <p>Chúng tôi khuyến cáo bà con nông dân và các bạn độc giả luôn đối chiếu lại thông tin với tài liệu gốc hoặc tham khảo ý kiến của các chuyên gia nông nghiệp địa phương trước khi áp dụng rộng rãi vào thực tế sản xuất.</p>
 
+          <h2>Tuyên bố về Bản quyền và Sử dụng Hợp lý (Copyright & Fair Use)</h2>
+          <p>Dự án AgriSynthe hoạt động trên tinh thần hoàn toàn phi lợi nhuận, phi thương mại với mục tiêu duy nhất là phổ biến và nâng cao kiến thức nông nghiệp hữu cơ sinh thái trong cộng đồng nhà nông Việt Nam. Chúng tôi cam kết tôn trọng quyền sở hữu trí tuệ của các tác giả và nhà xuất bản:</p>
+          <ul>
+            <li><b>Quyền sở hữu tài liệu gốc:</b> Mọi bản quyền của các giáo trình, sách, tài liệu nghiên cứu gốc được sử dụng làm cơ sở RAG đều thuộc về các tác giả và đơn vị xuất bản tương ứng. Chúng tôi chỉ thực hiện trích dẫn, tóm tắt và ghi nguồn rõ ràng (tên tác giả, số trang, nhà xuất bản) theo đúng tinh thần <b>Sử dụng hợp lý (Fair Use)</b> quy định tại Điều 25 Luật Sở hữu trí tuệ Việt Nam (phục vụ mục đích học tập, giảng dạy cá nhân và thông tin lưu trữ phi thương mại).</li>
+            <li><b>Không thương mại hóa:</b> Trang web không chứa bất kỳ hình thức quảng cáo, thu phí hoặc khai thác thương mại nào từ nội dung tổng hợp.</li>
+            <li><b>Chính sách gỡ bỏ (Take-down Policy):</b> Nếu quý tác giả, dịch giả hoặc đơn vị giữ bản quyền hợp pháp của bất kỳ tài liệu nào trên trang web này không đồng ý với việc trích dẫn thông tin trên hệ thống, xin vui lòng gửi yêu cầu gỡ bỏ đến email: <b>contact@manhhuynh.work</b>. Ban quản trị cam kết sẽ phản hồi và gỡ bỏ hoàn toàn nội dung liên quan ra khỏi website và cơ sở dữ liệu trong vòng 24 giờ kể từ khi nhận được yêu cầu hợp lệ.</li>
+          </ul>
+
           <h2>Chia sẻ và Đóng góp</h2>
           <p>Mọi mã nguồn của trang web, các công thức ủ phân hữu cơ, bản vẽ thiết bị và giấm gỗ đều được công khai miễn phí và phi lợi nhuận. Nếu bạn có tài liệu nông nghiệp hay muốn chia sẻ kết quả thực nghiệm của mình, vui lòng liên hệ với chúng tôi qua địa chỉ email: <b>contact@manhhuynh.work</b>.</p>
         </div>
