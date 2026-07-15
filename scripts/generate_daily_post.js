@@ -237,18 +237,45 @@ async function main() {
   const topics = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf-8'));
   const postFiles = fs.readdirSync(POSTS_DIR);
 
+  // 1. Gather all existing slugs and titles from file names and frontmatter
+  const existingSlugs = new Set();
+  const existingTitles = new Set();
+
+  postFiles.forEach(file => {
+    // Extract slug from filename (remove date prefix and extension)
+    const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.(md|html)$/, '');
+    existingSlugs.add(slug);
+    
+    // Read file and extract title from frontmatter
+    try {
+      const content = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
+      const titleMatch = content.match(/^title:\s*["']?([^"'\r\n]+)["']?/m);
+      if (titleMatch) {
+        existingTitles.add(titleMatch[1].trim().toLowerCase());
+      }
+    } catch (e) {
+      // Ignore reading errors
+    }
+  });
+
   let selectedTopic = null;
   for (const topic of topics) {
-    const hasBeenWritten = postFiles.some(file => file.includes(topic.id));
-    if (!hasBeenWritten) {
+    const isSlugWritten = existingSlugs.has(topic.id);
+    const isTitleWritten = existingTitles.has(topic.title.trim().toLowerCase());
+    
+    if (!isSlugWritten && !isTitleWritten) {
       selectedTopic = topic;
       break;
     }
   }
 
   if (!selectedTopic) {
-    console.log('All topics have been written! Selecting a random one.');
-    selectedTopic = topics[Math.floor(Math.random() * topics.length)];
+    console.warn('\n================================================================');
+    console.warn('⚠️  BÁO CÁO: Tất cả các chủ đề trong topics.json đều đã được viết!');
+    console.warn('Để tránh tạo bài trùng lặp, kịch bản sẽ dừng hoạt động và không tạo thêm bài mới.');
+    console.warn('Vui lòng thêm các chủ đề nông nghiệp hữu cơ mới vào file _data/topics.json.');
+    console.warn('================================================================\n');
+    process.exit(0); // Exit cleanly without creating duplicate post
   }
 
   console.log(`Selected Topic: "${selectedTopic.title}" (ID: ${selectedTopic.id})`);
