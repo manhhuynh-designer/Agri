@@ -1909,7 +1909,7 @@ html[data-theme="light"] .sidebar-action-btn:hover {
 
 /* Tăng kích cỡ chữ bài viết để dễ đọc */
 .reader-mode-active .post-content {
-  font-size: 1.15rem !important;
+  font-size: 1.15rem;
   line-height: 1.85 !important;
 }
 

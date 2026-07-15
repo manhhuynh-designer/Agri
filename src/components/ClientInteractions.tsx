@@ -220,7 +220,7 @@ export default function ClientInteractions() {
     const themeSepiaBtn = document.getElementById("reader-theme-sepia");
     const themeDarkBtn = document.getElementById("reader-theme-dark");
 
-    let currentFontScale = parseInt(localStorage.getItem("reader-font-scale") || "100");
+    let currentFontScale = parseInt(localStorage.getItem("reader-font-scale") || "115");
     let currentTheme = localStorage.getItem("reader-theme") || "default";
     let isReaderActive = localStorage.getItem("reader-active") === "true";
 
@@ -260,7 +260,7 @@ export default function ClientInteractions() {
       if (isReaderActive) {
         const postContent = document.querySelector(".post-content") as HTMLElement;
         if (postContent) {
-          postContent.style.fontSize = `${scale}%`;
+          postContent.style.setProperty("font-size", `${scale}%`, "important");
         }
       }
     };
