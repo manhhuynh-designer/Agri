@@ -340,40 +340,42 @@ export default function ClientInteractions() {
       verifyModal.id = "ai-verify-modal";
       verifyModal.className = "verify-modal-overlay";
       verifyModal.innerHTML = `
-        <div class="verify-modal-card">
-          <div class="verify-modal-header">
-            <div class="verify-header-title">
+        <div class="verify-modal-card" style="max-height:85vh;overflow:hidden;">
+          <div class="verify-modal-header" style="border-bottom:1px solid var(--line);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+            <div class="verify-header-title" style="display:flex;align-items:center;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="verify-shield-icon" style="width:20px;height:20px;color:#10b981;margin-right:8px;vertical-align:middle;display:inline-block;">
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              <h4 style="margin:0;display:inline-block;vertical-align:middle;font-size:16px;font-family:'Archivo',sans-serif;">Hệ thống kiểm chứng AgriSynthe AI</h4>
+              <h4 style="margin:0;display:inline-block;vertical-align:middle;font-size:16px;font-family:'Archivo',sans-serif;">Kiểm chứng thông tin bằng AI độc lập</h4>
             </div>
             <button class="verify-modal-close" aria-label="Đóng" style="background:none;border:none;color:var(--ash);font-size:28px;cursor:pointer;line-height:1;">&times;</button>
           </div>
-          <div class="verify-modal-tabs">
-            <button class="verify-tab-btn active" data-tab="report">Báo cáo Kiểm chứng</button>
-            <button class="verify-tab-btn" data-tab="qa">Trò chuyện Hỏi đáp</button>
-          </div>
-          <div class="verify-modal-body">
-            <div class="verify-tab-content active" id="verify-tab-report">
-              <div class="verify-report-intro" style="font-size:13.5px;color:var(--ash-dim);margin-bottom:16px;line-height:1.5;">
-                Hệ thống đã đối chiếu chéo nội dung bài viết với cơ sở dữ liệu sách kỹ thuật nông nghiệp hữu cơ ngoại tuyến. Dưới đây là kết quả kiểm chứng các luận điểm:
-              </div>
-              <div id="verify-report-list" class="verify-report-list">
-                <!-- Tải động danh sách luận điểm -->
-              </div>
+          <div class="verify-modal-body" style="padding:20px;display:flex;flex-direction:column;gap:16px;overflow-y:auto;">
+            <p style="font-size:13.5px;color:var(--ash-dim);margin:0;line-height:1.6;">
+              Để kiểm chứng độc lập tính khách quan và khoa học của bài viết, bạn có thể sao chép nhanh câu lệnh (prompt) dưới đây cùng nội dung bài viết để gửi trực tiếp cho các mô hình AI lớn (ChatGPT, Gemini, Grok) đối chiếu.
+            </p>
+            
+            <div class="prompt-preview-container" style="border:1px solid var(--line);background-color:var(--bg);border-radius:8px;padding:12px;max-height:150px;overflow-y:auto;text-align:left;">
+              <pre id="prompt-preview-text" style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ash-dim);white-space:pre-wrap;word-break:break-all;"></pre>
             </div>
-            <div class="verify-tab-content" id="verify-tab-qa">
-              <div class="verify-chat-box" id="verify-chat-box">
-                <div class="chat-msg bot">
-                  <div class="chat-avatar">AI</div>
-                  <div class="chat-bubble">
-                    Chào bạn! Tôi là AgriSynthe AI. Tôi đã phân tích toàn bộ tài liệu kỹ thuật của bài viết này. Bạn muốn tôi làm rõ hay kiểm chứng thêm thông tin nào dưới đây?
-                  </div>
-                </div>
-              </div>
-              <div class="verify-chat-suggestions" id="verify-chat-suggestions">
-                <!-- Tải động câu hỏi gợi ý -->
+
+            <div class="verify-action-buttons" style="display:flex;flex-direction:column;gap:10px;">
+              <button id="copy-full-prompt-btn" class="verify-action-btn primary" style="background-color:var(--ember);color:#ffffff;border:none;padding:12px;border-radius:6px;font-weight:600;font-size:13.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:var(--transition-smooth);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3" /></svg>
+                Sao chép Prompt & Nội dung bài viết (Khuyên dùng)
+              </button>
+              <button id="copy-link-prompt-btn" class="verify-action-btn secondary" style="background:none;border:1px solid var(--line);color:var(--ash);padding:10px;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:var(--transition-smooth);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                Chỉ sao chép Prompt & Link bài viết
+              </button>
+            </div>
+
+            <div class="llm-links-section" style="border-top:1px solid var(--line);padding-top:16px;margin-top:4px;">
+              <span style="font-size:12px;color:var(--steel);display:block;margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;text-align:left;">Đến trang các AI để dán lệnh:</span>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" class="llm-link-btn" style="flex:1;text-align:center;padding:8px 12px;border:1px solid var(--line);background-color:var(--bg);border-radius:6px;font-size:13px;color:var(--ash);text-decoration:none;font-weight:600;transition:var(--transition-smooth);box-sizing:border-box;">ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="llm-link-btn" style="flex:1;text-align:center;padding:8px 12px;border:1px solid var(--line);background-color:var(--bg);border-radius:6px;font-size:13px;color:var(--ash);text-decoration:none;font-weight:600;transition:var(--transition-smooth);box-sizing:border-box;">Gemini</a>
+                <a href="https://grok.com" target="_blank" rel="noopener noreferrer" class="llm-link-btn" style="flex:1;text-align:center;padding:8px 12px;border:1px solid var(--line);background-color:var(--bg);border-radius:6px;font-size:13px;color:var(--ash);text-decoration:none;font-weight:600;transition:var(--transition-smooth);box-sizing:border-box;">Grok</a>
               </div>
             </div>
           </div>
@@ -394,19 +396,6 @@ export default function ClientInteractions() {
       verifyModal.addEventListener("click", (e) => {
         if (e.target === verifyModal) closeModal();
       });
-      
-      // Tab switching events
-      const tabButtons = verifyModal.querySelectorAll(".verify-tab-btn");
-      tabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          tabButtons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          const tabName = btn.getAttribute("data-tab");
-          verifyModal?.querySelectorAll(".verify-tab-content").forEach((c) => c.classList.remove("active"));
-          const targetContent = verifyModal?.querySelector(`#verify-tab-${tabName}`);
-          if (targetContent) targetContent.classList.add("active");
-        });
-      });
     }
 
     const openVerifyModal = () => {
@@ -416,139 +405,78 @@ export default function ClientInteractions() {
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
       
-      // Populate claims list dynamically from footnotes
-      const listContainer = modal.querySelector("#verify-report-list");
-      const citationRefs = document.querySelectorAll(".citation-ref");
+      const currentUrl = window.location.href;
+      const articleTitle = document.querySelector(".post-hero h1")?.textContent?.trim() || "";
+      const articleBody = document.querySelector(".post-content")?.textContent?.trim() || "";
       
-      if (listContainer) {
-        listContainer.innerHTML = "";
-        if (citationRefs.length === 0) {
-          listContainer.innerHTML = "<div class='verify-empty-state' style='padding:20px;text-align:center;color:var(--ash-dim);font-size:14px;'>Không tìm thấy tài liệu đối chiếu trực tiếp cho bài viết này. Tuy nhiên, toàn bộ nội dung đã được rà soát bởi mô hình RAG.</div>";
-        } else {
-          citationRefs.forEach((refEl, i) => {
-            const refId = refEl.getAttribute("href")?.substring(1);
-            const footnoteEl = refId ? document.getElementById(refId) : null;
-            const sourceText = footnoteEl ? footnoteEl.textContent || "" : "Tài liệu lưu trữ nội bộ";
-            
-            // Get paragraph text as claim
-            let paragraphText = refEl.parentElement?.textContent || "";
-            // Clean up citation indexes
-            paragraphText = paragraphText.replace(/\[\d+\]/g, "").trim();
-            if (paragraphText.length > 150) {
-              paragraphText = paragraphText.substring(0, 147) + "...";
-            }
-            
-            const item = document.createElement("div");
-            item.className = "verify-report-item";
-            item.innerHTML = `
-              <div class="verify-item-meta">
-                <span class="verify-badge verified">Đã kiểm chứng ✅</span>
-                <span class="verify-ref-id">[${i + 1}]</span>
-              </div>
-              <div class="verify-item-claim">"${paragraphText}"</div>
-              <div class="verify-item-source"><strong>Nguồn đối chiếu:</strong> ${sourceText.replace(/^\d+\s*/, "")}</div>
-            `;
-            listContainer.appendChild(item);
+      // Format preview text
+      const previewText = `Hãy kiểm chứng độ chính xác kỹ thuật và nguồn tài liệu của bài viết nông nghiệp dưới đây:
+- Tiêu đề: ${articleTitle}
+- Đường dẫn: ${currentUrl}
+
+NỘI DUNG BÀI VIẾT:
+[... Toàn bộ nội dung chữ của bài viết ...]`;
+
+      const previewEl = modal.querySelector("#prompt-preview-text");
+      if (previewEl) {
+        previewEl.textContent = previewText;
+      }
+
+      // Action: Copy Full Prompt (Prompt + Full Body Content)
+      const copyFullBtn = modal.querySelector("#copy-full-prompt-btn");
+      const handleCopyFull = () => {
+        const fullPrompt = `Hãy kiểm chứng độ chính xác kỹ thuật và nguồn tài liệu của bài viết nông nghiệp dưới đây:
+- Tiêu đề: ${articleTitle}
+- Đường dẫn: ${currentUrl}
+
+NỘI DUNG BÀI VIẾT:
+=========================================
+${articleBody}
+=========================================
+
+Hãy đối chiếu thông tin trên với kiến thức khoa học nông nghiệp hữu cơ và sinh học chính thống, chỉ rõ các phần có luận điểm cần lưu ý, kiểm chứng chéo với danh sách tài liệu trích dẫn ở chân bài viết và đưa ra kết luận khách quan về độ tin cậy.`;
+
+        navigator.clipboard.writeText(fullPrompt)
+          .then(() => {
+            showToast("Đã sao chép Prompt & Nội dung bài viết!");
+            closeModal();
+          })
+          .catch(() => {
+            showToast("Sao chép thất bại, vui lòng thử lại.");
           });
-        }
-      }
+      };
 
-      // Suggestions logic
-      const suggestionsContainer = modal.querySelector("#verify-chat-suggestions");
-      const chatBox = modal.querySelector("#verify-chat-box");
-      const headings = Array.from(document.querySelectorAll(".post-content h2")).slice(0, 2);
-      
-      if (suggestionsContainer && chatBox) {
-        suggestionsContainer.innerHTML = "";
+      // Action: Copy Link Only Prompt (Prompt + Link)
+      const copyLinkBtn = modal.querySelector("#copy-link-prompt-btn");
+      const handleCopyLink = () => {
+        const linkPrompt = `Hãy truy cập đường dẫn dưới đây, đọc và kiểm chứng độ chính xác kỹ thuật và các nguồn tài liệu trích dẫn của bài viết nông nghiệp này:
+- Tiêu đề: ${articleTitle}
+- Đường dẫn: ${currentUrl}
+
+Hãy đối chiếu thông tin bài viết với kiến thức khoa học nông nghiệp hữu cơ và sinh học chính thống, chỉ rõ các phần có luận điểm cần lưu ý, kiểm chứng chéo với danh sách tài liệu trích dẫn ở chân bài viết và đưa ra kết luận khách quan về độ tin cậy.`;
+
+        navigator.clipboard.writeText(linkPrompt)
+          .then(() => {
+            showToast("Đã sao chép Prompt & Link bài viết!");
+            closeModal();
+          })
+          .catch(() => {
+            showToast("Sao chép thất bại, vui lòng thử lại.");
+          });
+      };
+
+      const closeModal = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
         
-        // Reset chat box to only show initial bot message
-        chatBox.innerHTML = `
-          <div class="chat-msg bot">
-            <div class="chat-avatar">AI</div>
-            <div class="chat-bubble">
-              Chào bạn! Tôi là AgriSynthe AI. Tôi đã phân tích toàn bộ tài liệu kỹ thuật của bài viết này. Bạn muốn tôi làm rõ hay kiểm chứng thêm thông tin nào dưới đây?
-            </div>
-          </div>
-        `;
+        // Remove transient listeners
+        copyFullBtn?.removeEventListener("click", handleCopyFull);
+        copyLinkBtn?.removeEventListener("click", handleCopyLink);
+      };
 
-        const qList = [
-          "Làm sao tôi có thể tin tưởng nguồn tài liệu này?",
-          ...headings.map((h) => `Làm rõ phần: "${h.textContent?.trim()}"`),
-          "Tóm tắt ngắn gọn quy trình kỹ thuật trong bài viết?"
-        ];
-        
-        const handleUserQuestion = (qText: string, btnElement: HTMLElement) => {
-          // Append user bubble
-          const userMsg = document.createElement("div");
-          userMsg.className = "chat-msg user";
-          userMsg.innerHTML = `<div class="chat-bubble">${qText}</div>`;
-          chatBox.appendChild(userMsg);
-          chatBox.scrollTop = chatBox.scrollHeight;
-          
-          btnElement.style.display = "none"; // Hide suggestion after click
-          
-          // Append typing indicator
-          const typingMsg = document.createElement("div");
-          typingMsg.className = "chat-msg bot typing";
-          typingMsg.innerHTML = `
-            <div class="chat-avatar">AI</div>
-            <div class="chat-bubble">Đang kiểm chứng thông tin...</div>
-          `;
-          chatBox.appendChild(typingMsg);
-          chatBox.scrollTop = chatBox.scrollHeight;
-          
-          // Simulate response after 1.2s
-          setTimeout(() => {
-            typingMsg.remove();
-            
-            let answer = "";
-            if (qText.startsWith("Làm sao tôi")) {
-              answer = "Hệ thống AgriSynthe AI hoạt động bằng cách đối chiếu thông tin thời gian thực với tập dữ liệu sách khoa học hữu cơ ngoại tuyến (~3GB) lưu trữ trong thư mục `documents` cục bộ. Mọi trích dẫn đều ghi rõ tên chương, tác giả và số trang cụ thể để độc giả dễ dàng tra cứu chéo bản cứng.";
-            } else if (qText.startsWith("Làm rõ phần")) {
-              const headingText = qText.replace('Làm rõ phần: "', '').replace('"', '');
-              const allH2 = Array.from(document.querySelectorAll(".post-content h2"));
-              const targetH2 = allH2.find((h) => h.textContent?.trim() === headingText);
-              let contextParagraph = "";
-              if (targetH2) {
-                let sib = targetH2.nextElementSibling;
-                while (sib && sib.tagName !== "H2") {
-                  if (sib.tagName === "P" || sib.tagName === "UL" || sib.tagName === "OL") {
-                    contextParagraph += sib.textContent + " ";
-                  }
-                  sib = sib.nextElementSibling;
-                }
-              }
-              if (contextParagraph) {
-                if (contextParagraph.length > 250) {
-                  contextParagraph = contextParagraph.substring(0, 247) + "...";
-                }
-                answer = `Theo tài liệu đã kiểm chứng: ${contextParagraph.trim()} Đây là luận điểm được trích lục chính xác từ tài liệu nông học liên quan.`;
-              } else {
-                answer = "Luận điểm này đã được đối chiếu chéo thành công với giáo trình nông học hữu cơ và các tài liệu chuyên ngành về vi sinh hữu ích.";
-              }
-            } else {
-              answer = "Tóm tắt quy trình: Hướng dẫn này kết hợp việc chuẩn bị nguyên liệu hữu cơ, cấy các chủng men vi sinh đối kháng (như Trichoderma, Bacillus) để ủ hoai mục, đồng thời tăng cường bón vi sinh vật vùng rễ (PGPR) để tạo hàng rào sinh học bảo vệ rễ cây trồng.";
-            }
-            
-            const botMsg = document.createElement("div");
-            botMsg.className = "chat-msg bot";
-            botMsg.innerHTML = `
-              <div class="chat-avatar">AI</div>
-              <div class="chat-bubble">${answer}</div>
-            `;
-            chatBox.appendChild(botMsg);
-            chatBox.scrollTop = chatBox.scrollHeight;
-          }, 1200);
-        };
-
-        qList.forEach((qText) => {
-          const btn = document.createElement("button");
-          btn.className = "chat-suggest-btn";
-          btn.textContent = qText;
-          btn.addEventListener("click", () => handleUserQuestion(qText, btn));
-          suggestionsContainer.appendChild(btn);
-        });
-      }
+      // Transient listeners for copy buttons inside open instance
+      copyFullBtn?.addEventListener("click", handleCopyFull);
+      copyLinkBtn?.addEventListener("click", handleCopyLink);
     };
 
     // Bind triggers
