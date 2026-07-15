@@ -45,8 +45,17 @@ function getPostBySlug(slug: string): PostData | null {
     formattedDate = `${day}/${month}/${year}`;
   }
 
-  // Parse markdown to HTML
-  const contentHtml = marked(content) as string;
+  // Parse markdown to HTML (Clean leading spaces inside diagram cards to prevent indented code blocks)
+  const cleanedContent = content.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match, svgContent) => {
+    const cleanedSvg = svgContent
+      .split("\n")
+      .map((line: string) => line.trim())
+      .filter((line: string) => line.length > 0)
+      .join("\n");
+    return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
+  });
+
+  const contentHtml = marked(cleanedContent) as string;
 
   return {
     title: data.title || slug,
