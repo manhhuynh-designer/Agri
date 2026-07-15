@@ -4,7 +4,7 @@ title: "Bí kíp nhân nuôi vi sinh vật hữu ích bằng sữa chua và men 
 date: 2026-07-15 12:00:00 +0700
 categories: [Thực nghiệm, Tự chế]
 tags: [Thực nghiệm, Tự chế, Hữu cơ]
-image: https://images.pexels.com/photos/36785117/pexels-photo-36785117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+image: https://img.manhhuynh.work/posts/test-bi-kip-u-sau-can-canh-hero.png?v=1
 subtitle: "Hướng dẫn chi tiết quy trình nhân nuôi vi sinh vật hữu ích bằng sữa chua và men rượu. Phân tích chuyên sâu cơ chế sinh học, so sánh các phương pháp ủ và đề xuất các giải pháp thay thế nguyên liệu bằng phụ phẩm nông nghiệp Việt Nam."
 ---
 
