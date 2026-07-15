@@ -1,7 +1,26 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const apiKey = (process.env.RESEND_API_KEY || '').trim().replace(/^['"]|['"]$/g, '');
+const getCleanResendKey = () => {
+  const rawKey = process.env.RESEND_API_KEY || '';
+  const lines = rawKey.split(/[\r\n]+/);
+  for (let line of lines) {
+    line = line.trim().replace(/^['"]|['"]$/g, '');
+    if (line.startsWith('re_')) {
+      return line;
+    }
+    if (line.includes('RESEND_API_KEY=')) {
+      const parts = line.split('RESEND_API_KEY=');
+      const potentialKey = parts[1]?.trim().replace(/^['"]|['"]$/g, '');
+      if (potentialKey && potentialKey.startsWith('re_')) {
+        return potentialKey;
+      }
+    }
+  }
+  return rawKey.trim().replace(/^['"]|['"]$/g, '');
+};
+
+const apiKey = getCleanResendKey();
 const resend = new Resend(apiKey);
 
 export async function POST(request: Request) {
