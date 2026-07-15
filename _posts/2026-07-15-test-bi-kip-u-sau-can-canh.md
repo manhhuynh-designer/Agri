@@ -1,15 +1,18 @@
-I have written the markdown file for the blog post under the path `_posts/2026-07-15-nhan-nuoi-vi-sinh-vat-sua-chua-men-ruou.md`. I am currently running a verification check on the Next.js build system to ensure there are no compile errors with the new post's YAML or SVG markup. I will wait for the build logs to proceed.
 ---
 layout: post
 title: "Bí kíp nhân nuôi vi sinh vật hữu ích bằng sữa chua và men rượu"
+date: 2026-07-15 12:00:00 +0700
 categories: [Thực nghiệm, Tự chế]
 tags: [Thực nghiệm, Tự chế, Hữu cơ]
 image: https://images.pexels.com/photos/36785117/pexels-photo-36785117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-description: Hướng dẫn chi tiết quy trình nhân nuôi vi sinh vật hữu ích bằng sữa chua và men rượu. Phân tích chuyên sâu cơ chế sinh học, so sánh các phương pháp ủ và đề xuất các giải pháp thay thế nguyên liệu bằng phụ phẩm nông nghiệp Việt Nam.
+subtitle: "Hướng dẫn chi tiết quy trình nhân nuôi vi sinh vật hữu ích bằng sữa chua và men rượu. Phân tích chuyên sâu cơ chế sinh học, so sánh các phương pháp ủ và đề xuất các giải pháp thay thế nguyên liệu bằng phụ phẩm nông nghiệp Việt Nam."
 ---
 
-> [!WARNING]
-> **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
+<div class="ai-warning-box" style="background: rgba(220, 38, 38, 0.05); border-left: 4px solid #dc2626; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
+  <p style="margin: 0; font-size: 0.92rem; color: var(--ash); line-height: 1.5;">
+    <strong>⚠️ LƯU Ý QUAN TRỌNG:</strong> Bài viết này được tổng hợp và biên tập tự động từ sách bởi Trí tuệ Nhân tạo (AI). Mặc dù hệ thống đã đối chiếu với các nguồn tài liệu chính thống, thông tin chỉ mang tính chất tham khảo. Độc giả cần kiểm chứng lại nguồn gốc hoặc thảo luận với chuyên gia trước khi ứng dụng thực tế.
+  </p>
+</div>
 
 ## Tầm quan trọng của việc tự nhân nuôi vi sinh vật trong nông nghiệp sinh thái
 
@@ -152,13 +155,13 @@ Sau khi thu hoạch mẻ vi sinh lỏng sữa chua - men rượu thành công, n
 ---
 
 ### Tài liệu trích dẫn chi tiết
-* <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup> *Ứng dụng công nghệ sinh học trong sản xuất hữu cơ và đời sống nông thôn*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 3, Trang 85-92.
-* <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup> *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng, Chương 2, Trang 45-52.
-* <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup> *Kỹ thuật bảo vệ thực vật và kiểm soát dịch hại tổng hợp sinh học*, PGS. TS. Phạm Văn Lầm, Chương 5, Trang 130-138.
-* <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup> *Cuộc cách mạng Một-cọng-rơm*, Masanobu Fukuoka, Chương 2, Trang 26-32.
-* <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup> *Biến rác thành nguồn tài nguyên quý giá nhất (Sản xuất thực phẩm, nhiên liệu, phân bón quy mô nhỏ)*, Paul Olivier, Jozef De Smet, Todd Hyman, Marc Pare, Chương 2, Trang 18-24.
-* <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup> *Sổ tay nông dân (Tập 5: Thiết kế rừng rừng, quản lý đất đai và nông trại sinh thái)*, Chris Evans và cộng sự, Chương 3, Trang 5-11.
-* <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup> *Nông nghiệp bền vững: Cơ sở khoa học và ứng dụng thực tiễn Việt Nam*, Nguyễn Văn Mấn, Trịnh Văn Thịnh, Chương 3, Trang 112-120.
-* <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup> *Phân chuồng, Phân xanh: Quy trình sản xuất và kỹ thuật phối trộn sử dụng*, Nguyễn Thanh Hùng, Chương 4, Trang 62-68.
-* <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup> *Phân tiêu, Nước tiểu và cách sử dụng làm phân hữu cơ lỏng*, Việt Chy, Chương 3, Trang 54-61.
-* <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup> *Độ ẩm đất với sự sinh trưởng và năng suất cây trồng*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 2, Trang 35-42.
+* <span id="ref-1">**[1]**</span> *Ứng dụng công nghệ sinh học trong sản xuất hữu cơ và đời sống nông thôn*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 3, Trang 85-92. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng, Chương 2, Trang 45-52. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-3">**[3]**</span> *Kỹ thuật bảo vệ thực vật và kiểm soát dịch hại tổng hợp sinh học*, PGS. TS. Phạm Văn Lầm, Chương 5, Trang 130-138. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-4">**[4]**</span> *Cuộc cách mạng Một-cọng-rơm*, Masanobu Fukuoka, Chương 2, Trang 26-32. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-5">**[5]**</span> *Biến rác thành nguồn tài nguyên quý giá nhất (Sản xuất thực phẩm, nhiên liệu, phân bón quy mô nhỏ)*, Paul Olivier, Jozef De Smet, Todd Hyman, Marc Pare, Chương 2, Trang 18-24. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-6">**[6]**</span> *Sổ tay nông dân (Tập 5: Thiết kế rừng rừng, quản lý đất đai và nông trại sinh thái)*, Chris Evans và cộng sự, Chương 3, Trang 5-11. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-7">**[7]**</span> *Nông nghiệp bền vững: Cơ sở khoa học và ứng dụng thực tiễn Việt Nam*, Nguyễn Văn Mấn, Trịnh Văn Thịnh, Chương 3, Trang 112-120. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-8">**[8]**</span> *Phân chuồng, Phân xanh: Quy trình sản xuất và kỹ thuật phối trộn sử dụng*, Nguyễn Thanh Hùng, Chương 4, Trang 62-68. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-9">**[9]**</span> *Phân tiêu, Nước tiểu và cách sử dụng làm phân hữu cơ lỏng*, Việt Chy, Chương 3, Trang 54-61. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-10">**[10]**</span> *Độ ẩm đất với sự sinh trưởng và năng suất cây trồng*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 2, Trang 35-42. <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>

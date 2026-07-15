@@ -311,13 +311,16 @@ async function main() {
   1. Sử dụng định dạng Markdown Jekyll có Front Matter đầy đủ ở đầu bài viết:
      layout: post
      title: "${selectedTopic.title}"
+     subtitle: "Mô tả ngắn gọn nội dung cốt lõi của bài viết trong 1-2 câu."
      categories: [${selectedTopic.categories.join(', ')}]
      tags: [${selectedTopic.categories.concat(['Hữu cơ']).join(', ')}]
      image: ${selectedImage}
-     description: Mô tả ngắn gọn của bài viết trong 1-2 câu.
   2. Ngay đầu bài viết, trước nội dung chính, bắt buộc phải có khối cảnh báo:
-     > [!WARNING]
-     > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
+     <div class="ai-warning-box" style="background: rgba(220, 38, 38, 0.05); border-left: 4px solid #dc2626; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
+       <p style="margin: 0; font-size: 0.92rem; color: var(--ash); line-height: 1.5;">
+         <strong>⚠️ LƯU Ý QUAN TRỌNG:</strong> Bài viết này được tổng hợp và biên tập tự động từ sách bởi Trí tuệ Nhân tạo (AI). Mặc dù hệ thống đã đối chiếu với các nguồn tài liệu chính thống, thông tin chỉ mang tính chất tham khảo. Độc giả cần kiểm chứng lại nguồn gốc hoặc thảo luận với chuyên gia trước khi ứng dụng thực tế.
+       </p>
+     </div>
   3. Viết nội dung mang tính chất PHÂN TÍCH, SO SÁNH và CHUYỂN ĐỔI CAO (Transformative & Analytical Style):
      - Không sao chép hay dịch thô lý thuyết suông từ tài liệu gốc.
      - Hãy tổng hợp kiến thức từ nhiều tài liệu, thực hiện so sánh đối chiếu ưu nhược điểm của các phương pháp khác nhau (ví dụ: so sánh cách ủ nóng với ủ nguội, hoặc so sánh thiết bị tự chế với thiết bị công nghiệp).
@@ -391,13 +394,60 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
   const filename = `${todayStr}-${selectedTopic.id}.md`;
   const filepath = path.join(POSTS_DIR, filename);
 
-  // 1. Format body citations: [1] -> <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>
-  content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
-  
-  // 2. Format citations list: - [1] -> - <span id="ref-1">**[1]**</span> ...
-  content = content.replace(/^([-*])\s*\[(\d+)\]\s*(.+)$/gm, '$1 <span id="ref-$2">**[$2]**</span> $3 <a href="#cit-$2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>');
+  // 0. Cắt sạch logs suy nghĩ của agent xuất hiện trước dấu --- đầu tiên
+  const firstDashIndex = content.indexOf('---');
+  if (firstDashIndex !== -1 && firstDashIndex > 0) {
+    content = content.substring(firstDashIndex);
+  }
 
-  // 3. Remove leading whitespace from SVG inside <div class="diagram-card">...</div> to prevent markdown pre/code block parsing
+  // 1. Tự động chuẩn hóa Front-matter
+  const todayStr = getNextPostDateString();
+  const dateLine = `date: ${todayStr} 12:00:00 +0700`;
+  
+  // Đổi description thành subtitle
+  content = content.replace(/^description:\s*(.+)$/m, 'subtitle: "$1"');
+  // Chèn date ngay sau trường title
+  content = content.replace(/^(title:\s*["'].+?["'])$/m, `$1\n${dateLine}`);
+
+  // 2. Chuẩn hóa Khối tuyên bố miễn trừ trách nhiệm AI (AI Warning Box) thành mã HTML chuẩn
+  content = content.replace(
+    />\s*\[!WARNING\][\s\S]*?trước khi áp dụng vào thực tế sản xuất\./gi,
+    `<div class="ai-warning-box" style="background: rgba(220, 38, 38, 0.05); border-left: 4px solid #dc2626; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
+  <p style="margin: 0; font-size: 0.92rem; color: var(--ash); line-height: 1.5;">
+    <strong>⚠️ LƯU Ý QUAN TRỌNG:</strong> Bài viết này được tổng hợp và biên tập tự động từ sách bởi Trí tuệ Nhân tạo (AI). Mặc dù hệ thống đã đối chiếu với các nguồn tài liệu chính thống, thông tin chỉ mang tính chất tham khảo. Độc giả cần kiểm chứng lại nguồn gốc hoặc thảo luận với chuyên gia trước khi ứng dụng thực tế.
+  </p>
+</div>`
+  );
+
+  // 3. Xử lý Trích dẫn chuyên sâu (Bảo vệ khối SVG và định dạng 2 chiều danh sách nguồn)
+  const citationsHeader = '### Tài liệu trích dẫn chi tiết';
+  const citationsIndex = content.indexOf(citationsHeader);
+  if (citationsIndex !== -1) {
+    let body = content.substring(0, citationsIndex);
+    let footer = content.substring(citationsIndex);
+    
+    // Tách và bảo vệ toàn bộ các khối <svg>...</svg> bên trong phần thân bài viết
+    const parts = body.split(/(<svg[\s\S]*?<\/svg>)/g);
+    for (let i = 0; i < parts.length; i++) {
+      if (i % 2 === 0) { // Nằm ngoài khối SVG -> Thực hiện replace số trích dẫn trong ngoặc vuông
+        parts[i] = parts[i].replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
+      }
+    }
+    body = parts.join('');
+    
+    // Định dạng danh sách nguồn ở chân bài viết: hỗ trợ cả [1], `[1]` hoặc dạng <sup> lồng
+    footer = footer.replace(/^([-*])\s*(?:`?\[(\d+)\]`?|<sup><a[^>]*>\[(\d+)\]<\/a><\/sup>)\s*(.+)$/gm, (match, prefix, num1, num2, desc) => {
+      const num = num1 || num2;
+      return `${prefix} <span id="ref-${num}">**[${num}]**</span> ${desc.trim()} <a href="#cit-${num}" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>`;
+    });
+    
+    content = body + footer;
+  } else {
+    // Dự phòng nếu không tìm thấy tiêu đề trích dẫn nguồn
+    content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
+  }
+
+  // 4. Định dạng và nén nhẹ khối SVG để tránh markdown pre/code block parsing
   content = content.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match, svgContent) => {
     const cleanedSvg = svgContent
       .split('\n')
