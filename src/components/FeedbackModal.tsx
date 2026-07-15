@@ -53,9 +53,12 @@ export default function FeedbackModal() {
     };
 
     try {
-      const res = await fetch("/api/feedback", {
+      const res = await fetch("https://formspree.io/f/mrenebao", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Accept": "application/json",
+          "Content-Type": "application/json" 
+        },
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
@@ -63,13 +66,11 @@ export default function FeedbackModal() {
         }),
       });
 
-      const data = await res.json();
-
       if (res.ok) {
-        triggerToast(data.message || "Gửi ý kiến đóng góp thành công!");
+        triggerToast("Gửi ý kiến đóng góp thành công!");
         handleClose();
       } else {
-        triggerToast(data.error || "Gửi góp ý thất bại, vui lòng thử lại.", false);
+        triggerToast("Gửi góp ý thất bại, vui lòng thử lại.", false);
       }
     } catch (err) {
       console.error('Feedback Submit Error:', err);
