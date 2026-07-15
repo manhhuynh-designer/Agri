@@ -204,6 +204,8 @@ export default function ClientInteractions() {
         // Render each block manually using mermaid.run to avoid DOM ID conflicts
         mermaid.run({
           querySelector: ".mermaid"
+        }).catch((err) => {
+          console.warn("Mermaid.js compilation failed:", err);
         });
       });
     }
