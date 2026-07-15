@@ -92,44 +92,99 @@ function downloadImage(url, localPath) {
   });
 }
 
-// Generate image using local Antigravity CLI (agy)
+// Helper to download an image from a URL into a Buffer (supports redirects)
+function downloadImageToBuffer(url) {
+  return new Promise((resolve) => {
+    const fetchUrl = (targetUrl) => {
+      https.get(targetUrl, (res) => {
+        if (res.statusCode === 301 || res.statusCode === 302) {
+          return fetchUrl(res.headers.location);
+        }
+        if (res.statusCode === 200) {
+          const chunks = [];
+          res.on('data', chunk => chunks.push(chunk));
+          res.on('end', () => {
+            resolve(Buffer.concat(chunks));
+          });
+        } else {
+          resolve(null);
+        }
+      }).on('error', (err) => {
+        console.error('[Buffer Downloader] Connection error:', err.message);
+        resolve(null);
+      });
+    };
+    fetchUrl(url);
+  });
+}
+
+// Generate image using Fal AI Flux Klein 4B model
 function generateAiImage(prompt, imageName) {
   return new Promise((resolve) => {
-    console.log(`[Antigravity CLI AI] Generating image for prompt: "${prompt}" using agy...`);
-    const { spawnSync } = require('child_process');
-    
-    // Clean image name for safe file writing
-    const cleanImageName = imageName.replace(/[^a-z0-9_]/gi, '_').toLowerCase();
-    const cliPrompt = `Sử dụng công cụ generate_image tạo ảnh minh họa nghệ thuật trực quan cho chủ đề nông nghiệp: "${prompt}". Hãy đặt tên ảnh là "${cleanImageName}".`;
-    
-    const result = spawnSync('agy', [
-      '--dangerously-skip-permissions',
-      '-p', cliPrompt
-    ], {
-      encoding: 'utf8',
-      maxBuffer: 50 * 1024 * 1024
-    });
-
-    if (result.status !== 0) {
-      console.error('[Antigravity CLI AI] CLI failed:', result.stderr || result.error?.message);
+    const falKey = process.env.FAL_KEY;
+    if (!falKey) {
+      console.warn('[Fal AI] Warning: FAL_KEY not found in environment.');
       return resolve(null);
     }
 
-    const scratchPath = path.join('C:', 'Users', 'Admin', '.gemini', 'antigravity-cli', 'scratch', `${cleanImageName}.png`);
-    if (fs.existsSync(scratchPath)) {
-      console.log(`[Antigravity CLI AI] Successfully generated image: ${scratchPath}`);
-      const buffer = fs.readFileSync(scratchPath);
-      // Clean up the scratch file after reading
-      try {
-        fs.unlinkSync(scratchPath);
-      } catch (e) {
-        console.warn('[Antigravity CLI AI] Could not clean up scratch file:', e.message);
+    // Enrich the prompt to generate an extremely relevant, highly detailed professional photograph
+    // matching the context of the article rather than a generic illustration
+    const enrichedPrompt = `A realistic, highly detailed professional photography illustrating the specific agricultural subject: "${prompt}". Clean lighting, authentic documentary style, raw details, 8k resolution, shot on 35mm lens.`;
+    console.log(`[Fal AI] Generating image via Flux Klein 4B for prompt: "${enrichedPrompt}"...`);
+
+    const url = 'https://rest.fal.run/fal-ai/flux-2/klein/4b/base';
+    const reqData = JSON.stringify({ prompt: enrichedPrompt, image_size: 'square_hd' });
+    const urlParts = new URL(url);
+
+    const options = {
+      hostname: urlParts.hostname,
+      path: urlParts.pathname,
+      method: 'POST',
+      headers: {
+        'Authorization': `Key ${falKey}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(reqData)
       }
-      resolve(buffer);
-    } else {
-      console.error('[Antigravity CLI AI] Generated image file not found at:', scratchPath);
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          try {
+            const parsed = JSON.parse(data);
+            const imageUrl = parsed.images?.[0]?.url;
+            if (imageUrl) {
+              console.log(`[Fal AI] Image generated successfully. Downloading from: ${imageUrl}`);
+              downloadImageToBuffer(imageUrl)
+                .then(buffer => resolve(buffer))
+                .catch(err => {
+                  console.error('[Fal AI] Download error:', err.message);
+                  resolve(null);
+                });
+            } else {
+              console.error('[Fal AI] No image URL found in response:', data);
+              resolve(null);
+            }
+          } catch (e) {
+            console.error('[Fal AI] JSON Parse error:', e.message);
+            resolve(null);
+          }
+        } else {
+          console.error(`[Fal AI] API failed, status: ${res.statusCode}, response: ${data}`);
+          resolve(null);
+        }
+      });
+    });
+
+    req.on('error', (err) => {
+      console.error('[Fal AI] Connection error:', err.message);
       resolve(null);
-    }
+    });
+
+    req.write(reqData);
+    req.end();
   });
 }
 
