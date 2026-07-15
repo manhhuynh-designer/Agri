@@ -66,6 +66,34 @@ function getYoutubeId(url) {
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
+// Dependency-free YouTube search using DuckDuckGo HTML search
+function searchYoutubeVideo(query) {
+  return new Promise((resolve) => {
+    const searchUrl = `https://html.duckduckgo.com/html/?q=site:youtube.com+${encodeURIComponent(query)}`;
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
+    };
+    https.get(searchUrl, options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        const matches = data.match(/\/watch\?v=([a-zA-Z0-9_-]{11})/g);
+        if (matches && matches.length > 0) {
+          const uniqueIds = [...new Set(matches.map(m => m.split('=')[1]))];
+          resolve(uniqueIds);
+        } else {
+          resolve([]);
+        }
+      });
+    }).on('error', (err) => {
+      console.error('[YouTube Search] Connection error:', err.message);
+      resolve([]);
+    });
+  });
+}
+
 // Pexels API Helper to fetch high-quality images
 function fetchPexelsImages(query, perPage = 5) {
   return new Promise((resolve) => {
@@ -290,7 +318,22 @@ async function main() {
   }
   console.log(`Using post image: ${selectedImage}`);
 
-  // 4. Handle YouTube transcript downloading
+  // 4. Handle YouTube searching and transcript downloading
+  if (!selectedTopic.youtube) {
+    console.log(`[YouTube Finder] Topic does not have a predefined YouTube video. Searching YouTube for: "${selectedTopic.title}"...`);
+    const candidateIds = await searchYoutubeVideo(selectedTopic.title);
+    console.log(`[YouTube Finder] Found ${candidateIds.length} candidate videos. Verifying...`);
+    for (const id of candidateIds) {
+      const url = `https://www.youtube.com/watch?v=${id}`;
+      const isValid = await verifyYoutubeLink(url);
+      if (isValid) {
+        console.log(`[YouTube Finder] Successfully verified video: ${url}`);
+        selectedTopic.youtube = url;
+        break;
+      }
+    }
+  }
+
   if (selectedTopic.youtube) {
     const isValidYt = await verifyYoutubeLink(selectedTopic.youtube);
     if (isValidYt) {
