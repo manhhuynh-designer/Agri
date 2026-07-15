@@ -92,6 +92,103 @@ function downloadImage(url, localPath) {
   });
 }
 
+// Generate image using Cloudflare Workers AI
+function generateAiImage(prompt) {
+  return new Promise((resolve) => {
+    const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+    const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+    if (!accountId || !apiToken) {
+      console.warn('[Cloudflare AI] Warning: CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN not found in environment.');
+      return resolve(null);
+    }
+
+    console.log(`[Cloudflare AI] Generating image for prompt: "${prompt}"...`);
+    
+    // Using SDXL-lightning model for fast and high-quality generation
+    const model = '@cf/bytedance/sdxl-lightning';
+    const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
+    
+    const reqData = JSON.stringify({ prompt: prompt });
+    
+    const options = {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiToken}`,
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const req = https.request(url, options, (res) => {
+      if (res.statusCode !== 200) {
+        console.error(`[Cloudflare AI] Failed to generate image, status: ${res.statusCode}`);
+        return resolve(null);
+      }
+      
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
+      res.on('end', () => {
+        const buffer = Buffer.concat(chunks);
+        resolve(buffer);
+      });
+    });
+
+    req.on('error', (err) => {
+      console.error('[Cloudflare AI] Request error:', err.message);
+      resolve(null);
+    });
+
+    req.write(reqData);
+    req.end();
+  });
+}
+
+// Upload a binary buffer to Cloudflare R2 bucket using R2 API PUT
+function uploadToR2(bucketName, key, buffer) {
+  return new Promise((resolve) => {
+    const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+    const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+    if (!accountId || !apiToken) {
+      console.warn('[Cloudflare R2] Warning: CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN not found in environment.');
+      return resolve(false);
+    }
+
+    console.log(`[Cloudflare R2] Uploading object "${key}" to bucket "${bucketName}"...`);
+    
+    const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/r2/buckets/${bucketName}/objects/${encodeURIComponent(key)}`;
+    
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${apiToken}`,
+        'Content-Type': 'image/png',
+        'Content-Length': buffer.length
+      }
+    };
+
+    const req = https.request(url, options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          console.log(`[Cloudflare R2] Upload successful for "${key}".`);
+          resolve(true);
+        } else {
+          console.error(`[Cloudflare R2] Upload failed, status: ${res.statusCode}, response: ${data}`);
+          resolve(false);
+        }
+      });
+    });
+
+    req.on('error', (err) => {
+      console.error('[Cloudflare R2] Connection error:', err.message);
+      resolve(false);
+    });
+
+    req.write(buffer);
+    req.end();
+  });
+}
+
 // Helper to extract YouTube video ID from various URL formats
 function getYoutubeId(url) {
   if (!url) return null;
@@ -348,7 +445,29 @@ async function main() {
   const topicPhotos = await fetchPexelsImages(pexelsSearchQueries[selectedTopic.id] || 'organic farming', 1);
   let selectedImage = (topicPhotos && topicPhotos[0]) ? topicPhotos[0] : null;
   if (!selectedImage) {
-    selectedImage = generateSvgPlaceholder(selectedTopic.id, selectedTopic.title);
+    console.log(`[Hero Image] Không tìm thấy ảnh bìa trên Pexels. Sử dụng Cloudflare AI tạo ảnh bìa...`);
+    const heroBuffer = await generateAiImage(pexelsSearchQueries[selectedTopic.id] || 'sustainable realistic organic agriculture');
+    if (heroBuffer) {
+      const imageName = `${selectedTopic.id}-hero.png`;
+      const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
+      const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, heroBuffer);
+      if (uploadSuccess) {
+        const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+        const cleanPublicUrl = publicUrl.replace(/\/$/, '');
+        selectedImage = `${cleanPublicUrl}/posts/${imageName}`;
+        console.log(`[Hero Image] AI hero image generated and uploaded to R2: ${selectedImage}`);
+      } else {
+        const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
+        if (!fs.existsSync(postsImgDir)) {
+          fs.mkdirSync(postsImgDir, { recursive: true });
+        }
+        fs.writeFileSync(path.join(postsImgDir, imageName), heroBuffer);
+        selectedImage = `/assets/images/posts/${imageName}`;
+        console.log(`[Hero Image] R2 upload failed. Saved AI hero image locally: ${selectedImage}`);
+      }
+    } else {
+      selectedImage = generateSvgPlaceholder(selectedTopic.id, selectedTopic.title);
+    }
   }
   console.log(`Using post image: ${selectedImage}`);
 
@@ -615,8 +734,31 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
         resolvedImageUrl = pexelsUrl;
       }
     } else {
-      console.warn(`[Pexels Content Images] Không tìm thấy ảnh trên Pexels cho từ khóa: "${query}". Sử dụng ảnh đại diện dự phòng.`);
-      resolvedImageUrl = selectedImage.startsWith('/') ? selectedImage : '/assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png';
+      console.log(`[Pexels Content Images] Không tìm thấy ảnh trên Pexels cho từ khóa: "${query}". Sử dụng Cloudflare AI tạo ảnh minh họa...`);
+      const imageBuffer = await generateAiImage(query);
+      if (imageBuffer) {
+        const imageName = `${selectedTopic.id}-${imageIndex}.png`;
+        const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
+        const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, imageBuffer);
+        
+        if (uploadSuccess) {
+          const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+          const cleanPublicUrl = publicUrl.replace(/\/$/, '');
+          resolvedImageUrl = `${cleanPublicUrl}/posts/${imageName}`;
+          console.log(`[Pexels Content Images] AI image generated and uploaded to R2: ${resolvedImageUrl}`);
+        } else {
+          const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
+          if (!fs.existsSync(postsImgDir)) {
+            fs.mkdirSync(postsImgDir, { recursive: true });
+          }
+          fs.writeFileSync(path.join(postsImgDir, imageName), imageBuffer);
+          resolvedImageUrl = `/assets/images/posts/${imageName}`;
+          console.log(`[Pexels Content Images] R2 upload failed. Saved AI image locally: ${resolvedImageUrl}`);
+        }
+      } else {
+        console.warn(`[Pexels Content Images] Không thể tạo ảnh bằng Cloudflare AI. Sử dụng ảnh đại diện dự phòng.`);
+        resolvedImageUrl = selectedImage.startsWith('/') ? selectedImage : '/assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png';
+      }
     }
 
     content = content.replace(item.fullMatch, `![${item.caption}](${resolvedImageUrl})`);
