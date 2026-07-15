@@ -282,6 +282,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         {/* Sticky Sidebar with Table of Contents */}
         <aside className="post-sidebar">
           <div className="sticky-sidebar">
+            <button id="reading-mode-toggle" className="sidebar-action-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "16px", height: "16px" }}>
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+              Chế độ đọc
+            </button>
             <div className="toc-card">
               <h4 className="toc-title">Mục lục bài viết</h4>
               <ul id="toc-list" className="toc-list">
@@ -318,6 +325,28 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           </div>
         </aside>
       </article>
+
+      {/* Floating Action Button for Mobile */}
+      <button id="reading-mode-floating" className="reading-mode-floating" title="Bật chế độ đọc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "20px", height: "20px" }}>
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+      </button>
+
+      {/* Floating Reader Controls Panel */}
+      <div id="reader-controls" className="reader-controls">
+        <div className="reader-controls-wrap">
+          <button id="reader-close" className="reader-ctrl-btn exit">Thoát chế độ đọc</button>
+          <div className="reader-divider"></div>
+          <button id="reader-font-dec" className="reader-ctrl-btn font-size-btn" title="Giảm cỡ chữ">A-</button>
+          <button id="reader-font-inc" className="reader-ctrl-btn font-size-btn" title="Tăng cỡ chữ">A+</button>
+          <div className="reader-divider"></div>
+          <button id="reader-theme-default" className="reader-theme-btn" title="Chế độ màu mặc định">Mặc định</button>
+          <button id="reader-theme-sepia" className="reader-theme-btn sepia" title="Chế độ màu giấy úa">Giấy úa</button>
+          <button id="reader-theme-dark" className="reader-theme-btn dark" title="Chế độ màu tối đen">Tối đen</button>
+        </div>
+      </div>
 
       {/* Client Side Interactions Activator */}
       <ClientInteractions />

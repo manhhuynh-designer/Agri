@@ -210,12 +210,108 @@ export default function ClientInteractions() {
       });
     }
 
+    // 7. Reading Mode logic
+    const toggleBtn = document.getElementById("reading-mode-toggle");
+    const floatingToggleBtn = document.getElementById("reading-mode-floating");
+    const closeBtn = document.getElementById("reader-close");
+    const decFontBtn = document.getElementById("reader-font-dec");
+    const incFontBtn = document.getElementById("reader-font-inc");
+    const themeDefaultBtn = document.getElementById("reader-theme-default");
+    const themeSepiaBtn = document.getElementById("reader-theme-sepia");
+    const themeDarkBtn = document.getElementById("reader-theme-dark");
+
+    let currentFontScale = parseInt(localStorage.getItem("reader-font-scale") || "100");
+    let currentTheme = localStorage.getItem("reader-theme") || "default";
+    let isReaderActive = localStorage.getItem("reader-active") === "true";
+
+    const setReaderActiveState = (active: boolean) => {
+      isReaderActive = active;
+      localStorage.setItem("reader-active", active ? "true" : "false");
+      if (active) {
+        document.body.classList.add("reader-mode-active");
+        applyReaderTheme(currentTheme);
+        applyReaderFontScale(currentFontScale);
+      } else {
+        document.body.classList.remove("reader-mode-active");
+        document.body.removeAttribute("data-reader-theme");
+        const postContent = document.querySelector(".post-content") as HTMLElement;
+        if (postContent) postContent.style.fontSize = "";
+      }
+    };
+
+    const applyReaderTheme = (theme: string) => {
+      currentTheme = theme;
+      localStorage.setItem("reader-theme", theme);
+      if (isReaderActive) {
+        document.body.setAttribute("data-reader-theme", theme);
+      }
+      
+      const themeBtns = [themeDefaultBtn, themeSepiaBtn, themeDarkBtn];
+      themeBtns.forEach((btn) => btn?.classList.remove("active"));
+      
+      if (theme === "default" && themeDefaultBtn) themeDefaultBtn.classList.add("active");
+      if (theme === "sepia" && themeSepiaBtn) themeSepiaBtn.classList.add("active");
+      if (theme === "dark" && themeDarkBtn) themeDarkBtn.classList.add("active");
+    };
+
+    const applyReaderFontScale = (scale: number) => {
+      currentFontScale = scale;
+      localStorage.setItem("reader-font-scale", scale.toString());
+      if (isReaderActive) {
+        const postContent = document.querySelector(".post-content") as HTMLElement;
+        if (postContent) {
+          postContent.style.fontSize = `${scale}%`;
+        }
+      }
+    };
+
+    // Initialize state
+    setReaderActiveState(isReaderActive);
+    applyReaderTheme(currentTheme);
+    applyReaderFontScale(currentFontScale);
+
+    // Event listeners for reading mode
+    const handleToggleOn = () => setReaderActiveState(true);
+    const handleToggleOff = () => setReaderActiveState(false);
+    
+    const handleIncFont = () => {
+      if (currentFontScale < 160) {
+        applyReaderFontScale(currentFontScale + 10);
+      }
+    };
+    const handleDecFont = () => {
+      if (currentFontScale > 80) {
+        applyReaderFontScale(currentFontScale - 10);
+      }
+    };
+
+    const handleThemeDefault = () => applyReaderTheme("default");
+    const handleThemeSepia = () => applyReaderTheme("sepia");
+    const handleThemeDark = () => applyReaderTheme("dark");
+
+    toggleBtn?.addEventListener("click", handleToggleOn);
+    floatingToggleBtn?.addEventListener("click", handleToggleOn);
+    closeBtn?.addEventListener("click", handleToggleOff);
+    incFontBtn?.addEventListener("click", handleIncFont);
+    decFontBtn?.addEventListener("click", handleDecFont);
+    themeDefaultBtn?.addEventListener("click", handleThemeDefault);
+    themeSepiaBtn?.addEventListener("click", handleThemeSepia);
+    themeDarkBtn?.addEventListener("click", handleThemeDark);
+
     // Cleanup listeners
     return () => {
       window.removeEventListener("scroll", handleScrollProgress);
       if (copyBtn) {
         copyBtn.removeEventListener("click", handleCopy);
       }
+      toggleBtn?.removeEventListener("click", handleToggleOn);
+      floatingToggleBtn?.removeEventListener("click", handleToggleOn);
+      closeBtn?.removeEventListener("click", handleToggleOff);
+      incFontBtn?.removeEventListener("click", handleIncFont);
+      decFontBtn?.removeEventListener("click", handleDecFont);
+      themeDefaultBtn?.removeEventListener("click", handleThemeDefault);
+      themeSepiaBtn?.removeEventListener("click", handleThemeSepia);
+      themeDarkBtn?.removeEventListener("click", handleThemeDark);
     };
   }, [pathname]);
 
