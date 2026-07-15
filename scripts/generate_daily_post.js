@@ -318,12 +318,17 @@ async function main() {
   2. Ngay đầu bài viết, trước nội dung chính, bắt buộc phải có khối cảnh báo:
      > [!WARNING]
      > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
-  3. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
-  4. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...). Tuyệt đối không ghi trực tiếp tên tài liệu hay tên tác giả bên trong các câu viết của thân bài.
-  5. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
+  3. Viết nội dung mang tính chất PHÂN TÍCH, SO SÁNH và CHUYỂN ĐỔI CAO (Transformative & Analytical Style):
+     - Không sao chép hay dịch thô lý thuyết suông từ tài liệu gốc.
+     - Hãy tổng hợp kiến thức từ nhiều tài liệu, thực hiện so sánh đối chiếu ưu nhược điểm của các phương pháp khác nhau (ví dụ: so sánh cách ủ nóng với ủ nguội, hoặc so sánh thiết bị tự chế với thiết bị công nghiệp).
+     - Bắt buộc phải có một phần riêng biệt với tiêu đề "Phân Tích Thực Tiễn & Khả Năng Áp Dụng Tại Việt Nam" (sử dụng tiêu đề H2) để đánh giá khả năng áp dụng kỹ thuật này dưới điều kiện khí hậu nhiệt đới nóng ẩm, loại đất địa phương và quy mô nông hộ nhỏ tại Việt Nam.
+     - Đưa ra các giải pháp thay thế nguyên liệu trong sách bằng phế phụ phẩm nông nghiệp phổ biến ở Việt Nam (ví dụ: xơ dừa, vỏ trấu, lục bình, bã mía...).
+  4. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
+  5. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...). Tuyệt đối không ghi trực tiếp tên tài liệu hay tên tác giả bên trong các câu viết của thân bài.
+  6. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
      - [1] Tên tài liệu, Tác giả, Chương, Trang.
      - [2] Tên tài liệu, Tác giả, Chương, Trang.
-  6. Trong bài viết, bắt buộc phải thiết kế và nhúng tối thiểu một sơ đồ quy trình hoặc sơ đồ tư duy (mindmap/infographic) bằng ngôn ngữ đồ họa Vector SVG chất lượng cao (bọc trong thẻ <div class="diagram-card">...</div> và kèm theo mô tả chú thích <div class="diagram-note"><p><b>Hình A:</b> ...</p></div>). Sơ đồ phải trực quan hóa các bước thực hiện hoặc mối quan hệ giữa các bộ phận.
+  7. Trong bài viết, bắt buộc phải thiết kế và nhúng tối thiểu một sơ đồ quy trình hoặc sơ đồ tư duy (mindmap/infographic) bằng ngôn ngữ đồ họa Vector SVG chất lượng cao (bọc trong thẻ <div class="diagram-card">...</div> và kèm theo mô tả chú thích <div class="diagram-note"><p><b>Hình A:</b> ...</p></div>). Sơ đồ phải trực quan hóa các bước thực hiện hoặc mối quan hệ giữa các bộ phận.
      Quy chuẩn vẽ SVG:
      - ViewBox: <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
      - Cấm tuyệt đối việc hardcode mã màu HEX (#fff, #000...). Chỉ dùng các class CSS có sẵn của blog:
