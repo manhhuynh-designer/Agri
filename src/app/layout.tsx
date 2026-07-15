@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
       <head>
         {/* Anti-FOUC (Flash of Unstyled Content) script for light/dark theme */}
         <script
