@@ -439,6 +439,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
 
     const { Resend } = require('resend');
     const resend = new Resend(apiKey);
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     console.log('[Email Broadcast] Fetching subscribers list...');
     const audiences = await resend.audiences.list();
@@ -467,6 +468,8 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       console.warn('[Email Broadcast] Skipped: No audience list found.');
       process.exit(0);
     }
+
+    await sleep(1000); // Tránh rate limit 2 RPS
 
     const contacts = await resend.contacts.list({ audienceId });
     
@@ -529,6 +532,8 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       subject: `[Bài viết mới] ${selectedTopic.title}`,
       html: emailHtml
     }));
+
+    await sleep(1000); // Tránh rate limit 2 RPS
 
     console.log(`[Email Broadcast] Sending post notification to ${batchData.length} subscribers...`);
     const batchResponse = await resend.batch.send(batchData);
