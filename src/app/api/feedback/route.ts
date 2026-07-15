@@ -5,6 +5,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: 'Chưa nạp RESEND_API_KEY. Nếu bạn vừa thêm vào file .env, vui lòng KHỞI ĐỘNG LẠI server (Ctrl+C rồi chạy lại npm run dev).' }, 
+        { status: 500 }
+      );
+    }
+
     const { name, email, message } = await request.json();
 
     if (!message || message.trim() === '') {
