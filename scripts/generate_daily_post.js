@@ -197,7 +197,7 @@ function generateSvgPlaceholder(topicId, title) {
 
   const filename = `generated_${topicId}.svg`;
   const relativePath = `/assets/images/${filename}`;
-  const absolutePath = path.join(__dirname, '..', 'assets', 'images', filename);
+  const absolutePath = path.join(__dirname, '..', 'public', 'assets', 'images', filename);
   
   fs.writeFileSync(absolutePath, svgContent);
   console.log(`[Image Generator] Generated beautiful custom SVG fallback at: ${relativePath}`);

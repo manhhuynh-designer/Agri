@@ -18,7 +18,7 @@ if (fs.existsSync(envPath)) {
 const NOTEBOOK_ID = '47861196-dfb2-42e4-8dcd-cfc9eeb28ced';
 const TOPICS_FILE = path.join(__dirname, '..', '_data', 'topics.json');
 const POSTS_DIR = path.join(__dirname, '..', '_posts');
-const IMAGES_DIR = path.join(__dirname, '..', 'assets', 'images', 'infographics');
+const IMAGES_DIR = path.join(__dirname, '..', 'public', 'assets', 'images', 'infographics');
 
 // Ensure output directory exists
 if (!fs.existsSync(IMAGES_DIR)) {
