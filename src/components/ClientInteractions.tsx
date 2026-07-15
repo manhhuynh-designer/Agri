@@ -210,6 +210,28 @@ export default function ClientInteractions() {
       });
     }
 
+    // 8. KaTeX auto-render for math/chemical formulas
+    const postContentEl = document.querySelector(".post-content");
+    if (postContentEl) {
+      Promise.all([
+        // @ts-ignore
+        import("katex/dist/contrib/auto-render")
+      ]).then(([renderMathModule]) => {
+        const renderMathInElement = renderMathModule.default;
+        renderMathInElement(postContentEl as HTMLElement, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          throwOnError: false,
+        });
+      }).catch((err) => {
+        console.warn("KaTeX auto-render failed to load:", err);
+      });
+    }
+
     // 7. Reading Mode logic
     const toggleBtn = document.getElementById("reading-mode-toggle");
     const floatingToggleBtn = document.getElementById("reading-mode-floating");
