@@ -92,53 +92,44 @@ function downloadImage(url, localPath) {
   });
 }
 
-// Generate image using Cloudflare Workers AI
-function generateAiImage(prompt) {
+// Generate image using local Antigravity CLI (agy)
+function generateAiImage(prompt, imageName) {
   return new Promise((resolve) => {
-    const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-    const apiToken = process.env.CLOUDFLARE_API_TOKEN;
-    if (!accountId || !apiToken) {
-      console.warn('[Cloudflare AI] Warning: CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN not found in environment.');
+    console.log(`[Antigravity CLI AI] Generating image for prompt: "${prompt}" using agy...`);
+    const { spawnSync } = require('child_process');
+    
+    // Clean image name for safe file writing
+    const cleanImageName = imageName.replace(/[^a-z0-9_]/gi, '_').toLowerCase();
+    const cliPrompt = `Sử dụng công cụ generate_image tạo ảnh minh họa nghệ thuật trực quan cho chủ đề nông nghiệp: "${prompt}". Hãy đặt tên ảnh là "${cleanImageName}".`;
+    
+    const result = spawnSync('agy', [
+      '--dangerously-skip-permissions',
+      '-p', cliPrompt
+    ], {
+      encoding: 'utf8',
+      maxBuffer: 50 * 1024 * 1024
+    });
+
+    if (result.status !== 0) {
+      console.error('[Antigravity CLI AI] CLI failed:', result.stderr || result.error?.message);
       return resolve(null);
     }
 
-    console.log(`[Cloudflare AI] Generating image for prompt: "${prompt}"...`);
-    
-    // Using SDXL-lightning model for fast and high-quality generation
-    const model = '@cf/bytedance/sdxl-lightning';
-    const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
-    
-    const reqData = JSON.stringify({ prompt: prompt });
-    
-    const options = {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiToken}`,
-        'Content-Type': 'application/json'
+    const scratchPath = path.join('C:', 'Users', 'Admin', '.gemini', 'antigravity-cli', 'scratch', `${cleanImageName}.png`);
+    if (fs.existsSync(scratchPath)) {
+      console.log(`[Antigravity CLI AI] Successfully generated image: ${scratchPath}`);
+      const buffer = fs.readFileSync(scratchPath);
+      // Clean up the scratch file after reading
+      try {
+        fs.unlinkSync(scratchPath);
+      } catch (e) {
+        console.warn('[Antigravity CLI AI] Could not clean up scratch file:', e.message);
       }
-    };
-
-    const req = https.request(url, options, (res) => {
-      if (res.statusCode !== 200) {
-        console.error(`[Cloudflare AI] Failed to generate image, status: ${res.statusCode}`);
-        return resolve(null);
-      }
-      
-      const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
-      res.on('end', () => {
-        const buffer = Buffer.concat(chunks);
-        resolve(buffer);
-      });
-    });
-
-    req.on('error', (err) => {
-      console.error('[Cloudflare AI] Request error:', err.message);
+      resolve(buffer);
+    } else {
+      console.error('[Antigravity CLI AI] Generated image file not found at:', scratchPath);
       resolve(null);
-    });
-
-    req.write(reqData);
-    req.end();
+    }
   });
 }
 
@@ -447,8 +438,8 @@ async function main() {
   const topicPhotos = await fetchPexelsImages(pexelsSearchQueries[selectedTopic.id] || 'organic farming', 1);
   let selectedImage = (topicPhotos && topicPhotos[0]) ? topicPhotos[0] : null;
   if (!selectedImage) {
-    console.log(`[Hero Image] Không tìm thấy ảnh bìa trên Pexels. Sử dụng Cloudflare AI tạo ảnh bìa...`);
-    const heroBuffer = await generateAiImage(pexelsSearchQueries[selectedTopic.id] || 'sustainable realistic organic agriculture');
+    console.log(`[Hero Image] Không tìm thấy ảnh bìa trên Pexels. Sử dụng local agy CLI tạo ảnh bìa...`);
+    const heroBuffer = await generateAiImage(pexelsSearchQueries[selectedTopic.id] || 'sustainable realistic organic agriculture', `${selectedTopic.id}_hero`);
     if (heroBuffer) {
       const imageName = `${selectedTopic.id}-hero.png`;
       const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
@@ -736,8 +727,8 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
         resolvedImageUrl = pexelsUrl;
       }
     } else {
-      console.log(`[Pexels Content Images] Không tìm thấy ảnh trên Pexels cho từ khóa: "${query}". Sử dụng Cloudflare AI tạo ảnh minh họa...`);
-      const imageBuffer = await generateAiImage(query);
+      console.log(`[Pexels Content Images] Không tìm thấy ảnh trên Pexels cho từ khóa: "${query}". Sử dụng local agy CLI tạo ảnh minh họa...`);
+      const imageBuffer = await generateAiImage(query, `${selectedTopic.id}_${imageIndex}`);
       if (imageBuffer) {
         const imageName = `${selectedTopic.id}-${imageIndex}.png`;
         const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
