@@ -651,6 +651,56 @@ html[data-theme="light"] .sun-icon {
   transition: transform 0.3s ease;
 }
 
+/* Table Styles in Post Content */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background-color: var(--bg-2);
+}
+
+.post-content th {
+  background-color: var(--panel);
+  color: var(--ash);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--line);
+  letter-spacing: 0.02em;
+}
+
+.post-content td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ash-dim);
+  vertical-align: top;
+}
+
+.post-content tr:last-child td {
+  border-bottom: none;
+}
+
+.post-content tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="light"] .post-content tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .post-content table {
+    display: table;
+  }
+}
+
 .post-content img:hover {
   transform: scale(1.01);
 }
