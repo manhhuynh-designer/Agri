@@ -78,5 +78,15 @@
       "Dinh dưỡng",
       "Vi sinh"
     ]
+  },
+  {
+    "id": "chan-nuoi-khep-kin-ruoi-linh-den",
+    "title": "Chăn nuôi khép kín: Giải pháp từ Ruồi lính đen và Trùn đỏ",
+    "prompt": "Dựa trên các tài liệu, hãy viết bài hướng dẫn về mô hình chăn nuôi khép kín bền vững. Tập trung vào kỹ thuật xử lý phân lợn bằng ấu trùng ruồi lính đen và trùn đỏ để tái chế dinh dưỡng quay lại chuỗi thức ăn [1, 2]. Giải thích phương pháp sử dụng bèo tấm để lọc nước tiểu và làm thức ăn gia súc [1, 3, 4]. Phân tích việc tích hợp bộ khí hóa để nấu chín thức ăn tiệt trùng và tạo than sinh học giúp khử mùi hôi chuồng trại [5, 6]. Bài viết cần nêu bật triết lý trả lại cho thiên nhiên mọi dưỡng chất thông qua vòng luân chuyển khép kín [7, 8].",
+    "youtube": "https://www.youtube.com/watch?v=k5lT-k6m8aQ",
+    "categories": [
+      "Chăn nuôi hữu cơ",
+      "Tái chế chất thải"
+    ]
   }
 ]
