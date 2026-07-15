@@ -16,11 +16,15 @@ subtitle: "Hướng dẫn chi tiết quy trình nhân nuôi vi sinh vật hữu 
 
 ## Tầm quan trọng của việc tự nhân nuôi vi sinh vật trong nông nghiệp sinh thái
 
+![Vi sinh vật hữu ích cải tạo đất](https://img.manhhuynh.work/posts/test-bi-kip-u-sau-can-canh-1.png?v=1)
+
 Trong canh tác nông nghiệp tự nhiên và hữu cơ, hệ vi sinh vật đất đóng vai trò cốt lõi trong việc duy trì chu trình dinh dưỡng và bảo vệ sức khỏe cây trồng <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. Các vi sinh vật hữu ích giúp phân giải các hợp chất hữu cơ phức tạp thành dạng dễ tiêu, giải phóng lân khó tan, cố định nitơ từ không khí và ức chế các tác nhân gây bệnh hại trong đất <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Tuy nhiên, việc lạm dụng hóa chất nông nghiệp trong thời gian dài đã làm suy thoái nghiêm trọng quần thể vi sinh vật bản địa, khiến đất đai bị bạc màu và chai cứng <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>, <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup>. 
 
 Để phục hồi "sức sống" cho đất mà không tốn kém nhiều chi phí mua các chế phẩm thương mại đắt đỏ, kỹ thuật tự nhân nuôi vi sinh vật tại nông hộ nổi lên như một giải pháp thiết thực. Sự kết hợp giữa sữa chua và men rượu truyền thống tạo ra một tổ hợp vi sinh vật cộng sinh mạnh mẽ, có khả năng lên men nhanh và cạnh tranh vượt trội với các vi sinh vật gây hại <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
 ## Cơ chế sinh học của sự kết hợp giữa sữa chua và men rượu
+
+![Cơ chế lên men cộng sinh sữa chua và men rượu](https://img.manhhuynh.work/posts/test-bi-kip-u-sau-can-canh-2.png?v=1)
 
 Sự kết hợp giữa sữa chua và men rượu không đơn thuần là sự pha trộn ngẫu nhiên mà là một quá trình cộng sinh tinh vi giữa các nhóm vi khuẩn, nấm men và nấm mốc <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 
@@ -125,6 +129,8 @@ Dưới đây là quy trình chi tiết thiết lập một mẻ nhân nuôi vi 
 
 ## Phân Tích Thực Tiễn & Khả Năng Áp Dụng Tại Việt Nam
 
+![Ứng dụng cải tạo các loại đất tại Việt Nam](https://img.manhhuynh.work/posts/test-bi-kip-u-sau-can-canh-3.png?v=1)
+
 Việc áp dụng kỹ thuật nhân nuôi vi sinh bằng sữa chua và men rượu tại Việt Nam có những ưu thế đặc thù nhưng cũng đối mặt với không ít thách thức do điều kiện môi trường tự nhiên và phương thức canh tác nông hộ <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>.
 
 ### 1. Ảnh hưởng của điều kiện khí hậu nhiệt đới nóng ẩm
@@ -145,6 +151,8 @@ Sách giáo khoa nước ngoài thường chỉ định sử dụng các giá th
 *   **Giá thể rắn thay thế mùn cưa nhập khẩu:** Khi chuyển sang giai đoạn ủ rắn (nhân sinh khối dạng bột bón gốc), nông dân nên phối trộn dịch vi sinh với **vỏ trấu sống**, **xơ dừa đã xử lý chát (loại bỏ tanin và lignin)**, **bã mía băm nhỏ** hoặc **lục bình băm phơi héo** <sup><a href="#ref-24" class="citation-ref" id="cit-24">[24]</a></sup>, <sup><a href="#ref-29" class="citation-ref" id="cit-29">[29]</a></sup>. Vỏ trấu giúp tạo độ thông thoáng tuyệt vời cho đống ủ hiếu khí phát triển hệ sợi nấm mốc <sup><a href="#ref-24" class="citation-ref" id="cit-24">[24]</a></sup>, trong khi xơ dừa và bã mía giữ ẩm tối ưu, đồng thời cung cấp bộ khung carbon bền vững cho vi sinh vật cư trú lâu dài trong đất <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-29" class="citation-ref" id="cit-29">[29]</a></sup>.
 
 ## Hướng dẫn ứng dụng chế phẩm trong canh tác thực tế
+
+![Phun tưới chế phẩm sinh học bảo vệ cây trồng](https://img.manhhuynh.work/posts/test-bi-kip-u-sau-can-canh-4.png?v=1)
 
 Sau khi thu hoạch mẻ vi sinh lỏng sữa chua - men rượu thành công, nông dân có thể triển khai ứng dụng theo ba mục tiêu cốt lõi:
 
