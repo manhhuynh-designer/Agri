@@ -28,40 +28,16 @@ const NOTEBOOK_ID = '47861196-dfb2-42e4-8dcd-cfc9eeb28ced';
 const TOPICS_FILE = path.join(__dirname, '..', '_data', 'topics.json');
 const POSTS_DIR = path.join(__dirname, '..', '_posts');
 
-// Helper to format date as YYYY-MM-DD
+// Helper to format date as YYYY-MM-DD (always returns today's local date, never future date)
 function getNextPostDateString() {
   const today = new Date();
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const day = String(today.getDate()).padStart(2, '0');
   const todayStr = `${year}-${month}-${day}`;
-
-  const postFiles = fs.readdirSync(POSTS_DIR);
-  const hasTodayPost = postFiles.some(file => file.startsWith(todayStr));
-
-  if (!hasTodayPost) {
-    console.log(`[Date Calculator] Today's date ${todayStr} has no posts. Generating for today.`);
-    return todayStr;
-  }
-
-  let latestDate = new Date();
-  postFiles.forEach(file => {
-    const match = file.match(/^(\d{4}-\d{2}-\d{2})-/);
-    if (match) {
-      const fileDate = new Date(match[1]);
-      if (fileDate > latestDate) {
-        latestDate = fileDate;
-      }
-    }
-  });
   
-  // Increment by 1 day
-  latestDate.setDate(latestDate.getDate() + 1);
-  
-  const y = latestDate.getFullYear();
-  const m = String(latestDate.getMonth() + 1).padStart(2, '0');
-  const d = String(latestDate.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
+  console.log(`[Date Calculator] Using today's local date: ${todayStr}`);
+  return todayStr;
 }
 
 // Dependency-free YouTube link verification using YouTube's oEmbed API
