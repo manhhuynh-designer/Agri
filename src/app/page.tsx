@@ -16,7 +16,52 @@ interface Post {
   readTime: number;
 }
 
-export default function Home() {
+export const revalidate = 3600; // Tự động làm mới trang chủ trên Vercel mỗi giờ (Incremental Static Regeneration)
+
+async function getHeroImages(): Promise<string[]> {
+  let fallback = [
+    "https://images.pexels.com/photos/11791577/pexels-photo-11791577.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/5646955/pexels-photo-5646955.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/7391458/pexels-photo-7391458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/38245737/pexels-photo-38245737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/7299610/pexels-photo-7299610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  ];
+
+  try {
+    const heroDataPath = path.join(process.cwd(), "_data", "hero_images.json");
+    if (fs.existsSync(heroDataPath)) {
+      fallback = JSON.parse(fs.readFileSync(heroDataPath, "utf8"));
+    }
+  } catch (e) {
+    console.error("Error reading hero_images.json fallback:", e);
+  }
+
+  const apiKey = process.env.PEXELS_API_KEY;
+  if (!apiKey) return fallback;
+
+  try {
+    const page = Math.floor(Math.random() * 20) + 1;
+    const res = await fetch(`https://api.pexels.com/v1/search?query=sustainable+agriculture&per_page=5&page=${page}`, {
+      headers: {
+        Authorization: apiKey,
+      },
+      next: { revalidate: 3600 },
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data.photos && data.photos.length > 0) {
+        return data.photos.map((p: any) => p.src.large2x || p.src.large || p.src.original);
+      }
+    }
+  } catch (e) {
+    console.error("Error fetching live Pexels images:", e);
+  }
+
+  return fallback;
+}
+
+export default async function Home() {
   const postsDirectory = path.join(process.cwd(), "_posts");
   let posts: Post[] = [];
 
@@ -71,13 +116,7 @@ export default function Home() {
   // Sort by newest by default
   posts.sort((a, b) => b.timestamp - a.timestamp);
 
-  const heroImages = [
-    "https://images.pexels.com/photos/11791577/pexels-photo-11791577.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "https://images.pexels.com/photos/5646955/pexels-photo-5646955.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "https://images.pexels.com/photos/7391458/pexels-photo-7391458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "https://images.pexels.com/photos/38245737/pexels-photo-38245737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "https://images.pexels.com/photos/7299610/pexels-photo-7299610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-  ];
+  const heroImages = await getHeroImages();
 
   return (
     <>
