@@ -88,5 +88,15 @@
       "Chăn nuôi hữu cơ",
       "Tái chế chất thải"
     ]
+  },
+  {
+    "id": "lo-kon-tiki-san-xuat-biochar",
+    "title": "Công nghệ lò Kon-Tiki và giải pháp tự sản xuất Than sinh học (Biochar)",
+    "prompt": "Hãy viết một bài viết blog kỹ thuật chi tiết bằng tiếng Việt giới thiệu về công nghệ lò Kon-Tiki (lò màn lửa - flame-curtain) và các giải pháp sản xuất than sinh học (biochar) tự chế quy mô nhỏ. Phân tích nguyên lý dập tắt oxy bằng màn lửa để bảo vệ carbon, cấu tạo lò dạng hình nón cụt hoặc hố đất, hướng dẫn vận hành từng bước (chất củi, đốt từ trên xuống, dập tắt bằng nước hoặc đất) và so sánh ưu nhược điểm với lò retort.",
+    "youtube": "https://www.youtube.com/watch?v=kYJvY9Fmsrs",
+    "categories": [
+      "Năng lượng sạch",
+      "Tái chế chất thải"
+    ]
   }
 ]

@@ -2,6 +2,7 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const os = require('os');
 
 // Manually load .env file if it exists (avoids adding npm dependencies)
 const envPath = path.join(__dirname, '..', '.env');
@@ -13,6 +14,14 @@ if (fs.existsSync(envPath)) {
       process.env[parts[0].trim()] = parts[1].trim();
     }
   });
+}
+
+// 0. Auto-write auth cookies if present in env (e.g. pulled from Vercel/Github Actions)
+if (process.env.NOTEBOOKLM_COOKIES) {
+  const authDir = path.join(os.homedir(), '.notebooklm-mcp');
+  if (!fs.existsSync(authDir)) fs.mkdirSync(authDir, { recursive: true });
+  fs.writeFileSync(path.join(authDir, 'auth.json'), JSON.stringify({ cookies: process.env.NOTEBOOKLM_COOKIES }), 'utf8');
+  console.log('[Auth] Cookies written to auth.json from environment variables.');
 }
 
 const NOTEBOOK_ID = '47861196-dfb2-42e4-8dcd-cfc9eeb28ced';
@@ -301,181 +310,121 @@ async function main() {
   }
   console.log(`Using post image: ${selectedImage}`);
 
-  // 4. Verify YouTube link
-  const isValidYt = await verifyYoutubeLink(selectedTopic.youtube);
-  if (isValidYt) {
-    console.log(`[YouTube Verification] Link is ACTIVE and valid: ${selectedTopic.youtube}`);
-  } else {
-    console.warn(`[YouTube Verification] Warning: Link is BROKEN or inactive: ${selectedTopic.youtube}. It will be omitted.`);
-    selectedTopic.youtube = null;
-  }
-
-  // 5. Query NotebookLM
-  const child = spawn('npx', ['notebooklm-mcp-server', 'server'], {
-    shell: true
-  });
-
-  let buffer = '';
-  let messageId = 1;
-
-  child.stdout.on('data', (data) => {
-    buffer += data.toString();
-    tryParseMessages();
-  });
-
-  child.stderr.on('data', (data) => {
-    if (data.toString().includes('Error')) {
-      console.error('STDERR:', data.toString().trim());
-    }
-  });
-
-  child.on('close', (code) => {
-    if (code !== 0 && code !== null) {
-      console.error(`MCP Server exited with code ${code}`);
-      process.exit(code);
-    }
-  });
-
-  function tryParseMessages() {
-    const lines = buffer.split('\n');
-    buffer = lines.pop();
-    
-    for (const line of lines) {
-      if (!line.trim()) continue;
-      try {
-        const msg = JSON.parse(line);
-        handleMessage(msg);
-      } catch (e) {
-        // not JSON
-      }
+  // 4. Handle YouTube transcript downloading
+  if (selectedTopic.youtube) {
+    const isValidYt = await verifyYoutubeLink(selectedTopic.youtube);
+    if (isValidYt) {
+      console.log(`[YouTube Verification] Link is ACTIVE and valid: ${selectedTopic.youtube}`);
+      const { downloadYoutubeTranscript } = require('./query_youtube_transcript');
+      const ytPath = path.join(__dirname, '..', 'documents', 'youtube_transcripts', `${selectedTopic.id}.txt`);
+      console.log(`[YouTube Transcript] Downloading subtitles to: ${ytPath}...`);
+      await downloadYoutubeTranscript(selectedTopic.youtube, ytPath);
+    } else {
+      console.warn(`[YouTube Verification] Warning: Link is BROKEN or inactive: ${selectedTopic.youtube}. It will be omitted.`);
+      selectedTopic.youtube = null;
     }
   }
 
-  function send(method, params = {}, id = null) {
-    const msg = { jsonrpc: '2.0', method, params };
-    if (id !== null) msg.id = id;
-    child.stdin.write(JSON.stringify(msg) + '\n');
+  // 5. Query RAG using local Antigravity CLI (agy)
+  const queryText = `Viết một bài viết blog kỹ thuật chi tiết bằng tiếng Việt về chủ đề: "${selectedTopic.title}".
+  Yêu cầu cụ thể:
+  1. Sử dụng định dạng Markdown Jekyll có Front Matter đầy đủ ở đầu bài viết:
+     layout: post
+     title: "${selectedTopic.title}"
+     categories: [${selectedTopic.categories.join(', ')}]
+     tags: [${selectedTopic.categories.concat(['Hữu cơ']).join(', ')}]
+     image: ${selectedImage}
+     description: Mô tả ngắn gọn của bài viết trong 1-2 câu.
+  2. Ngay đầu bài viết, trước nội dung chính, bắt buộc phải có khối cảnh báo:
+     > [!WARNING]
+     > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
+  3. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
+  4. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...). Tuyệt đối không ghi trực tiếp tên tài liệu hay tên tác giả bên trong các câu viết của thân bài.
+  5. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
+     - [1] Tên tài liệu, Tác giả, Chương, Trang.
+     - [2] Tên tài liệu, Tác giả, Chương, Trang.
+  6. Trong bài viết, bắt buộc phải thiết kế và nhúng tối thiểu một sơ đồ quy trình hoặc sơ đồ tư duy (mindmap/infographic) bằng ngôn ngữ đồ họa Vector SVG chất lượng cao (bọc trong thẻ <div class="diagram-card">...</div> và kèm theo mô tả chú thích <div class="diagram-note"><p><b>Hình A:</b> ...</p></div>). Sơ đồ phải trực quan hóa các bước thực hiện hoặc mối quan hệ giữa các bộ phận.
+     Quy chuẩn vẽ SVG:
+     - ViewBox: <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
+     - Cấm tuyệt đối việc hardcode mã màu HEX (#fff, #000...). Chỉ dùng các class CSS có sẵn của blog:
+       + Tiêu đề sơ đồ: <text x="320" y="30" text-anchor="middle" class="d-label-title">TIÊU ĐỀ SƠ ĐỒ</text>
+       + Chú thích chữ thường: <text class="d-label">...</text>
+       + Nhãn chữ nhấn mạnh/Cảnh báo: <text class="d-label-em">...</text>
+       + Nét liền vẽ khung chính: class="d-line"
+       + Nét liền vẽ bộ phận phụ: class="d-line-2"
+       + Đường truyền khí nóng/Lửa/Ember: class="d-ember"
+       + Luồng khói yếm khí/Nét đứt cam: class="d-ember-dash"
+       + Đường xám đứt gióng chú thích: class="d-leader"
+       + Đầu mũi tên chỉ hướng kết nối: marker-end="url(#arrow)"
+     - Căn chỉnh tọa độ x, y hợp lý để sơ đồ thoáng đẹp, trực quan và không chồng chéo chữ.
+  Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
+
+  const { spawnSync } = require('child_process');
+  
+  const documentsDir = path.join(__dirname, '..', 'documents');
+  if (!fs.existsSync(documentsDir)) {
+    fs.mkdirSync(documentsDir, { recursive: true });
   }
 
-  // Handshake
-  send('initialize', {
-    protocolVersion: '2024-11-05',
-    capabilities: {},
-    clientInfo: { name: 'cron-client', version: '1.0.0' }
-  }, messageId++);
+  console.log('Đang gọi Antigravity CLI (agy) để phân tích tài liệu và viết bài...');
+  const result = spawnSync('agy', [
+    '--add-dir', documentsDir,
+    '-p', queryText
+  ], {
+    encoding: 'utf8',
+    maxBuffer: 50 * 1024 * 1024
+  });
 
-  function handleMessage(msg) {
-    if (msg.error) {
-      console.error('Server Error:', JSON.stringify(msg.error, null, 2));
-      child.kill();
-      process.exit(1);
-    }
+  if (result.status !== 0) {
+    console.error('Antigravity CLI Error:', result.stderr || result.error?.message);
+    process.exit(1);
+  }
 
-    if (msg.id === 1) {
-      send('notifications/initialized');
-      send('tools/call', {
-        name: 'refresh_auth',
-        arguments: {}
-      }, 2);
-    } 
-    else if (msg.id === 2) {
-      console.log('Sending query to NotebookLM...');
-      const queryText = `Viết một bài viết blog kỹ thuật chi tiết bằng tiếng Việt về chủ đề: "${selectedTopic.title}".
-      Yêu cầu cụ thể:
-      1. Sử dụng định dạng Markdown Jekyll có Front Matter đầy đủ ở đầu bài viết:
-         layout: post
-         title: "${selectedTopic.title}"
-         categories: [${selectedTopic.categories.join(', ')}]
-         tags: [${selectedTopic.categories.concat(['Hữu cơ']).join(', ')}]
-         image: ${selectedImage}
-         description: Mô tả ngắn gọn của bài viết trong 1-2 câu.
-      2. Ngay đầu bài viết, trước nội dung chính, bắt buộc phải có khối cảnh báo:
-         > [!WARNING]
-         > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
-      3. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
-      4. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...). Tuyệt đối không ghi trực tiếp tên tài liệu hay tên tác giả bên trong các câu viết của thân bài.
-      5. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
-         - [1] Tên tài liệu, Tác giả, Chương, Trang.
-         - [2] Tên tài liệu, Tác giả, Chương, Trang.
-      6. Trong bài viết, bắt buộc phải thiết kế và nhúng tối thiểu một sơ đồ quy trình hoặc sơ đồ tư duy (mindmap/infographic) bằng ngôn ngữ đồ họa Vector SVG chất lượng cao (bọc trong thẻ <div class="diagram-card">...</div> và kèm theo mô tả chú thích <div class="diagram-note"><p><b>Hình A:</b> ...</p></div>). Sơ đồ phải trực quan hóa các bước thực hiện hoặc mối quan hệ giữa các bộ phận.
-         Quy chuẩn vẽ SVG:
-         - ViewBox: <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-         - Cấm tuyệt đối việc hardcode mã màu HEX (#fff, #000...). Chỉ dùng các class CSS có sẵn của blog:
-           + Tiêu đề sơ đồ: <text x="320" y="30" text-anchor="middle" class="d-label-title">TIÊU ĐỀ SƠ ĐỒ</text>
-           + Chú thích chữ thường: <text class="d-label">...</text>
-           + Nhãn chữ nhấn mạnh/Cảnh báo: <text class="d-label-em">...</text>
-           + Nét liền vẽ khung chính: class="d-line"
-           + Nét liền vẽ bộ phận phụ: class="d-line-2"
-           + Đường truyền khí nóng/Lửa/Ember: class="d-ember"
-           + Luồng khói yếm khí/Nét đứt cam: class="d-ember-dash"
-           + Đường xám đứt gióng chú thích: class="d-leader"
-           + Đầu mũi tên chỉ hướng kết nối: marker-end="url(#arrow)"
-         - Căn chỉnh tọa độ x, y hợp lý để sơ đồ thoáng đẹp, trực quan và không chồng chéo chữ.
-      Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
+  let content = result.stdout;
 
-      send('tools/call', {
-        name: 'notebook_query',
-        arguments: {
-          notebook_id: NOTEBOOK_ID,
-          query: queryText
-        }
-      }, 100);
-    } 
-    else if (msg.id === 100) {
-      let content = '';
-      if (msg.result && msg.result.content && msg.result.content[0]) {
-        content = msg.result.content[0].text;
-      } else {
-        console.error('Error: Empty response from NotebookLM.');
-        child.kill();
-        process.exit(1);
-      }
+  // Clean markdown wrappers
+  content = content.replace(/^```markdown\s*/i, '');
+  content = content.replace(/^```html\s*/i, '');
+  content = content.replace(/```\s*$/, '');
+  content = content.trim();
 
-      try {
-        const parsed = JSON.parse(content);
-        if (parsed.answer) {
-          content = parsed.answer;
-        }
-      } catch (e) {
-        // Keep as-is
-      }
-
-      content = content.replace(/^```markdown\s*/i, '');
-      content = content.replace(/^```html\s*/i, '');
-      content = content.replace(/```\s*$/, '');
-      content = content.trim();
-
-      if (selectedTopic.youtube) {
-        const ytId = getYoutubeId(selectedTopic.youtube);
-        if (ytId) {
-          const ytSection = `\n\n---
+  if (selectedTopic.youtube) {
+    const ytId = getYoutubeId(selectedTopic.youtube);
+    if (ytId) {
+      const ytSection = `\n\n---
 ### Video tham khảo thực tế
 Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
   <iframe src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
 </div>`;
-          content += ytSection;
-        }
-      }
-
-      const todayStr = getNextPostDateString();
-      const filename = `${todayStr}-${selectedTopic.id}.md`;
-      const filepath = path.join(POSTS_DIR, filename);
-
-      // 1. Format body citations: [1] -> <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>
-      content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
-      
-      // 2. Format citations list: - [1] -> - <span id="ref-1">**[1]**</span> ...
-      content = content.replace(/^([-*])\s*\[(\d+)\]\s*(.+)$/gm, '$1 <span id="ref-$2">**[$2]**</span> $3 <a href="#cit-$2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>');
-
-      fs.writeFileSync(filepath, content);
-      console.log(`Successfully generated and saved daily post to: _posts/${filename}`);
-
-      child.kill();
-      process.exit(0);
+      content += ytSection;
     }
   }
+
+  const todayStr = getNextPostDateString();
+  const filename = `${todayStr}-${selectedTopic.id}.md`;
+  const filepath = path.join(POSTS_DIR, filename);
+
+  // 1. Format body citations: [1] -> <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>
+  content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
+  
+  // 2. Format citations list: - [1] -> - <span id="ref-1">**[1]**</span> ...
+  content = content.replace(/^([-*])\s*\[(\d+)\]\s*(.+)$/gm, '$1 <span id="ref-$2">**[$2]**</span> $3 <a href="#cit-$2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>');
+
+  // 3. Remove leading whitespace from SVG inside <div class="diagram-card">...</div> to prevent markdown pre/code block parsing
+  content = content.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match, svgContent) => {
+    const cleanedSvg = svgContent
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .join('\n');
+    return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
+  });
+
+  fs.writeFileSync(filepath, content, 'utf8');
+  console.log(`Successfully generated and saved daily post to: _posts/${filename}`);
+  process.exit(0);
 }
 
 main().catch(err => {
