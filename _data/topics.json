@@ -98,5 +98,15 @@
       "Năng lượng sạch",
       "Tái chế chất thải"
     ]
+  },
+  {
+    "id": "cong-nghe-sinh-hoc-nong-nghiep",
+    "title": "Ứng dụng Công nghệ sinh học và Chế phẩm sinh học vi sinh trong Nông nghiệp hữu cơ",
+    "prompt": "Dựa trên các tài liệu giáo trình và tài liệu nông nghiệp hữu cơ trong thư mục documents, hãy viết bài viết chi tiết giới thiệu về các ứng dụng của công nghệ sinh học vi sinh vật. Tập trung phân tích vai trò của nấm đối kháng Trichoderma trong kiểm soát nấm bệnh hại rễ, các dòng vi khuẩn cố định đạm tự do và cộng sinh (như Azotobacter, Rhizobium), và vi sinh vật phân giải lân khó tan (như Bacillus megaterium). Giải thích cơ chế tác động sinh học của chúng giúp cây hấp thu dưỡng chất hiệu quả và cải tạo kết cấu đất rỗng xốp hữu cơ.",
+    "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "categories": [
+      "Công nghệ sinh học",
+      "Vi sinh hữu ích"
+    ]
   }
 ]

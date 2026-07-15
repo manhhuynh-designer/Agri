@@ -116,7 +116,9 @@ const pexelsSearchQueries = {
   'he-sinh-thai-vac-truyen-thong': 'integrated farming agriculture',
   'ky-thuat-trong-rau-sach-huu-co': 'vegetable garden organic',
   'thuoc-tru-sau-thao-moc': 'organic pest control',
-  'vi-sinh-vat-ban-dia-imo': 'soil microbes agriculture'
+  'vi-sinh-vat-ban-dia-imo': 'soil microbes agriculture',
+  'lo-kon-tiki-san-xuat-biochar': 'biochar pyrolysis kiln',
+  'cong-nghe-sinh-hoc-nong-nghiep': 'agricultural biotechnology microbe'
 };
 
 const imageMapping = {
@@ -127,7 +129,9 @@ const imageMapping = {
   'he-sinh-thai-vac-truyen-thong': '/assets/images/thiet_ke_permaculture.png',
   'ky-thuat-trong-rau-sach-huu-co': '/assets/images/nong_nghiep_quy_mo_nho.png',
   'thuoc-tru-sau-thao-moc': '/assets/images/thien_dich_vuon_huu_co.png',
-  'vi-sinh-vat-ban-dia-imo': '/assets/images/than_sinh_hoc_biochar.png'
+  'vi-sinh-vat-ban-dia-imo': '/assets/images/than_sinh_hoc_biochar.png',
+  'lo-kon-tiki-san-xuat-biochar': '/assets/images/than_sinh_hoc_biochar.png',
+  'cong-nghe-sinh-hoc-nong-nghiep': '/assets/images/thien_dich_vuon_huu_co.png'
 };
 
 function generateSvgPlaceholder(topicId, title) {
