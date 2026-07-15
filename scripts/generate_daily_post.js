@@ -447,7 +447,7 @@ async function main() {
       if (uploadSuccess) {
         const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
         const cleanPublicUrl = publicUrl.replace(/\/$/, '');
-        selectedImage = `${cleanPublicUrl}/posts/${imageName}`;
+        selectedImage = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
         console.log(`[Hero Image] AI hero image generated and uploaded to R2: ${selectedImage}`);
       } else {
         const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
@@ -737,7 +737,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
         if (uploadSuccess) {
           const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
           const cleanPublicUrl = publicUrl.replace(/\/$/, '');
-          resolvedImageUrl = `${cleanPublicUrl}/posts/${imageName}`;
+          resolvedImageUrl = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
           console.log(`[Pexels Content Images] AI image generated and uploaded to R2: ${resolvedImageUrl}`);
         } else {
           const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
