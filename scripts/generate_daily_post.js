@@ -142,50 +142,52 @@ function generateAiImage(prompt) {
   });
 }
 
-// Upload a binary buffer to Cloudflare R2 bucket using R2 API PUT
+// Upload a binary buffer to Cloudflare R2 bucket using AWS S3 Client SDK
 function uploadToR2(bucketName, key, buffer) {
   return new Promise((resolve) => {
     const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-    const apiToken = process.env.CLOUDFLARE_API_TOKEN;
-    if (!accountId || !apiToken) {
-      console.warn('[Cloudflare R2] Warning: CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN not found in environment.');
+    const accessKeyId = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
+    const secretAccessKey = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
+    
+    if (!accountId || !accessKeyId || !secretAccessKey) {
+      console.warn('[Cloudflare R2] Warning: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_R2_ACCESS_KEY_ID, or CLOUDFLARE_R2_SECRET_ACCESS_KEY not found in environment.');
       return resolve(false);
     }
 
-    console.log(`[Cloudflare R2] Uploading object "${key}" to bucket "${bucketName}"...`);
+    console.log(`[Cloudflare R2] Uploading object "${key}" to bucket "${bucketName}" via SDK...`);
     
-    const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/r2/buckets/${bucketName}/objects/${encodeURIComponent(key)}`;
-    
-    const options = {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${apiToken}`,
-        'Content-Type': 'image/png',
-        'Content-Length': buffer.length
-      }
-    };
-
-    const req = https.request(url, options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          console.log(`[Cloudflare R2] Upload successful for "${key}".`);
-          resolve(true);
-        } else {
-          console.error(`[Cloudflare R2] Upload failed, status: ${res.statusCode}, response: ${data}`);
-          resolve(false);
+    try {
+      const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+      
+      const s3 = new S3Client({
+        region: 'auto',
+        endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
+        credentials: {
+          accessKeyId: accessKeyId,
+          secretAccessKey: secretAccessKey
         }
       });
-    });
 
-    req.on('error', (err) => {
-      console.error('[Cloudflare R2] Connection error:', err.message);
+      const command = new PutObjectCommand({
+        Bucket: bucketName,
+        Key: key,
+        Body: buffer,
+        ContentType: 'image/png'
+      });
+
+      s3.send(command)
+        .then(() => {
+          console.log(`[Cloudflare R2] Upload successful for "${key}" via SDK.`);
+          resolve(true);
+        })
+        .catch((err) => {
+          console.error('[Cloudflare R2] SDK Send Error:', err.message);
+          resolve(false);
+        });
+    } catch (err) {
+      console.error('[Cloudflare R2] SDK Initialization Error:', err.message);
       resolve(false);
-    });
-
-    req.write(buffer);
-    req.end();
+    }
   });
 }
 
