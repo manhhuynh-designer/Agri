@@ -133,6 +133,16 @@ class McpClient {
 }
 
 async function run() {
+  // 0. Auto-write auth cookies if present in env (e.g. pulled from Vercel)
+  if (process.env.NOTEBOOKLM_COOKIES) {
+    const os = require('os');
+    const mcpDir = path.join(os.homedir(), '.notebooklm-mcp');
+    if (!fs.existsSync(mcpDir)) {
+      fs.mkdirSync(mcpDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(mcpDir, 'auth.json'), process.env.NOTEBOOKLM_COOKIES);
+    console.log('[Auth] Successfully wrote NotebookLM auth cookies from environment.');
+  }
   console.log('Starting NotebookLM Infographic Generator...');
   const client = new McpClient();
   await sleep(4000); // Wait for connection

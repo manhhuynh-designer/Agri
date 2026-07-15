@@ -17,10 +17,12 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Write auth cookies from secret
+      - name: Pull Vercel Environment Variables
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          mkdir -p ~/.notebooklm-mcp
-          echo '${{ secrets.NOTEBOOKLM_COOKIES }}' > ~/.notebooklm-mcp/auth.json
+          npx vercel env pull .env --environment=production --token=${{ secrets.VERCEL_TOKEN }} --yes
 
       - name: Run generation script
         run: |

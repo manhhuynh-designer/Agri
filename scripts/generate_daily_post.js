@@ -205,6 +205,16 @@ function generateSvgPlaceholder(topicId, title) {
 }
 
 async function main() {
+  // 0. Auto-write auth cookies if present in env (e.g. pulled from Vercel)
+  if (process.env.NOTEBOOKLM_COOKIES) {
+    const os = require('os');
+    const mcpDir = path.join(os.homedir(), '.notebooklm-mcp');
+    if (!fs.existsSync(mcpDir)) {
+      fs.mkdirSync(mcpDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(mcpDir, 'auth.json'), process.env.NOTEBOOKLM_COOKIES);
+    console.log('[Auth] Successfully wrote NotebookLM auth cookies from environment.');
+  }
   // 1. Read topics and find an unwritten one
   if (!fs.existsSync(TOPICS_FILE)) {
     console.error('Error: topics.json not found!');
