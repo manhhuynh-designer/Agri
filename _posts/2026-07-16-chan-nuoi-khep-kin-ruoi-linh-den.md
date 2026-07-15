@@ -3,7 +3,7 @@ layout: post
 title: "Chăn nuôi khép kín: Giải pháp từ Ruồi lính đen và Trùn đỏ"
 categories: [Chăn nuôi hữu cơ, Tái chế chất thải]
 tags: [Chăn nuôi hữu cơ, Tái chế chất thải, Hữu cơ]
-image: /assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png
+image: https://img.manhhuynh.work/posts/chan-nuoi-khep-kin-ruoi-linh-den-hero.png?v=5
 description: Khám phá mô hình chăn nuôi khép kín sử dụng sự kết hợp hoàn hảo giữa Ruồi lính đen và Trùn đỏ để tối ưu hóa nguồn lực và bảo vệ môi trường.
 ---
 
@@ -68,7 +68,7 @@ Việc tích hợp Ruồi lính đen và Trùn đỏ vào mô hình vườn - ao
 
 ## Lợi ích kinh tế và môi trường
 
-![Lợi ích kinh tế và môi trường của mô hình chăn nuôi khép kín](/assets/images/posts/eco-farm-benefits.png)
+![Lợi ích kinh tế và môi trường của mô hình chăn nuôi khép kín](https://img.manhhuynh.work/posts/chan-nuoi-khep-kin-ruoi-linh-den-3.png?v=5)
 
 Việc áp dụng mô hình chuyển hóa sinh học này mang lại lợi ích đa mục tiêu cho nông hộ <sup><a href="#ref-19" class="citation-ref" id="cit-19">[19]</a></sup>:
 - **Triệt tiêu mùi hôi và ô nhiễm:** Sự hiện diện của ấu trùng ruồi lính đen giúp giảm đáng kể mùi amoniac và xua đuổi các loài ruồi nhặng gây hại khác <sup><a href="#ref-20" class="citation-ref" id="cit-20">[20]</a></sup>.
