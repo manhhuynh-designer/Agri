@@ -450,8 +450,17 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       process.exit(0);
     }
 
-    if (audiences.data && audiences.data.length > 0) {
-      audienceId = audiences.data[0].id;
+    let audienceList = [];
+    if (audiences.data) {
+      if (Array.isArray(audiences.data)) {
+        audienceList = audiences.data;
+      } else if (Array.isArray(audiences.data.data)) {
+        audienceList = audiences.data.data;
+      }
+    }
+
+    if (audienceList.length > 0) {
+      audienceId = audienceList[0].id;
     }
 
     if (!audienceId) {
@@ -466,7 +475,16 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       process.exit(0);
     }
 
-    if (!contacts.data || contacts.data.length === 0) {
+    let contactsList = [];
+    if (contacts.data) {
+      if (Array.isArray(contacts.data)) {
+        contactsList = contacts.data;
+      } else if (Array.isArray(contacts.data.data)) {
+        contactsList = contacts.data.data;
+      }
+    }
+
+    if (contactsList.length === 0) {
       console.log('[Email Broadcast] No subscribers found. Skipped.');
       process.exit(0);
     }
@@ -505,7 +523,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       </div>
     `;
 
-    const batchData = contacts.data.map(c => ({
+    const batchData = contactsList.map(c => ({
       from: 'AgriSynthe <Agri@manhhuynh.work>',
       to: c.email,
       subject: `[Bài viết mới] ${selectedTopic.title}`,

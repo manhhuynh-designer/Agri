@@ -50,8 +50,17 @@ export async function POST(request: Request) {
       }
 
       let audienceId = '';
-      if (audiences.data && audiences.data.length > 0) {
-        audienceId = audiences.data[0].id;
+      let audienceList: any[] = [];
+      if (audiences.data) {
+        if (Array.isArray(audiences.data)) {
+          audienceList = audiences.data;
+        } else if (Array.isArray(audiences.data.data)) {
+          audienceList = audiences.data.data;
+        }
+      }
+
+      if (audienceList.length > 0) {
+        audienceId = audienceList[0].id;
       } else {
         // Tự động tạo nhóm người nhận mặc định nếu chưa có
         const newAudience = await resend.audiences.create({ name: 'AgriSynthe Newsletter' });
