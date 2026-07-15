@@ -128,19 +128,7 @@ export default function ClientInteractions() {
           .replace(/⚠️/g, "")
           .replace(/Lưu ý:/g, "<strong>⚠️ Lưu ý:</strong>")
           .trim();
-        
-        // Append AI verification button
-        const verifyBtnDiv = document.createElement("div");
-        verifyBtnDiv.style.marginTop = "14px";
-        verifyBtnDiv.innerHTML = `
-          <button class="ai-verify-trigger-btn" id="ai-verify-body-btn" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background-color:#ffffff;border:1px solid #e11d48;color:#e11d48;border-radius:6px;font-size:12.5px;font-weight:600;cursor:pointer;transition:all 0.2s ease;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            Kiểm chứng bằng AI
-          </button>
-        `;
-        bq.appendChild(verifyBtnDiv);
+        // Button is now kept in the sidebar exclusively to avoid duplicate controls
       } else if (textContent.includes("[!NOTE]")) {
         bq.classList.add("ai-alert-box", "note");
         bq.innerHTML = bq.innerHTML
