@@ -58,6 +58,40 @@ function verifyYoutubeLink(url) {
   });
 }
 
+// Helper to download an image from a URL to a local file path (supports redirects)
+function downloadImage(url, localPath) {
+  return new Promise((resolve) => {
+    https.get(url, (res) => {
+      if (res.statusCode === 301 || res.statusCode === 302) {
+        https.get(res.headers.location, (redirectRes) => {
+          if (redirectRes.statusCode === 200) {
+            const fileStream = fs.createWriteStream(localPath);
+            redirectRes.pipe(fileStream);
+            fileStream.on('finish', () => {
+              fileStream.close();
+              resolve(true);
+            });
+          } else {
+            resolve(false);
+          }
+        }).on('error', () => resolve(false));
+      } else if (res.statusCode === 200) {
+        const fileStream = fs.createWriteStream(localPath);
+        res.pipe(fileStream);
+        fileStream.on('finish', () => {
+          fileStream.close();
+          resolve(true);
+        });
+      } else {
+        resolve(false);
+      }
+    }).on('error', (err) => {
+      console.error('[Image Downloader] Connection error:', err.message);
+      resolve(false);
+    });
+  });
+}
+
 // Helper to extract YouTube video ID from various URL formats
 function getYoutubeId(url) {
   if (!url) return null;
@@ -388,6 +422,11 @@ async function main() {
        + Đường xám đứt gióng chú thích: class="d-leader"
        + Đầu mũi tên chỉ hướng kết nối: marker-end="url(#arrow)"
      - Căn chỉnh tọa độ x, y hợp lý để sơ đồ thoáng đẹp, trực quan và không chồng chéo chữ.
+  8. Tại mỗi mục tiêu đề lớn H2 (hoặc mục kỹ thuật quan trọng), bắt buộc chèn một hình ảnh minh họa sinh động bằng cú pháp đặc biệt:
+     ![Mô tả ngắn gọn về hình ảnh sinh động](pexels: từ khóa tìm kiếm tiếng Anh liên quan đến hình ảnh)
+     Ví dụ:
+     ![Ấu trùng ruồi lính đen phân hủy phế phẩm hữu cơ](pexels: black soldier fly larvae compost)
+     Không viết đường dẫn tĩnh thông thường, hệ thống sẽ tự động dùng từ khóa tìm kiếm để nạp ảnh thực tế tương ứng từ Pexels.
   Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
 
   const { spawnSync } = require('child_process');
@@ -537,6 +576,52 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       .join('\n');
     return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
   });
+
+  // 4.5. Tự động quét và tải ảnh minh họa từng mục từ Pexels
+  const pexelsPattern = /!\[([^\]]+)\]\(pexels:\s*([^\)]+)\)/g;
+  let imgMatch;
+  let imageIndex = 1;
+  const pexelsMatches = [];
+  while ((imgMatch = pexelsPattern.exec(content)) !== null) {
+    pexelsMatches.push({
+      fullMatch: imgMatch[0],
+      caption: imgMatch[1],
+      query: imgMatch[2].trim()
+    });
+  }
+
+  console.log(`[Pexels Content Images] Tìm thấy ${pexelsMatches.length} vị trí cần chèn ảnh minh họa.`);
+  for (const item of pexelsMatches) {
+    const query = item.query;
+    console.log(`[Pexels Content Images] Đang tìm ảnh trên Pexels cho mục: "${query}"...`);
+    const urls = await fetchPexelsImages(query, 1);
+    let resolvedImageUrl = '';
+
+    if (urls && urls.length > 0) {
+      const pexelsUrl = urls[0];
+      const localImageName = `${selectedTopic.id}-${imageIndex}.png`;
+      const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
+      if (!fs.existsSync(postsImgDir)) {
+        fs.mkdirSync(postsImgDir, { recursive: true });
+      }
+      const localImagePath = path.join(postsImgDir, localImageName);
+      
+      console.log(`[Pexels Content Images] Tìm thấy ảnh. Đang tải về: public/assets/images/posts/${localImageName}...`);
+      const success = await downloadImage(pexelsUrl, localImagePath);
+      if (success) {
+        resolvedImageUrl = `/assets/images/posts/${localImageName}`;
+      } else {
+        console.warn(`[Pexels Content Images] Tải ảnh thất bại. Sử dụng trực tiếp link CDN Pexels.`);
+        resolvedImageUrl = pexelsUrl;
+      }
+    } else {
+      console.warn(`[Pexels Content Images] Không tìm thấy ảnh trên Pexels cho từ khóa: "${query}". Sử dụng ảnh đại diện dự phòng.`);
+      resolvedImageUrl = selectedImage.startsWith('/') ? selectedImage : '/assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png';
+    }
+
+    content = content.replace(item.fullMatch, `![${item.caption}](${resolvedImageUrl})`);
+    imageIndex++;
+  }
 
   fs.writeFileSync(filepath, content, 'utf8');
   console.log(`Successfully generated and saved daily post to: _posts/${filename}`);
