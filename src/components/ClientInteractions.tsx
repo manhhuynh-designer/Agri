@@ -189,6 +189,12 @@ export default function ClientInteractions() {
       import("mermaid").then((m) => {
         const mermaid = m.default;
         const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+        
+        // Clean each element to strip any markdown-injected <pre><code> tags and decode entities
+        mermaidElements.forEach((el) => {
+          el.textContent = el.textContent || "";
+        });
+
         mermaid.initialize({
           startOnLoad: false,
           theme: isDark ? "dark" : "neutral",
