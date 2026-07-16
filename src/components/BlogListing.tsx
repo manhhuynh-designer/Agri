@@ -25,7 +25,7 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
   const [currentSort, setCurrentSort] = useState("newest");
   const [layout, setLayout] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 6;
+  const [pageSize, setPageSize] = useState(6);
 
   // Restore saved layout preference on mount
   useEffect(() => {
@@ -67,10 +67,10 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
     return result;
   }, [initialPosts, searchQuery, activeTag, currentSort]);
 
-  // Reset to page 1 whenever filters change
+  // Reset to page 1 whenever filters or page size change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, activeTag, currentSort]);
+  }, [searchQuery, activeTag, currentSort, pageSize]);
 
   // Pagination calculations
   const totalItems = filteredAndSortedPosts.length;
@@ -79,7 +79,7 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
   const displayedPosts = useMemo(() => {
     const startIndex = (currentPage - 1) * pageSize;
     return filteredAndSortedPosts.slice(startIndex, startIndex + pageSize);
-  }, [filteredAndSortedPosts, currentPage]);
+  }, [filteredAndSortedPosts, currentPage, pageSize]);
 
   const handleLayoutChange = (newLayout: "grid" | "list") => {
     setLayout(newLayout);
@@ -159,6 +159,21 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
               <option value="oldest">Cũ nhất</option>
               <option value="time-asc">Thời gian đọc: Ngắn &rarr; Dài</option>
               <option value="time-desc">Thời gian đọc: Dài &rarr; Ngắn</option>
+            </select>
+          </div>
+
+          <div className="sort-box" style={{ marginLeft: "8px" }}>
+            <select
+              value={pageSize}
+              onChange={(e) => setPageSize(parseInt(e.target.value))}
+              className="sort-select"
+              aria-label="Số lượng bài hiển thị"
+              style={{ minWidth: "110px" }}
+            >
+              <option value="6">Xem 6 bài</option>
+              <option value="12">Xem 12 bài</option>
+              <option value="24">Xem 24 bài</option>
+              <option value="999">Xem tất cả</option>
             </select>
           </div>
 
