@@ -467,9 +467,6 @@ function initCopyLink() {
    8. LIGHTBOX IMAGE ZOOM FOR DIAGRAMS
    ========================================================================== */
 function initLightbox() {
-  const diagrams = document.querySelectorAll('.post-content svg, .post-content img');
-  if (diagrams.length === 0) return;
-  
   let overlay = document.getElementById('lightbox-overlay');
   if (!overlay) {
     overlay = document.createElement('div');
@@ -491,20 +488,18 @@ function initLightbox() {
   
   const contentContainer = overlay.querySelector('.lightbox-content');
   
-  diagrams.forEach(item => {
-    item.style.cursor = 'zoom-in';
-    item.setAttribute('title', 'Nhấn để phóng to sơ đồ kỹ thuật');
-    
-    item.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
+    const zoomable = e.target.closest('.post-content img, .post-content svg');
+    if (zoomable && !e.target.closest('#lightbox-overlay')) {
+      if (!contentContainer || !overlay) return;
       contentContainer.innerHTML = '';
-      const clone = item.cloneNode(true);
+      const clone = zoomable.cloneNode(true);
       clone.style.cursor = 'default';
       clone.removeAttribute('title');
-      
       contentContainer.appendChild(clone);
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-    });
+    }
   });
 }
 

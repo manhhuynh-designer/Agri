@@ -74,11 +74,10 @@ export default function ClientInteractions() {
       });
     }
 
-    // 3. Image/SVG Lightbox Zoom
-    const diagrams = document.querySelectorAll(".post-content svg, .post-content img");
+    // 3. Image/SVG Lightbox Zoom using Event Delegation
     let overlay = document.getElementById("lightbox-overlay");
 
-    if (!overlay && diagrams.length > 0) {
+    if (!overlay) {
       overlay = document.createElement("div");
       overlay.id = "lightbox-overlay";
       overlay.className = "lightbox-overlay";
@@ -99,23 +98,23 @@ export default function ClientInteractions() {
 
     const contentContainer = overlay?.querySelector(".lightbox-content");
 
-    diagrams.forEach((item) => {
-      (item as HTMLElement).style.cursor = "zoom-in";
-      item.setAttribute("title", "Nhấn để phóng to sơ đồ kỹ thuật");
-
-      const handleZoom = () => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      // Target any image or SVG inside post-content, excluding elements inside the lightbox overlay itself
+      const zoomable = target.closest(".post-content img, .post-content svg");
+      if (zoomable && !target.closest("#lightbox-overlay")) {
         if (!contentContainer || !overlay) return;
         contentContainer.innerHTML = "";
-        const clone = item.cloneNode(true) as HTMLElement;
+        const clone = zoomable.cloneNode(true) as HTMLElement;
         clone.style.cursor = "default";
         clone.removeAttribute("title");
         contentContainer.appendChild(clone);
         overlay.classList.add("active");
         document.body.style.overflow = "hidden";
-      };
+      }
+    };
 
-      item.addEventListener("click", handleZoom);
-    });
+    document.addEventListener("click", handleGlobalClick);
 
     // 4. Alert boxes formatter
     const blockquotes = document.querySelectorAll(".post-content blockquote");
@@ -480,7 +479,13 @@ Hãy đối chiếu thông tin bài viết với kiến thức khoa học nông 
     const openFeedbackBtn = document.getElementById("open-feedback-btn");
     const handleFeedbackOpen = (e: Event) => {
       e.preventDefault();
-      window.dispatchEvent(new CustomEvent("open-feedback-modal"));
+      const title = document.querySelector("h1")?.innerText || "";
+      const url = window.location.href;
+      window.dispatchEvent(
+        new CustomEvent("open-feedback-modal", {
+          detail: { title, url },
+        })
+      );
     };
     openFeedbackBtn?.addEventListener("click", handleFeedbackOpen);
     
@@ -511,6 +516,7 @@ Hãy đối chiếu thông tin bài viết với kiến thức khoa học nông 
       sidebarVerifyBtn?.removeEventListener("click", handleVerifyOpen);
       openFeedbackBtn?.removeEventListener("click", handleFeedbackOpen);
       document.removeEventListener("click", handleBodyVerifyClick);
+      document.removeEventListener("click", handleGlobalClick);
     };
   }, [pathname]);
 

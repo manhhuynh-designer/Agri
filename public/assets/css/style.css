@@ -171,6 +171,44 @@ html[data-theme="light"] .sun-icon {
   display: block;
 }
 
+@media (max-width: 640px) {
+  .logo {
+    font-size: 18px;
+  }
+  .nav-links {
+    gap: 16px;
+  }
+  .nav-links a {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    font-size: 16px;
+    gap: 6px;
+  }
+  .logo-icon {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-links a {
+    font-size: 13px;
+  }
+  .theme-toggle {
+    padding: 6px;
+  }
+}
+
 /* ==========================================================================
    HERO / BANNER
    ========================================================================== */
@@ -464,7 +502,8 @@ html[data-theme="light"] .sun-icon {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
-  padding: 50px 0 80px;
+  padding-top: 50px;
+  padding-bottom: 80px;
 }
 
 @media (min-width: 992px) {
@@ -1176,6 +1215,12 @@ footer.site-footer {
    ========================================================================== */
 
 /* 1. Lightbox Zoom */
+.post-content img,
+.post-content svg,
+.post-content .diagram-card svg,
+.post-content .mermaid svg {
+  cursor: zoom-in;
+}
 .lightbox-overlay {
   position: fixed;
   top: 0;

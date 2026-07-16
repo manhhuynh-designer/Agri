@@ -144,7 +144,7 @@ Sự ổn định của vườn đứng phụ thuộc vào việc kiểm soát c
 ---
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> *Vườn rau, Vườn quả, Vườn rừng thiết kế đa tầng sinh thái*, GS. Trịnh Văn Thịnh, Nhà xuất bản Nông nghiệp, Chương 3: Tối ưu hóa không gian đứng, Trang 88. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> *Giáo trình Thủy canh và Khí canh trong Nông nghiệp Công nghệ cao*, PGS. TS. Nguyễn Quang Thạch, Nhà xuất bản Nông nghiệp, Chương 3: Thiết kế tháp đứng canh tác đô thị, Trang 64. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-2">**[2]**</span> *Kĩ thuật thủy canh và sản xuất rau sạch*, PGS. TS. Nguyễn Quang Thạch, Nhà xuất bản Nông nghiệp, Chương 4: Thiết kế hệ thống thủy canh thẳng đứng, Trang 112. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-3">**[3]**</span> *Than sinh học (Biochar) – hiệu quả kinh tế và cải tạo đất nhờ công nghệ*, Anh Tùng, Tạp chí Thông tin Khoa học & Công nghệ STINFO, Số 4, Trang 18. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-4">**[4]**</span> *Kỹ thuật trồng rau sạch theo mùa vụ Xuân - Hè*, PGS. TS. Tạ Thu Cúc, Nhà xuất bản Phụ nữ, Chương 2: Quản lý sâu bệnh hữu cơ, Trang 54. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>

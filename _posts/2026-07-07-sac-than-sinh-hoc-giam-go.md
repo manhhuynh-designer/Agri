@@ -4,6 +4,7 @@ title: "Cách 'sạc' dinh dưỡng Than Sinh Học và Thu hoạch Giấm Gỗ 
 date: 2026-07-14 14:00:00 +0700
 category: "Cải tạo đất"
 tags: ["cai-tao-dat", "biochar", "giam-go"]
+image: https://img.manhhuynh.work/posts/sac-than-sinh-hoc-giam-go-hero.png?v=1784211382388
 difficulty: "Dễ"
 read_time: "5 phút"
 author: "Nông Nghiệp Sinh Thái"
@@ -12,6 +13,7 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
 
 <section id="tai-sao-sac">
   <div class="sec-head"><span class="sec-num">01</span><h2>Tại sao phải "sạc" than sinh học?</h2></div>
+  <p><img src="https://img.manhhuynh.work/posts/sac-than-sinh-hoc-giam-go-tai-sao-sac.png" alt="Tại sao phải sạc than sinh học" /></p>
   <p class="sec-desc">Than sinh học (biochar) mới ra lò là một cấu trúc carbon cực kỳ rỗng, khô và "đói" dinh dưỡng.</p>
   
   <p>Nếu bạn bón trực tiếp than sinh học mới đốt vào đất, cấu trúc rỗng xốp xơ của nó sẽ hoạt động giống như một miếng bọt biển khô khổng lồ. Nó sẽ hút sạch nước, phân bón và các vi sinh vật có sẵn trong đất để lấp đầy các khoang trống của nó. Hậu quả là trong mùa vụ đầu tiên, cây trồng của bạn có thể bị còi cọc do thiếu nước và chất dinh dưỡng tạm thời.</p>
@@ -21,6 +23,7 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
 
 <section id="cong-thuc-sac">
   <div class="sec-head"><span class="sec-num">02</span><h2>Công thức sạc than sinh học hiệu quả</h2></div>
+  <p><img src="https://img.manhhuynh.work/posts/sac-than-sinh-hoc-giam-go-cong-thuc.png" alt="Công thức sạc than sinh học hiệu quả" /></p>
   <p class="sec-desc">Phương pháp đơn giản nhất bằng các nguyên liệu sẵn có tại nông hộ.</p>
 
   <div class="mat-grid">
@@ -57,6 +60,7 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
 
 <section id="thu-hoach-giam-go">
   <div class="sec-head"><span class="sec-num">03</span><h2>Thu hoạch Giấm Gỗ (Wood Vinegar)</h2></div>
+  <p><img src="https://img.manhhuynh.work/posts/sac-than-sinh-hoc-giam-go-thu-hoach.png" alt="Thu hoạch Giấm Gỗ" /></p>
   <p class="sec-desc">Biến phần khói lò nhiệt phân bay đi lãng phí thành giấm gỗ - thuốc trừ sâu sinh học tự nhiên quý giá.</p>
 
   <p>Giấm gỗ (Pyroligneous Acid) là chất lỏng thu được từ việc ngưng tụ khói lò trong quá trình nhiệt phân các nguyên liệu chứa cellulose (gỗ, vỏ cây, tre, trấu...). Nó chứa hơn 200 hợp chất hữu cơ khác nhau, chủ yếu là axit axetic, có tác dụng kháng nấm, xua đuổi côn trùng và kích thích sinh trưởng thực vật cực tốt.</p>
@@ -82,6 +86,7 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
 
 <section id="cach-su-dung">
   <div class="sec-head"><span class="sec-num">04</span><h2>Cách sử dụng giấm gỗ phòng trừ sâu hại</h2></div>
+  <p><img src="https://img.manhhuynh.work/posts/sac-than-sinh-hoc-giam-go-su-dung.png" alt="Cách sử dụng giấm gỗ phòng trừ sâu hại" /></p>
   <p class="sec-desc">Giấm gỗ thu được phải được pha loãng với nước sạch trước khi phun tưới theo các tỷ lệ sau:</p>
 
   <div class="flow">
@@ -99,3 +104,11 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
     </div>
   </div>
 </section>
+
+---
+### Video tham khảo thực tế
+Xem phóng sự hướng dẫn chi tiết quy trình ứng dụng giấm gỗ sinh học bảo vệ thực vật hữu cơ từ YouTube:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+  <iframe src="https://www.youtube.com/embed/N8I2SYw0nwg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+</div>

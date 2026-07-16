@@ -3,7 +3,7 @@ layout: post
 title: "Ứng dụng Công nghệ sinh học và Chế phẩm sinh học vi sinh trong Nông nghiệp hữu cơ"
 categories: [Công nghệ sinh học, Vi sinh hữu ích]
 tags: [Công nghệ sinh học, Vi sinh hữu ích, Hữu cơ]
-image: https://images.pexels.com/photos/18697894/pexels-photo-18697894.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+image: https://img.manhhuynh.work/posts/cong-nghe-sinh-hoc-nong-nghiep-hero.png?v=1784211382388
 description: Tìm hiểu vai trò và quy trình ứng dụng công nghệ sinh học cùng các chế phẩm vi sinh để cải tạo đất, chuyển hóa dinh dưỡng và bảo vệ cây trồng bền vững trong canh tác hữu cơ.
 ---
 
@@ -14,6 +14,8 @@ Nông nghiệp hữu cơ đang trở thành xu hướng tất yếu toàn cầu 
 
 ## Vai trò cốt lõi của vi sinh vật đối với đất và cây trồng
 
+![Vai trò vi sinh vật đất và cây trồng](https://img.manhhuynh.work/posts/cong-nghe-sinh-hoc-nong-nghiep-vai-tro-vsv.png)
+
 Hệ vi sinh vật đất là thành phần sống động nhất, quyết định sức khỏe và độ phì nhiêu của đất trồng. Khi ứng dụng công nghệ sinh học vào nông nghiệp hữu cơ, các nhóm vi sinh vật có ích được đưa vào đất nhằm thực hiện ba chức năng sinh học cốt lõi:
 
 1. **Cố định đạm (Nitrogen Fixation):** Nitơ là nguyên tố dinh dưỡng đa lượng thiết yếu nhưng cây trồng không thể hấp thụ trực tiếp dạng khí ($N_2$) từ khí quyển. Các vi sinh vật cố định đạm cộng sinh (như *Rhizobium* trong nốt sần cây họ Đậu) hoặc tự do (như *Azotobacter*, *Clostridium*) sở hữu hệ enzyme nitrogenase có khả năng khử $N_2$ thành amoniac ($NH_3$), cung cấp nguồn đạm sinh học tự nhiên liên tục cho đất và cây trồng <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
@@ -21,6 +23,8 @@ Hệ vi sinh vật đất là thành phần sống động nhất, quyết đị
 3. **Phân giải chất hữu cơ và xenlulozo (Organic Matter Decomposition):** Tàn dư thực vật, rơm rạ, phân chuồng thô chứa hàm lượng xenlulozo, bán xenlulozo và lignin rất cao. Các dòng nấm sợi đối kháng như *Trichoderma* cùng các vi khuẩn chi *Bacillus* tiết ra tổ hợp enzyme cellulase, hemicellulase để bẻ gãy mạch đại phân tử này, chuyển hóa chúng thành các hợp chất mùn (humus) giàu dinh dưỡng và cải thiện cấu trúc lý hóa của đất trồng <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 
 ## Các nhóm chế phẩm sinh học vi sinh phổ biến trong canh tác
+
+![Các nhóm chế phẩm sinh học vi sinh](https://img.manhhuynh.work/posts/cong-nghe-sinh-hoc-nong-nghiep-che-pham-pho-bien.png)
 
 Dựa trên mục đích sử dụng và chủng vi sinh vật đích, công nghệ sinh học nông nghiệp phân loại chế phẩm sinh học thành ba nhóm chính phục vụ canh tác hữu cơ <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>:
 
@@ -31,6 +35,8 @@ Dựa trên mục đích sử dụng và chủng vi sinh vật đích, công ngh
 * **Chế phẩm kích thích sinh trưởng thực vật (PGPR - Plant Growth-Promoting Rhizobacteria):** Nhóm vi khuẩn vùng rễ này tiết ra các phytohormone thực vật như Auxin (Indole-3-acetic acid - IAA), Gibberellin (GA3) thúc đẩy sự phân chia tế bào, kéo dài rễ tơ, tăng diện tích tiếp xúc của rễ với đất, giúp cây trồng sinh trưởng khỏe mạnh và tăng khả năng chống chịu với các stress môi trường <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
 ## Quy trình chuyển hóa sinh học và bảo vệ cây trồng bằng vi sinh vật
+
+![Quy trình chuyển hóa sinh học](https://img.manhhuynh.work/posts/cong-nghe-sinh-hoc-nong-nghiep-quy-trinh-chuyen-hoa.png)
 
 Để tối ưu hóa hiệu quả của chế phẩm vi sinh, các nhà canh tác hữu cơ cần áp dụng theo một quy trình khép kín, kết hợp từ khâu xử lý nguyên liệu hữu cơ thô đầu vào cho đến khâu bảo vệ trực tiếp vùng rễ cây trồng trong đất.
 
@@ -92,6 +98,8 @@ Dưới đây là sơ đồ mô tả dòng chuyển hóa vật chất và cơ ch
 
 ## Lợi ích vượt trội và xu hướng phát triển nông nghiệp hữu cơ vi sinh
 
+![Lợi ích và xu hướng nông nghiệp hữu cơ vi sinh](https://img.manhhuynh.work/posts/cong-nghe-sinh-hoc-nong-nghiep-loi-ich-vuot-troi.png)
+
 Việc ứng dụng đồng bộ công nghệ sinh học và các chế phẩm vi sinh mang lại nhiều lợi ích to lớn cả về mặt kinh tế lẫn môi trường bền vững:
 
 1. **Khôi phục sức khỏe đất trồng:** Khác với phân bón hóa học làm chua và chai cứng đất, vi sinh vật giúp tái tạo cấu trúc đất thông qua việc hình thành mùn và chất keo đất. Điều này giúp đất tăng khả năng giữ nước, thông khí tốt và duy trì độ phì nhiêu lâu dài <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
@@ -108,8 +116,8 @@ Việc ứng dụng đồng bộ công nghệ sinh học và các chế phẩm v
 
 ---
 ### Video tham khảo thực tế
-Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
+Xem phóng sự thực tế về ứng dụng công nghệ sinh học đột phá trong nông nghiệp hữu cơ tại Đồng Tháp từ Truyền hình Đồng Tháp (THDT) trên YouTube:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-  <iframe src="https://www.youtube.com/embed/gOwZkShSjP0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+  <iframe src="https://www.youtube.com/embed/Xs1-a6lpIxg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
 </div>

@@ -298,39 +298,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
       <article className="post-layout wrap">
         <div className="post-body">
-          {/* TL;DR / Key Takeaways Box for AI Search & Human Readers */}
-          {post.description && (
-            <div
-              className="post-tldr-box"
-              style={{
-                backgroundColor: "var(--bg-2)",
-                borderLeft: "4px solid var(--ember)",
-                padding: "20px",
-                borderRadius: "6px",
-                marginBottom: "30px",
-                fontSize: "1rem",
-                lineHeight: "1.6",
-                color: "var(--char)",
-              }}
-            >
-              <strong
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  marginBottom: "8px",
-                  color: "var(--ember)",
-                  textTransform: "uppercase",
-                  fontSize: "0.85rem",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                <span>📌</span> Tóm tắt cốt lõi (Key Takeaways)
-              </strong>
-              <p style={{ margin: 0 }}>{post.description}</p>
-            </div>
-          )}
-
           {/* Post Content */}
           <div className="post-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 

@@ -3,6 +3,68 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 
+const tagMapping: Record<string, string> = {
+  "cai-tao-dat": "Cải tạo đất",
+  "biochar": "Biochar",
+  "giam-go": "Giấm gỗ",
+  "u-phan": "Ủ phân",
+  "tuan-hoan": "Tuần hoàn",
+  "dinh-duong": "Dinh dưỡng",
+  "vi-sinh": "Vi sinh",
+  "huu-co": "Hữu cơ",
+  "bao-ve-thuc-vat": "Bảo vệ thực vật",
+  "sinh-thai-hoc": "Sinh thái học",
+  "tu-che": "Tự chế",
+  "than-sinh-hoc": "Than sinh học",
+  "kieu-lo-retort": "Lò Retort",
+  "ben-vung": "Bền vững",
+  "ben-vung-hon": "Bền vững",
+  "bến vững": "Bền vững",
+  "quyen": "Quyển",
+  "permaculture": "Permaculture",
+  "dinh dưỡng": "Dinh dưỡng",
+  "vi sinh": "Vi sinh",
+  "rau sạch": "Rau sạch",
+  "vườn rừng": "Vườn rừng",
+  "bền vững": "Bền vững",
+  "thiết kế vườn": "Thiết kế vườn",
+  "đất đai": "Đất đai",
+  "thiên địch": "Thiên địch",
+  "côn trùng có lợi": "Côn trùng có lợi",
+  "nông nghiệp quy mô nhỏ": "Nông nghiệp quy mô nhỏ",
+  "khởi nghiệp": "Khởi nghiệp",
+  "kinh tế nông nghiệp": "Kinh tế nông nghiệp",
+  "hộ gia đình": "Hộ gia đình",
+  "ủ phân": "Ủ phân",
+  "canh tác sinh thái": "Canh tác sinh thái",
+  "kỹ thuật": "Kỹ thuật",
+  "chăn nuôi hữu cơ": "Chăn nuôi hữu cơ",
+  "tái chế chất thải": "Tái chế chất thải",
+  "mô hình bền vững": "Mô hình bền vững",
+  "năng lượng sạch": "Năng lượng sạch",
+  "công nghệ sinh học": "Công nghệ sinh học",
+  "vi sinh hữu ích": "Vi sinh hữu ích",
+  "thực nghiệm": "Thực nghiệm",
+  "canh tác tự nhiên": "Canh tác tự nhiên",
+  "rau sach": "Rau sạch",
+  "vac": "VAC",
+};
+
+const normalizeTag = (tag: string): string => {
+  const trimmed = tag.trim();
+  const lower = trimmed.toLowerCase();
+  if (tagMapping[lower]) {
+    return tagMapping[lower];
+  }
+  if (/^[a-z0-9-]+$/.test(trimmed)) {
+    return trimmed
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+};
+
 interface Post {
   slug: string;
   title: string;
@@ -26,14 +88,75 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
   const [layout, setLayout] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
+  const [showAllTags, setShowAllTags] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // Restore saved layout preference on mount
+  // Extract and normalize unique tags from initialPosts dynamically
+  const { allTags, popularTags } = useMemo(() => {
+    const frequency: Record<string, number> = {};
+    initialPosts.forEach((post) => {
+      if (Array.isArray(post.tags)) {
+        post.tags.forEach((tag) => {
+          if (tag && tag.trim()) {
+            const normalized = normalizeTag(tag);
+            frequency[normalized] = (frequency[normalized] || 0) + 1;
+          }
+        });
+      }
+    });
+
+    const sortedTags = Object.entries(frequency)
+      .sort((a, b) => b[1] - a[1]) // Sort by frequency descending
+      .map(([tag]) => tag);
+
+    return {
+      allTags: sortedTags,
+      popularTags: sortedTags.slice(0, 10), // Top 10 most common tags
+    };
+  }, [initialPosts]);
+
+  // Compute displayed tags: Top 10 + active tag if it's not in Top 10
+  const displayedTags = useMemo(() => {
+    const base = showAllTags ? allTags : popularTags;
+    if (activeTag !== "all" && !base.map(t => t.toLowerCase()).includes(activeTag.toLowerCase())) {
+      const matchingTag = allTags.find(t => t.toLowerCase() === activeTag.toLowerCase());
+      if (matchingTag) {
+        return [...base, matchingTag];
+      }
+    }
+    return base;
+  }, [showAllTags, allTags, popularTags, activeTag]);
+
+  // Restore saved preferences on mount
   useEffect(() => {
     const savedLayout = localStorage.getItem("blog-layout");
     if (savedLayout === "list") {
       setLayout("list");
     }
+
+    const savedSearch = localStorage.getItem("blog-search") || "";
+    const savedTag = localStorage.getItem("blog-tag") || "all";
+    const savedSort = localStorage.getItem("blog-sort") || "newest";
+    const savedPageSize = parseInt(localStorage.getItem("blog-pageSize") || "6") || 6;
+    const savedPage = parseInt(localStorage.getItem("blog-page") || "1") || 1;
+
+    setSearchQuery(savedSearch);
+    setActiveTag(savedTag);
+    setCurrentSort(savedSort);
+    setPageSize(savedPageSize);
+    setCurrentPage(savedPage);
+    setIsInitialized(true);
   }, []);
+
+  // Save preferences when they change
+  useEffect(() => {
+    if (isInitialized) {
+      localStorage.setItem("blog-search", searchQuery);
+      localStorage.setItem("blog-tag", activeTag);
+      localStorage.setItem("blog-sort", currentSort);
+      localStorage.setItem("blog-pageSize", pageSize.toString());
+    }
+  }, [searchQuery, activeTag, currentSort, pageSize, isInitialized]);
 
   // Filter and Sort posts
   const filteredAndSortedPosts = useMemo(() => {
@@ -41,7 +164,7 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
     let result = initialPosts.filter((post) => {
       const matchesTag =
         activeTag === "all" ||
-        post.tags.map((t) => t.toLowerCase()).includes(activeTag.toLowerCase());
+        post.tags.map((t) => normalizeTag(t).toLowerCase()).includes(activeTag.toLowerCase());
 
       const matchesSearch =
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -67,10 +190,13 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
     return result;
   }, [initialPosts, searchQuery, activeTag, currentSort]);
 
-  // Reset to page 1 whenever filters or page size change
+  // Reset to page 1 whenever filters or page size change (only after initialization)
   useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, activeTag, currentSort, pageSize]);
+    if (isInitialized) {
+      setCurrentPage(1);
+      localStorage.setItem("blog-page", "1");
+    }
+  }, [searchQuery, activeTag, currentSort, pageSize, isInitialized]);
 
   // Pagination calculations
   const totalItems = filteredAndSortedPosts.length;
@@ -88,6 +214,7 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
 
   const handlePageChange = (pageNum: number) => {
     setCurrentPage(pageNum);
+    localStorage.setItem("blog-page", pageNum.toString());
     window.scrollTo({
       top: 500, // Scroll past the hero banner
       behavior: "smooth",
@@ -105,30 +232,32 @@ export default function BlogListing({ initialPosts }: BlogListingProps) {
           >
             Tất cả
           </button>
-          <button
-            onClick={() => setActiveTag("tu-che")}
-            className={`filter-btn ${activeTag === "tu-che" ? "active" : ""}`}
-          >
-            Tự chế thiết bị
-          </button>
-          <button
-            onClick={() => setActiveTag("cai-tao-dat")}
-            className={`filter-btn ${activeTag === "cai-tao-dat" ? "active" : ""}`}
-          >
-            Cải tạo đất
-          </button>
-          <button
-            onClick={() => setActiveTag("biochar")}
-            className={`filter-btn ${activeTag === "biochar" ? "active" : ""}`}
-          >
-            Than sinh học
-          </button>
-          <button
-            onClick={() => setActiveTag("giam-go")}
-            className={`filter-btn ${activeTag === "giam-go" ? "active" : ""}`}
-          >
-            Giấm gỗ
-          </button>
+          {displayedTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => setActiveTag(tag)}
+              className={`filter-btn ${activeTag.toLowerCase() === tag.toLowerCase() ? "active" : ""}`}
+            >
+              {tag}
+            </button>
+          ))}
+          {allTags.length > 10 && (
+            <button
+              onClick={() => setShowAllTags(!showAllTags)}
+              className="filter-btn toggle-all-tags-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "4px",
+                backgroundColor: "transparent",
+                borderColor: "var(--line)",
+                color: "var(--ember)",
+                fontWeight: "600",
+              }}
+            >
+              {showAllTags ? "Thu gọn ▲" : `Xem thêm (+${allTags.length - 10}) ▼`}
+            </button>
+          )}
         </div>
 
         <div className="controls-toolbar">

@@ -3,7 +3,7 @@ layout: post
 title: "Cây che phủ đất và phân xanh - Tấm khiên bảo vệ đất dốc"
 categories: [Đất đai, Cải tạo đất]
 tags: [Đất đai, Cải tạo đất, Hữu cơ]
-image: https://images.pexels.com/photos/37385599/pexels-photo-37385599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+image: https://img.manhhuynh.work/posts/cay-che-phu-dat-phu-xanh-hero.png?v=1784211382388
 description: Khám phá vai trò của cây che phủ và phân xanh trong việc chống xói mòn và phục hồi độ phì nhiêu cho đất dốc bền vững.
 ---
 
@@ -12,11 +12,15 @@ description: Khám phá vai trò của cây che phủ và phân xanh trong việ
 
 ## Vai trò của "Tấm khiên" sinh học trên đất dốc
 
+![Vai trò của cây che phủ](https://img.manhhuynh.work/posts/cay-che-phu-dat-phu-xanh-tam-khien.png)
+
 Tại Việt Nam, diện tích đất đồi núi chiếm tới 75% lãnh thổ, đóng vai trò quan trọng trong phát triển nông lâm nghiệp <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Tuy nhiên, đây cũng là vùng đất mẫn cảm nhất với hiện tượng xói mòn và rửa trôi do tác động của lượng mưa lớn và các biện pháp canh tác truyền thống không hợp lý như đốt nương làm rẫy <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Việc bóc trần thảm thực vật khiến lớp đất mặt giàu mùn bị cuốn trôi âm thầm, làm giảm độ phì nhiêu và sức sản xuất của đất <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. 
 
 Sử dụng cây che phủ và phân xanh được coi là giải pháp "tấm khiên" sinh học tiên quyết để bảo vệ đất dốc <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Cơ chế cốt lõi là không cho hạt mưa rơi trực tiếp và va đập mạnh lên bề mặt đất, đồng thời tạo vật cản để giảm tốc độ dòng chảy, giúp nước thấm vào đất nhiều hơn thay vì chảy tràn trên bề mặt <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 
 ## Phân biệt Cây che phủ và Phân xanh
+
+![Phân biệt Cây che phủ và Phân xanh](https://img.manhhuynh.work/posts/cay-che-phu-dat-phu-xanh-phan-biet.png)
 
 Mặc dù thường được nhắc đến cùng nhau, cây che phủ và phân xanh có những mục đích sử dụng khác biệt trong kỹ thuật canh tác:
 
@@ -26,6 +30,8 @@ Mặc dù thường được nhắc đến cùng nhau, cây che phủ và phân 
 Trong thực tế canh tác đất dốc, hai loại hình này thường được kết hợp: cây được trồng để che phủ bảo vệ đất trong mùa mưa, sau đó được cắt tỉa làm vật liệu ủ gốc hoặc phân xanh vào mùa khô <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 
 ## Cơ chế bảo vệ và cải tạo đất
+
+![Cơ chế bảo vệ cải tạo đất](https://img.manhhuynh.work/posts/cay-che-phu-dat-phu-xanh-co-che.png)
 
 Cây che phủ đất tác động toàn diện lên cấu trúc và hóa tính của đất dốc thông qua các cơ chế sau:
 
@@ -70,6 +76,8 @@ graph TD
 
 ## Các loài cây tiêu biểu và mô hình ứng dụng
 
+![Các loài cây tiêu biểu](https://img.manhhuynh.work/posts/cay-che-phu-dat-phu-xanh-cac-loai-cay.png)
+
 Việc lựa chọn loài cây che phủ cần dựa trên nguyên tắc thích nghi với điều kiện địa phương, mọc nhanh và có sinh khối lớn <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
 *   **Lạc dại (Arachis pintoi):** Loài cây họ Đậu bò lan, chịu được bóng râm, ra hoa quanh năm. Đây là lựa chọn lý tưởng để phủ gốc cây ăn quả, nương ngô và chống xói mòn nhờ thảm cỏ dày đặc <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
@@ -80,6 +88,8 @@ Việc lựa chọn loài cây che phủ cần dựa trên nguyên tắc thích 
 Các mô hình ứng dụng phổ biến bao gồm mô hình SALT (Canh tác đất dốc bền vững) với việc thiết lập các băng cây xanh họ đậu theo đường đồng mức, xen kẽ với các dải cây lương thực ngắn ngày <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>.
 
 ## Kỹ thuật thiết lập và bảo dưỡng
+
+![Kỹ thuật thiết lập bảo dưỡng](https://img.manhhuynh.work/posts/cay-che-phu-dat-phu-xanh-ky-thuat.png)
 
 Để hệ thống cây che phủ phát huy tối đa hiệu quả, cần tuân thủ các bước kỹ thuật sau:
 

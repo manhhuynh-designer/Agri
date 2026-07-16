@@ -3,7 +3,7 @@ layout: post
 title: "Nghệ thuật luân canh và xen canh tăng hiệu quả sử dụng đất"
 categories: [Canh tác sinh thái, Kỹ thuật]
 tags: [Canh tác sinh thái, Kỹ thuật, Hữu cơ]
-image: https://images.pexels.com/photos/10213238/pexels-photo-10213238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+image: https://img.manhhuynh.work/posts/mo-hinh-luan-canh-xen-canh-hero.png?v=1784211382388
 description: Khám phá các nguyên lý kỹ thuật về luân canh và xen canh để tối ưu hóa dinh dưỡng đất và kiểm soát dịch hại bền vững.
 ---
 
@@ -14,11 +14,15 @@ Trong nông nghiệp sinh thái và hữu cơ, đất đai không chỉ là giá
 
 ## Khái niệm và Tầm quan trọng của Đa dạng hóa Sinh học
 
+![Khái niệm tầm quan trọng đa dạng hóa](https://img.manhhuynh.work/posts/mo-hinh-luan-canh-xen-canh-da-dang-hoa.png)
+
 Canh tác độc canh (trồng duy nhất một loại cây) trong thời gian dài thường dẫn đến sự suy thoái độ phì nhiêu, mất cân bằng dinh dưỡng vi lượng và tạo điều kiện thuận lợi cho các loài dịch hại chuyên tính tích lũy <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>. Ngược lại, nông nghiệp bền vững lấy hệ sinh thái rừng tự nhiên làm mẫu chuẩn, nơi sự đa dạng loài tạo nên một mạng lưới thức ăn phức tạp, giúp tự cân bằng và hạn chế bùng phát dịch bệnh <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>.
 
 Luân canh và xen canh chính là hai công cụ then chốt để đưa tính đa dạng này vào đồng ruộng. Luân canh tập trung vào sự thay đổi theo trình tự thời gian, trong khi xen canh tối ưu hóa sự sắp xếp trong không gian <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>, <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup>. Kết quả của việc phối hợp này không chỉ là tăng tổng sản lượng mà còn cải thiện cấu trúc đất, tăng hàm lượng mùn và hoạt động của hệ sinh vật đất <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup>.
 
 ## Kỹ thuật Luân canh (Crop Rotation) – Chiến lược phục hồi đất
+
+![Kỹ thuật Luân canh](https://img.manhhuynh.work/posts/mo-hinh-luan-canh-xen-canh-luan-canh.png)
 
 Luân canh là việc trồng luân phiên các loài cây khác nhau theo một chu kỳ xác định trên cùng một diện tích đất <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup>. Nguyên tắc cốt lõi của luân canh là tạo ra sự gián đoạn về nguồn thức ăn của dịch hại và sự khác biệt về nhu cầu dinh dưỡng giữa các vụ mùa <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>, <sup><a href="#ref-12" class="citation-ref" id="cit-12">[12]</a></sup>.
 
@@ -70,6 +74,8 @@ graph TD
 
 ## Nghệ thuật Xen canh (Intercropping) – Tối ưu không gian và sinh học
 
+![Nghệ thuật Xen canh](https://img.manhhuynh.work/posts/mo-hinh-luan-canh-xen-canh-xen-canh.png)
+
 Xen canh là kỹ thuật trồng đồng thời hai hoặc nhiều loại cây trên cùng một diện tích <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>, <sup><a href="#ref-18" class="citation-ref" id="cit-18">[18]</a></sup>. Nghệ thuật này nằm ở việc lựa chọn các loài cây "bầu bạn" có đặc tính sinh trưởng bổ trợ cho nhau thay vì cạnh tranh <sup><a href="#ref-16" class="citation-ref" id="cit-16">[16]</a></sup>, <sup><a href="#ref-19" class="citation-ref" id="cit-19">[19]</a></sup>.
 
 Lợi ích cụ thể của xen canh bao gồm:
@@ -79,6 +85,8 @@ Lợi ích cụ thể của xen canh bao gồm:
 4.  **Bảo vệ đất:** Các cây bò lan tầng thấp hoạt động như một lớp che phủ sống, giữ ẩm, chống xói mòn và hạn chế cỏ dại mọc xen <sup><a href="#ref-16" class="citation-ref" id="cit-16">[16]</a></sup>, <sup><a href="#ref-23" class="citation-ref" id="cit-23">[23]</a></sup>.
 
 ## Nguyên tắc Vàng trong Thiết kế Hệ thống Canh tác
+
+![Nguyên tắc Vàng thiết kế](https://img.manhhuynh.work/posts/mo-hinh-luan-canh-xen-canh-nguyen-tac-vang.png)
 
 Để luân canh và xen canh đạt hiệu quả cao nhất, người làm vườn cần tuân thủ các chỉ dẫn kỹ thuật sau:
 *   **Lập kế hoạch dựa trên vùng đệm:** Các khu vườn hữu cơ cần được cách ly với nguồn ô nhiễm tiềm tàng bằng hàng rào cây xanh hoặc vùng đệm ít nhất 5 mét <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup>, <sup><a href="#ref-24" class="citation-ref" id="cit-24">[24]</a></sup>.

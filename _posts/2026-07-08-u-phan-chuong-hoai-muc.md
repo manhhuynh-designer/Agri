@@ -3,7 +3,7 @@ layout: post
 title: "Kỹ thuật ủ phân chuồng hoai mục bằng chế phẩm vi sinh"
 categories: [Dinh dưỡng, Ủ phân]
 tags: [Dinh dưỡng, Ủ phân, Hữu cơ]
-image: /assets/images/than_sinh_hoc_biochar.png
+image: https://img.manhhuynh.work/posts/u-phan-chuong-hoai-muc-hero.png?v=1784211382388
 description: Hướng dẫn chi tiết quy trình ủ phân chuồng kết hợp chế phẩm vi sinh (EM, Trichoderma) để tạo nguồn phân bón hữu cơ chất lượng cao, sạch mầm bệnh.
 
 ---
@@ -37,11 +37,15 @@ graph TD
 
 ## Vai trò và yêu cầu của việc ủ hoai mục phân chuồng
 
+![Vai trò và yêu cầu ủ phân](https://img.manhhuynh.work/posts/u-phan-chuong-hoai-muc-vai-tro-yeu-cau.png)
+
 Trong canh tác hữu cơ, phân chuồng là nguồn dinh dưỡng quan trọng cung cấp đầy đủ các nguyên tố đa, trung và vi lượng, đồng thời góp phần cải tạo cấu trúc đất và tăng cường hoạt động của hệ sinh vật đất <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Tuy nhiên, việc sử dụng phân chuồng tươi bón trực tiếp cho cây trồng là điều tuyệt đối cấm kỵ vì phân tươi tỏa nhiệt cao khi phân hủy gây héo rễ, chứa nhiều vi trùng gây bệnh, trứng giun sán và hạt cỏ dại <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. 
 
 Quá trình ủ hoai mục dưới tác động của nhiệt độ và các vi sinh vật sẽ tiêu diệt mầm bệnh, phá hủy sức nảy mầm của hạt cỏ và biến các hợp chất hữu cơ khó tiêu thành dạng dễ hấp thụ cho cây trồng <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Việc sử dụng thêm chế phẩm vi sinh giúp rút ngắn thời gian ủ và nâng cao hàm lượng mùn cũng như dinh dưỡng của thành phẩm <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
 
 ## Lựa chọn nguyên liệu và tỷ lệ phối trộn
+
+![Lựa chọn nguyên liệu tỷ lệ](https://img.manhhuynh.work/posts/u-phan-chuong-hoai-muc-nguyen-lieu-ty-le.png)
 
 Để quá trình ủ diễn ra thuận lợi, hỗn hợp nguyên liệu cần đảm bảo tỷ lệ Cacbon/Nitơ (C/N) thích hợp, thông thường khoảng 20:1 đến 30:1 <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>. Các nguyên liệu chính bao gồm:
 
@@ -52,6 +56,8 @@ Quá trình ủ hoai mục dưới tác động của nhiệt độ và các vi 
 
 ## Các loại chế phẩm vi sinh hỗ trợ ủ phân
 
+![Các loại chế phẩm vi sinh](https://img.manhhuynh.work/posts/u-phan-chuong-hoai-muc-che-pham-vi-sinh.png)
+
 Việc đưa các chủng vi sinh vật hữu ích vào khối ủ giúp quá trình khoáng hóa và mùn hóa diễn ra triệt để hơn:
 
 1.  **Chế phẩm EM (Bokashi):** Chứa các vi sinh vật quang hợp, vi khuẩn lactic và nấm men, có tác dụng khử mùi hôi và phân giải nhanh chất hữu cơ <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup>.
@@ -59,6 +65,8 @@ Việc đưa các chủng vi sinh vật hữu ích vào khối ủ giúp quá tr
 3.  **Phân vi sinh Biogro:** Chứa các vi sinh vật cố định đạm và phân giải lân, giúp nâng cao chất lượng dinh dưỡng của phân sau ủ <sup><a href="#ref-12" class="citation-ref" id="cit-12">[12]</a></sup>.
 
 ## Quy trình kỹ thuật ủ phân chuồng với chế phẩm vi sinh
+
+![Quy trình kỹ thuật ủ phân](https://img.manhhuynh.work/posts/u-phan-chuong-hoai-muc-quy-trinh.png)
 
 Quy trình này thường được thực hiện theo phương pháp ủ nóng (ủ tơi) kết hợp đảo trộn để đảm bảo thông khí <sup><a href="#ref-13" class="citation-ref" id="cit-13">[13]</a></sup>.
 
@@ -81,6 +89,8 @@ Dùng bạt nilon màu tối, lá cọ hoặc bùn đất trát kín bên ngoài
 Tiến hành đảo trộn lần đầu sau khoảng 10-15 ngày ủ để đưa các phần nguyên liệu ở phía ngoài vào trong, đảm bảo mọi phần của đống phân đều được nhiệt phân hủy đều. Tiếp tục đảo trộn định kỳ 20-30 ngày một lần <sup><a href="#ref-15" class="citation-ref" id="cit-15">[15]</a></sup>.
 
 ## Kiểm tra và bón phân thành phẩm
+
+![Kiểm tra bón phân](https://img.manhhuynh.work/posts/u-phan-chuong-hoai-muc-kiem-tra-bon-phan.png)
 
 Sau khoảng 2-4 tháng (tùy điều kiện thời tiết), phân đạt yêu cầu khi:
 *   Khối phân không còn mùi hôi thối, có mùi thơm nhẹ của đất hoặc mùi hơi chua <sup><a href="#ref-15" class="citation-ref" id="cit-15">[15]</a></sup>.

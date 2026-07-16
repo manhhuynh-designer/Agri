@@ -4,7 +4,7 @@ title: 'Than Sinh Học (Biochar) - "Vàng đen" cải tạo đất thoái hóa'
 date: 2026-07-13 08:00:00 +0700
 categories: [Đất đai, Dinh dưỡng]
 tags: [Biochar, Than sinh học, Cải tạo đất]
-image: /assets/images/than_sinh_hoc_biochar.png
+image: https://img.manhhuynh.work/posts/than-sinh-hoc-biochar-dat-thoai-hoa-hero.png?v=1784211382388
 description: Tìm hiểu cách sử dụng than sinh học (Biochar) làm từ phế phẩm nông nghiệp để giữ dinh dưỡng, hồi sinh đất bạc màu và chống biến đổi khí hậu.
 ---
 
@@ -17,6 +17,8 @@ Trong canh tác sinh thái, phục hồi độ phì cho đất là ưu tiên hà
 
 ## Tại sao Than sinh học lại vô cùng hiệu quả?
 
+![Tại sao Than sinh học lại vô cùng hiệu quả](https://img.manhhuynh.work/posts/than-sinh-hoc-biochar-dat-thoai-hoa-tai-sao-hieu-qua.png)
+
 Khác với than củi thông thường dùng để nướng thức ăn, Biochar có những cấu trúc vi mô độc đáo mang lại lợi ích lâu dài cho đất trọt:
 
 1. **Cấu trúc xốp rỗng tổ ong:** Cung cấp không gian cư trú lý tưởng cho hàng tỷ vi sinh vật đất có lợi. Nó đóng vai trò như các "khách sạn vi sinh", bảo vệ chúng khỏi các loài săn mồi lớn hơn và điều kiện khô hạn.
@@ -25,6 +27,8 @@ Khác với than củi thông thường dùng để nướng thức ăn, Biochar
 4. **Cô lập Carbon vĩnh viễn:** Biochar lưu trữ carbon trong đất hàng trăm đến hàng ngàn năm mà không phân hủy ngược lại thành khí nhà kính CO2, là giải pháp hiệu quả chống biến đổi khí hậu toàn cầu.
 
 ## Cách sử dụng Than sinh học đúng cách
+
+![Cách sử dụng Than sinh học](https://img.manhhuynh.work/posts/than-sinh-hoc-biochar-dat-thoai-hoa-cach-su-dung.png)
 
 Không nên bón trực tiếp than sinh học mới đốt vào gốc cây, vì đặc tính hút nước và dinh dưỡng cực mạnh của nó có thể làm rụng lá và "chết đói" cây tạm thời. Thay vào đó, bạn cần tiến hành **sạc dinh dưỡng (activation/charging)** trước khi bón:
 - Trộn than sinh học nghiền nhỏ với phân chuồng ủ hoai, phân trùn quế hoặc tưới nước vo gạo, giấm gỗ pha loãng.

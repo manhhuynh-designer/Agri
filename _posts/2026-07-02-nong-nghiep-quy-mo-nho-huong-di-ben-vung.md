@@ -4,7 +4,7 @@ title: 'Nông Nghiệp Quy Mô Nhỏ - Hướng đi bền vững đầy tiềm n
 date: 2026-07-10 08:00:00 +0700
 categories: [Khởi nghiệp, Kinh tế nông hộ]
 tags: [Nông nghiệp quy mô nhỏ, Khởi nghiệp, Kinh tế nông nghiệp, Hộ gia đình]
-image: /assets/images/nong_nghiep_quy_mo_nho.png
+image: https://img.manhhuynh.work/posts/nong-nghiep-quy-mo-nho-huong-di-ben-vung-hero.png?v=1784211382388
 description: Tìm hiểu mô hình canh tác đa dạng kết hợp chế biến sâu quy mô gia đình giúp nông dân tự chủ kinh tế và phát triển bền vững.
 ---
 
@@ -13,9 +13,11 @@ description: Tìm hiểu mô hình canh tác đa dạng kết hợp chế biến
 
 Trào lưu "bỏ phố về quê" làm nông nghiệp sạch đang thu hút rất nhiều người trẻ năng động. Tuy nhiên, để tồn tại và sống khỏe với nghề nông, tư duy canh tác thâm canh sản lượng lớn (độc canh) không còn là lựa chọn an toàn. Thay vào đó, mô hình **Nông nghiệp quy mô nhỏ (Small-scale Farming)** kết hợp chế biến nông sản sâu đang nổi lên như một hướng đi kinh tế bền vững và bền bỉ nhất.
 
-![Thu hoạch rau củ hữu cơ](/assets/images/nong_nghiep_quy_mo_nho.png)
+![Thu hoạch rau củ hữu cơ](https://img.manhhuynh.work/posts/nong-nghiep-quy-mo-nho-huong-di-ben-vung-hero.png)
 
 ## Triết lý "Trăm họ" (Hyakushou) từ Nhật Bản
+
+![Triết lý Hyakushou Trăm họ](https://img.manhhuynh.work/posts/nong-nghiep-quy-mo-nho-huong-di-ben-vung-tram-ho.png)
 
 Trong tiếng Nhật cổ, từ chỉ nông dân là **Hyakushou (百姓 - Bách Tính)**, mang ý nghĩa sâu sắc là *"người có một trăm kỹ năng"*. Một nông dân thực thụ không chỉ biết gieo hạt, mà họ là những người thợ rèn, thợ mộc tự làm dụng cụ, thợ xây tự dựng nhà, và là chuyên gia chế biến thực phẩm bảo quan:
 
@@ -23,6 +25,8 @@ Trong tiếng Nhật cổ, từ chỉ nông dân là **Hyakushou (百姓 - Bách
 - **Chế biến sâu tại chỗ:** Thay vì bán cà chua tươi giá rẻ lúc rộ vụ, nông dân quy mô nhỏ chọn cách làm mứt cà chua, tương cà, hoặc muối chua. Việc này nâng cao giá trị gia tăng của nông sản lên gấp nhiều lần và kéo dài thời gian lưu trữ hàng hóa, giúp chủ động phân phối.
 
 ## Phương thức tối ưu hóa kinh tế hộ gia đình
+
+![Phương thức tối ưu hóa kinh tế](https://img.manhhuynh.work/posts/nong-nghiep-quy-mo-nho-huong-di-ben-vung-toi-uu-hoa.png)
 
 Để mô hình nông nghiệp nhỏ đạt hiệu quả kinh tế tối đa, người làm nông cần thay đổi cách tính toán tài chính:
 

@@ -3,7 +3,7 @@ layout: post
 title: "Kỹ thuật tự nhân nuôi vi sinh vật bản địa (IMO) cải tạo đất trọt"
 categories: [Dinh dưỡng, Vi sinh]
 tags: [Dinh dưỡng, Vi sinh, Hữu cơ]
-image: https://images.pexels.com/photos/33517035/pexels-photo-33517035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+image: https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-hero.png?v=1784211382388
 description: Hướng dẫn chi tiết quy trình thu thập và nhân nuôi các chủng vi sinh vật bản địa (IMO) nhằm phục hồi độ phì nhiêu và sức sống cho đất canh tác hữu cơ.
 ---
 
@@ -12,11 +12,15 @@ description: Hướng dẫn chi tiết quy trình thu thập và nhân nuôi cá
 
 ## Vai trò của vi sinh vật bản địa trong hệ sinh thái đất
 
+![Vai trò của vi sinh vật bản địa](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-vai-tro.png)
+
 Đất không chỉ đơn thuần là hỗn hợp khoáng vật mà là một thực thể sống động, nơi cư trú của hàng triệu sinh vật đất <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Trong một thìa đất rừng màu mỡ có thể chứa tới 2 tỷ vi sinh vật, bao gồm vi khuẩn, nấm và sinh vật đơn bào <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Các vi sinh vật này đóng vai trò then chốt trong việc phân hủy vật chất hữu cơ, tạo ra mùn và giải phóng các chất dinh dưỡng dưới dạng hòa tan để rễ cây có thể hấp thụ dễ dàng <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. 
 
 Vi sinh vật bản địa (Indigenous Microorganisms - IMO) là những chủng vi sinh có sẵn tại địa phương, đã thích nghi hoàn hảo với điều kiện khí hậu và thổ nhưỡng đặc thù của vùng canh tác <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>. Việc tự nhân nuôi và đưa các chủng này trở lại đất giúp củng cố chu trình sinh học, tăng cường khả năng hòa tan lân, cố định đạm từ khí quyển và ức chế các mầm bệnh gây hại cho cây trồng <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>, <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>.
 
 ## Nguyên lý nhân nuôi vi sinh vật từ tài nguyên địa phương
+
+![Nguyên lý nhân nuôi vi sinh vật](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-nguyen-ly.png)
 
 Kỹ thuật nhân nuôi IMO dựa trên nguyên tắc cung cấp nguồn thức ăn và môi trường thuận lợi để kích thích sự phát triển bùng nổ của các chủng vi sinh hữu ích <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup>. Trong điều kiện ấm, ẩm và sẵn có thức ăn (như tinh bột, đường), các quần thể vi sinh vật sẽ phát triển theo cấp số nhân <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup>.
 
@@ -26,6 +30,8 @@ Nguồn nguyên liệu chính để nhân nuôi thường bao gồm:
 - **Chất mồi:** Các mẫu đất rừng màu mỡ, rễ cây họ Đậu chứa vi khuẩn cố định đạm, hoặc các chế phẩm vi sinh có sẵn như EM hay Biogro để thúc đẩy nhanh quá trình [12], [14].
 
 ## Quy trình kỹ thuật tự nhân nuôi IMO tại nông hộ
+
+![Quy trình kỹ thuật tự nhân nuôi IMO](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-quy-trinh.png)
 
 Quy trình nhân nuôi IMO thường được thực hiện qua các giai đoạn từ thu thập, nhân sinh khối dạng lỏng đến dạng bột khô để bón vào đất [15], [16].
 
@@ -64,6 +70,8 @@ Phối trộn dịch vi sinh ở bước 2 với cám gạo, trấu hoặc rơm 
 
 ## Ứng dụng IMO cải tạo đất trồng hữu cơ
 
+![Ứng dụng IMO cải tạo đất trồng](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-ung-dung.png)
+
 IMO sau khi nhân nuôi thành công có thể được ứng dụng theo nhiều cách để nâng cao "sức khỏe" cho đất:
 - **Tưới trực tiếp:** Pha loãng dịch vi sinh với nước (tỷ lệ khoảng 1:20 đến 1:50) để tưới vào gốc cây hoặc phun lên bề mặt đất nhằm bổ sung tức thời quần thể vi sinh vật có ích [27], [28].
 - **Sản xuất phân Bokashi:** Sử dụng IMO làm chất mồi để ủ phân chuồng và phế phụ phẩm nông nghiệp, giúp rút ngắn thời gian hoai mục và tăng hàm lượng dinh dưỡng [12], [29].
@@ -71,12 +79,14 @@ IMO sau khi nhân nuôi thành công có thể được ứng dụng theo nhiề
 
 ## Các lưu ý kỹ thuật quan trọng
 
+![Các lưu ý kỹ thuật quan trọng](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-luu-y.png)
+
 1. **Kiểm soát độ ẩm và thông khí:** Vi sinh vật hiếu khí đòi hỏi lượng ô-xy cao để phát triển [33], [34]. Nếu đống ủ quá ướt hoặc quá chặt sẽ gây tình trạng yếm khí, dẫn đến mùi hôi thối và làm chết các chủng vi sinh có lợi [33], [18], [35].
 2. **Nhiệt độ môi trường:** Đa số sinh vật đất hoạt động mạnh nhất khi đất ấm và ẩm <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. Tránh để chế phẩm vi sinh dưới ánh nắng trực tiếp vì tia tử ngoại có thể tiêu diệt bào tử [36], [37].
 3. **Chất lượng nước:** Sử dụng nước sạch, không bị nhiễm phèn, mặn hoặc hóa chất độc hại để nhân nuôi và tưới cây [38], [39].
 4. **Bảo vệ môi trường đất:** Việc sử dụng IMO cần kết hợp với các biện pháp che phủ đất (tủ gốc) bằng rơm rạ hoặc cây phân xanh để tạo môi trường sống lý tưởng, bảo vệ vi sinh vật khỏi sự biến động nhiệt độ đột ngột [40], [41], [28].
 
----
+
 
 ### Tài liệu trích dẫn chi tiết
 - <span id="ref-1">**[1]**</span> 10-hesinhthairungtunhienvietnam.pdf, Bộ Lâm nghiệp, Chương 3, Trang 93. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
@@ -95,5 +105,5 @@ IMO sau khi nhân nuôi thành công có thể được ứng dụng theo nhiề
 Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-  <iframe src="https://www.youtube.com/embed/6oePiLWM4Jk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+  <iframe src="https://www.youtube.com/embed/crpKOae-e9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
 </div>

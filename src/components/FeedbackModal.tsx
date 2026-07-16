@@ -8,9 +8,16 @@ export default function FeedbackModal() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [postTitle, setPostTitle] = useState("");
+  const [postUrl, setPostUrl] = useState("");
 
   useEffect(() => {
-    const handleOpen = () => {
+    const handleOpen = (e: Event) => {
+      const customEvent = e as CustomEvent<{ title?: string; url?: string }>;
+      if (customEvent.detail) {
+        setPostTitle(customEvent.detail.title || "");
+        setPostUrl(customEvent.detail.url || "");
+      }
       setIsOpen(true);
       document.body.style.overflow = "hidden";
     };
@@ -26,6 +33,8 @@ export default function FeedbackModal() {
     setName("");
     setEmail("");
     setMessage("");
+    setPostTitle("");
+    setPostUrl("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,6 +72,8 @@ export default function FeedbackModal() {
           name: name.trim(),
           email: email.trim(),
           message: cleanMsg,
+          postTitle: postTitle,
+          postUrl: postUrl,
         }),
       });
 
@@ -115,9 +126,32 @@ export default function FeedbackModal() {
         </div>
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
           <div className="verify-modal-body" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "14px" }}>
-            <p style={{ fontSize: "13px", color: "var(--ash-dim)", margin: 0, lineHeight: 1.5 }}>
-              Mọi ý kiến đóng góp của bạn về tài liệu, bản dịch hoặc kỹ thuật thực nghiệm đều vô cùng quý giá để cải thiện thư viện.
-            </p>
+            <div style={{
+              backgroundColor: "rgba(255, 176, 31, 0.06)",
+              borderLeft: "4px solid var(--ember)",
+              padding: "12px 16px",
+              borderRadius: "6px",
+              fontSize: "13px",
+              lineHeight: "1.5",
+              color: "var(--ash)"
+            }}>
+              <strong>💡 Sức mạnh từ phản biện của bạn:</strong> AgriSynthe là thư viện mở phi lợi nhuận. Mọi đóng góp sửa đổi thuật ngữ, phát hiện lỗi khoa học hoặc chia sẻ thực nghiệm từ bạn đều có <strong>quyết định trực tiếp</strong> giúp hoàn thiện nội dung và nâng cao chất lượng tri thức hữu ích này.
+            </div>
+
+            {postTitle && (
+              <div style={{
+                fontSize: "13px",
+                color: "var(--ash-dim)",
+                borderBottom: "1px dashed var(--line)",
+                paddingBottom: "12px",
+                marginBottom: "4px"
+              }}>
+                Đang góp ý cho bài viết:
+                <strong style={{ color: "var(--ember)", display: "block", marginTop: "4px", fontSize: "13.5px" }}>
+                  {postTitle}
+                </strong>
+              </div>
+            )}
 
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
               <label htmlFor="feedback-name" style={{ fontSize: "12.5px", fontWeight: 600, color: "var(--ash)" }}>

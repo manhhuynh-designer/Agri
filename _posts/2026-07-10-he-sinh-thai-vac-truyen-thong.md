@@ -3,7 +3,7 @@ layout: post
 title: "Hệ sinh thái Vườn - Ao - Chuồng (VAC): Bài học nông nghiệp tuần hoàn"
 categories: [Mô hình bền vững, Tuần hoàn]
 tags: [Mô hình bền vững, Tuần hoàn, Hữu cơ]
-image: https://images.pexels.com/photos/12387520/pexels-photo-12387520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+image: https://img.manhhuynh.work/posts/he-sinh-thai-vac-truyen-thong-hero.png?v=1784211382388
 description: Khám phá cấu trúc và nguyên lý vận hành của hệ sinh thái VAC - mô hình nông nghiệp tuần hoàn truyền thống nhưng đầy tính khoa học của Việt Nam.
 ---
 
@@ -14,12 +14,16 @@ Hệ sinh thái Vườn - Ao - Chuồng (VAC) là một mô hình sản xuất n
 
 ## Cấu trúc cốt lõi của hệ sinh thái VAC
 
+![Cấu trúc cốt lõi VAC](https://img.manhhuynh.work/posts/he-sinh-thai-vac-truyen-thong-cau-truc.png)
+
 Mô hình VAC được thiết kế dựa trên ba thành phần chính có mối quan hệ tương hỗ khăng khít:
 *   **Vườn (V):** Đại diện cho các hoạt động trồng trọt, bao gồm rau màu, cây ăn quả, cây công nghiệp hoặc cây lâm nghiệp <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Vườn thường được thiết kế theo cấu trúc nhiều tầng tán để tận dụng tối đa ánh sáng và độ ẩm, tương tự như mô hình rừng nhiệt đới tự nhiên <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 *   **Ao (A):** Đại diện cho hoạt động nuôi trồng thủy sản. Ao không chỉ cung cấp thực phẩm (cá, tôm, cua) mà còn đóng vai trò điều hòa tiểu khí hậu, tích trữ năng lượng và cung cấp nước tưới cho vườn <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 *   **Chuồng (C):** Đại diện cho các hoạt động chăn nuôi gia súc (lợn, trâu, bò) và gia cầm (gà, vịt, ngan). Đây là bộ phận khép kín chu kỳ dinh dưỡng bằng cách chuyển hóa phụ phẩm từ vườn và ao thành nguồn thực phẩm và phân bón hữu cơ <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>, <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
 
 ## Nguyên lý vận hành tuần hoàn dinh dưỡng
+
+![Nguyên lý tuần hoàn dinh dưỡng](https://img.manhhuynh.work/posts/he-sinh-thai-vac-truyen-thong-nguyen-ly.png)
 
 Trong nông nghiệp hữu cơ và bền vững, VAC được coi là một hệ sinh thái khép kín với khả năng quay vòng vật chất nhanh chóng <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>. Mối quan hệ giữa các thành phần được thể hiện qua các dòng chuyển hóa sau:
 
@@ -64,12 +68,16 @@ graph TD
 
 ## Lợi ích kinh tế và môi trường của mô hình VAC
 
+![Lợi ích kinh tế và môi trường](https://img.manhhuynh.work/posts/he-sinh-thai-vac-truyen-thong-loi-ich.png)
+
 Mô hình VAC mang lại những giá trị vượt trội so với lối canh tác độc canh truyền thống:
 *   **Hiệu quả kinh tế cao:** Tận dụng được tối đa diện tích đất và nguồn lao động dư thừa trong gia đình <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Sự đa dạng sản phẩm (thịt, cá, trứng, rau, quả) giúp nông hộ giảm rủi ro thị trường và tăng thu nhập ổn định <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 *   **Bảo vệ môi trường:** Do không phụ thuộc quá mức vào phân bón hóa học và thuốc bảo vệ thực vật, mô hình này giúp duy trì độ phì nhiêu tự nhiên của đất, bảo vệ nguồn nước ngầm và tạo cảnh quan sinh thái trong lành <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
 *   **An ninh thực phẩm:** Cung cấp nguồn thực phẩm tươi sạch, chất lượng cao và đa dạng dinh dưỡng ngay tại chỗ cho nông hộ <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
 ## Sự phát triển sang các mô hình hiện đại
+
+![Mô hình VAC hiện đại](https://img.manhhuynh.work/posts/he-sinh-thai-vac-truyen-thong-hien-dai.png)
 
 Trong bối cảnh biến đổi khí hậu, hệ sinh thái VAC đã được cải tiến và mở rộng thành nhiều mô hình thích ứng:
 *   **RVAC (Rừng - Vườn - Ao - Chuồng):** Áp dụng tại vùng đồi núi, kết hợp bảo vệ rừng đầu nguồn với kinh tế trang trại <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
