@@ -16,7 +16,7 @@ interface Post {
   readTime: number;
 }
 
-export const revalidate = 3600; // Tự động làm mới trang chủ trên Vercel mỗi giờ (Incremental Static Regeneration)
+export const revalidate = 60; // Tự động cập nhật nội dung mới từ R2 sau mỗi 60 giây (ISR)
 
 async function getHeroImages(): Promise<string[]> {
   let fallback = [
@@ -62,59 +62,38 @@ async function getHeroImages(): Promise<string[]> {
 }
 
 export default async function Home() {
-  const postsDirectory = path.join(process.cwd(), "_posts");
   let posts: Post[] = [];
 
-  if (fs.existsSync(postsDirectory)) {
-    const filenames = fs.readdirSync(postsDirectory);
-    posts = filenames
-      .filter((filename) => filename.endsWith(".md"))
-      .map((filename) => {
-        const filePath = path.join(postsDirectory, filename);
-        const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data } = matter(fileContents);
-
-        // Filename is YYYY-MM-DD-slug.md
-        const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/\.md$/, "");
-        
-        const dateMatch = filename.match(/^(\d{4}-\d{2}-\d{2})/);
-        const dateString = dateMatch ? dateMatch[1] : "";
-        
-        let formattedDate = "";
-        if (dateString) {
-          const [year, month, day] = dateString.split("-");
-          formattedDate = `${day}/${month}/${year}`;
-        }
-
+  try {
+    const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || 'https://img.manhhuynh.work';
+    const cleanPublicUrl = publicUrl.replace(/\/$/, '');
+    const res = await fetch(`${cleanPublicUrl}/posts-index.json`, {
+      next: { revalidate: 60 } // Next.js fetch cache revalidation
+    });
+    
+    if (res.ok) {
+      const rawPosts = await res.json();
+      posts = rawPosts.map((p: any) => {
         let readTime = 5;
-        if (data.read_time) {
-          const timeStr = String(data.read_time)
-            .replace(" phút", "")
-            .replace(" min", "")
-            .trim();
-          readTime = parseInt(timeStr) || 5;
+        if (p.readTime) {
+          readTime = parseInt(p.readTime.replace(' phút', '')) || 5;
         }
-
         return {
-          slug,
-          title: data.title || slug,
-          description: data.description || "",
-          dateString: formattedDate,
-          rawDate: dateString,
-          timestamp: dateString ? new Date(dateString).getTime() : 0,
-          categories: Array.isArray(data.categories) 
-            ? data.categories 
-            : data.category 
-              ? [data.category] 
-              : [],
-          tags: Array.isArray(data.tags) ? data.tags : [],
-          readTime,
+          slug: p.slug,
+          title: p.title,
+          description: p.description,
+          dateString: p.dateString,
+          rawDate: p.date,
+          timestamp: p.date ? new Date(p.date).getTime() : 0,
+          categories: p.categories || [],
+          tags: p.tags || [],
+          readTime
         };
       });
+    }
+  } catch (e) {
+    console.error("Error fetching posts index from R2:", e);
   }
-
-  // Sort by newest by default
-  posts.sort((a, b) => b.timestamp - a.timestamp);
 
   const heroImages = await getHeroImages();
 

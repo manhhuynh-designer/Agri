@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { marked } from "marked";
 import Link from "next/link";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -21,109 +18,80 @@ interface PostData {
   tags: string[];
 }
 
-function getPostBySlug(slug: string): PostData | null {
-  const postsDirectory = path.join(process.cwd(), "_posts");
-  if (!fs.existsSync(postsDirectory)) return null;
-  
-  const filenames = fs.readdirSync(postsDirectory);
-  const matchedFilename = filenames.find(
-    (name) => name.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/\.md$/, "") === slug
-  );
+export const revalidate = 60; // Tự động làm mới cache (ISR) sau mỗi 60 giây
 
-  if (!matchedFilename) return null;
+const publicUrl = (process.env.CLOUDFLARE_R2_PUBLIC_URL || 'https://img.manhhuynh.work').replace(/\/$/, '');
 
-  const filePath = path.join(postsDirectory, matchedFilename);
-  const fileContents = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(fileContents);
+async function getPostBySlug(slug: string): Promise<PostData | null> {
+  try {
+    const res = await fetch(`${publicUrl}/posts/${slug}.json`, {
+      next: { revalidate: 60 }
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
 
-  const dateMatch = matchedFilename.match(/^(\d{4}-\d{2}-\d{2})/);
-  const dateString = dateMatch ? dateMatch[1] : "";
-  
-  let formattedDate = "";
-  if (dateString) {
-    const [year, month, day] = dateString.split("-");
-    formattedDate = `${day}/${month}/${year}`;
+    // Parse markdown sang HTML
+    const cleanedContent = (data.content || '').replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match: string, svgContent: string) => {
+      const cleanedSvg = svgContent
+        .split("\n")
+        .map((line: string) => line.trim())
+        .filter((line: string) => line.length > 0)
+        .join("\n");
+      return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
+    });
+
+    const contentHtml = marked(cleanedContent) as string;
+
+    return {
+      title: data.title || slug,
+      description: data.description || "",
+      image: data.image || "/assets/images/favicon.svg",
+      categories: data.categories || ["Hướng dẫn"],
+      dateString: data.dateString || "",
+      readTime: data.readTime || "5 phút",
+      difficulty: data.difficulty,
+      author: data.author || "AgriSynthe AI",
+      contentHtml,
+      tags: data.tags || [],
+    };
+  } catch (e) {
+    console.error(`Error fetching post ${slug} from R2:`, e);
+    return null;
   }
-
-  // Parse markdown to HTML (Clean leading spaces inside diagram cards to prevent indented code blocks)
-  const cleanedContent = content.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match, svgContent) => {
-    const cleanedSvg = svgContent
-      .split("\n")
-      .map((line: string) => line.trim())
-      .filter((line: string) => line.length > 0)
-      .join("\n");
-    return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
-  });
-
-  const contentHtml = marked(cleanedContent) as string;
-
-  return {
-    title: data.title || slug,
-    description: data.description || "",
-    image: data.image || "/assets/images/favicon.svg",
-    categories: Array.isArray(data.categories) 
-      ? data.categories 
-      : data.category 
-        ? [data.category] 
-        : ["Hướng dẫn"],
-    dateString: formattedDate,
-    readTime: data.read_time || "5 phút",
-    difficulty: data.difficulty,
-    author: data.author || "AgriSynthe AI",
-    contentHtml,
-    tags: Array.isArray(data.tags) ? data.tags : [],
-  };
 }
 
-function getAllPosts() {
-  const postsDirectory = path.join(process.cwd(), "_posts");
-  if (!fs.existsSync(postsDirectory)) return [];
-  const filenames = fs.readdirSync(postsDirectory);
-  
-  return filenames
-    .filter((filename) => filename.endsWith(".md"))
-    .map((filename) => {
-      const filePath = path.join(postsDirectory, filename);
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      const { data } = matter(fileContents);
-      const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/\.md$/, "");
-      const dateMatch = filename.match(/^(\d{4}-\d{2}-\d{2})/);
-      const dateString = dateMatch ? dateMatch[1] : "";
-      
-      let formattedDate = "";
-      if (dateString) {
-        const [year, month, day] = dateString.split("-");
-        formattedDate = `${day}/${month}/${year}`;
-      }
-
-      return {
-        slug,
-        title: data.title || slug,
-        description: data.description || "",
-        dateString: formattedDate,
-        categories: Array.isArray(data.categories) 
-          ? data.categories 
-          : data.category 
-            ? [data.category] 
-            : [],
-        tags: Array.isArray(data.tags) ? data.tags : [],
-      };
+async function getAllPosts() {
+  try {
+    const res = await fetch(`${publicUrl}/posts-index.json`, {
+      next: { revalidate: 60 }
     });
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (e) {
+    console.error("Error fetching all posts for related section:", e);
+  }
+  return [];
 }
 
 export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), "_posts");
-  if (!fs.existsSync(postsDirectory)) return [];
-  const filenames = fs.readdirSync(postsDirectory);
-  return filenames.map((filename) => {
-    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/\.md$/, "");
-    return { slug };
-  });
+  try {
+    const res = await fetch(`${publicUrl}/posts-index.json`, {
+      next: { revalidate: 60 }
+    });
+    if (res.ok) {
+      const posts = await res.json();
+      return posts.map((p: any) => ({ slug: p.slug }));
+    }
+  } catch (e) {
+    console.error("Error generating static params from R2:", e);
+  }
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) {
     return { title: "Không tìm thấy bài viết" };
   }
@@ -140,7 +108,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return (
@@ -154,7 +122,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     );
   }
 
-  const allPosts = getAllPosts();
+  const allPosts = await getAllPosts();
   const categoryName = post.categories && post.categories.length > 0 ? post.categories[0] : "Hướng dẫn";
 
   return (

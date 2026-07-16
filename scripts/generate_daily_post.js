@@ -1078,7 +1078,98 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
   }
 
   fs.writeFileSync(filepath, content, 'utf8');
-  console.log(`Successfully generated and saved daily post to: _posts/${filename}`);
+  console.log(`Successfully generated and saved daily post to local: _posts/${filename}`);
+
+  // 4.6. Chuyển đổi bài viết sang JSON và upload lên Cloudflare R2
+  const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
+  try {
+    const matter = require('gray-matter');
+    const { data, content: bodyContent } = matter(content);
+
+    let formattedDate = '';
+    if (todayStr) {
+      const [year, month, day] = todayStr.split('-');
+      formattedDate = `${day}/${month}/${year}`;
+    }
+
+    const postData = {
+      slug: selectedTopic.id,
+      title: data.title || selectedTopic.title,
+      subtitle: data.subtitle || data.description || selectedTopic.description || '',
+      description: data.description || data.subtitle || selectedTopic.description || '',
+      date: data.date || `${todayStr} 12:00:00 +0700`,
+      dateString: data.dateString || formattedDate,
+      categories: Array.isArray(data.categories) ? data.categories : (data.category ? [data.category] : selectedTopic.categories || []),
+      tags: Array.isArray(data.tags) ? data.tags : ['Hữu cơ'],
+      image: data.image || selectedImage || `/assets/images/generated_${selectedTopic.id}.svg`,
+      readTime: data.read_time || '5 phút',
+      content: bodyContent.trim()
+    };
+
+    console.log(`[Cloudflare R2] Đang chuyển đổi và upload bài viết dạng JSON lên R2...`);
+    const postJsonBuffer = Buffer.from(JSON.stringify(postData, null, 2), 'utf8');
+    const uploadSuccess = await uploadToR2(bucketName, `posts/${selectedTopic.id}.json`, postJsonBuffer);
+
+    if (uploadSuccess) {
+      console.log(`[Cloudflare R2] ✅ Upload bài viết posts/${selectedTopic.id}.json thành công!`);
+
+      // Cập nhật posts-index.json
+      console.log(`[Cloudflare R2] Đang đồng bộ posts-index.json trên R2...`);
+      const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+      const cleanPublicUrl = publicUrl.replace(/\/$/, '');
+      
+      let postsIndex = [];
+      try {
+        const https = require('https');
+        const fetchExistingIndex = () => new Promise((resolve) => {
+          https.get(`${cleanPublicUrl}/posts-index.json`, (res) => {
+            let d = '';
+            res.on('data', c => d += c);
+            res.on('end', () => {
+              if (res.statusCode === 200) {
+                resolve(JSON.parse(d));
+              } else {
+                resolve([]);
+              }
+            });
+          }).on('error', () => resolve([]));
+        });
+        postsIndex = await fetchExistingIndex();
+      } catch (e) {
+        console.warn('[Cloudflare R2] Không tải được index hiện tại, sử dụng mảng rỗng.');
+      }
+
+      // Xóa bài viết trùng slug nếu có trước khi unshift bài mới
+      postsIndex = postsIndex.filter(p => p.slug !== selectedTopic.id);
+      postsIndex.unshift({
+        slug: postData.slug,
+        title: postData.title,
+        description: postData.description,
+        subtitle: postData.subtitle,
+        date: postData.date,
+        dateString: postData.dateString,
+        categories: postData.categories,
+        tags: postData.tags,
+        image: postData.image,
+        readTime: postData.readTime
+      });
+
+      // Sắp xếp bài viết theo ngày
+      postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      const indexBuffer = Buffer.from(JSON.stringify(postsIndex, null, 2), 'utf8');
+      const indexSuccess = await uploadToR2(bucketName, 'posts-index.json', indexBuffer);
+      if (indexSuccess) {
+        console.log('[Cloudflare R2] ✅ Đồng bộ posts-index.json thành công!');
+      } else {
+        console.error('[Cloudflare R2] ❌ Đồng bộ posts-index.json thất bại.');
+      }
+    } else {
+      console.error('[Cloudflare R2] ❌ Upload bài viết dạng JSON thất bại.');
+    }
+  } catch (err) {
+    console.error('[Cloudflare R2] Lỗi khi tạo/upload JSON:', err.message);
+  }
 
   // 4. Lưu thông tin bài viết mới để gửi email SAU KHI push thành công
   const pendingNotification = {
