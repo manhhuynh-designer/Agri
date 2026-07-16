@@ -758,11 +758,11 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
 
   // 4. Handle YouTube searching and transcript downloading
   if (!selectedTopic.youtube) {
-    // Rút gọn query: dùng từ khóa tiếng Anh (pexelsSearchQueries) hoặc cắt title ≤ 5 từ
-    const shortQuery = pexelsSearchQueries[selectedTopic.id]
-      || selectedTopic.title.split(/[:\-–—,]/)[0].trim().split(/\s+/).slice(0, 5).join(' ');
-    console.log(`[YouTube Finder] Searching YouTube with short query: "${shortQuery}"...`);
-    const candidateIds = await searchYoutubeVideo(shortQuery);
+    // Dùng từ khóa tiếng Anh (nếu có) hoặc full title (bỏ ký tự đặc biệt) để search chính xác
+    const searchTopicQuery = pexelsSearchQueries[selectedTopic.id]
+      || selectedTopic.title.replace(/[:\-–—,]/g, ' ').trim();
+    console.log(`[YouTube Finder] Searching YouTube with query: "${searchTopicQuery}"...`);
+    const candidateIds = await searchYoutubeVideo(searchTopicQuery);
     console.log(`[YouTube Finder] Found ${candidateIds.length} candidate videos. Verifying...`);
     for (const id of candidateIds) {
       const url = `https://www.youtube.com/watch?v=${id}`;
