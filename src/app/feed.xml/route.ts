@@ -5,6 +5,7 @@ import matter from "gray-matter";
 export async function GET() {
   const postsDirectory = path.join(process.cwd(), "_posts");
   let posts: any[] = [];
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://agri.manhhuynh.work').replace(/\/$/, '');
 
   if (fs.existsSync(postsDirectory)) {
     const filenames = fs.readdirSync(postsDirectory);
@@ -34,16 +35,16 @@ export async function GET() {
   const rss = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <generator uri="https://nextjs.org/">Next.js</generator>
-  <link href="https://manhhuynh-designer.github.io/feed.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://manhhuynh-designer.github.io/" rel="alternate" type="text/html"/>
+  <link href="${siteUrl}/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="${siteUrl}/" rel="alternate" type="text/html"/>
   <updated>${new Date().toISOString()}</updated>
-  <id>https://manhhuynh-designer.github.io/</id>
+  <id>${siteUrl}/</id>
   <title type="html">AgriSynthe</title>
   <subtitle>AgriSynthe - Thư viện số tự động tổng hợp, chắt lọc và biên soạn kiến thức nông nghiệp hữu cơ bền vững từ các tài liệu khoa học, sách kinh điển bởi Trí tuệ Nhân tạo (AI).</subtitle>
   ${posts
     .slice(0, 10)
     .map((post) => {
-      const url = `https://manhhuynh-designer.github.io/posts/${post.slug}`;
+      const url = `${siteUrl}/posts/${post.slug}`;
       const pubDate = post.dateString ? new Date(post.dateString).toISOString() : new Date().toISOString();
       return `
   <entry>

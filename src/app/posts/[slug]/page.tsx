@@ -95,13 +95,54 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) {
     return { title: "Không tìm thấy bài viết" };
   }
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://agri.manhhuynh.work').replace(/\/$/, '');
+  const postUrl = `${siteUrl}/posts/${slug}`;
+  const authorName = post.author || "AgriSynthe AI";
+
+  let publishedTime: string | undefined = undefined;
+  if (post.dateString) {
+    const parts = post.dateString.split('/');
+    if (parts.length === 3) {
+      publishedTime = `${parts[2]}-${parts[1]}-${parts[0]}T00:00:00.000Z`;
+    }
+  }
+
   return {
     title: `${post.title} — AgriSynthe`,
     description: post.description,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
-      images: [post.image],
+      url: postUrl,
+      siteName: "AgriSynthe",
+      locale: "vi_VN",
+      type: "article",
+      publishedTime,
+      authors: [authorName],
+      images: [
+        {
+          url: post.image.startsWith('http') ? post.image : `${siteUrl}${post.image}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.image.startsWith('http') ? post.image : `${siteUrl}${post.image}`],
+      creator: "@AgriSynthe",
+    },
+    other: {
+      "geo.region": "VN",
+      "geo.placename": "Vietnam",
+      "geo.position": "14.058324;108.277199",
+      "ICBM": "14.058324, 108.277199",
     },
   };
 }
@@ -125,8 +166,59 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const allPosts = await getAllPosts();
   const categoryName = post.categories && post.categories.length > 0 ? post.categories[0] : "Hướng dẫn";
 
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://agri.manhhuynh.work').replace(/\/$/, '');
+  const postUrl = `${siteUrl}/posts/${slug}`;
+  const authorName = post.author || "AgriSynthe AI";
+
+  let publishedTime: string | undefined = undefined;
+  if (post.dateString) {
+    const parts = post.dateString.split('/');
+    if (parts.length === 3) {
+      publishedTime = `${parts[2]}-${parts[1]}-${parts[0]}T00:00:00.000Z`;
+    }
+  }
+
   return (
     <>
+      {/* Schema.org TechArticle JSON-LD for AI Search & Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": post.title,
+            "description": post.description,
+            "image": [
+              post.image.startsWith('http') ? post.image : `${siteUrl}${post.image}`
+            ],
+            "datePublished": publishedTime || post.dateString,
+            "dateModified": publishedTime || post.dateString,
+            "author": {
+              "@type": "Person",
+              "name": authorName
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AgriSynthe",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${siteUrl}/assets/images/favicon.svg`
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": postUrl
+            },
+            "inLanguage": "vi-VN",
+            "contentLocation": {
+              "@type": "AdministrativeArea",
+              "name": "Vietnam"
+            }
+          })
+        }}
+      />
+
       <div className="reading-progress-container">
         <div id="reading-progress" className="reading-progress-bar"></div>
       </div>
@@ -138,6 +230,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           backgroundImage: `linear-gradient(rgba(28, 25, 23, 0.65), rgba(28, 25, 23, 0.88)), url('${post.image}')`,
         }}
       >
+        {/* Visually hidden img for Image SEO & indexing */}
+        <img
+          src={post.image}
+          alt={post.title}
+          style={{ display: "none" }}
+          aria-hidden="true"
+        />
         <div className="wrap post-hero-content">
           <div
             className="eyebrow"
@@ -199,6 +298,39 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
       <article className="post-layout wrap">
         <div className="post-body">
+          {/* TL;DR / Key Takeaways Box for AI Search & Human Readers */}
+          {post.description && (
+            <div
+              className="post-tldr-box"
+              style={{
+                backgroundColor: "var(--bg-2)",
+                borderLeft: "4px solid var(--ember)",
+                padding: "20px",
+                borderRadius: "6px",
+                marginBottom: "30px",
+                fontSize: "1rem",
+                lineHeight: "1.6",
+                color: "var(--char)",
+              }}
+            >
+              <strong
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  marginBottom: "8px",
+                  color: "var(--ember)",
+                  textTransform: "uppercase",
+                  fontSize: "0.85rem",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                <span>📌</span> Tóm tắt cốt lõi (Key Takeaways)
+              </strong>
+              <p style={{ margin: 0 }}>{post.description}</p>
+            </div>
+          )}
+
           {/* Post Content */}
           <div className="post-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
@@ -208,7 +340,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <div className="share-buttons">
               {/* Facebook Share */}
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=https://manhhuynh-designer.github.io/posts/${slug}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="share-btn share-facebook"
@@ -222,7 +354,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
               {/* Zalo Share */}
               <a
-                href={`https://sp.zalo.me/share/share?url=https://manhhuynh-designer.github.io/posts/${slug}`}
+                href={`https://sp.zalo.me/share/share?url=${encodeURIComponent(postUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="share-btn share-zalo"
