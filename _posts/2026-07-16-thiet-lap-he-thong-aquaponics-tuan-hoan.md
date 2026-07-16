@@ -17,7 +17,7 @@ image: https://img.manhhuynh.work/posts/thiet-lap-he-thong-aquaponics-tuan-hoan-
 
 ## Nguyên lý sinh hóa và chu trình chuyển hóa Nitơ trong Aquaponics
 
-![Chu trình sinh hóa chuyển hóa nitơ trong hệ Aquaponics](/assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png)
+![Chu trình sinh hóa chuyển hóa nitơ trong hệ Aquaponics](https://img.manhhuynh.work/posts/thiet-lap-he-thong-aquaponics-tuan-hoan-hero.png?v=1784185174943)
 
 Aquaponics là một hệ thống sản xuất thực phẩm tích hợp, kết hợp giữa nuôi trồng thủy sản tuần hoàn (Recirculating Aquaculture System - RAS) và trồng cây thủy canh (Hydroponics). Trọng tâm vận hành của mô hình này nằm ở chu trình chuyển hóa sinh hóa của nguyên tố Nitơ, đóng vai trò cầu nối dinh dưỡng giữa động vật thủy sản và thực vật.
 

@@ -1068,8 +1068,8 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
           console.log(`[Pexels Content Images] R2 upload failed. Saved AI image locally: ${resolvedImageUrl}`);
         }
       } else {
-        console.warn(`[Pexels Content Images] Không thể tạo ảnh bằng Cloudflare AI. Sử dụng ảnh đại diện dự phòng.`);
-        resolvedImageUrl = selectedImage.startsWith('/') ? selectedImage : '/assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png';
+        console.warn(`[Pexels Content Images] Không thể tạo ảnh. Dùng ảnh bìa bài viết làm fallback.`);
+        resolvedImageUrl = selectedImage || `/assets/images/generated_${selectedTopic.id}.svg`;
       }
     }
 

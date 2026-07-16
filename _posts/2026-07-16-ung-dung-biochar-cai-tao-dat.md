@@ -18,7 +18,7 @@ image: https://img.manhhuynh.work/posts/ung-dung-biochar-cai-tao-dat-hero.png?v=
 Canh tác nông nghiệp hiện đại đang phải đối mặt với hai thách thức song hành: sự thoái hóa nhanh chóng của các quỹ đất canh tác do xói mòn, rửa trôi và áp lực cắt giảm phát thải khí nhà kính nhằm ứng phó với biến đổi khí hậu toàn cầu <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Trong nỗ lực tìm kiếm các giải pháp sinh thái bền vững, than sinh học (biochar) nổi lên như một vật liệu cải tạo đất có đặc tính vật lý và hóa học đặc biệt <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Biochar không đơn thuần là một chất dinh dưỡng bổ sung, mà đóng vai trò là một chất cải tạo cấu trúc nền đất bền bỉ và là một bể chứa carbon có thời gian tồn tại kéo dài hàng thế kỷ <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 
 ## 1. Cơ Chế Khoa Học Của Than Sinh Học Trong Cải Tạo Đất
-![Cấu trúc vi lỗ xốp và điện tích bề mặt của than sinh học giúp cải tạo kết cấu đất trồng](/assets/images/posts/chan-nuoi-khep-kin-ruoi-linh-den.png)
+![Cấu trúc vi lỗ xốp và điện tích bề mặt của than sinh học giúp cải tạo kết cấu đất trồng](https://img.manhhuynh.work/posts/ung-dung-biochar-cai-tao-dat-hero.png?v=1784186261506)
 
 Hiệu quả cải tạo đất của than sinh học bắt nguồn từ các đặc tính cấu trúc và hóa học đặc thù được định hình trong quá trình nhiệt phân:
 
