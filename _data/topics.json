@@ -197,5 +197,55 @@
       "Tái chế chất thải"
     ],
     "prompt": ""
+  },
+  {
+    "id": "cay-canh-thanh-loc-khong-khi-trong-nha",
+    "title": "Kỹ thuật chăm sóc cây cảnh thanh lọc không khí trong nhà",
+    "description": "Hướng dẫn chi tiết cách chọn lựa và chăm sóc các loại cây lọc bụi mịn, khí độc hiệu quả (như Lưỡi hổ, Trầu bà, Lan ý) trong điều kiện thiếu sáng và máy lạnh.",
+    "categories": [
+      "Cây cảnh trong nhà",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "thiet-ke-vuon-ban-cong-huong-tay",
+    "title": "Thiết kế vườn ban công hướng Tây: Giải pháp chịu nắng nóng mùa hè",
+    "description": "Cách chọn các loài cây chịu hạn tốt (Hoa giấy, Sứ thái, Xương rồng) và thiết kế hệ thống chắn nắng, giữ nước tối ưu cho ban công chịu bức xạ nhiệt lớn.",
+    "categories": [
+      "Cây cảnh ban công",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "trong-sen-da-xuong-rong-can-ho",
+    "title": "Bí quyết trồng Sen đá và Xương rồng sống lâu trong căn hộ chung cư",
+    "description": "Kỹ thuật phối trộn đất trồng thoát nước nhanh, kiểm soát lượng nước tưới và giải pháp bổ sung ánh sáng nhân tạo bằng đèn quang hợp cho sen đá.",
+    "categories": [
+      "Cây cảnh trong nhà",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "phong-tru-sau-benh-cay-canh-trong-nha",
+    "title": "Phòng trừ sâu bệnh sinh học cho cây cảnh trong nhà không dùng hóa chất độc hại",
+    "description": "Hướng dẫn cách tự chế dung dịch tỏi ớt, dầu neem hoặc nước rửa chén sinh học để diệt trừ rệp sáp, nhện đỏ bám trên cây cảnh trong không gian kín của gia đình.",
+    "categories": [
+      "Cây cảnh trong nhà",
+      "Bảo vệ thực vật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "nghe-thuat-tieu-canh-terrarium-ban-lam-viec",
+    "title": "Nghệ thuật trồng cây trong bình thủy tinh (Terrarium) trang trí bàn làm việc",
+    "description": "Quy trình thiết kế hệ sinh thái mini khép kín hoặc mở sử dụng rêu, dương xỉ và các loại cây mini, tạo điểm nhấn xanh thư giãn cho văn phòng đô thị.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Mô hình bền vững"
+    ],
+    "prompt": ""
   }
 ]
