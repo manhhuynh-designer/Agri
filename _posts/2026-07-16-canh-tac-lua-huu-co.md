@@ -2,6 +2,7 @@
 layout: post
 title: "Canh tác lúa hữu cơ: Quy trình kỹ thuật sinh thái và hiệu quả bền vững"
 subtitle: "Phân tích quy trình canh tác lúa hữu cơ từ cải tạo đất, bón phân hữu cơ sinh học kết hợp biochar đến quản lý nước AWD và kiểm soát dịch hại sinh học thích ứng thực tiễn nông nghiệp Việt Nam."
+description: "Phân tích quy trình canh tác lúa hữu cơ từ cải tạo đất, bón phân hữu cơ sinh học kết hợp biochar đến quản lý nước AWD và kiểm soát dịch hại sinh học thích ứng thực tiễn nông nghiệp Việt Nam."
 categories: [Canh tác sinh thái, Kỹ thuật]
 tags: [Canh tác sinh thái, Kỹ thuật, Hữu cơ]
 image: https://img.manhhuynh.work/posts/canh-tac-lua-huu-co-hero.png?v=1784179358206

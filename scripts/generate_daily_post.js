@@ -9,13 +9,161 @@ const envPath = path.join(__dirname, '..', '.env');
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, 'utf-8');
   envContent.split('\n').forEach(line => {
-    const parts = line.split('=');
-    if (parts.length === 2) {
-      const key = parts[0].trim();
-      const val = parts[1].trim().replace(/^['"]|['"]$/g, '');
-      process.env[key] = val;
-    }
+    const trimmed = line.trim();
+    // Bỏ qua dòng trống và dòng comment
+    if (!trimmed || trimmed.startsWith('#')) return;
+    const eqIdx = trimmed.indexOf('=');
+    if (eqIdx === -1) return;
+    const key = trimmed.substring(0, eqIdx).trim();
+    const val = trimmed.substring(eqIdx + 1).trim().replace(/^['"]|['"]$/g, '');
+    process.env[key] = val;
   });
+}
+
+// ===== CONSTANTS: Delimiter markers & Hype word blacklist =====
+const ARTICLE_START_MARKER = '<<<BÀI_VIẾT>>>';
+const ARTICLE_END_MARKER = '<<<KẾT_THÚC>>>';
+
+const HYPE_WORDS_PATTERN = /thần kỳ|bí mật|bí kíp|tuyệt vời|hoàn hảo|vô song|vô giá|cực kỳ hiệu quả|tuyệt hảo/gi;
+
+// Trích xuất nội dung bài viết từ output có delimiter wrapper
+function extractDelimitedContent(raw) {
+  const startIdx = raw.indexOf(ARTICLE_START_MARKER);
+  const endIdx = raw.indexOf(ARTICLE_END_MARKER);
+  if (startIdx !== -1 && endIdx !== -1 && endIdx > startIdx) {
+    return raw.substring(startIdx + ARTICLE_START_MARKER.length, endIdx).trim();
+  }
+  // Fallback: tìm dấu --- đầu tiên (frontmatter)
+  const fmIdx = raw.indexOf('---');
+  if (fmIdx !== -1 && fmIdx > 0) {
+    return raw.substring(fmIdx).trim();
+  }
+  return raw.trim();
+}
+
+// Validation Gate: kiểm tra cấu trúc bắt buộc của bài viết
+function validateArticleStructure(content) {
+  const errors = [];
+  const warnings = [];
+  let score = 0;
+
+  // V1+V2: Frontmatter
+  const hasFrontmatter = /^---[\s\S]+?^---/m.test(content);
+  const hasTitle = /^title:/m.test(content);
+  if (!hasFrontmatter) errors.push('Thiếu frontmatter (cặp dấu ---)');
+  if (!hasTitle) errors.push('Thiếu trường title trong frontmatter');
+  if (hasFrontmatter && hasTitle) score += 20;
+
+  // V3: Tiêu đề H2
+  const h2Count = (content.match(/^## /gm) || []).length;
+  if (h2Count >= 4) score += 20;
+  else if (h2Count >= 2) { score += 10; warnings.push(`Chỉ có ${h2Count} tiêu đề H2 (khuyến nghị ≥ 4)`); }
+  else warnings.push(`Chỉ có ${h2Count} tiêu đề H2 (khuyến nghị ≥ 4)`);
+
+  // V4: SVG diagram
+  const hasSvg = /<svg/i.test(content);
+  if (hasSvg) score += 15;
+  else warnings.push('Thiếu sơ đồ SVG minh họa');
+
+  // V5: Ảnh minh họa
+  const imgCount = (content.match(/!\[/g) || []).length;
+  if (imgCount >= 3) score += 15;
+  else if (imgCount >= 1) { score += 8; warnings.push(`Chỉ có ${imgCount} ảnh minh họa (khuyến nghị ≥ 3)`); }
+  else warnings.push('Thiếu ảnh minh họa');
+
+  // V6: Trích dẫn nguồn
+  const hasRefs = /Tài liệu trích dẫn/i.test(content);
+  const refCount = (content.match(/^[-*]\s*\[\d+\]/gm) || []).length;
+  if (hasRefs && refCount >= 3) score += 15;
+  else if (hasRefs) { score += 8; warnings.push(`Chỉ có ${refCount} nguồn trích dẫn (khuyến nghị ≥ 3)`); }
+  else warnings.push('Thiếu mục trích dẫn nguồn');
+
+  // V7: AI warning box
+  const hasWarning = /ai-warning-box|LƯU Ý QUAN TRỌNG/i.test(content);
+  if (hasWarning) score += 5;
+  else warnings.push('Thiếu khối cảnh báo AI → sẽ tự động chèn');
+
+  // V8: Độ dài bài viết (ngoài frontmatter)
+  const bodyMatch = content.match(/^---[\s\S]+?^---\s*([\s\S]*)$/m);
+  const bodyLen = bodyMatch ? bodyMatch[1].length : content.length;
+  if (bodyLen >= 3000) score += 10;
+  else if (bodyLen >= 1000) { score += 5; warnings.push(`Bài viết khá ngắn (${bodyLen} ký tự, khuyến nghị ≥ 3000)`); }
+  else errors.push(`Bài viết quá ngắn hoặc rỗng (${bodyLen} ký tự)`);
+
+  return { score, errors, warnings };
+}
+
+// Auto-fix từ cường điệu: quét từng câu, gửi câu vi phạm qua LLM để viết lại
+function fixHypeWordsWithLLM(content, documentsDir) {
+  const { spawnSync } = require('child_process');
+
+  // Tách phần trích dẫn nguồn ra để không xử lý
+  const citHeader = '### Tài liệu trích dẫn chi tiết';
+  const citIdx = content.indexOf(citHeader);
+  let body = citIdx !== -1 ? content.substring(0, citIdx) : content;
+  const footer = citIdx !== -1 ? content.substring(citIdx) : '';
+
+  // Tách và bảo vệ khối SVG + HTML
+  const protectedBlocks = [];
+  body = body.replace(/(<(?:svg|div|iframe)[\s\S]*?<\/(?:svg|div|iframe)>)/gi, (match) => {
+    const placeholder = `__PROTECTED_BLOCK_${protectedBlocks.length}__`;
+    protectedBlocks.push(match);
+    return placeholder;
+  });
+
+  // Quét từng câu tìm từ cường điệu
+  const sentences = body.split(/(?<=[.!?。]\s)/);
+  let fixCount = 0;
+
+  for (let i = 0; i < sentences.length; i++) {
+    if (HYPE_WORDS_PATTERN.test(sentences[i])) {
+      const original = sentences[i].trim();
+      // Reset regex lastIndex
+      HYPE_WORDS_PATTERN.lastIndex = 0;
+
+      console.log(`[Hype Fix] Phát hiện từ cường điệu trong câu: "${original.substring(0, 80)}..."`);
+
+      const fixPrompt = `Viết lại câu tiếng Việt sau bằng văn phong học thuật khách quan, trung tính. Giữ nguyên ý nghĩa kỹ thuật, chỉ loại bỏ các từ ngữ cường điệu hoặc quảng cáo. Trả về DUY NHẤT câu đã sửa, không giải thích gì thêm.\n\nCâu gốc: ${original}`;
+
+      const fixResult = spawnSync('agy', [
+        '--dangerously-skip-permissions',
+        '--print-timeout', '2m0s',
+        '-p', fixPrompt
+      ], { encoding: 'utf8', maxBuffer: 5 * 1024 * 1024 });
+
+      if (fixResult.status === 0 && fixResult.stdout.trim().length > 10) {
+        let fixed = fixResult.stdout.trim();
+        // Loại bỏ markdown wrapper nếu có
+        fixed = fixed.replace(/^```[\s\S]*?\n/, '').replace(/```\s*$/, '').trim();
+        // Loại bỏ thinking logs nếu có
+        fixed = fixed.replace(/^.*?(📖|✏️|🆕|READ|EDIT|CREATE).*$/gm, '').trim();
+        // Lấy dòng cuối cùng có nội dung (thường là câu đã sửa)
+        const lines = fixed.split('\n').filter(l => l.trim().length > 10);
+        if (lines.length > 0) fixed = lines[lines.length - 1].trim();
+
+        // Validate: output không quá dài (gấp 3x), không chứa thinking markers
+        if (fixed.length > 10 && fixed.length < original.length * 3 && !/(📖|✏️|🆕|I will|Let me)/.test(fixed)) {
+          sentences[i] = sentences[i].replace(original, fixed);
+          console.log(`[Hype Fix] ✅ Đã sửa thành: "${fixed.substring(0, 80)}..."`);
+          fixCount++;
+        } else {
+          console.warn(`[Hype Fix] ⚠️ Output không hợp lệ, giữ nguyên câu gốc.`);
+        }
+      } else {
+        console.warn(`[Hype Fix] ⚠️ LLM không trả lời, giữ nguyên câu gốc.`);
+      }
+    }
+  }
+
+  body = sentences.join('');
+
+  // Phục hồi các khối được bảo vệ
+  for (let i = 0; i < protectedBlocks.length; i++) {
+    body = body.replace(`__PROTECTED_BLOCK_${i}__`, protectedBlocks[i]);
+  }
+
+  console.log(`[Hype Fix] Tổng cộng đã sửa ${fixCount} câu cường điệu.`);
+  return body + footer;
 }
 
 // 0. Auto-write auth cookies if present in env (e.g. pulled from Vercel/Github Actions)
@@ -597,7 +745,10 @@ async function main() {
      Ví dụ:
      ![Ấu trùng ruồi lính đen phân hủy phế phẩm hữu cơ](pexels: black soldier fly larvae compost)
      BẮT BUỘC: Tại mỗi mục tiêu đề H2 lớn trong thân bài viết, bạn phải chèn đúng một ảnh minh họa bằng cú pháp đặc biệt trên để hệ thống tự động sinh ảnh vẽ 2D bằng AI. Không viết đường dẫn tĩnh thông thường.
-  Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
+  BẮT BUỘC QUAN TRỌNG NHẤT: Bọc TOÀN BỘ bài viết Markdown (từ dấu --- mở frontmatter đến hết bài) giữa cặp ký hiệu đặc biệt sau. Không viết bất kỳ văn bản giải thích nào NGOÀI cặp ký hiệu này:
+  <<<BÀI_VIẾT>>>
+  ...toàn bộ nội dung bài viết Markdown ở đây...
+  <<<KẾT_THÚC>>>`;
 
   const { spawnSync } = require('child_process');
   
@@ -630,8 +781,33 @@ async function main() {
   content = content.replace(/```\s*$/, '');
   content = content.trim();
 
-  // STAGE 2: Hậu kiểm đánh giá và tự động sửa văn phong (Self-Refinement & Style Review) - Bỏ qua vì Stage 1 đã được cấu hình chặt chẽ
-  console.log('[Style Review] Bỏ qua Stage 2, sử dụng trực tiếp kết quả viết bài của Stage 1 để đảm bảo cấu trúc bài viết...');
+  // Trích xuất bài viết từ delimiter wrapper (bỏ thinking logs)
+  console.log('[Delimiter] Đang trích xuất bài viết từ delimiter wrapper...');
+  content = extractDelimitedContent(content);
+  console.log(`[Delimiter] Trích xuất thành công. Độ dài bài viết: ${content.length} ký tự.`);
+
+  // VALIDATION GATE: Kiểm tra cấu trúc bắt buộc
+  console.log('[Quality Gate] Đang kiểm tra cấu trúc bài viết...');
+  const validation = validateArticleStructure(content);
+  if (validation.errors.length > 0) {
+    console.error('[Quality Gate] ❌ BÀI VIẾT KHÔNG ĐẠT CHUẨN:');
+    validation.errors.forEach(e => console.error(`  - ${e}`));
+    process.exit(1);
+  }
+  if (validation.warnings.length > 0) {
+    console.warn('[Quality Gate] ⚠️ Cảnh báo:');
+    validation.warnings.forEach(w => console.warn(`  - ${w}`));
+  }
+  console.log(`[Quality Gate] ✅ Điểm chất lượng: ${validation.score}/100`);
+
+  // STAGE 2: Hậu kiểm văn phong — tự động sửa từ cường điệu bằng LLM từng câu
+  console.log('[Stage 2] Đang quét và sửa từ cường điệu trong bài viết...');
+  HYPE_WORDS_PATTERN.lastIndex = 0;
+  if (HYPE_WORDS_PATTERN.test(content)) {
+    content = fixHypeWordsWithLLM(content, documentsDir);
+  } else {
+    console.log('[Stage 2] ✅ Không phát hiện từ cường điệu nào.');
+  }
 
   if (selectedTopic.youtube) {
     const ytId = getYoutubeId(selectedTopic.youtube);
@@ -660,10 +836,28 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
   // 1. Tự động chuẩn hóa Front-matter
   const dateLine = `date: ${todayStr} 12:00:00 +0700`;
   
-  // Đổi description thành subtitle
-  content = content.replace(/^description:\s*(.+)$/m, 'subtitle: "$1"');
+  // Đảm bảo cả 2 trường subtitle và description luôn tồn tại song song
+  // (Trang chủ đọc `description`, trang chi tiết đọc `subtitle`)
+  const subtitleMatch = content.match(/^subtitle:\s*[\"']?(.+?)[\"']?\s*$/m);
+  const descriptionMatch = content.match(/^description:\s*[\"']?(.+?)[\"']?\s*$/m);
+  
+  if (subtitleMatch && !descriptionMatch) {
+    // Có subtitle nhưng thiếu description → clone subtitle thành description
+    content = content.replace(/^(subtitle:\s*.+)$/m, `$1\ndescription: "${subtitleMatch[1]}"`);
+  } else if (descriptionMatch && !subtitleMatch) {
+    // Có description nhưng thiếu subtitle → clone description thành subtitle
+    content = content.replace(/^(description:\s*.+)$/m, `subtitle: "${descriptionMatch[1]}"\n$1`);
+  } else if (!subtitleMatch && !descriptionMatch) {
+    // Thiếu cả 2 → tạo mặc định từ title
+    const titleVal = content.match(/^title:\s*[\"']?(.+?)[\"']?\s*$/m);
+    if (titleVal) {
+      const defaultDesc = titleVal[1];
+      content = content.replace(/^(title:\s*.+)$/m, `$1\nsubtitle: "${defaultDesc}"\ndescription: "${defaultDesc}"`);
+    }
+  }
+
   // Chèn date ngay sau trường title
-  content = content.replace(/^(title:\s*["'].+?["'])$/m, `$1\n${dateLine}`);
+  content = content.replace(/^(title:\s*[\"'].+?[\"'])$/m, `$1\n${dateLine}`);
 
   // 2. Chuẩn hóa Khối tuyên bố miễn trừ trách nhiệm AI (AI Warning Box) thành mã HTML chuẩn
   content = content.replace(
@@ -692,7 +886,8 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
     body = parts.join('');
     
     // Định dạng danh sách nguồn ở chân bài viết: hỗ trợ cả [1], `[1]` hoặc dạng <sup> lồng
-    footer = footer.replace(/^([-*])\s*(?:`?\[(\d+)\]`?|<sup><a[^>]*>\[(\d+)\]<\/a><\/sup>)\s*(.+)$/gm, (match, prefix, num1, num2, desc) => {
+    // Hỗ trợ mọi dạng bullet: - [1], * [1], *   [1], 1. [1], hoặc [1] đầu dòng
+    footer = footer.replace(/^([-*]|\d+\.)\s*(?:`?\[(\d+)\]`?|<sup><a[^>]*>\[(\d+)\]<\/a><\/sup>)\s*(.+)$/gm, (match, prefix, num1, num2, desc) => {
       const num = num1 || num2;
       return `${prefix} <span id="ref-${num}">**[${num}]**</span> ${desc.trim()} <a href="#cit-${num}" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>`;
     });
@@ -867,7 +1062,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
       process.exit(0);
     }
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://manhhuynh.work';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://agri.manhhuynh.work';
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #2b1f13; line-height: 1.6;">
         <div style="background-color: #6b8e4e; padding: 24px; text-align: center; border-radius: 8px 8px 0 0;">
