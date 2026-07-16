@@ -4,7 +4,6 @@ title: "Ứng dụng than sinh học (Biochar) trong cải tạo đất thoái h
 date: 2026-07-16 12:00:00 +0700
 subtitle: "Phân tích cơ chế vật lý - hóa học của biochar trong việc cải tạo cấu trúc đất, duy trì độ ẩm, lưu giữ chất dinh dưỡng và đóng góp vào mục tiêu cô lập carbon bền vững."
 description: "Phân tích cơ chế vật lý - hóa học của biochar trong việc cải tạo cấu trúc đất, duy trì độ ẩm, lưu giữ chất dinh dưỡng và đóng góp vào mục tiêu cô lập carbon bền vững."
-date: 2026-07-16 14:17:47 +0700
 categories: [Cải tạo đất, Năng lượng sạch]
 tags: [Cải tạo đất, Năng lượng sạch, Hữu cơ]
 image: https://img.manhhuynh.work/posts/ung-dung-biochar-cai-tao-dat-hero.png?v=1784186261506

@@ -947,8 +947,14 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     }
   }
 
-  // Chèn date ngay sau trường title
-  content = content.replace(/^(title:\s*[\"'].+?[\"'])$/m, `$1\n${dateLine}`);
+  // Chèn/thay thế date trong frontmatter (tránh trùng lặp)
+  if (/^date:/m.test(content)) {
+    // Đã có date → thay bằng date chuẩn
+    content = content.replace(/^date:\s*.+$/m, dateLine);
+  } else {
+    // Chưa có → chèn sau title
+    content = content.replace(/^(title:\s*["'].+?["'])$/m, `$1\n${dateLine}`);
+  }
 
   // 2. Chuẩn hóa Khối tuyên bố miễn trừ trách nhiệm AI (AI Warning Box) thành mã HTML chuẩn
   content = content.replace(
