@@ -902,14 +902,15 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
   if (selectedTopic.youtube) {
     const ytId = getYoutubeId(selectedTopic.youtube);
     if (ytId) {
-      const ytSection = `\n\n---
-### Video tham khảo thực tế
-Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-  <iframe src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
-</div>`;
-      content += ytSection;
+      // Kiểm tra LLM đã tự chèn YouTube embed chưa → tránh trùng
+      const ytEmbedUrl = `youtube.com/embed/${ytId}`;
+      if (!content.includes(ytEmbedUrl)) {
+        const ytSection = `\n\n---\n### Video tham khảo thực tế\nXem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:\n\n<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">\n  <iframe src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>\n</div>`;
+        content += ytSection;
+        console.log(`[YouTube Embed] Đã chèn video: ${ytId}`);
+      } else {
+        console.log(`[YouTube Embed] Video ${ytId} đã có trong bài, bỏ qua.`);
+      }
     }
   }
 
@@ -999,11 +1000,14 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
   });
 
   // 4.5. Tự động quét và tải ảnh minh họa từng mục từ Pexels
+  //       Chỉ quét phần BODY (trước mục trích dẫn), không quét trích dẫn + video
+  const citationCutoff = content.indexOf('Tài liệu trích dẫn');
+  const bodyForImages = citationCutoff !== -1 ? content.substring(0, citationCutoff) : content;
   const pexelsPattern = /!\[([^\]]+)\]\(pexels:\s*([^\)]+)\)/g;
   let imgMatch;
   let imageIndex = 1;
   const pexelsMatches = [];
-  while ((imgMatch = pexelsPattern.exec(content)) !== null) {
+  while ((imgMatch = pexelsPattern.exec(bodyForImages)) !== null) {
     pexelsMatches.push({
       fullMatch: imgMatch[0],
       caption: imgMatch[1],
@@ -1011,7 +1015,7 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
     });
   }
 
-  console.log(`[Pexels Content Images] Tìm thấy ${pexelsMatches.length} vị trí cần chèn ảnh minh họa.`);
+  console.log(`[Pexels Content Images] Tìm thấy ${pexelsMatches.length} vị trí cần chèn ảnh minh họa (chỉ trong phần body).`);
   for (const item of pexelsMatches) {
     const query = item.query;
     console.log(`[Fal AI Content Images] Đang gọi Fal AI Flux Klein 9B cho mục: "${query}"...`);

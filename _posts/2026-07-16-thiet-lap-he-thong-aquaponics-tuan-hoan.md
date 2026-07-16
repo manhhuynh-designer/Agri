@@ -197,24 +197,13 @@ Các tài liệu kỹ thuật nước ngoài thường hướng dẫn sử dụn
 ### 3. Đánh giá tính khả thi theo quy mô nông hộ
 Với diện tích tối thiểu chỉ từ 5 - 10 m² trên sân thượng hoặc góc sân vườn, mô hình Aquaponics tuần hoàn hoàn toàn khả thi cho các gia đình đô thị. Hệ thống này giúp cung cấp nguồn thực phẩm sạch, an toàn và tạo cảnh quan sinh thái thư giãn. Đối với quy mô trang trại lớn hơn, mô hình đòi hỏi quản lý dòng chảy chặt chẽ, tối ưu hóa chi phí năng lượng bơm nước bằng cách tích hợp hệ thống điện mặt trời áp mái để đảm bảo hiệu quả kinh tế lâu dài.
 
-## Tài liệu trích dẫn chi tiết
 
-![Sách chuyên khảo về nông nghiệp sinh thái](https://img.manhhuynh.work/posts/thiet-lap-he-thong-aquaponics-tuan-hoan-7.png?v=1784185274590)
 
 - `<sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>` *Aquaponics*, Tổ chức Lương thực và Nông nghiệp Liên Hợp Quốc (FAO), Chương 2: Thiết kế hệ thống, Trang 25.
 - `<sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>` *Kĩ thuật thủy canh và sản xuất rau sạch*, PGS. TS. Nguyễn Xuân Hòa, Chương 3: Quản lý dinh dưỡng trong thủy canh, Trang 48.
 - `<sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>` *Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng, Chương 4: Kỹ thuật kiểm soát côn trùng sinh học, Trang 82.
 - `<sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>` *Sổ tay người trồng rau*, TS. Trần Văn Khởi, Chương 5: Xử lý giá thể địa phương, Trang 112.
 
-## Video tham khảo thực tế
-
-![Video hướng dẫn thực hành Aquaponics](https://img.manhhuynh.work/posts/thiet-lap-he-thong-aquaponics-tuan-hoan-8.png?v=1784185277410)
-
-Dưới đây là video chia sẻ thực tế về việc thiết lập và vận hành mô hình Aquaponics tuần hoàn khép kín tại nhà, giúp bạn có cái nhìn trực quan hơn về quy trình thiết kế và lắp đặt hệ thống lọc.
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-  <iframe src="https://www.youtube.com/embed/S18Los1Ucic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
-</div>
 
 ---
 ### Video tham khảo thực tế
