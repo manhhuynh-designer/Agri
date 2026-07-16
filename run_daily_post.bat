@@ -30,4 +30,8 @@ if %errorlevel% equ 0 (
 echo ==================================================
 echo [Agri Blog] THAO TAC HOAN TAT!
 echo ==================================================
-pause
+
+:: Chi pause neu chay bang double-click (cmdcmdline co chua bat file va khong chay qua Task Scheduler)
+echo %cmdcmdline% | findstr /i "run_daily_post.bat" >nul
+if %errorlevel% equ 0 pause
+
