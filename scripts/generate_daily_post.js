@@ -396,25 +396,48 @@ function getYoutubeId(url) {
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
-// Dependency-free YouTube search using DuckDuckGo HTML search
+// Dependency-free YouTube search — scrape trực tiếp trang kết quả YouTube
 function searchYoutubeVideo(query) {
   return new Promise((resolve) => {
-    const searchUrl = `https://html.duckduckgo.com/html/?q=site:youtube.com+${encodeURIComponent(query)}`;
-    const options = {
+    const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+    https.get(searchUrl, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Language': 'vi-VN,vi;q=0.9,en;q=0.8'
       }
-    };
-    https.get(searchUrl, options, (res) => {
+    }, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
-        const matches = data.match(/\/watch\?v=([a-zA-Z0-9_-]{11})/g);
+        // YouTube trả JSON embedded trong HTML, chứa "videoId":"..."
+        const matches = data.match(/"videoId":"([a-zA-Z0-9_-]{11})"/g);
         if (matches && matches.length > 0) {
-          const uniqueIds = [...new Set(matches.map(m => m.split('=')[1]))];
-          resolve(uniqueIds);
+          const uniqueIds = [...new Set(matches.map(m => {
+            const idMatch = m.match(/"([a-zA-Z0-9_-]{11})"/);
+            return idMatch ? idMatch[1] : null;
+          }).filter(Boolean))];
+          console.log(`[YouTube Search] Tìm thấy ${uniqueIds.length} video từ YouTube Direct.`);
+          resolve(uniqueIds.slice(0, 10)); // Giới hạn 10 để verify nhanh
         } else {
-          resolve([]);
+          // Fallback: DuckDuckGo HTML search
+          console.log('[YouTube Search] YouTube Direct không trả kết quả. Thử DuckDuckGo fallback...');
+          const ddgUrl = `https://html.duckduckgo.com/html/?q=site:youtube.com+${encodeURIComponent(query)}`;
+          https.get(ddgUrl, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' }
+          }, (ddgRes) => {
+            let ddgData = '';
+            ddgRes.on('data', chunk => ddgData += chunk);
+            ddgRes.on('end', () => {
+              const ddgMatches = ddgData.match(/\/watch\?v=([a-zA-Z0-9_-]{11})/g);
+              if (ddgMatches && ddgMatches.length > 0) {
+                const ids = [...new Set(ddgMatches.map(m => m.split('=')[1]))];
+                console.log(`[YouTube Search] DuckDuckGo fallback tìm thấy ${ids.length} video.`);
+                resolve(ids);
+              } else {
+                resolve([]);
+              }
+            });
+          }).on('error', () => resolve([]));
         }
       });
     }).on('error', (err) => {
@@ -671,8 +694,11 @@ async function main() {
 
   // 4. Handle YouTube searching and transcript downloading
   if (!selectedTopic.youtube) {
-    console.log(`[YouTube Finder] Topic does not have a predefined YouTube video. Searching YouTube for: "${selectedTopic.title}"...`);
-    const candidateIds = await searchYoutubeVideo(selectedTopic.title);
+    // Rút gọn query: dùng từ khóa tiếng Anh (pexelsSearchQueries) hoặc cắt title ≤ 5 từ
+    const shortQuery = pexelsSearchQueries[selectedTopic.id]
+      || selectedTopic.title.split(/[:\-–—,]/)[0].trim().split(/\s+/).slice(0, 5).join(' ');
+    console.log(`[YouTube Finder] Searching YouTube with short query: "${shortQuery}"...`);
+    const candidateIds = await searchYoutubeVideo(shortQuery);
     console.log(`[YouTube Finder] Found ${candidateIds.length} candidate videos. Verifying...`);
     for (const id of candidateIds) {
       const url = `https://www.youtube.com/watch?v=${id}`;
