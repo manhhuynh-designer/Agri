@@ -147,5 +147,55 @@
       "Kỹ thuật"
     ],
     "prompt": ""
+  },
+  {
+    "id": "mo-hinh-vuon-dung-vertical-farming-do-thi",
+    "title": "Thiết kế vườn đứng (Vertical Farming): Giải pháp tối ưu hóa không gian xanh cho nhà phố đô thị",
+    "description": "Hướng dẫn chi tiết cách tự thiết kế hệ thống vườn đứng dạng tháp khí canh hoặc túi vải treo tường, giúp tận dụng tối đa ánh sáng và không gian hẹp tại ban công, sân thượng.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "ky-thuat-trong-rau-mam-microgreens-nha-pho",
+    "title": "Kỹ thuật trồng rau mầm và Microgreens siêu dinh dưỡng tại nhà phố",
+    "description": "Quy trình từng bước gieo trồng các loại hạt rau mầm (cải, hướng dương, đậu Hà Lan) sử dụng giá thể xơ dừa, tối ưu nguồn sáng trong nhà và cách thu hoạch đạt tiêu chuẩn an toàn sinh học.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "thiet-ke-urban-food-forest-vuon-rung-do-thi",
+    "title": "Thiết lập Vườn rừng đô thị (Urban Food Forest): Hệ sinh thái thực phẩm tự cân bằng trên sân thượng",
+    "description": "Ứng dụng nguyên lý Permaculture thiết kế vườn đa tầng từ cây ăn quả lùn, rau bụi đến thảo mộc, tạo chu trình tuần hoàn tự nhiên bền vững ngay trong lòng thành phố.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Mô hình bền vững"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "he-thong-tuoi-nho-giot-tu-dong-ban-cong",
+    "title": "Tự chế hệ thống tưới nhỏ giọt tự động siêu tiết kiệm cho ban công đô thị",
+    "description": "Hướng dẫn chi tiết cách thiết lập hệ thống tưới nhỏ giọt sử dụng chai nhựa tái chế hoặc bộ hẹn giờ thông minh giá rẻ, đảm bảo cấp ẩm tối ưu cho cây trồng đô thị khi vắng nhà.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "san-xuat-phan-bon-long-tu-rac-nha-bep",
+    "title": "Kỹ thuật ủ phân bón lỏng hữu cơ (Liquid Fertilizer) từ rác thải nhà bếp đô thị",
+    "description": "Cách tận dụng phế phẩm nhà bếp (vỏ trái cây, bã cà phê, rau thừa) kết hợp mật rỉ và men vi sinh để sản xuất dịch dinh dưỡng tưới gốc giàu đạm, lân hữu cơ không mùi hôi.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Tái chế chất thải"
+    ],
+    "prompt": ""
   }
 ]
