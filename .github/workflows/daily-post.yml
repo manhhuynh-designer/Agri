@@ -1,8 +1,8 @@
 name: Auto Daily Blog Post
 
 on:
-  schedule:
-    - cron: '0 1 * * *' # Runs daily at 01:00 AM UTC (08:00 AM Vietnam time)
+  # schedule:
+  #   - cron: '0 1 * * *' # Runs daily at 01:00 AM UTC (08:00 AM Vietnam time)
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 jobs:
