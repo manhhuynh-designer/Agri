@@ -640,12 +640,76 @@ async function main() {
   }
 
   if (!selectedTopic) {
-    console.warn('\n================================================================');
-    console.warn('⚠️  BÁO CÁO: Tất cả các chủ đề trong topics.json đều đã được viết!');
-    console.warn('Để tránh tạo bài trùng lặp, kịch bản sẽ dừng hoạt động và không tạo thêm bài mới.');
-    console.warn('Vui lòng thêm các chủ đề nông nghiệp hữu cơ mới vào file _data/topics.json.');
-    console.warn('================================================================\n');
-    process.exit(0); // Exit cleanly without creating duplicate post
+    console.log('\n[Auto-Topic] Tất cả chủ đề trong topics.json đã được viết. Đang tự động sinh chủ đề mới...');
+    
+    // Lấy danh sách tiêu đề đã viết để tránh trùng
+    const writtenTitles = [...existingTitles].join(', ');
+    const { spawnSync } = require('child_process');
+    const documentsDir = path.join(__dirname, '..', 'documents');
+    
+    const topicPrompt = `Dựa trên thư viện tài liệu nông nghiệp hữu cơ, hãy đề xuất MỘT chủ đề bài viết MỚI chưa từng được viết.
+
+Các chủ đề ĐÃ VIẾT (KHÔNG được trùng): ${writtenTitles}
+
+Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, không thêm bất kỳ text nào khác:
+<<<BÀI_VIẾT>>>
+{
+  "id": "slug-tieng-viet-khong-dau",
+  "title": "Tiêu đề bài viết bằng tiếng Việt",
+  "description": "Mô tả ngắn 1-2 câu",
+  "categories": ["Danh mục 1", "Danh mục 2"]
+}
+<<<KẾT_THÚC>>>`;
+
+    const topicResult = spawnSync('agy', [
+      '--add-dir', documentsDir,
+      '--dangerously-skip-permissions',
+      '--print-timeout', '3m0s',
+      '-p', topicPrompt
+    ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+
+    if (topicResult.status === 0 && topicResult.stdout) {
+      let topicOutput = topicResult.stdout;
+      // Trích xuất từ delimiter wrapper
+      topicOutput = extractDelimitedContent(topicOutput);
+      
+      // Tìm JSON object trong output
+      const jsonMatch = topicOutput.match(/\{[\s\S]*?"id"[\s\S]*?"title"[\s\S]*?\}/);
+      if (jsonMatch) {
+        try {
+          const newTopic = JSON.parse(jsonMatch[0]);
+          
+          // Validate chủ đề mới không trùng
+          if (newTopic.id && newTopic.title && !existingSlugs.has(newTopic.id)) {
+            selectedTopic = {
+              id: newTopic.id,
+              title: newTopic.title,
+              description: newTopic.description || '',
+              categories: newTopic.categories || ['Nông nghiệp hữu cơ'],
+              prompt: ''
+            };
+            
+            // Lưu chủ đề mới vào topics.json
+            topics.push(selectedTopic);
+            fs.writeFileSync(TOPICS_FILE, JSON.stringify(topics, null, 2), 'utf8');
+            console.log(`[Auto-Topic] ✅ Đã sinh chủ đề mới: "${selectedTopic.title}" (${selectedTopic.id})`);
+          } else {
+            console.error('[Auto-Topic] ❌ Chủ đề sinh ra bị trùng hoặc thiếu trường bắt buộc.');
+          }
+        } catch (e) {
+          console.error('[Auto-Topic] ❌ Không parse được JSON từ output:', e.message);
+        }
+      } else {
+        console.error('[Auto-Topic] ❌ Không tìm thấy JSON trong output của agy.');
+      }
+    } else {
+      console.error('[Auto-Topic] ❌ agy không trả kết quả:', topicResult.stderr || topicResult.error?.message);
+    }
+    
+    if (!selectedTopic) {
+      console.error('[Auto-Topic] Không thể tạo chủ đề mới. Dừng workflow.');
+      process.exit(1);
+    }
   }
 
   console.log(`Selected Topic: "${selectedTopic.title}" (ID: ${selectedTopic.id})`);

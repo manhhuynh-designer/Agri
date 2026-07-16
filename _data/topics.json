@@ -117,5 +117,15 @@
       "Canh tác sinh thái",
       "Kỹ thuật"
     ]
+  },
+  {
+    "id": "thiet-lap-he-thong-aquaponics-tuan-hoan",
+    "title": "Thiết lập hệ thống Aquaponics tuần hoàn: Kết hợp nuôi cá và trồng rau hữu cơ",
+    "description": "Hướng dẫn chi tiết cách tự thiết kế và vận hành mô hình Aquaponics tuần hoàn khép kín, tối ưu hóa vòng tuần hoàn dinh dưỡng giữa cá và cây trồng.",
+    "categories": [
+      "Mô hình bền vững",
+      "Kỹ thuật"
+    ],
+    "prompt": ""
   }
 ]
