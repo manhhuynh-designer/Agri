@@ -108,5 +108,14 @@
       "Công nghệ sinh học",
       "Vi sinh hữu ích"
     ]
+  },
+  {
+    "id": "canh-tac-lua-huu-co",
+    "title": "Canh tác lúa hữu cơ: Quy trình kỹ thuật sinh thái và hiệu quả bền vững",
+    "prompt": "Dựa trên các tài liệu về lúa hữu cơ và nông nghiệp sinh thái, hãy viết một bài hướng dẫn chi tiết về quy trình canh tác lúa hữu cơ bền vững. Phân tích sâu các khâu chuẩn bị đất không hóa chất, kỹ thuật ngâm ủ hạt giống, áp dụng chế phẩm vi sinh phân hủy rơm rạ tránh ngộ độc hữu cơ cho lúa, kỹ thuật tưới nước ngập khô xen kẽ (AWD) để kích thích bộ rễ phát triển sâu và giảm phát thải metan. Trình bày các biện pháp quản lý dịch hại sinh học (như bảo vệ thiên địch, dùng chế phẩm nấm ký sinh sâu hại) và tiêu chuẩn thu hoạch lúa đạt chuẩn hữu cơ quốc tế.",
+    "categories": [
+      "Canh tác sinh thái",
+      "Kỹ thuật"
+    ]
   }
 ]

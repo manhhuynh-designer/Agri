@@ -11,7 +11,9 @@ if (fs.existsSync(envPath)) {
   envContent.split('\n').forEach(line => {
     const parts = line.split('=');
     if (parts.length === 2) {
-      process.env[parts[0].trim()] = parts[1].trim();
+      const key = parts[0].trim();
+      const val = parts[1].trim().replace(/^['"]|['"]$/g, '');
+      process.env[key] = val;
     }
   });
 }
@@ -491,10 +493,9 @@ async function main() {
 
   // 3. Fetch a custom Pexels background image for the specific post
   console.log(`Fetching custom post background image for query: "${pexelsSearchQueries[selectedTopic.id] || 'organic farming'}"...`);
-  const topicPhotos = await fetchPexelsImages(pexelsSearchQueries[selectedTopic.id] || 'organic farming', 1);
-  let selectedImage = (topicPhotos && topicPhotos[0]) ? topicPhotos[0] : null;
+  let selectedImage = null; // Bypass Pexels to always generate cover illustrations via Fal AI Flux Klein 9B
   if (!selectedImage) {
-    console.log(`[Hero Image] Không tìm thấy ảnh bìa trên Pexels. Sử dụng local agy CLI tạo ảnh bìa...`);
+    console.log(`[Hero Image] Bắt buộc dùng Fal AI Flux Klein 9B tạo ảnh bìa minh họa...`);
     const heroBuffer = await generateAiImage(pexelsSearchQueries[selectedTopic.id] || 'sustainable realistic organic agriculture', `${selectedTopic.id}_hero`);
     if (heroBuffer) {
       const imageName = `${selectedTopic.id}-hero.png`;
@@ -569,6 +570,7 @@ async function main() {
   3. Viết nội dung mang tính chất PHÂN TÍCH, SO SÁNH và CHUYỂN ĐỔI CAO (Transformative & Analytical Style):
      - Không sao chép hay dịch thô lý thuyết suông từ tài liệu gốc.
      - Hãy tổng hợp kiến thức từ nhiều tài liệu, thực hiện so sánh đối chiếu ưu nhược điểm của các phương pháp khác nhau (ví dụ: so sánh cách ủ nóng với ủ nguội, hoặc so sánh thiết bị tự chế với thiết bị công nghiệp).
+     - Tuyệt đối KHÔNG sử dụng văn phong quảng cáo, giật tít hoặc các từ ngữ cường điệu như: "thần kỳ", "bí mật", "bí kíp", "tuyệt vời", "hoàn hảo", "vô song", "vô giá", "cực kỳ hiệu quả". Diễn đạt khách quan, điềm tĩnh, khoa học.
      - Bắt buộc phải có một phần riêng biệt với tiêu đề "Phân Tích Thực Tiễn & Khả Năng Áp Dụng Tại Việt Nam" (sử dụng tiêu đề H2) để đánh giá khả năng áp dụng kỹ thuật này dưới điều kiện khí hậu nhiệt đới nóng ẩm, loại đất địa phương và quy mô nông hộ nhỏ tại Việt Nam.
      - Đưa ra các giải pháp thay thế nguyên liệu trong sách bằng phế phụ phẩm nông nghiệp phổ biến ở Việt Nam (ví dụ: xơ dừa, vỏ trấu, lục bình, bã mía...).
   4. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
@@ -594,7 +596,7 @@ async function main() {
      ![Mô tả ngắn gọn về hình ảnh sinh động](pexels: từ khóa tìm kiếm tiếng Anh liên quan đến hình ảnh)
      Ví dụ:
      ![Ấu trùng ruồi lính đen phân hủy phế phẩm hữu cơ](pexels: black soldier fly larvae compost)
-     Không viết đường dẫn tĩnh thông thường, hệ thống sẽ tự động dùng từ khóa tìm kiếm để nạp ảnh thực tế tương ứng từ Pexels.
+     BẮT BUỘC: Tại mỗi mục tiêu đề H2 lớn trong thân bài viết, bạn phải chèn đúng một ảnh minh họa bằng cú pháp đặc biệt trên để hệ thống tự động sinh ảnh vẽ 2D bằng AI. Không viết đường dẫn tĩnh thông thường.
   Hãy trả về TRỰC TIẾP nội dung bài viết Markdown, không thêm bất kỳ văn bản giải thích nào khác ở đầu hoặc cuối kết quả.`;
 
   const { spawnSync } = require('child_process');
@@ -607,6 +609,8 @@ async function main() {
   console.log('Đang gọi Antigravity CLI (agy) để phân tích tài liệu và viết bài...');
   const result = spawnSync('agy', [
     '--add-dir', documentsDir,
+    '--dangerously-skip-permissions',
+    '--print-timeout', '10m0s',
     '-p', queryText
   ], {
     encoding: 'utf8',
@@ -626,44 +630,8 @@ async function main() {
   content = content.replace(/```\s*$/, '');
   content = content.trim();
 
-  // STAGE 2: Hậu kiểm đánh giá và tự động sửa văn phong (Self-Refinement & Style Review)
-  console.log('Đang thực hiện hậu kiểm đánh giá văn phong bài viết (Stage 2: Style Review & Refinement)...');
-  const reviewPrompt = `Bạn là một Tổng biên tập Học thuật và Chuyên gia Khuyến nông hữu cơ có kinh nghiệm.
-Nhiệm vụ của bạn là rà soát, đánh giá và tinh lọc lại văn phong của bài viết nông nghiệp dưới đây.
-
-YÊU CẦU NGHIÊM NGẶT VỀ VĂN PHONG (STYLE GUIDE):
-1. KHÔNG được sử dụng văn phong quảng cáo, giật tít, cường điệu hóa (hype) hoặc các từ ngữ sáo rỗng như: "thần kỳ", "bí mật", "bí kíp", "tuyệt vời", "hoàn hảo", "vô song", "vô giá", "cực kỳ hiệu quả".
-2. Sử dụng văn phong khách quan, khoa học, trung thực, mang tính khuyến nông thực tiễn cao. Diễn đạt điềm tĩnh, tập trung vào mô tả kỹ thuật và cơ chế sinh học thực nghiệm.
-3. Giữ nguyên toàn bộ:
-   - Cấu trúc YAML Front-matter ở đầu bài viết.
-   - Các tiêu đề (H2, H3), danh mục, các bảng biểu so sánh dữ liệu.
-   - Nguyên vẹn khối mã sơ đồ SVG bọc trong thẻ <div class="diagram-card">...</div> và phần chú thích kèm theo.
-   - Toàn bộ các ký hiệu trích dẫn nguồn dạng [1], [2] trong thân bài viết và danh sách nguồn dưới mục "Tài liệu trích dẫn chi tiết".
-4. Nếu bài viết vi phạm bất kỳ lỗi cường điệu hay quảng cáo nào, hãy tự động chỉnh sửa và viết lại các đoạn văn đó theo văn phong học thuật trung thực.
-
-Hãy trả về TRỰC TIẾP nội dung bài viết sau khi tinh lọc, không thêm bất kỳ dòng giải thích nào khác ở đầu hoặc cuối kết quả.
-
-NỘI DUNG BÀI VIẾT CẦN RÀ SOÁT:
-${content}`;
-
-  const reviewResult = spawnSync('agy', [
-    '--add-dir', documentsDir,
-    '-p', reviewPrompt
-  ], {
-    encoding: 'utf8',
-    maxBuffer: 50 * 1024 * 1024
-  });
-
-  if (reviewResult.status === 0 && reviewResult.stdout.trim().length > 100) {
-    console.log('[Style Review] Bài viết đã được hậu kiểm và tinh lọc văn phong thành công.');
-    content = reviewResult.stdout;
-    content = content.replace(/^```markdown\s*/i, '');
-    content = content.replace(/^```html\s*/i, '');
-    content = content.replace(/```\s*$/, '');
-    content = content.trim();
-  } else {
-    console.warn('[Style Review] Hậu kiểm thất bại hoặc trả về nội dung rỗng. Sử dụng bài viết gốc của Stage 1.');
-  }
+  // STAGE 2: Hậu kiểm đánh giá và tự động sửa văn phong (Self-Refinement & Style Review) - Bỏ qua vì Stage 1 đã được cấu hình chặt chẽ
+  console.log('[Style Review] Bỏ qua Stage 2, sử dụng trực tiếp kết quả viết bài của Stage 1 để đảm bảo cấu trúc bài viết...');
 
   if (selectedTopic.youtube) {
     const ytId = getYoutubeId(selectedTopic.youtube);
@@ -761,8 +729,8 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
   console.log(`[Pexels Content Images] Tìm thấy ${pexelsMatches.length} vị trí cần chèn ảnh minh họa.`);
   for (const item of pexelsMatches) {
     const query = item.query;
-    console.log(`[Pexels Content Images] Đang tìm ảnh trên Pexels cho mục: "${query}"...`);
-    const urls = await fetchPexelsImages(query, 1);
+    console.log(`[Fal AI Content Images] Đang gọi Fal AI Flux Klein 9B cho mục: "${query}"...`);
+    const urls = null; // Bypass Pexels to always use Fal AI Flux Klein 9B illustrations
     let resolvedImageUrl = '';
 
     if (urls && urls.length > 0) {
