@@ -86,8 +86,6 @@ IMO sau khi nhân nuôi thành công có thể được ứng dụng theo nhiề
 3. **Chất lượng nước:** Sử dụng nước sạch, không bị nhiễm phèn, mặn hoặc hóa chất độc hại để nhân nuôi và tưới cây [38], [39].
 4. **Bảo vệ môi trường đất:** Việc sử dụng IMO cần kết hợp với các biện pháp che phủ đất (tủ gốc) bằng rơm rạ hoặc cây phân xanh để tạo môi trường sống lý tưởng, bảo vệ vi sinh vật khỏi sự biến động nhiệt độ đột ngột [40], [41], [28].
 
-
-
 ### Tài liệu trích dẫn chi tiết
 - <span id="ref-1">**[1]**</span> 10-hesinhthairungtunhienvietnam.pdf, Bộ Lâm nghiệp, Chương 3, Trang 93. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-2">**[2]**</span> ADDA_Giao trinh dao tao OA TOT.pdf, ADDA Vietnam, Chương 2, Trang 14-16. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
