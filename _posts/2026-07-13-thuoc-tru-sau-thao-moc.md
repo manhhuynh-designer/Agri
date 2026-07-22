@@ -111,17 +111,9 @@ Dù là "tự nhiên", một số thuốc thảo mộc vẫn có độc tính ca
 *   **Dụng cụ riêng:** Trong trang trại hữu cơ, thiết bị phun thuốc thảo mộc phải được sử dụng riêng biệt, không dùng chung với các dụng cụ phun hóa chất thông thường <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> ADDA office in Vietnam, Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè, Chương 7.5.2, Trang 73. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> ADDA office in Vietnam, Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè, Chương 7.5.2, Trang 74. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> ADDA office in Vietnam, Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè, Chương 7.5.2, Trang 74-75. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng (Chủ biên), Chương 4.3.2, Trang 63-64. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> Nông nghiệp bền vững - Cơ sở và ứng dụng, Rosemary Morrow, Chương VI, Trang 108. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> Nông nghiệp bền vững - Cơ sở và ứng dụng, Rosemary Morrow, Chương VI, Trang 109. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng (Chủ biên), Chương 4.3.2, Trang 62-63. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> ADDA office in Vietnam, Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè, Chương 9.5, Trang 85-86. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> Kỹ thuật bảo vệ thực vật, PGS. TS. Phạm Văn Lầm, Chương 8, Trang 154. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-10">**[10]**</span> Giáo trình Sử dụng thuốc bảo vệ thực vật, PGS.TS. Nguyễn Trần Oánh (Chủ biên), Chương V, Trang 85. <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-11">**[11]**</span> Kỹ thuật trồng rau sạch vụ xuân hè, Hội giống cây trồng Việt Nam, Phần f, Trang 16. <a href="#cit-11" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *BẢO TỒN VÀ SỬ DỤNG RAU BẢN ĐỊA TẠI VIỆT NAM: THỰC TRẠNG, THÁCH THỨC VÀ KHUYẾN NGHỊ*, Nguyễn Thị Ngọc Huệ, Lã Tuấn Nghĩa, Hoàng Đình Phi / Hội giống cây trồng Việt Nam, Trung tâm Tài nguyên Thực vật, VAAS, Đại học Kinh tế, Đại học Quốc gia Hà Nội. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *CUỘC CÁCH MẠNG MỘT-CỌNG-RƠM*, MASANOBU FUKUOKA / NHÀ XUẤT BẢN TỔNG HỢP THÀNH PHỐ HỒ CHÍ MINH. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

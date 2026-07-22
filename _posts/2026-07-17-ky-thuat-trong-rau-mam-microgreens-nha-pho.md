@@ -165,15 +165,9 @@ Quy trình kiểm soát an toàn sinh học bao gồm:
 4. **Bảo quản sau thu hoạch:** Rau sau khi cắt không được rửa nếu chưa sử dụng ngay, vì nước bám trên bề mặt lá mầm sẽ kích hoạt quá trình tự phân hủy của tế bào. Sản phẩm cần được xếp nhẹ nhàng vào hộp nhựa thực phẩm có lót giấy thấm hút ẩm, sau đó lưu trữ trong ngăn mát tủ lạnh ở nhiệt độ 4°C để làm chậm quá trình hô hấp tế bào, giữ độ tươi ngon kéo dài từ 5 đến 7 ngày <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng (Chủ biên), Chương 1, Trang 15. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> *Ứng dụng công nghệ sinh học trong sản xuất hữu cơ và đời sống nông thôn*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 3, Trang 85. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> *Kỹ thuật bảo vệ thực vật và kiểm soát dịch hại tổng hợp sinh học*, PGS. TS. Phạm Văn Lầm, Chương 5, Trang 132. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> *Vườn rau, Vườn quả, Vườn rừng thiết kế đa tầng sinh thái*, GS. Trịnh Văn Thịnh, Chương 3, Trang 42. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> *Kỹ thuật trồng rau sạch theo mùa vụ Xuân - Hè*, PGS. TS. Tạ Thu Cúc, Chương 3, Trang 112. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> *Độ ẩm đất với sự sinh trưởng và năng suất cây trồng*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 2, Trang 54. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> *Giáo trình Sử dụng thuốc bảo vệ thực vật sinh học & an toàn*, PGS. TS. Nguyễn Trần Oánh (Chủ biên), Chương 4, Trang 98. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng (Chủ biên), Chương 4, Trang 76. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> *Than sinh học (Biochar) – hiệu quả kinh tế và cải tạo đất nhờ công nghệ*, Anh Tùng, Chương 2, Trang 18. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *KỸ THUẬT SỬ DỤNG MÀNG PHỦ NÔNG NGHIỆP TRỒNG MỘT SỐ LOẠI RAU*, ThS. Trần Thị Ba / Bộ môn Khoa Học Cây Trồng, Khoa Nông Nghiệp & Sinh học ứng dụng, Trường ĐHCT. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *BẢO TỒN VÀ SỬ DỤNG RAU BẢN ĐỊA TẠI VIỆT NAM: THỰC TRẠNG, THÁCH THỨC VÀ KHUYẾN NGHỊ*, Nguyễn Thị Ngọc Huệ, Lã Tuấn Nghĩa, Hoàng Đình Phi / Hội giống cây trồng Việt Nam, Trung tâm Tài nguyên Thực vật, VAAS, Đại học Kinh tế, Đại học Quốc gia Hà Nội. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

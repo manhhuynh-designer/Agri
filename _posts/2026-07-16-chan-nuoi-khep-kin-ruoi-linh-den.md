@@ -77,28 +77,7 @@ Việc áp dụng mô hình chuyển hóa sinh học này mang lại lợi ích 
 
 Bằng cách trả lại cho thiên nhiên tất cả những chất dinh dưỡng trong vòng luân chuyển khép kín, chúng ta không chỉ giải quyết được bài toán rác thải mà còn hướng tới một nền nông nghiệp thịnh vượng và bền vững thực sự <sup><a href="#ref-23" class="citation-ref" id="cit-23">[23]</a></sup>.
 
-## Tài liệu trích dẫn chi tiết
+### Tài liệu trích dẫn chi tiết
 
-- <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng (Chủ biên), Chương 1, Trang 16.
-- <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Lời mở đầu, Trang 3.
-- <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 11.
-- <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 11.
-- <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 11.
-- <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 11.
-- <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Chăn nuôi lợn tổng hợp, Trang 31.
-- <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 11.
-- <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Chăn nuôi lợn tổng hợp, Trang 31.
-- <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-12" class="citation-ref" id="cit-12">[12]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-13" class="citation-ref" id="cit-13">[13]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-14" class="citation-ref" id="cit-14">[14]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-15" class="citation-ref" id="cit-15">[15]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-16" class="citation-ref" id="cit-16">[16]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 12.
-- <sup><a href="#ref-17" class="citation-ref" id="cit-17">[17]</a></sup> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng (Chủ biên), Chương 4, Trang 58.
-- <sup><a href="#ref-18" class="citation-ref" id="cit-18">[18]</a></sup> ADDA Giáo trình đào tạo OA TOT, Tham khảo chăn nuôi, Trang 113.
-- <sup><a href="#ref-19" class="citation-ref" id="cit-19">[19]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Chăn nuôi lợn tổng hợp, Trang 32.
-- <sup><a href="#ref-20" class="citation-ref" id="cit-20">[20]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Công nghệ chuyển hóa sinh học, Trang 11.
-- <sup><a href="#ref-21" class="citation-ref" id="cit-21">[21]</a></sup> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng (Chủ biên), Chương 3, Trang 40.
-- <sup><a href="#ref-22" class="citation-ref" id="cit-22">[22]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Kết luận, Trang 40.
-- <sup><a href="#ref-23" class="citation-ref" id="cit-23">[23]</a></sup> Biến rác thải thành tài nguyên, Paul Olivier, Tái chế chất thải con người, Trang 15.
+* <span id="ref-1">**[1]**</span> *Biến rác thành nguồn tài nguyên quý giá nhất: Sản xuất thực phẩm, nhiên liệu, thức ăn gia súc và phân bón quy mô nhỏ*, Paul Olivier, Jozef De Smet, Todd Hyman và Marc Pare. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+

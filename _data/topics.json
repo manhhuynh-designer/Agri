@@ -247,5 +247,25 @@
       "Mô hình bền vững"
     ],
     "prompt": ""
+  },
+  {
+    "id": "nhan-biet-thieu-dinh-duong-cay-trong-qua-la-va-khac-phuc-huu-co",
+    "title": "Nhận biết biểu hiện thiếu dinh dưỡng ở cây trồng qua lá và cách khắc phục hữu cơ",
+    "description": "Hướng dẫn chi tiết cách nhận biết các dấu hiệu thiếu hụt dinh dưỡng đa lượng, trung lượng và vi lượng thông qua biến đổi màu sắc, hình thái lá, đồng thời đề xuất giải pháp bổ sung dinh dưỡng hữu cơ an toàn cho đất.",
+    "categories": [
+      "Dinh dưỡng cây trồng",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "tu-do-do-chua-ph-dat-vuon-va-cai-tao-huu-co",
+    "title": "Phương pháp tự đo độ chua (pH) đất vườn và giải pháp cải tạo hữu cơ",
+    "description": "Hướng dẫn chi tiết cách tự xác định độ pH của đất đơn giản tại nhà và các biện pháp hữu cơ tự nhiên để cải tạo đất chua, đất kiềm giúp tối ưu hóa khả năng hấp thụ dinh dưỡng của cây.",
+    "categories": [
+      "Cải tạo đất",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
   }
 ]

@@ -87,12 +87,8 @@ Trong bối cảnh biến đổi khí hậu, hệ sinh thái VAC đã được c
 Hệ sinh thái VAC chính là minh chứng sống động cho tư duy "Nông nghiệp bền vững" mà Bill Mollison đã từng đề cập: thiết kế những hệ thống cư trú lâu bền của con người thông qua sự hợp tác với thiên nhiên thay vì chống lại nó <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> VIet Nam moi truong va cuoc song, PGS, TS. Lê Trình et al., Chương I, Trang 44-46. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên), Chương 4, Trang 58-59. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> Nong nghiep ben vung co so va ung dung, Nguyễn Văn Mấn - Trịnh Văn Thịnh, Chương XI, Trang 169-172. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> Ky thuat canh tac tren dat doc_NXBNN, Bộ Nông nghiệp và Phát triển nông thôn, Chương I, Trang 11-13. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> Huong dan su dung dat dai theo nong nghiep ben vung, Chu Thị Thơm et al., Chương V, Trang 121-123. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> Độ ẩm đất với cây trồng, PGS.TS. Vũ Trung Tạng, Chương V, Trang 116-117. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *NHỮNG BÀI HỌC TỪ THIÊN NHIÊN - Hướng dẫn về nông nghiệp sinh thái vùng nhiệt đới*, Shimpei Murakami / Trung tâm trồng trọt tự nhiên Nongjok. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

@@ -108,11 +108,9 @@ Việc ứng dụng đồng bộ công nghệ sinh học và các chế phẩm v
 
 Ứng dụng chế phẩm sinh học vi sinh không chỉ là một giải pháp kỹ thuật đơn thuần mà còn là xu hướng bắt buộc của nền nông nghiệp tuần hoàn bền vững, giúp bảo tồn đa dạng sinh học và bảo vệ sức khỏe cho cả người sản xuất lẫn người tiêu dùng.
 
-## Tài liệu trích dẫn chi tiết
-- <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup> *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng, Chương 3, Trang 41.
-- <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup> *Chế phẩm sinh học trong nông nghiệp*, PGS. TS. Nguyễn Xuân Thành, Chương 2, Trang 85.
-- <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup> *Ứng dụng vi sinh vật trong trồng trọt*, TS. Trần Thị Lệ, Chương 4, Trang 112.
-- <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup> *Công nghệ sinh học nông nghiệp*, GS. TS. Lê Trần Bình, Chương 5, Trang 204.
+### Tài liệu trích dẫn chi tiết
+
+* <span id="ref-1">**[1]**</span> *NHỮNG BÀI HỌC TỪ THIÊN NHIÊN - Hướng dẫn về nông nghiệp sinh thái vùng nhiệt đới*, Shimpei Murakami / Trung tâm trồng trọt tự nhiên Nongjok. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

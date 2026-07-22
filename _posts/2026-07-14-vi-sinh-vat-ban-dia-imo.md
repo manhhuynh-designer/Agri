@@ -87,16 +87,9 @@ IMO sau khi nhân nuôi thành công có thể được ứng dụng theo nhiề
 4. **Bảo vệ môi trường đất:** Việc sử dụng IMO cần kết hợp với các biện pháp che phủ đất (tủ gốc) bằng rơm rạ hoặc cây phân xanh để tạo môi trường sống lý tưởng, bảo vệ vi sinh vật khỏi sự biến động nhiệt độ đột ngột [40], [41], [28].
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> 10-hesinhthairungtunhienvietnam.pdf, Bộ Lâm nghiệp, Chương 3, Trang 93. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> ADDA_Giao trinh dao tao OA TOT.pdf, ADDA Vietnam, Chương 2, Trang 14-16. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> Cách mạng Một cọng rơm.pdf, Masanobu Fukuoka, Chương 2, Trang 26-32. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> FarmersHandbookVolume5VN.pdf, Chris Evans, Chương 3, Trang 5-11. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> Bien rac thai thanh tai nguyen.pdf, Paul Olivier, Chương 1, Trang 5-11. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> Phan Tieu Nuoc Tieu Va Cach Su Dung.pdf, Việt Chy, Chương 1, Trang 11-13. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. Nguyễn Thế Đặng, Chương 2, Trang 25-35. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> ƯD CNSH trong sx và đs.PDF, Chu Thị Thơm, Chương 2, Trang 104-118. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> Vo Dau_Ky thuat trong nam rom.pdf, Võ Đấu, Phần 1, Trang 10-15. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-10">**[10]**</span> Nong nghiep ben vung co so va ung dung.pdf, Nguyễn Văn Mấn, Chương 2, Trang 27-31. <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *TRI THỨC BẢN ĐỊA CỦA DÂN TỘC DAO KHU VỰC MIỀN NÚI PHÍA BẮC TRONG VIỆC LỰA CHỌN ĐẤT ĐAI, ĐỊA HÌNH CANH TÁC VÀ HỆ THỐNG CÂY TRỒNG*, ĐẶNG THỊ NHUẦN, DƯƠNG QUỲNH PHƯƠNG / Tạp chí KHOA HỌC ĐHSP TPHCM. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *QUY TRÌNH ƯƠM CÂY BẢN ĐỊA (Vườn ươm sinh thái HEPA)*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

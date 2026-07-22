@@ -37,11 +37,9 @@ Trong tiếng Nhật cổ, từ chỉ nông dân là **Hyakushou (百姓 - Bách
 ---
 
 ### Tài liệu trích dẫn chi tiết
-- **Tên nguồn:** Giáo trình Phát triển kinh tế nông thôn bền vững.
-- **Tác giả:** Viện Nghiên cứu Nông nghiệp Việt Nam.
-- **Tác phẩm:** *Mô hình phát triển kinh tế trang trại và nông hộ bền vững*.
-- **Chương:** Chương 8 - "Phát triển nông nghiệp quy mô hộ gia đình" & Mục 8.4 - "Khởi nghiệp xanh và mô hình phân tán rủi ro Hyakushou".
-- **Trang:** Trang 195-212.
+
+* <span id="ref-1">**[1]**</span> *CANH TÁC HỮU CƠ - Tham khảo cho sản xuất rau, quả và chè. Tài liệu hướng dẫn dành cho giảng viên nông dân*, ADDA office in Vietnam. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *MÔ HÌNH NÔNG NGHIỆP QUY MÔ NHỎ PHONG CÁCH NHẬT BẢN*, Vietup. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 

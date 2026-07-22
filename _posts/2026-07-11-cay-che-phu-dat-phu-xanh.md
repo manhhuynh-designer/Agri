@@ -103,12 +103,8 @@ Duy trì cây che phủ đất không chỉ là một kỹ thuật nông nghiệ
 ---
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> Kỹ thuật canh tác trên đất dốc, Nguyễn Viết Khoa - Võ Đại Hải - Nguyễn Đức Thanh, Chương 2, Trang 29-45. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> ADDA_Giao trinh dao tao OA TOT.pdf, ADDA, Chương 5, Trang 43-52. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> ADDA_Mot so loai cay che phu dat.pdf, Hà Đình Tuấn, Lời giới thiệu & Phần loài cây, Trang 1-15. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. Nguyễn Thế Đặng, Chương 2, Trang 25-33. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> FarmersHandbookVolume5VN.pdf, Chris Evans, Chương 3, Trang 11-23. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> Huong dan su dung dat dai theo nong nghiep ben vung.pdf, Chu Thị Thơm - Phan Thị Lài - Nguyễn Văn Toản, Chương 2, Trang 41-47. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *MỘT SỐ LOÀI CÂY CHE PHỦ ĐẤT ĐA DỤNG PHỤC VỤ PHÁT TRIỂN NÔNG LÂM NGHIỆP BỀN VỮNG VÙNG CAO*, ThS. Hà Đình Tuấn / Dự án phát triển khuôn khổ cho sản xuất và marketing nông nghiệp hữu cơ tại Việt Nam. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

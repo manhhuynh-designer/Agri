@@ -41,6 +41,21 @@ function extractDelimitedContent(raw) {
   return raw.trim();
 }
 
+// Helper to convert text to ASCII URL-friendly slug
+function slugify(text) {
+  return text
+    .toString()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'd')
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
 // Validation Gate: kiểm tra cấu trúc bắt buộc của bài viết
 function validateArticleStructure(content) {
   const errors = [];
@@ -126,6 +141,8 @@ function fixHypeWordsWithLLM(content, documentsDir) {
       const fixPrompt = `Viết lại câu tiếng Việt sau bằng văn phong học thuật khách quan, trung tính. Giữ nguyên ý nghĩa kỹ thuật, chỉ loại bỏ các từ ngữ cường điệu hoặc quảng cáo. Trả về DUY NHẤT câu đã sửa, không giải thích gì thêm.\n\nCâu gốc: ${original}`;
 
       const fixResult = spawnSync('agy', [
+        '--model', 'gemini-3.6-flash',
+        '--effort', 'high',
         '--dangerously-skip-permissions',
         '--print-timeout', '2m0s',
         '-p', fixPrompt
@@ -268,74 +285,211 @@ function downloadImageToBuffer(url) {
   });
 }
 
+// Build detailed scene description prompt for Fal AI Flux Klein 9B based on article context
+function buildDetailedScenePrompt(title, context = '') {
+  const { spawnSync } = require('child_process');
+  console.log(`[Scene Prompt Builder] Generating detailed visual scene prompt for: "${title}"...`);
+
+  const promptGenText = `Create a minimalist, very simple and concise visual scene description in English (maximum 12 words) for an editorial illustration about: "${title}". ${context ? `Context: ${context}` : ''}
+The output must be formatted exactly as:
+"[Concise main subject - simple action or object], [simple setting: location, time of day, lighting]"
+
+Keep it extremely simple and clean. Do not describe complex details, textures, or multiple actions.
+Return ONLY this single comma-separated description. Do not wrap in quotes or add any introductory text.
+Example:
+"A hand watering a Monstera plant, a modern living room with morning light"`;
+
+  try {
+    const result = spawnSync('agy', [
+      '--model', 'gemini-3.6-flash',
+      '--effort', 'high',
+      '--dangerously-skip-permissions',
+      '--print-timeout', '1m0s',
+      '-p', promptGenText
+    ], { encoding: 'utf8', maxBuffer: 2 * 1024 * 1024 });
+
+    if (result.status === 0 && result.stdout && result.stdout.trim().length > 15) {
+      let scene = result.stdout.trim();
+      scene = scene.replace(/^```[\s\S]*?\n/, '').replace(/```\s*$/, '').trim();
+      scene = scene.replace(/^.*?(📖|✏️|🆕|READ|EDIT|CREATE).*$/gm, '').trim();
+      const lines = scene.split('\n').filter(l => l.trim().length > 15);
+      if (lines.length > 0) scene = lines[lines.length - 1].trim();
+
+      // Clean up potential surrounding quotes
+      scene = scene.replace(/^['"]|['"]$/g, '').trim();
+
+      if (scene.length > 15 && !/(📖|✏️|🆕|I will|Let me)/.test(scene)) {
+        console.log(`[Scene Prompt Builder] ✅ Detailed scene description: "${scene}"`);
+        return scene;
+      }
+    }
+  } catch (e) {
+    console.warn(`[Scene Prompt Builder] Warning: LLM scene generation failed, using fallback string:`, e.message);
+  }
+
+  const fallbackScene = `A detailed organic agricultural scene showing ${title}, set in a clean modern organic agricultural farm during warm diffused morning light`;
+  console.log(`[Scene Prompt Builder] Fallback scene prompt: "${fallbackScene}"`);
+  return fallbackScene;
+}
+
+// Helper for LLM image moderation checking hands, text, composition, and 2D style
+function moderateImageWithLlm(imageBuffer, imageName) {
+  const { spawnSync } = require('child_process');
+  const tempPath = path.join(__dirname, '..', `temp_mod_${imageName.replace(/[^a-zA-Z0-9]/g, '_')}.png`);
+  
+  try {
+    fs.writeFileSync(tempPath, imageBuffer);
+  } catch (err) {
+    console.error('[Image Moderation] Failed to write temp file:', err.message);
+    return { pass: true, reason: 'Failed to write temp file, skipping moderation' };
+  }
+
+  const promptText = `Inspect the image at ${tempPath}. Check strictly for the following quality, style, and physical logic criteria:
+1. Physical & Action Logic (CRITICAL): Does the action make sense physically? For example:
+   - If spraying water or pesticide mist, the spray bottle/nozzle MUST be pointing directly towards the plant or leaves (NOT into empty air, away from plants, or pointing at nothing).
+   - If watering, mixing soil, or pruning, tools and hands MUST directly interact with the soil/pot/plant logically.
+   - No floating tools, disconnected hose pipes, or physically impossible interactions.
+2. Hands/Fingers: Are human hands or fingers deformed, distorted, having extra/missing digits, or unnaturally jointed?
+3. Text/Logos: Does the image contain ANY text, garbled characters, watermarks, or logos?
+4. Composition & Style:
+   - Is it a clean flat 2D editorial vector-style illustration with muted earth tones?
+   - Must NOT be a photograph, photorealistic image, or 3D render.
+   - Composition must be uncluttered and balanced.
+
+If the image fails ANY of these criteria (especially illogical actions, spraying in wrong direction, deformed hands, text/logos, or photorealism), return pass=false.
+Return JSON format ONLY:
+{
+  "pass": true/false,
+  "reason": "Clear explanation of pass or failure"
+}`;
+
+  console.log(`[Image Moderation] Sending image "${imageName}" to agy for strict visual moderation...`);
+  try {
+    const result = spawnSync('agy', [
+      '--model', 'gemini-3.6-flash',
+      '--effort', 'high',
+      '--dangerously-skip-permissions',
+      '--print-timeout', '1m0s',
+      '-p', promptText
+    ], { encoding: 'utf8', maxBuffer: 2 * 1024 * 1024 });
+
+    if (fs.existsSync(tempPath)) {
+      fs.unlinkSync(tempPath);
+    }
+
+    if (result.status === 0 && result.stdout) {
+      let output = result.stdout.trim();
+      const match = output.match(/\{[\s\S]*?\}/);
+      if (match) {
+        const parsed = JSON.parse(match[0]);
+        console.log(`[Image Moderation] Result for "${imageName}":`, parsed);
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.error(`[Image Moderation] Error calling agy:`, e.message);
+  }
+
+  if (fs.existsSync(tempPath)) {
+    fs.unlinkSync(tempPath);
+  }
+  return { pass: true, reason: "Fallback: Moderation tool error, skipped verification." };
+}
+
 // Generate image using Fal AI Flux Klein 9B model with standard agriculture blog style framework
-function generateAiImage(prompt, imageName) {
-  return new Promise((resolve) => {
+function generateAiImage(scenePrompt, imageName) {
+  return new Promise(async (resolve) => {
     const falKey = process.env.FAL_KEY;
     if (!falKey) {
       console.warn('[Fal AI] Warning: FAL_KEY not found in environment.');
       return resolve(null);
     }
 
-    const subject = prompt;
-    const background = `set in a clean modern organic agricultural farm, warm diffused morning light`;
-    const enrichedPrompt = `${subject}, ${background}, simple flat editorial illustration style, muted earth-tone color palette of olive green, warm ochre and soft terracotta, clean minimal linework, soft diffused natural lighting, uncluttered composition with generous negative space, warm and approachable mood, no text, no watermark, no logo`;
+    const enrichedPrompt = `${scenePrompt}, simple flat editorial illustration style, muted earth-tone color palette of olive green, warm ochre and soft terracotta, clean minimal linework, soft diffused natural lighting, uncluttered composition with generous negative space, warm and approachable mood, no text, no watermark, no logo`;
     
-    console.log(`[Fal AI] Generating 16:9 illustration via Flux Klein 9B for prompt: "${enrichedPrompt}"...`);
-
     const url = 'https://fal.run/fal-ai/flux-2/klein/9b';
     const reqData = JSON.stringify({ prompt: enrichedPrompt, image_size: 'landscape_16_9' });
     const urlParts = new URL(url);
 
-    const options = {
-      hostname: urlParts.hostname,
-      path: urlParts.pathname,
-      method: 'POST',
-      headers: {
-        'Authorization': `Key ${falKey}`,
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(reqData)
-      }
+    const callFalApi = () => {
+      return new Promise((resResolve) => {
+        const options = {
+          hostname: urlParts.hostname,
+          path: urlParts.pathname,
+          method: 'POST',
+          headers: {
+            'Authorization': `Key ${falKey}`,
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(reqData)
+          }
+        };
+
+        const req = https.request(options, (res) => {
+          let data = '';
+          res.on('data', chunk => data += chunk);
+          res.on('end', () => {
+            if (res.statusCode === 200) {
+              try {
+                const parsed = JSON.parse(data);
+                const imageUrl = parsed.images?.[0]?.url;
+                if (imageUrl) {
+                  console.log(`[Fal AI] Image generated successfully. Downloading from: ${imageUrl}`);
+                  downloadImageToBuffer(imageUrl)
+                    .then(buffer => resResolve(buffer))
+                    .catch(err => {
+                      console.error('[Fal AI] Download error:', err.message);
+                      resResolve(null);
+                    });
+                } else {
+                  console.error('[Fal AI] No image URL found in response:', data);
+                  resResolve(null);
+                }
+              } catch (e) {
+                console.error('[Fal AI] JSON Parse error:', e.message);
+                resResolve(null);
+              }
+            } else {
+              console.error(`[Fal AI] API failed, status: ${res.statusCode}, response: ${data}`);
+              resResolve(null);
+            }
+          });
+        });
+
+        req.on('error', (err) => {
+          console.error('[Fal AI] Connection error:', err.message);
+          resResolve(null);
+        });
+
+        req.write(reqData);
+        req.end();
+      });
     };
 
-    const req = https.request(options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          try {
-            const parsed = JSON.parse(data);
-            const imageUrl = parsed.images?.[0]?.url;
-            if (imageUrl) {
-              console.log(`[Fal AI] Image generated successfully. Downloading from: ${imageUrl}`);
-              downloadImageToBuffer(imageUrl)
-                .then(buffer => resolve(buffer))
-                .catch(err => {
-                  console.error('[Fal AI] Download error:', err.message);
-                  resolve(null);
-                });
-            } else {
-              console.error('[Fal AI] No image URL found in response:', data);
-              resolve(null);
-            }
-          } catch (e) {
-            console.error('[Fal AI] JSON Parse error:', e.message);
-            resolve(null);
-          }
-        } else {
-          console.error(`[Fal AI] API failed, status: ${res.statusCode}, response: ${data}`);
-          resolve(null);
+    let buffer = null;
+    const maxRetries = 2; // Tối đa 2 bản kiểm duyệt
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      console.log(`[Fal AI] Generating 16:9 illustration via Flux Klein 9B (Bản ${attempt}/${maxRetries}) for prompt: "${enrichedPrompt}"...`);
+      buffer = await callFalApi();
+      if (!buffer) {
+        console.warn(`[Fal AI] Generation failed on attempt ${attempt}.`);
+        continue;
+      }
+
+      // Perform LLM image moderation
+      const modResult = moderateImageWithLlm(buffer, imageName);
+      if (modResult.pass) {
+        console.log(`[Image Moderation] ✅ Verification PASSED for "${imageName}" (Bản ${attempt}).`);
+        return resolve(buffer);
+      } else {
+        console.warn(`[Image Moderation] ❌ Verification FAILED for "${imageName}" (Bản ${attempt}/${maxRetries}): ${modResult.reason}`);
+        if (attempt < maxRetries) {
+          console.log(`[Image Moderation] 🔄 Tiến hành tạo lại bản 2...`);
         }
-      });
-    });
+      }
+    }
 
-    req.on('error', (err) => {
-      console.error('[Fal AI] Connection error:', err.message);
-      resolve(null);
-    });
-
-    req.write(reqData);
-    req.end();
+    console.warn(`[Image Moderation] 🚫 Ảnh "${imageName}" không đạt kiểm duyệt sau 2 bản. Cắt bỏ hình ảnh này khỏi bài viết.`);
+    resolve(null);
   });
 }
 
@@ -447,73 +601,7 @@ function searchYoutubeVideo(query) {
   });
 }
 
-// Pexels API Helper to fetch high-quality images
-function fetchPexelsImages(query, perPage = 5) {
-  return new Promise((resolve) => {
-    const apiKey = process.env.PEXELS_API_KEY;
-    if (!apiKey) {
-      console.warn('[Pexels] Warning: PEXELS_API_KEY not found in environment variables.');
-      return resolve([]);
-    }
-    
-    // Choose a random page between 1 and 20 for variety
-    const page = Math.floor(Math.random() * 20) + 1;
-    const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=${perPage}&page=${page}`;
-    
-    const options = {
-      headers: {
-        'Authorization': apiKey
-      }
-    };
-    
-    https.get(url, options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(data);
-          if (parsed.photos && parsed.photos.length > 0) {
-            const urls = parsed.photos.map(p => p.src.large2x || p.src.large || p.src.original);
-            resolve(urls);
-          } else {
-            resolve([]);
-          }
-        } catch (e) {
-          resolve([]);
-        }
-      });
-    }).on('error', (err) => {
-      console.error('[Pexels] Connection error:', err.message);
-      resolve([]);
-    });
-  });
-}
 
-const pexelsSearchQueries = {
-  'u-phan-chuong-hoai-muc': 'organic compost soil',
-  'quan-ly-dich-hai-ipm': 'beneficial insects garden',
-  'cay-che-phu-dat-phu-xanh': 'cover crops agriculture',
-  'mo-hinh-luan-canh-xen-canh': 'crop rotation farm',
-  'he-sinh-thai-vac-truyen-thong': 'integrated farming agriculture',
-  'ky-thuat-trong-rau-sach-huu-co': 'vegetable garden organic',
-  'thuoc-tru-sau-thao-moc': 'organic pest control',
-  'vi-sinh-vat-ban-dia-imo': 'soil microbes agriculture',
-  'lo-kon-tiki-san-xuat-biochar': 'biochar pyrolysis kiln',
-  'cong-nghe-sinh-hoc-nong-nghiep': 'agricultural biotechnology microbe'
-};
-
-const imageMapping = {
-  'u-phan-chuong-hoai-muc': '/assets/images/than_sinh_hoc_biochar.png',
-  'quan-ly-dich-hai-ipm': '/assets/images/thien_dich_vuon_huu_co.png',
-  'cay-che-phu-dat-phu-xanh': '/assets/images/cach_mang_mot_cong_rom.png',
-  'mo-hinh-luan-canh-xen-canh': '/assets/images/thiet_ke_permaculture.png',
-  'he-sinh-thai-vac-truyen-thong': '/assets/images/thiet_ke_permaculture.png',
-  'ky-thuat-trong-rau-sach-huu-co': '/assets/images/nong_nghiep_quy_mo_nho.png',
-  'thuoc-tru-sau-thao-moc': '/assets/images/thien_dich_vuon_huu_co.png',
-  'vi-sinh-vat-ban-dia-imo': '/assets/images/than_sinh_hoc_biochar.png',
-  'lo-kon-tiki-san-xuat-biochar': '/assets/images/than_sinh_hoc_biochar.png',
-  'cong-nghe-sinh-hoc-nong-nghiep': '/assets/images/thien_dich_vuon_huu_co.png'
-};
 
 function generateSvgPlaceholder(topicId, title) {
   // Curated premium gradients
@@ -587,21 +675,10 @@ function generateSvgPlaceholder(topicId, title) {
   return relativePath;
 }
 
-async function main() {
-  // 0. Auto-write auth cookies if present in env (e.g. pulled from Vercel)
-  if (process.env.NOTEBOOKLM_COOKIES) {
-    const os = require('os');
-    const mcpDir = path.join(os.homedir(), '.notebooklm-mcp');
-    if (!fs.existsSync(mcpDir)) {
-      fs.mkdirSync(mcpDir, { recursive: true });
-    }
-    fs.writeFileSync(path.join(mcpDir, 'auth.json'), process.env.NOTEBOOKLM_COOKIES);
-    console.log('[Auth] Successfully wrote NotebookLM auth cookies from environment.');
-  }
-  // 1. Read topics and find an unwritten one
+async function generateSinglePost(todayStr) {
   if (!fs.existsSync(TOPICS_FILE)) {
     console.error('Error: topics.json not found!');
-    process.exit(1);
+    return false;
   }
 
   const topics = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf-8'));
@@ -612,11 +689,9 @@ async function main() {
   const existingTitles = new Set();
 
   postFiles.forEach(file => {
-    // Extract slug from filename (remove date prefix and extension)
     const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.(md|html)$/, '');
     existingSlugs.add(slug);
     
-    // Read file and extract title from frontmatter
     try {
       const content = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
       const titleMatch = content.match(/^title:\s*["']?([^"'\r\n]+)["']?/m);
@@ -642,7 +717,6 @@ async function main() {
   if (!selectedTopic) {
     console.log('\n[Auto-Topic] Tất cả chủ đề trong topics.json đã được viết. Đang tự động sinh chủ đề mới...');
     
-    // Lấy danh sách tiêu đề đã viết để tránh trùng
     const writtenTitles = [...existingTitles].join(', ');
     const { spawnSync } = require('child_process');
     const documentsDir = path.join(__dirname, '..', 'documents');
@@ -662,6 +736,8 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
 <<<KẾT_THÚC>>>`;
 
     const topicResult = spawnSync('agy', [
+      '--model', 'gemini-3.6-flash',
+      '--effort', 'high',
       '--add-dir', documentsDir,
       '--dangerously-skip-permissions',
       '--print-timeout', '3m0s',
@@ -670,26 +746,22 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
 
     if (topicResult.status === 0 && topicResult.stdout) {
       let topicOutput = topicResult.stdout;
-      // Trích xuất từ delimiter wrapper
       topicOutput = extractDelimitedContent(topicOutput);
       
-      // Tìm JSON object trong output
       const jsonMatch = topicOutput.match(/\{[\s\S]*?"id"[\s\S]*?"title"[\s\S]*?\}/);
       if (jsonMatch) {
         try {
           const newTopic = JSON.parse(jsonMatch[0]);
-          
-          // Validate chủ đề mới không trùng
-          if (newTopic.id && newTopic.title && !existingSlugs.has(newTopic.id)) {
+          const cleanSlug = slugify(newTopic.id || newTopic.title);
+          if (cleanSlug && newTopic.title && !existingSlugs.has(cleanSlug)) {
             selectedTopic = {
-              id: newTopic.id,
+              id: cleanSlug,
               title: newTopic.title,
               description: newTopic.description || '',
               categories: newTopic.categories || ['Nông nghiệp hữu cơ'],
               prompt: ''
             };
             
-            // Lưu chủ đề mới vào topics.json
             topics.push(selectedTopic);
             fs.writeFileSync(TOPICS_FILE, JSON.stringify(topics, null, 2), 'utf8');
             console.log(`[Auto-Topic] ✅ Đã sinh chủ đề mới: "${selectedTopic.title}" (${selectedTopic.id})`);
@@ -708,59 +780,43 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     
     if (!selectedTopic) {
       console.error('[Auto-Topic] Không thể tạo chủ đề mới. Dừng workflow.');
-      process.exit(1);
+      return false;
     }
   }
 
   console.log(`Selected Topic: "${selectedTopic.title}" (ID: ${selectedTopic.id})`);
 
-  // 2. Fetch 5 random agriculture images from Pexels for the Hero Section carousel
-  console.log('Fetching 5 new Pexels images for the homepage Hero section...');
-  const heroUrls = await fetchPexelsImages('sustainable agriculture', 5);
-  if (heroUrls.length > 0) {
-    const dataDir = path.join(__dirname, '..', '_data');
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir);
-    }
-    fs.writeFileSync(path.join(dataDir, 'hero_images.json'), JSON.stringify(heroUrls, null, 2));
-    console.log('Successfully updated _data/hero_images.json with 5 Pexels images.');
-  }
-
-  // 3. Fetch a custom Pexels background image for the specific post
-  console.log(`Fetching custom post background image for query: "${pexelsSearchQueries[selectedTopic.id] || 'organic farming'}"...`);
-  let selectedImage = null; // Bypass Pexels to always generate cover illustrations via Fal AI Flux Klein 9B
-  if (!selectedImage) {
-    console.log(`[Hero Image] Bắt buộc dùng Fal AI Flux Klein 9B tạo ảnh bìa minh họa...`);
-    const heroBuffer = await generateAiImage(pexelsSearchQueries[selectedTopic.id] || 'sustainable realistic organic agriculture', `${selectedTopic.id}_hero`);
-    if (heroBuffer) {
-      const imageName = `${selectedTopic.id}-hero.png`;
-      const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
-      const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, heroBuffer);
-      if (uploadSuccess) {
-        const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
-        const cleanPublicUrl = publicUrl.replace(/\/$/, '');
-        selectedImage = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
-        console.log(`[Hero Image] AI hero image generated and uploaded to R2: ${selectedImage}`);
-      } else {
-        const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
-        if (!fs.existsSync(postsImgDir)) {
-          fs.mkdirSync(postsImgDir, { recursive: true });
-        }
-        fs.writeFileSync(path.join(postsImgDir, imageName), heroBuffer);
-        selectedImage = `/assets/images/posts/${imageName}`;
-        console.log(`[Hero Image] R2 upload failed. Saved AI hero image locally: ${selectedImage}`);
-      }
+  // 2. Generate detailed cover illustration via Fal AI Flux Klein 9B
+  let selectedImage = null;
+  console.log(`[Hero Image] Bắt buộc dùng Fal AI Flux Klein 9B tạo ảnh bìa minh họa với scene prompt chi tiết...`);
+  const heroScenePrompt = buildDetailedScenePrompt(selectedTopic.title, selectedTopic.description);
+  const heroBuffer = await generateAiImage(heroScenePrompt, `${selectedTopic.id}_hero`);
+  if (heroBuffer) {
+    const imageName = `${selectedTopic.id}-hero.png`;
+    const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
+    const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, heroBuffer);
+    if (uploadSuccess) {
+      const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+      const cleanPublicUrl = publicUrl.replace(/\/$/, '');
+      selectedImage = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
+      console.log(`[Hero Image] AI hero image generated and uploaded to R2: ${selectedImage}`);
     } else {
-      selectedImage = generateSvgPlaceholder(selectedTopic.id, selectedTopic.title);
+      const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
+      if (!fs.existsSync(postsImgDir)) {
+        fs.mkdirSync(postsImgDir, { recursive: true });
+      }
+      fs.writeFileSync(path.join(postsImgDir, imageName), heroBuffer);
+      selectedImage = `/assets/images/posts/${imageName}`;
+      console.log(`[Hero Image] R2 upload failed. Saved AI hero image locally: ${selectedImage}`);
     }
+  } else {
+    selectedImage = generateSvgPlaceholder(selectedTopic.id, selectedTopic.title);
   }
   console.log(`Using post image: ${selectedImage}`);
 
-  // 4. Handle YouTube searching and transcript downloading
+  // 3. Handle YouTube searching and transcript downloading
   if (!selectedTopic.youtube) {
-    // Dùng từ khóa tiếng Anh (nếu có) hoặc full title (bỏ ký tự đặc biệt) để search chính xác
-    const searchTopicQuery = pexelsSearchQueries[selectedTopic.id]
-      || selectedTopic.title.replace(/[:\-–—,]/g, ' ').trim();
+    const searchTopicQuery = selectedTopic.title.replace(/[:\-–—,]/g, ' ').trim();
     console.log(`[YouTube Finder] Searching YouTube with query: "${searchTopicQuery}"...`);
     const candidateIds = await searchYoutubeVideo(searchTopicQuery);
     console.log(`[YouTube Finder] Found ${candidateIds.length} candidate videos. Verifying...`);
@@ -789,8 +845,32 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     }
   }
 
-  // 5. Query RAG using local Antigravity CLI (agy)
+  // 4. Query RAG using local Grounded Index & Antigravity CLI (agy)
+  const { searchRagIndex } = require('./query_rag');
+  console.log(`[RAG Retrieval] Searching RAG index for topic: "${selectedTopic.title}"...`);
+  const ragChunks = searchRagIndex(selectedTopic.title, 4);
+
+  let ragContextText = "";
+  let citationListInstructions = "";
+  if (ragChunks.length > 0) {
+    console.log(`[RAG Retrieval] Retreived ${ragChunks.length} verified context chunks:`);
+    ragChunks.forEach((c, idx) => {
+      console.log(`  - [Nguồn ${idx + 1}] "${c.title}" - ${c.author || 'N/A'} (${c.file})`);
+      ragContextText += `\n--- [TÀI LIỆU NGUỒN XÁC THỰC [${idx + 1}]] ---\n`;
+      ragContextText += `TÊN TÁC PHẨM: ${c.title}\n`;
+      ragContextText += `TÁC GIẢ / NXB: ${c.author || 'Chuyên gia Nông nghiệp / NXB Chuyên ngành'}\n`;
+      ragContextText += `TRÍCH ĐOẠN NỘI DUNG GỐC:\n${c.text.substring(0, 1200)}\n`;
+      citationListInstructions += `     - [${idx + 1}] ${c.title}, ${c.author || 'Tác giả Chuyên ngành'}\n`;
+    });
+  }
+
   const queryText = `Viết một bài viết blog kỹ thuật chi tiết bằng tiếng Việt về chủ đề: "${selectedTopic.title}".
+
+  ==================================================
+  CƠ SỞ TRI THỨC VÀ TÀI LIỆU NGUỒN XÁC THỰC:
+  ${ragContextText}
+  ==================================================
+
   Yêu cầu cụ thể:
   1. Sử dụng định dạng Markdown Jekyll có Front Matter đầy đủ ở đầu bài viết:
      layout: post
@@ -807,15 +887,15 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
      </div>
   3. Viết nội dung mang tính chất PHÂN TÍCH, SO SÁNH và CHUYỂN ĐỔI CAO (Transformative & Analytical Style):
      - Không sao chép hay dịch thô lý thuyết suông từ tài liệu gốc.
-     - Hãy tổng hợp kiến thức từ nhiều tài liệu, thực hiện so sánh đối chiếu ưu nhược điểm của các phương pháp khác nhau (ví dụ: so sánh cách ủ nóng với ủ nguội, hoặc so sánh thiết bị tự chế với thiết bị công nghiệp).
+     - Tổng hợp và phân tích dựa trên các [TÀI LIỆU NGUỒN XÁC THỰC] ở trên.
      - Tuyệt đối KHÔNG sử dụng văn phong quảng cáo, giật tít hoặc các từ ngữ cường điệu như: "thần kỳ", "bí mật", "bí kíp", "tuyệt vời", "hoàn hảo", "vô song", "vô giá", "cực kỳ hiệu quả". Diễn đạt khách quan, điềm tĩnh, khoa học.
      - Bắt buộc phải có một phần riêng biệt với tiêu đề "Phân Tích Thực Tiễn & Khả Năng Áp Dụng Tại Việt Nam" (sử dụng tiêu đề H2) để đánh giá khả năng áp dụng kỹ thuật này dưới điều kiện khí hậu nhiệt đới nóng ẩm, loại đất địa phương và quy mô nông hộ nhỏ tại Việt Nam.
      - Đưa ra các giải pháp thay thế nguyên liệu trong sách bằng phế phụ phẩm nông nghiệp phổ biến ở Việt Nam (ví dụ: xơ dừa, vỏ trấu, lục bình, bã mía...).
   4. Viết nội dung kỹ thuật chi tiết, có phân chia các tiêu đề H2 rõ ràng (sử dụng định dạng ## Tiêu đề).
-  5. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...). Tuyệt đối không ghi trực tiếp tên tài liệu hay tên tác giả bên trong các câu viết của thân bài.
-  6. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê đầy đủ thông tin nguồn gốc tương ứng với các số thứ tự trên theo định dạng danh sách:
-     - [1] Tên tài liệu, Tác giả, Chương, Trang.
-     - [2] Tên tài liệu, Tác giả, Chương, Trang.
+  5. Trong thân bài, để việc đọc được liền mạch và không bị sao nhãng, các thông tin cần dẫn chứng nguồn bắt buộc phải được đánh số thứ tự tăng dần đặt trong ngoặc vuông (ví dụ: [1], [2], [3]...).
+  6. Ở cuối bài viết, tạo mục "Tài liệu trích dẫn chi tiết" liệt kê ĐÚNG CHÍNH XÁC danh mục nguồn được cung cấp:
+${citationListInstructions}
+     🛑 QUY TẮC CẤM BỊA TÀI LIỆU: BẮT BUỘC CHỈ ĐƯỢC TRÍCH DẪN TỪ DANH SÁCH TÀI LIỆU NGUỒN XÁC THỰC CUNG CẤP Ở TRÊN. TUYỆT ĐỐI KHÔNG TỰ BỊA TÊN SÁCH, TÁC GIẢ HOẶC SỐ TRANG NÀO KHÔNG CÓ TRONG THƯ VIỆN.
   7. Trong bài viết, bắt buộc phải thiết kế và nhúng tối thiểu một sơ đồ quy trình hoặc sơ đồ tư duy (mindmap/infographic) bằng ngôn ngữ đồ họa Vector SVG chất lượng cao (bọc trong thẻ <div class="diagram-card">...</div> và kèm theo mô tả chú thích <div class="diagram-note"><p><b>Hình A:</b> ...</p></div>). Sơ đồ phải trực quan hóa các bước thực hiện hoặc mối quan hệ giữa các bộ phận.
      Quy chuẩn vẽ SVG:
      - ViewBox: <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
@@ -841,7 +921,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
   <<<KẾT_THÚC>>>`;
 
   const { spawnSync } = require('child_process');
-  
   const documentsDir = path.join(__dirname, '..', 'documents');
   if (!fs.existsSync(documentsDir)) {
     fs.mkdirSync(documentsDir, { recursive: true });
@@ -849,6 +928,8 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
 
   console.log('Đang gọi Antigravity CLI (agy) để phân tích tài liệu và viết bài...');
   const result = spawnSync('agy', [
+    '--model', 'gemini-3.6-flash',
+    '--effort', 'high',
     '--add-dir', documentsDir,
     '--dangerously-skip-permissions',
     '--print-timeout', '10m0s',
@@ -860,29 +941,25 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
 
   if (result.status !== 0) {
     console.error('Antigravity CLI Error:', result.stderr || result.error?.message);
-    process.exit(1);
+    return false;
   }
 
   let content = result.stdout;
-
-  // Clean markdown wrappers
   content = content.replace(/^```markdown\s*/i, '');
   content = content.replace(/^```html\s*/i, '');
   content = content.replace(/```\s*$/, '');
   content = content.trim();
 
-  // Trích xuất bài viết từ delimiter wrapper (bỏ thinking logs)
   console.log('[Delimiter] Đang trích xuất bài viết từ delimiter wrapper...');
   content = extractDelimitedContent(content);
   console.log(`[Delimiter] Trích xuất thành công. Độ dài bài viết: ${content.length} ký tự.`);
 
-  // VALIDATION GATE: Kiểm tra cấu trúc bắt buộc
   console.log('[Quality Gate] Đang kiểm tra cấu trúc bài viết...');
   const validation = validateArticleStructure(content);
   if (validation.errors.length > 0) {
     console.error('[Quality Gate] ❌ BÀI VIẾT KHÔNG ĐẠT CHUẨN:');
     validation.errors.forEach(e => console.error(`  - ${e}`));
-    process.exit(1);
+    return false;
   }
   if (validation.warnings.length > 0) {
     console.warn('[Quality Gate] ⚠️ Cảnh báo:');
@@ -890,7 +967,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
   }
   console.log(`[Quality Gate] ✅ Điểm chất lượng: ${validation.score}/100`);
 
-  // STAGE 2: Hậu kiểm văn phong — tự động sửa từ cường điệu bằng LLM từng câu
   console.log('[Stage 2] Đang quét và sửa từ cường điệu trong bài viết...');
   HYPE_WORDS_PATTERN.lastIndex = 0;
   if (HYPE_WORDS_PATTERN.test(content)) {
@@ -902,7 +978,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
   if (selectedTopic.youtube) {
     const ytId = getYoutubeId(selectedTopic.youtube);
     if (ytId) {
-      // Kiểm tra LLM đã tự chèn YouTube embed chưa → tránh trùng
       const ytEmbedUrl = `youtube.com/embed/${ytId}`;
       if (!content.includes(ytEmbedUrl)) {
         const ytSection = `\n\n---\n### Video tham khảo thực tế\nXem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:\n\n<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">\n  <iframe src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>\n</div>`;
@@ -914,32 +989,23 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     }
   }
 
-  const todayStr = getNextPostDateString();
   const filename = `${todayStr}-${selectedTopic.id}.md`;
   const filepath = path.join(POSTS_DIR, filename);
 
-  // 0. Cắt sạch logs suy nghĩ của agent xuất hiện trước dấu --- đầu tiên
   const firstDashIndex = content.indexOf('---');
   if (firstDashIndex !== -1 && firstDashIndex > 0) {
     content = content.substring(firstDashIndex);
   }
 
-  // 1. Tự động chuẩn hóa Front-matter
   const dateLine = `date: ${todayStr} 12:00:00 +0700`;
-  
-  // Đảm bảo cả 2 trường subtitle và description luôn tồn tại song song
-  // (Trang chủ đọc `description`, trang chi tiết đọc `subtitle`)
   const subtitleMatch = content.match(/^subtitle:\s*[\"']?(.+?)[\"']?\s*$/m);
   const descriptionMatch = content.match(/^description:\s*[\"']?(.+?)[\"']?\s*$/m);
   
   if (subtitleMatch && !descriptionMatch) {
-    // Có subtitle nhưng thiếu description → clone subtitle thành description
     content = content.replace(/^(subtitle:\s*.+)$/m, `$1\ndescription: "${subtitleMatch[1]}"`);
   } else if (descriptionMatch && !subtitleMatch) {
-    // Có description nhưng thiếu subtitle → clone description thành subtitle
     content = content.replace(/^(description:\s*.+)$/m, `subtitle: "${descriptionMatch[1]}"\n$1`);
   } else if (!subtitleMatch && !descriptionMatch) {
-    // Thiếu cả 2 → tạo mặc định từ title
     const titleVal = content.match(/^title:\s*[\"']?(.+?)[\"']?\s*$/m);
     if (titleVal) {
       const defaultDesc = titleVal[1];
@@ -947,16 +1013,12 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     }
   }
 
-  // Chèn/thay thế date trong frontmatter (tránh trùng lặp)
   if (/^date:/m.test(content)) {
-    // Đã có date → thay bằng date chuẩn
     content = content.replace(/^date:\s*.+$/m, dateLine);
   } else {
-    // Chưa có → chèn sau title
     content = content.replace(/^(title:\s*["'].+?["'])$/m, `$1\n${dateLine}`);
   }
 
-  // 2. Chuẩn hóa Khối tuyên bố miễn trừ trách nhiệm AI (AI Warning Box) thành mã HTML chuẩn
   content = content.replace(
     />\s*\[!WARNING\][\s\S]*?trước khi áp dụng vào thực tế sản xuất\./gi,
     `<div class="ai-warning-box" style="background: rgba(220, 38, 38, 0.05); border-left: 4px solid #dc2626; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
@@ -966,24 +1028,20 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
 </div>`
   );
 
-  // 3. Xử lý Trích dẫn chuyên sâu (Bảo vệ khối SVG và định dạng 2 chiều danh sách nguồn)
   const citationsHeader = '### Tài liệu trích dẫn chi tiết';
   const citationsIndex = content.indexOf(citationsHeader);
   if (citationsIndex !== -1) {
     let body = content.substring(0, citationsIndex);
     let footer = content.substring(citationsIndex);
     
-    // Tách và bảo vệ toàn bộ các khối <svg>...</svg> bên trong phần thân bài viết
     const parts = body.split(/(<svg[\s\S]*?<\/svg>)/g);
     for (let i = 0; i < parts.length; i++) {
-      if (i % 2 === 0) { // Nằm ngoài khối SVG -> Thực hiện replace số trích dẫn trong ngoặc vuông
+      if (i % 2 === 0) {
         parts[i] = parts[i].replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
       }
     }
     body = parts.join('');
     
-    // Định dạng danh sách nguồn ở chân bài viết: hỗ trợ cả [1], `[1]` hoặc dạng <sup> lồng
-    // Hỗ trợ mọi dạng bullet: - [1], * [1], *   [1], 1. [1], hoặc [1] đầu dòng
     footer = footer.replace(/^([-*]|\d+\.)\s*(?:`?\[(\d+)\]`?|<sup><a[^>]*>\[(\d+)\]<\/a><\/sup>)\s*(.+)$/gm, (match, prefix, num1, num2, desc) => {
       const num = num1 || num2;
       return `${prefix} <span id="ref-${num}">**[${num}]**</span> ${desc.trim()} <a href="#cit-${num}" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>`;
@@ -991,11 +1049,9 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     
     content = body + footer;
   } else {
-    // Dự phòng nếu không tìm thấy tiêu đề trích dẫn nguồn
     content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
   }
 
-  // 4. Định dạng và nén nhẹ khối SVG để tránh markdown pre/code block parsing
   content = content.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match, svgContent) => {
     const cleanedSvg = svgContent
       .split('\n')
@@ -1005,8 +1061,7 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
   });
 
-  // 4.5. Tự động quét và tải ảnh minh họa từng mục từ Pexels
-  //       Chỉ quét phần BODY (trước mục trích dẫn), không quét trích dẫn + video
+  // Automatically scan and generate content images using Fal AI with detailed scene prompts
   const citationCutoff = content.indexOf('Tài liệu trích dẫn');
   const bodyForImages = citationCutoff !== -1 ? content.substring(0, citationCutoff) : content;
   const pexelsPattern = /!\[([^\]]+)\]\(pexels:\s*([^\)]+)\)/g;
@@ -1021,66 +1076,46 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     });
   }
 
-  console.log(`[Pexels Content Images] Tìm thấy ${pexelsMatches.length} vị trí cần chèn ảnh minh họa (chỉ trong phần body).`);
+  console.log(`[Fal AI Content Images] Tìm thấy ${pexelsMatches.length} vị trí cần chèn ảnh minh họa.`);
   for (const item of pexelsMatches) {
+    const caption = item.caption;
     const query = item.query;
-    console.log(`[Fal AI Content Images] Đang gọi Fal AI Flux Klein 9B cho mục: "${query}"...`);
-    const urls = null; // Bypass Pexels to always use Fal AI Flux Klein 9B illustrations
+    console.log(`[Fal AI Content Images] Đang gọi Fal AI Flux Klein 9B với scene prompt chi tiết cho mục: "${caption || query}"...`);
+    const sectionScenePrompt = buildDetailedScenePrompt(caption || query, `Topic: ${selectedTopic.title}`);
+    const imageBuffer = await generateAiImage(sectionScenePrompt, `${selectedTopic.id}_${imageIndex}`);
     let resolvedImageUrl = '';
 
-    if (urls && urls.length > 0) {
-      const pexelsUrl = urls[0];
-      const localImageName = `${selectedTopic.id}-${imageIndex}.png`;
-      const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
-      if (!fs.existsSync(postsImgDir)) {
-        fs.mkdirSync(postsImgDir, { recursive: true });
-      }
-      const localImagePath = path.join(postsImgDir, localImageName);
+    if (imageBuffer) {
+      const imageName = `${selectedTopic.id}-${imageIndex}.png`;
+      const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
+      const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, imageBuffer);
       
-      console.log(`[Pexels Content Images] Tìm thấy ảnh. Đang tải về: public/assets/images/posts/${localImageName}...`);
-      const success = await downloadImage(pexelsUrl, localImagePath);
-      if (success) {
-        resolvedImageUrl = `/assets/images/posts/${localImageName}`;
+      if (uploadSuccess) {
+        const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+        const cleanPublicUrl = publicUrl.replace(/\/$/, '');
+        resolvedImageUrl = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
+        console.log(`[Content Images] AI image generated and uploaded to R2: ${resolvedImageUrl}`);
       } else {
-        console.warn(`[Pexels Content Images] Tải ảnh thất bại. Sử dụng trực tiếp link CDN Pexels.`);
-        resolvedImageUrl = pexelsUrl;
-      }
-    } else {
-      console.log(`[Pexels Content Images] Không tìm thấy ảnh trên Pexels cho từ khóa: "${query}". Sử dụng local agy CLI tạo ảnh minh họa...`);
-      const imageBuffer = await generateAiImage(query, `${selectedTopic.id}_${imageIndex}`);
-      if (imageBuffer) {
-        const imageName = `${selectedTopic.id}-${imageIndex}.png`;
-        const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
-        const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, imageBuffer);
-        
-        if (uploadSuccess) {
-          const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
-          const cleanPublicUrl = publicUrl.replace(/\/$/, '');
-          resolvedImageUrl = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
-          console.log(`[Pexels Content Images] AI image generated and uploaded to R2: ${resolvedImageUrl}`);
-        } else {
-          const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
-          if (!fs.existsSync(postsImgDir)) {
-            fs.mkdirSync(postsImgDir, { recursive: true });
-          }
-          fs.writeFileSync(path.join(postsImgDir, imageName), imageBuffer);
-          resolvedImageUrl = `/assets/images/posts/${imageName}`;
-          console.log(`[Pexels Content Images] R2 upload failed. Saved AI image locally: ${resolvedImageUrl}`);
+        const postsImgDir = path.join(__dirname, '..', 'public', 'assets', 'images', 'posts');
+        if (!fs.existsSync(postsImgDir)) {
+          fs.mkdirSync(postsImgDir, { recursive: true });
         }
-      } else {
-        console.warn(`[Pexels Content Images] Không thể tạo ảnh. Dùng ảnh bìa bài viết làm fallback.`);
-        resolvedImageUrl = selectedImage || `/assets/images/generated_${selectedTopic.id}.svg`;
+        fs.writeFileSync(path.join(postsImgDir, imageName), imageBuffer);
+        resolvedImageUrl = `/assets/images/posts/${imageName}`;
+        console.log(`[Content Images] R2 upload failed. Saved AI image locally: ${resolvedImageUrl}`);
       }
+      content = content.replace(item.fullMatch, `![${item.caption}](${resolvedImageUrl})`);
+    } else {
+      console.warn(`[Content Images] 🚫 Ảnh mục "${caption || query}" không đạt kiểm duyệt sau 2 bản. Cắt bỏ hình ảnh này khỏi bài viết.`);
+      content = content.replace(item.fullMatch, '');
     }
-
-    content = content.replace(item.fullMatch, `![${item.caption}](${resolvedImageUrl})`);
     imageIndex++;
   }
 
   fs.writeFileSync(filepath, content, 'utf8');
   console.log(`Successfully generated and saved daily post to local: _posts/${filename}`);
 
-  // 4.6. Chuyển đổi bài viết sang JSON và upload lên Cloudflare R2
+  // Convert post to JSON and upload to Cloudflare R2
   const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
   try {
     const matter = require('gray-matter');
@@ -1113,7 +1148,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     if (uploadSuccess) {
       console.log(`[Cloudflare R2] ✅ Upload bài viết posts/${selectedTopic.id}.json thành công!`);
 
-      // Cập nhật posts-index.json
       console.log(`[Cloudflare R2] Đang đồng bộ posts-index.json trên R2...`);
       const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
       const cleanPublicUrl = publicUrl.replace(/\/$/, '');
@@ -1139,7 +1173,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
         console.warn('[Cloudflare R2] Không tải được index hiện tại, sử dụng mảng rỗng.');
       }
 
-      // Xóa bài viết trùng slug nếu có trước khi unshift bài mới
       postsIndex = postsIndex.filter(p => p.slug !== selectedTopic.id);
       postsIndex.unshift({
         slug: postData.slug,
@@ -1154,7 +1187,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
         readTime: postData.readTime
       });
 
-      // Sắp xếp bài viết theo ngày
       postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       const indexBuffer = Buffer.from(JSON.stringify(postsIndex, null, 2), 'utf8');
@@ -1171,7 +1203,6 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     console.error('[Cloudflare R2] Lỗi khi tạo/upload JSON:', err.message);
   }
 
-  // 4. Lưu thông tin bài viết mới để gửi email SAU KHI push thành công
   const pendingNotification = {
     title: selectedTopic.title,
     description: selectedTopic.description || 'Nghiên cứu khoa học và cẩm nang khuyến nông hữu cơ.',
@@ -1180,7 +1211,60 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
   };
   const pendingPath = path.join(__dirname, '..', '_data', 'pending_notification.json');
   fs.writeFileSync(pendingPath, JSON.stringify(pendingNotification, null, 2), 'utf8');
-  console.log(`[Email] Đã lưu thông tin bài viết vào pending_notification.json. Email sẽ được gửi SAU KHI git push thành công.`);
+  console.log(`[Email] Đã lưu thông tin bài viết vào pending_notification.json.`);
+
+  return true;
+}
+
+async function main() {
+  if (process.env.NOTEBOOKLM_COOKIES) {
+    const os = require('os');
+    const mcpDir = path.join(os.homedir(), '.notebooklm-mcp');
+    if (!fs.existsSync(mcpDir)) {
+      fs.mkdirSync(mcpDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(mcpDir, 'auth.json'), process.env.NOTEBOOKLM_COOKIES);
+    console.log('[Auth] Successfully wrote NotebookLM auth cookies from environment.');
+  }
+
+  const todayStr = getNextPostDateString();
+  const TARGET_POSTS_PER_DAY = 3;
+
+  if (!fs.existsSync(POSTS_DIR)) {
+    fs.mkdirSync(POSTS_DIR, { recursive: true });
+  }
+
+  const postFiles = fs.readdirSync(POSTS_DIR);
+  const todayPostsCount = postFiles.filter(f => f.startsWith(`${todayStr}-`) && (f.endsWith('.md') || f.endsWith('.html'))).length;
+
+  console.log(`\n==================================================`);
+  console.log(`[Daily Scheduler] Ngày hôm nay (${todayStr}): Đã có ${todayPostsCount}/${TARGET_POSTS_PER_DAY} bài viết.`);
+  console.log(`==================================================\n`);
+
+  if (todayPostsCount >= TARGET_POSTS_PER_DAY) {
+    console.log(`[Daily Scheduler] ✅ Hôm nay đã đủ (hoặc vượt) chỉ tiêu ${TARGET_POSTS_PER_DAY} bài/ngày. Không cần tạo thêm.`);
+    process.exit(0);
+  }
+
+  const neededCount = TARGET_POSTS_PER_DAY - todayPostsCount;
+  console.log(`[Daily Scheduler] 🚀 Tiến hành tạo bù ${neededCount} bài viết còn thiếu cho ngày hôm nay...\n`);
+
+  for (let i = 1; i <= neededCount; i++) {
+    console.log(`--------------------------------------------------`);
+    console.log(`[Daily Scheduler] [Bài ${i}/${neededCount}] Đang tiến hành tạo bài...`);
+    console.log(`--------------------------------------------------`);
+
+    const success = await generateSinglePost(todayStr);
+    if (!success) {
+      console.error(`[Daily Scheduler] ❌ Tạo bài ${i}/${neededCount} thất bại.`);
+    } else {
+      console.log(`[Daily Scheduler] ✅ Hoàn thành bài ${i}/${neededCount} cho ngày ${todayStr}.\n`);
+    }
+  }
+
+  console.log(`==================================================`);
+  console.log(`[Daily Scheduler] 🎉 ĐÃ HOÀN THÀNH CHỈ TIÊU BÀI VIẾT CHO NGÀY ${todayStr}!`);
+  console.log(`==================================================`);
 
   process.exit(0);
 }

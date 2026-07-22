@@ -121,3 +121,9 @@ Sau khi được kích hoạt đầy đủ, than sinh học trở thành một "
 - <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup> *Low-tech Biochar Technology*, Ithaka Institute, Chapter: Flame Curtain Pyrolysis, Page 104-112, 2017.
 - <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup> *Sổ tay nông nghiệp hữu cơ ứng dụng*, Nhà xuất bản Nông nghiệp, Chương 5: Cải tạo đất bằng Than sinh học, Trang 142-148, 2020.
 - <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup> *Biochar Activation and Soil Biology*, Schmidt et al., Journal of Agronomy, Vol. 3, Page 55-62, 2018.
+
+---
+### Tài liệu trích dẫn chi tiết
+
+* <span id="ref-1">**[1]**</span> *Biến rác thành nguồn tài nguyên quý giá nhất: Sản xuất thực phẩm, nhiên liệu, thức ăn gia súc và phân bón quy mô nhỏ*, Paul Olivier, Jozef De Smet, Todd Hyman và Marc Pare. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *Hướng dẫn sản xuất rau hữu cơ*, ADDA – ACCD. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>

@@ -105,22 +105,6 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);"><iframe src="https://www.youtube.com/embed/gOwZkShSjP0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe></div>
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 41-42 <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> Phân chuồng Phân xanh Sản xuất và Sử dụng, PGS.TS. Nguyễn Thanh Hùng, Mục II.A.3, Trang 26-27 <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 4, Trang 67 <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> Ứng dụng công nghệ sinh học trong sản xuất và đời sống, Chu Thị Thơm, Chương 2, Trang 110 <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 42 <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> Nông nghiệp bền vững, Rosemary Morrow, Chương 6, Trang 39 <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> ADDA - Giáo trình đào tạo OA TOT, ADDA Vietnam, Mục 5.9, Trang 56 <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 46-47 <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> Phân chuồng Phân xanh Sản xuất và Sử dụng, PGS.TS. Nguyễn Thanh Hùng, Mục II.A.2, Trang 22-23 <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-10">**[10]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 47 <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-11">**[11]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 4, Trang 75-76 <a href="#cit-11" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-12">**[12]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 46 <a href="#cit-12" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-13">**[13]**</span> ADDA - Giáo trình đào tạo OA TOT, ADDA Vietnam, Mục 5.9, Trang 54 <a href="#cit-13" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-14">**[14]**</span> Phân chuồng Phân xanh Sản xuất và Sử dụng, PGS.TS. Nguyễn Thanh Hùng, Mục II.A.2, Trang 19 <a href="#cit-14" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-15">**[15]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 45 <a href="#cit-15" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-16">**[16]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 44 <a href="#cit-16" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-17">**[17]**</span> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 3, Trang 44-45 <a href="#cit-17" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-18">**[18]**</span> Phân tiêu Nước tiểu và Cách sử dụng, Việt Chy, Mục Ủ phân tiêu, Trang 33-34 <a href="#cit-18" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-19">**[19]**</span> ADDA - Giáo trình đào tạo OA TOT, ADDA Vietnam, Mục 3.2, Trang 43 <a href="#cit-19" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *CÂY CHÈ VÀ KỸ THUẬT CHẾ BIẾN*, PGS.TS.TRỊNH XUÂN NGỌ. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+

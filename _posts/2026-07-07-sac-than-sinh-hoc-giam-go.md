@@ -106,6 +106,11 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
 </section>
 
 ---
+### Tài liệu trích dẫn chi tiết
+
+* <span id="ref-1">**[1]**</span> *MÔ HÌNH NÔNG NGHIỆP QUY MÔ NHỎ PHONG CÁCH NHẬT BẢN*, Vietup. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+---
 ### Video tham khảo thực tế
 Xem phóng sự hướng dẫn chi tiết quy trình ứng dụng giấm gỗ sinh học bảo vệ thực vật hữu cơ từ YouTube:
 

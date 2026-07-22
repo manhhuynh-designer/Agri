@@ -24,11 +24,42 @@ const publicUrl = (process.env.CLOUDFLARE_R2_PUBLIC_URL || 'https://img.manhhuyn
 
 async function getPostBySlug(slug: string): Promise<PostData | null> {
   try {
-    const res = await fetch(`${publicUrl}/posts/${slug}.json`, {
-      next: { revalidate: 60 }
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
+    let data: any = null;
+
+    // In local development mode, read directly from local _posts directory for instant updates
+    const fs = require('fs');
+    const path = require('path');
+    const matter = require('gray-matter');
+    const postsDir = path.join(process.cwd(), '_posts');
+    
+    if (fs.existsSync(postsDir)) {
+      const files = fs.readdirSync(postsDir);
+      const targetFile = files.find((f: string) => f.endsWith(`${slug}.md`) || f.endsWith(`${slug}.html`));
+      if (targetFile) {
+        const fileContent = fs.readFileSync(path.join(postsDir, targetFile), 'utf8');
+        const parsed = matter(fileContent);
+        data = {
+          title: parsed.data.title || slug,
+          description: parsed.data.description || parsed.data.subtitle || '',
+          image: parsed.data.image || '/assets/images/favicon.svg',
+          categories: parsed.data.categories || (parsed.data.category ? [parsed.data.category] : ['Khác']),
+          dateString: parsed.data.date ? String(parsed.data.date).split(' ')[0] : '',
+          readTime: parsed.data.read_time || '5 phút',
+          difficulty: parsed.data.difficulty,
+          author: parsed.data.author || 'AgriSynthe AI',
+          content: parsed.content,
+          tags: parsed.data.tags || []
+        };
+      }
+    }
+
+    if (!data) {
+      const res = await fetch(`${publicUrl}/posts/${slug}.json`, {
+        cache: 'no-store'
+      });
+      if (!res.ok) return null;
+      data = await res.json();
+    }
 
     // Parse markdown sang HTML
     const cleanedContent = (data.content || '').replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match: string, svgContent: string) => {
@@ -40,7 +71,15 @@ async function getPostBySlug(slug: string): Promise<PostData | null> {
       return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
     });
 
-    const contentHtml = marked(cleanedContent) as string;
+    let contentHtml = marked(cleanedContent) as string;
+
+    // Process GitHub Callout alerts: [!IMPORTANT], [!WARNING], [!NOTE], [!TIP], [!CAUTION]
+    contentHtml = contentHtml
+      .replace(/<blockquote>\s*<p>\s*\[!IMPORTANT\]/gi, '<blockquote class="ai-alert-box important"><div class="alert-header" style="font-weight:700;margin-bottom:6px;color:var(--ember);display:flex;align-items:center;gap:6px;">📌 LƯU Ý QUAN TRỌNG</div><p>')
+      .replace(/<blockquote>\s*<p>\s*\[!WARNING\]/gi, '<blockquote class="ai-alert-box warning"><div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#dc2626;display:flex;align-items:center;gap:6px;">⚠️ CẢNH BÁO</div><p>')
+      .replace(/<blockquote>\s*<p>\s*\[!NOTE\]/gi, '<blockquote class="ai-alert-box note"><div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#2563eb;display:flex;align-items:center;gap:6px;">ℹ️ GHI CHÚ</div><p>')
+      .replace(/<blockquote>\s*<p>\s*\[!TIP\]/gi, '<blockquote class="ai-alert-box tip"><div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#16a34a;display:flex;align-items:center;gap:6px;">💡 MÁCH NHỎ</div><p>')
+      .replace(/<blockquote>\s*<p>\s*\[!CAUTION\]/gi, '<blockquote class="ai-alert-box caution"><div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#d97706;display:flex;align-items:center;gap:6px;">🛑 THẬN TRỌNG</div><p>');
 
     return {
       title: data.title || slug,

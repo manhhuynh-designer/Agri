@@ -172,16 +172,10 @@ Sau khi thu hoạch mẻ vi sinh lỏng sữa chua - men rượu thành công, n
 ---
 
 ### Tài liệu trích dẫn chi tiết
-* [1] *Ứng dụng công nghệ sinh học trong sản xuất hữu cơ và đời sống nông thôn*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 3, Trang 85-92.
-* [2] *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng, Chương 2, Trang 45-52.
-* [3] *Kỹ thuật bảo vệ thực vật và kiểm soát dịch hại tổng hợp sinh học*, PGS. TS. Phạm Văn Lầm, Chương 5, Trang 130-138.
-* [4] *Cuộc cách mạng Một-cọng-rơm*, Masanobu Fukuoka, Chương 2, Trang 26-32.
-* [5] *Biến rác thành nguồn tài nguyên quý giá nhất (Sản xuất thực phẩm, nhiên liệu, phân bón quy mô nhỏ)*, Paul Olivier, Jozef De Smet, Todd Hyman, Marc Pare, Chương 2, Trang 18-24.
-* [6] *Sổ tay nông dân (Tập 5: Thiết kế rừng rừng, quản lý đất đai và nông trại sinh thái)*, Chris Evans và cộng sự, Chương 3, Trang 5-11.
-* [7] *Nông nghiệp bền vững: Cơ sở khoa học và ứng dụng thực tiễn Việt Nam*, Nguyễn Văn Mấn, Trịnh Văn Thịnh, Chương 3, Trang 112-120.
-* [8] *Phân chuồng, Phân xanh: Quy trình sản xuất và kỹ thuật phối trộn sử dụng*, Nguyễn Thanh Hùng, Chương 4, Trang 62-68.
-* [9] *Phân tiêu, Nước tiểu và cách sử dụng làm phân hữu cơ lỏng*, Việt Chy, Chương 3, Trang 54-61.
-* [10] *Độ ẩm đất với sự sinh trưởng và năng suất cây trồng*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Chương 2, Trang 35-42.
+
+* <span id="ref-1">**[1]**</span> *BẢO VỆ THỰC VẬT THEO PHƯƠNG PHÁP TỰ NHIÊN*, DỰ ÁN PHÁT TRIỂN NÔNG NGHIỆP HỮU CƠ ADDA - VIỆT NAM. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *Ch  ng I. CÁC KHÁI NI  M C   B  N C  A SINH THÁI H  C*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-3">**[3]**</span> *CANH TÁC HỮU CƠ - Tham khảo cho sản xuất rau, quả và chè. Tài liệu hướng dẫn dành cho giảng viên nông dân*, ADDA office in Vietnam. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

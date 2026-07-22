@@ -40,11 +40,8 @@ Không nên bón trực tiếp than sinh học mới đốt vào gốc cây, vì
 ---
 
 ### Tài liệu trích dẫn chi tiết
-- **Tên nguồn:** Giáo trình Nông nghiệp hữu cơ (Chương trình đào tạo nông nghiệp sinh thái tuần hoàn).
-- **Tác giả:** Bộ Nông nghiệp & Phát triển Nông thôn Việt Nam.
-- **Tác phẩm:** *Giáo trình Kỹ thuật canh tác hữu cơ bền vững*.
-- **Chương:** Chương 4 - "Quản lý dinh dưỡng đất trồng" & Mục 4.2 - "Công nghệ và ứng dụng than sinh học (Biochar) trong cải tạo đất".
-- **Trang:** Trang 112-128.
+
+* <span id="ref-1">**[1]**</span> *Than sinh hoc - Hieu qua nho cong nghe*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 

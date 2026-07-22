@@ -166,11 +166,8 @@ Xem video hướng dẫn chi tiết kỹ thuật phối trộn giá thể hữu 
 ---
 
 ### Tài liệu trích dẫn chi tiết
-*   <span id="ref-1">**[1]**</span> *Sổ tay nông dân (Tập 5: Thiết kế vườn rừng, quản lý đất đai và nông trại sinh thái)*, Chris Evans và cộng sự (Nepal Permaculture Group), Chương 3: Thiết kế vườn rừng, Trang 45. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-*   <span id="ref-2">**[2]**</span> *Vườn rau, Vườn quả, Vườn rừng thiết kế đa tầng sinh thái*, GS. Trịnh Văn Thịnh, Nhà xuất bản UNESCO truyền bá tri thức cộng đồng, Chương 4: Thiết kế đa tầng sinh thái, Trang 98. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-*   <span id="ref-3">**[3]**</span> *Hướng dẫn sử dụng đất thiết kế nông nghiệp Permaculture (Earth User's Guide)*, Rosemary Morrow (Dịch giả: Trịnh Văn Thịnh), Nhà xuất bản Nông nghiệp, Chương 5: Đất và giá thể sinh học, Trang 88. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-*   <span id="ref-4">**[4]**</span> *Độ ẩm đất với sự sinh trưởng và năng suất cây trồng*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, Nhà xuất bản Lao động, Chương 2: Quản lý nước đô thị, Trang 120. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-*   <span id="ref-5">**[5]**</span> *Kỹ thuật bảo vệ thực vật và kiểm soát dịch hại tổng hợp sinh học*, PGS. TS. Phạm Văn Lầm, Nhà xuất bản Lao động, Chương 10: Quản lý dịch hại sinh học, Trang 180. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *thiet-ke-urban-food-forest-vuon-rung-do-thi.txt*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

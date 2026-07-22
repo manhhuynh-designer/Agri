@@ -2531,4 +2531,82 @@ body[data-reader-theme="dark"] .chat-msg.bot .chat-bubble {
   color: #d3d3d3 !important;
 }
 
+/* ==========================================================================
+   AI CALLOUT & ALERT BOXES (GitHub Callouts: [!IMPORTANT], [!WARNING], etc.)
+   ========================================================================== */
+.post-content blockquote.ai-alert-box,
+.ai-alert-box {
+  margin: 28px 0;
+  padding: 18px 22px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--ember);
+  background: var(--panel);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ash);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.post-content blockquote.ai-alert-box p,
+.ai-alert-box p {
+  margin: 0 0 8px 0;
+}
+
+.post-content blockquote.ai-alert-box p:last-child,
+.ai-alert-box p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-alert-box.important {
+  border-left-color: var(--ember);
+  background: rgba(232, 89, 12, 0.08);
+}
+
+.ai-alert-box.warning {
+  border-left-color: #dc2626;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.ai-alert-box.note {
+  border-left-color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.ai-alert-box.tip {
+  border-left-color: #16a34a;
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.ai-alert-box.caution {
+  border-left-color: #d97706;
+  background: rgba(217, 119, 6, 0.08);
+}
+
+html[data-theme="light"] .ai-alert-box.important {
+  background: #fff8f5;
+  border-left-color: var(--ember);
+}
+
+html[data-theme="light"] .ai-alert-box.warning {
+  background: #fef2f2;
+  border-left-color: #dc2626;
+}
+
+html[data-theme="light"] .ai-alert-box.note {
+  background: #eff6ff;
+  border-left-color: #2563eb;
+}
+
+html[data-theme="light"] .ai-alert-box.tip {
+  background: #f0fdf4;
+  border-left-color: #16a34a;
+}
+
+html[data-theme="light"] .ai-alert-box.caution {
+  background: #fffbeb;
+  border-left-color: #d97706;
+}
+
+
 

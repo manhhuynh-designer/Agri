@@ -103,38 +103,7 @@ Thuốc hóa học chỉ được coi là vũ khí cuối cùng khi các biện 
 
 ### Tài liệu trích dẫn chi tiết
 
-- <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 1, Trang 7-8.
-- <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup> Giáo trình Nông nghiệp hữu cơ, GS.TS. Nguyễn Thế Đặng, Chương 1, Trang 14.
-- <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup> Giáo trình Sử dụng thuốc Bảo vệ thực vật, ĐH Nông nghiệp Hà Nội, Mở đầu, Trang 2-3.
-- <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 10, Trang 180.
-- <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên), Chương 4, Trang 69.
-- <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 1, Trang 19.
-- <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 2, Trang 26-27.
-- <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 10, Trang 187.
-- <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 10, Trang 189.
-- <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 10, Trang 186.
-- <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup> Giáo trình Sử dụng thuốc Bảo vệ thực vật, ĐH Nông nghiệp Hà Nội, Chương V, Trang 79.
-- <sup><a href="#ref-12" class="citation-ref" id="cit-12">[12]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 10, Trang 190.
-- <sup><a href="#ref-13" class="citation-ref" id="cit-13">[13]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 10, Trang 191.
-- <sup><a href="#ref-14" class="citation-ref" id="cit-14">[14]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 4, Trang 41.
-- <sup><a href="#ref-15" class="citation-ref" id="cit-15">[15]</a></sup> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên), Chương 4, Trang 55.
-- <sup><a href="#ref-16" class="citation-ref" id="cit-16">[16]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 4, Trang 44.
-- <sup><a href="#ref-17" class="citation-ref" id="cit-17">[17]</a></sup> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên), Chương 4, Trang 58.
-- <sup><a href="#ref-18" class="citation-ref" id="cit-18">[18]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 4, Trang 60.
-- <sup><a href="#ref-19" class="citation-ref" id="cit-19">[19]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 5, Trang 62.
-- <sup><a href="#ref-20" class="citation-ref" id="cit-20">[20]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 6, Trang 85.
-- <sup><a href="#ref-21" class="citation-ref" id="cit-21">[21]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 6, Trang 98.
-- <sup><a href="#ref-22" class="citation-ref" id="cit-22">[22]</a></sup> Giáo trình Sử dụng thuốc Bảo vệ thực vật, ĐH Nông nghiệp Hà Nội, Chương VII, Trang 111.
-- <sup><a href="#ref-23" class="citation-ref" id="cit-23">[23]</a></sup> ƯD CNSH trong sx và đs.PDF, Phần II, Trang 91.
-- <sup><a href="#ref-24" class="citation-ref" id="cit-24">[24]</a></sup> ADDA_Giao trinh dao tao OA TOT.pdf, Chương 7, Trang 73.
-- <sup><a href="#ref-25" class="citation-ref" id="cit-25">[25]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 8, Trang 134.
-- <sup><a href="#ref-26" class="citation-ref" id="cit-26">[26]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 8, Trang 154.
-- <sup><a href="#ref-27" class="citation-ref" id="cit-27">[27]</a></sup> Giáo trình Sử dụng thuốc Bảo vệ thực vật, ĐH Nông nghiệp Hà Nội, Chương V, Trang 83.
-- <sup><a href="#ref-28" class="citation-ref" id="cit-28">[28]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 8, Trang 156.
-- <sup><a href="#ref-29" class="citation-ref" id="cit-29">[29]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 8, Trang 157.
-- <sup><a href="#ref-30" class="citation-ref" id="cit-30">[30]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 2, Trang 29.
-- <sup><a href="#ref-31" class="citation-ref" id="cit-31">[31]</a></sup> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên), Chương 1, Trang 12.
-- <sup><a href="#ref-32" class="citation-ref" id="cit-32">[32]</a></sup> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Thay lời kết luận, Trang 195.
+* <span id="ref-1">**[1]**</span> *BẢO VỆ THỰC VẬT THEO PHƯƠNG PHÁP TỰ NHIÊN*, DỰ ÁN PHÁT TRIỂN NÔNG NGHIỆP HỮU CƠ ADDA - VIỆT NAM. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

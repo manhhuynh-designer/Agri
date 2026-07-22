@@ -110,26 +110,8 @@ Xem video hướng dẫn chi tiết liên quan đến chủ đề từ YouTube:
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);"><iframe src="https://www.youtube.com/embed/ASZAF8RKAR4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe></div>
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 1, Trang 12. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> Nông nghiệp bền vững, Rosemary Morrow, Chương 6, Trang 32. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> ADDA_Giao trinh dao tao OA TOT, Chương 2, Trang 13. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 2, Trang 26. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 3, Trang 38. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> Nong nghiep ben vung co so va ung dung, Nguyễn Văn Mấn - Trịnh Văn Thịnh, Chương 2, Trang 26. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 2, Trang 34. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> Huong dan su dung dat dai theo nong nghiep ben vung, Chu Thị Thơm et al., Chương 4, Trang 103. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 2, Trang 35. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-10">**[10]**</span> Ky thuat trong rau sach vu xuan he, PGS. TS. Tạ Thu Cúc, Trang 160. <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-11">**[11]**</span> Bien rac thai thanh tai nguyen, Paul Olivier et al., Trang 27. <a href="#cit-11" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-12">**[12]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 4, Trang 67. <a href="#cit-12" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-13">**[13]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 3, Trang 45. <a href="#cit-13" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-14">**[14]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 3, Trang 50-51. <a href="#cit-14" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-15">**[15]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 4, Trang 68. <a href="#cit-15" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-16">**[16]**</span> Ky thuat trong rau sach vu xuan he, PGS. TS. Tạ Thu Cúc, Trang 7. <a href="#cit-16" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-17">**[17]**</span> ADDA_Giao trinh dao tao OA TOT, Chương 7, Trang 70. <a href="#cit-17" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-18">**[18]**</span> Huong dan su dung dat dai theo nong nghiep ben vung, Chu Thị Thơm et al., Chương 2, Trang 43. <a href="#cit-18" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-19">**[19]**</span> ADDA_Giao trinh dao tao OA TOT, Chương 3, Trang 28. <a href="#cit-19" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-20">**[20]**</span> Ky thuat trong rau sach vu xuan he, PGS. TS. Tạ Thu Cúc, Trang 12. <a href="#cit-20" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-21">**[21]**</span> Kĩ thuật bảo vệ thực vật, PGS, TS. Phạm Văn Lầm, Chương 2, Trang 27. <a href="#cit-21" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-22">**[22]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 4, Trang 55. <a href="#cit-22" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-23">**[23]**</span> [EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên) et al., Chương 4, Trang 58. <a href="#cit-23" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *PGS HỆ THỐNG GIÁM SÁT CÓ SỰ THAM GIA CHO SẢN PHẨM HỮU CƠ Cẩm nang hoạt động cho người sản xuất 2009*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *KỸ THUẬT SỬ DỤNG MÀNG PHỦ NÔNG NGHIỆP TRỒNG MỘT SỐ LOẠI RAU*, ThS. Trần Thị Ba / Bộ môn Khoa Học Cây Trồng, Khoa Nông Nghiệp & Sinh học ứng dụng, Trường ĐHCT. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-3">**[3]**</span> *Hướng dẫn sản xuất rau hữu cơ*, ADDA – ACCD. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+

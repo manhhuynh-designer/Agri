@@ -97,33 +97,8 @@ Lợi ích cụ thể của xen canh bao gồm:
 Việc áp dụng khéo léo luân canh và xen canh không chỉ giúp tăng thu nhập cho nông hộ thông qua đa dạng hóa sản phẩm mà còn là giải pháp căn cơ để bảo vệ tài nguyên đất cho các thế hệ tương lai <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-27" class="citation-ref" id="cit-27">[27]</a></sup>.
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> ADDA Vietnam, *Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè*, Mục 2.1, Trang 13. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> GS.TS. Nguyễn Thế Đặng, *Giáo trình Nông nghiệp hữu cơ*, Chương 2, Trang 26-35. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> GS. Thái Phiên, *Việt Nam - Môi trường và Cuộc sống*, Chương 1, Trang 43. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> Nguyễn Văn Mấn, *Hướng dẫn sử dụng đất đai theo nông nghiệp bền vững*, Chương 3, Trang 53-62. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> Rosemary Morrow, *Nông nghiệp bền vững*, Chương 14, Trang 104. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> PGS.TS. Phạm Văn Lầm, *Kỹ thuật Bảo vệ thực vật*, Chương 4, Trang 43-51. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> ADDA Vietnam, *Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè*, Mục 1.3, Trang 7. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> GS.TS. Nguyễn Thế Đặng, *Giáo trình Nông nghiệp hữu cơ*, Chương 4, Trang 58. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> Nguyễn Viết Khoa, *Kỹ thuật canh tác trên đất dốc*, Chương 1, Trang 3. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-10">**[10]**</span> Chris Evans, *The Farmers' Handbook - Soil Conservation and Improvement*, Chương 3, Trang 11. <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-11">**[11]**</span> ADDA Vietnam, *Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè*, Mục 9.6, Trang 87. <a href="#cit-11" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-12">**[12]**</span> Trường Đại học Nông nghiệp Hà Nội, *Giáo trình Sử dụng thuốc Bảo vệ thực vật*, Mục 2.2, Trang 56. <a href="#cit-12" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-13">**[13]**</span> PGS.TS. Phạm Văn Lầm, *Kỹ thuật Bảo vệ thực vật*, Chương 4, Trang 45. <a href="#cit-13" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-14">**[14]**</span> Nguyễn Văn Mấn, *Hướng dẫn sử dụng đất đai theo nông nghiệp bền vững*, Chương 5, Trang 112. <a href="#cit-14" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-15">**[15]**</span> Rosemary Morrow, *Nông nghiệp bền vững*, Chương 12, Trang 84. <a href="#cit-15" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-16">**[16]**</span> ADDA Vietnam, *Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè*, Mục 5.4, Trang 45. <a href="#cit-16" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-17">**[17]**</span> ADDA Vietnam, *Canh tác hữu cơ - Tham khảo cho sản xuất rau, quả và chè*, Mục 8, Trang 73. <a href="#cit-17" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-18">**[18]**</span> PGS.TS. Phạm Văn Lầm, *Kỹ thuật Bảo vệ thực vật*, Chương 4, Trang 47. <a href="#cit-18" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-19">**[19]**</span> GS.TS. Nguyễn Thế Đặng, *Giáo trình Nông nghiệp hữu cơ*, Chương 4, Trang 54. <a href="#cit-19" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-20">**[20]**</span> Nguyễn Văn Mấn, *Hướng dẫn sử dụng đất đai theo nông nghiệp bền vững*, Chương 3, Trang 114. <a href="#cit-20" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-21">**[21]**</span> Hà Đình Tuấn, *Một số loài cây che phủ đất đa dụng*, Trang 2. <a href="#cit-21" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-22">**[22]**</span> PGS.TS. Phạm Văn Lầm, *Kỹ thuật Bảo vệ thực vật*, Chương 6, Trang 101. <a href="#cit-22" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-23">**[23]**</span> Hà Đình Tuấn, *Một số loài cây che phủ đất đa dụng*, Trang 3. <a href="#cit-23" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-24">**[24]**</span> GS.TS. Nguyễn Thế Đặng, *Giáo trình Nông nghiệp hữu cơ*, Chương 4, Trang 62. <a href="#cit-24" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-25">**[25]**</span> Nguyễn Văn Mấn, *Phân chuồng phân xanh sản xuất và sử dụng*, Mục B.1, Trang 9. <a href="#cit-25" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-26">**[26]**</span> Rosemary Morrow, *Nông nghiệp bền vững*, Chương 6, Trang 32. <a href="#cit-26" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-27">**[27]**</span> GS. Thái Phiên, *Việt Nam - Môi trường và Cuộc sống*, Chương 1, Trang 51. <a href="#cit-27" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *Kỹ thuật canh tác TRÊN ĐẤT DỐC*, NGUYỄN VIẾT KHOA - VÕ ĐẠI HẢI - NGUYỄN ĐỨC THANH / NHÀ XUẤT BẢN NÔNG NGHIỆP. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

@@ -148,11 +148,7 @@ Bằng cách phối trộn tỷ lệ nội địa hóa gồm: 40% xỉ than tổ
 
 ### Tài liệu trích dẫn chi tiết
 
-- <span id="ref-1">**[1]**</span> *The Succulent Manual*, Andrea Afra, Chương 2: Soil and Potting Solutions, Trang 45-52. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> *Designing with Succulents*, Debra Lee Baldwin, Chương 3: Cultural Requirements and Care, Trang 78-85. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> *Succulents for the Contemporary Garden*, Yvonne Cave, Chương 1: General Cultivation, Trang 12-19. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> *Cây cảnh và Kỹ thuật Bonsai*, GS. TS. Lê Quang Vinh, Chương 5: Kỹ thuật nhân giống và chăm sóc xương rồng trong nhà, Trang 112-118. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> *Giáo trình Hoa cây cảnh*, PGS. TS. Nguyễn Xuân Linh, Chương 4: Kỹ thuật điều khiển sinh trưởng cây cảnh nội thất, Trang 85-92. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-1">**[1]**</span> *TRI THỨC BẢN ĐỊA CỦA DÂN TỘC DAO KHU VỰC MIỀN NÚI PHÍA BẮC TRONG VIỆC LỰA CHỌN ĐẤT ĐAI, ĐỊA HÌNH CANH TÁC VÀ HỆ THỐNG CÂY TRỒNG*, ĐẶNG THỊ NHUẦN, DƯƠNG QUỲNH PHƯƠNG / Tạp chí KHOA HỌC ĐHSP TPHCM. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

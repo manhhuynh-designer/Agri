@@ -116,33 +116,50 @@ export default function ClientInteractions() {
 
     document.addEventListener("click", handleGlobalClick);
 
-    // 4. Alert boxes formatter
+    // 4. Alert boxes formatter (GitHub Callout syntax)
     const blockquotes = document.querySelectorAll(".post-content blockquote");
     blockquotes.forEach((bq) => {
       const textContent = bq.textContent || "";
-      if (textContent.includes("[!WARNING]")) {
+      if (textContent.includes("[!IMPORTANT]")) {
+        bq.classList.add("ai-alert-box", "important");
+        bq.innerHTML = bq.innerHTML
+          .replace(/\[!IMPORTANT\]/g, "")
+          .trim();
+        if (!bq.querySelector(".alert-header")) {
+          bq.innerHTML = `<div class="alert-header" style="font-weight:700;margin-bottom:6px;color:var(--ember);display:flex;align-items:center;gap:6px;">📌 LƯU Ý QUAN TRỌNG</div>` + bq.innerHTML;
+        }
+      } else if (textContent.includes("[!WARNING]")) {
         bq.classList.add("ai-alert-box", "warning");
         bq.innerHTML = bq.innerHTML
           .replace(/\[!WARNING\]/g, "")
-          .replace(/⚠️/g, "")
-          .replace(/Lưu ý:/g, "<strong>⚠️ Lưu ý:</strong>")
           .trim();
-        // Button is now kept in the sidebar exclusively to avoid duplicate controls
+        if (!bq.querySelector(".alert-header")) {
+          bq.innerHTML = `<div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#dc2626;display:flex;align-items:center;gap:6px;">⚠️ CẢNH BÁO</div>` + bq.innerHTML;
+        }
       } else if (textContent.includes("[!NOTE]")) {
         bq.classList.add("ai-alert-box", "note");
         bq.innerHTML = bq.innerHTML
           .replace(/\[!NOTE\]/g, "")
-          .replace(/ℹ/g, "")
-          .replace(/Ghi chú:/g, "<strong>ℹ️ Ghi chú:</strong>")
           .trim();
+        if (!bq.querySelector(".alert-header")) {
+          bq.innerHTML = `<div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#2563eb;display:flex;align-items:center;gap:6px;">ℹ️ GHI CHÚ</div>` + bq.innerHTML;
+        }
       } else if (textContent.includes("[!TIP]")) {
         bq.classList.add("ai-alert-box", "tip");
         bq.innerHTML = bq.innerHTML
           .replace(/\[!TIP\]/g, "")
-          .replace(/💡/g, "")
-          .replace(/Mách nhỏ:/g, "<strong>💡 Mách nhỏ:</strong>")
-          .replace(/Gợi ý:/g, "<strong>💡 Gợi ý:</strong>")
           .trim();
+        if (!bq.querySelector(".alert-header")) {
+          bq.innerHTML = `<div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#16a34a;display:flex;align-items:center;gap:6px;">💡 MÁCH NHỎ</div>` + bq.innerHTML;
+        }
+      } else if (textContent.includes("[!CAUTION]")) {
+        bq.classList.add("ai-alert-box", "caution");
+        bq.innerHTML = bq.innerHTML
+          .replace(/\[!CAUTION\]/g, "")
+          .trim();
+        if (!bq.querySelector(".alert-header")) {
+          bq.innerHTML = `<div class="alert-header" style="font-weight:700;margin-bottom:6px;color:#d97706;display:flex;align-items:center;gap:6px;">🛑 THẬN TRỌNG</div>` + bq.innerHTML;
+        }
       }
     });
 

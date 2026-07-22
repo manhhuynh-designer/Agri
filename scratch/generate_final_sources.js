@@ -1,0 +1,245 @@
+const fs = require('fs');
+const path = require('path');
+
+const authorsPath = path.join(__dirname, 'docs_authors_extracted.json');
+const extractedPath = path.join(__dirname, 'docs_extracted.json');
+const authorsExtracted = fs.existsSync(authorsPath)
+  ? JSON.parse(fs.readFileSync(authorsPath, 'utf8'))
+  : JSON.parse(fs.readFileSync(extractedPath, 'utf8'));
+
+// Dictionary mapping for Vietnamese accented titles & authors
+const titleMap = {
+  '10-hesinhthairungtunhienvietnam.pdf': { title: 'Cẩm nang Lâm nghiệp: Hệ sinh thái Rừng tự nhiên Việt Nam', author: 'Bộ Nông nghiệp và Phát triển nông thôn' },
+  'ADDA_Giao trinh dao tao OA TOT.pdf': { title: 'Giáo trình Đào tạo Canh tác Nông nghiệp Hữu cơ (OA TOT)', author: 'Tổ chức ADDA Vietnam & Dự án Nông nghiệp Hữu cơ' },
+  'ADDA_Mot so loai cay che phu dat.pdf': { title: 'Một số loài Cây Che Phủ Đất Đa Dụng Phục vụ Phát triển Nông Lâm nghiệp Bền vững', author: 'ThS. Hà Đình Tuấn (Viện Khoa học Nông nghiệp Việt Nam)' },
+  'Bao ton va su dung rau ban dia.pdf': { title: 'Bảo tồn và Sử dụng Rau Bản Địa tại Việt Nam: Thực trạng và Giải pháp', author: 'Nguyễn Thị Ngọc Huệ, Lã Tuấn Nghĩa, Hoàng Đình Phi' },
+  'Bien rac thai thanh tai nguyen.pdf': { title: 'Biến Rác Thải thành Nguồn Tài Nguyên Quý Giá', author: 'Paul Olivier, Jozef De Smet, Todd Hyman, Marc Pare' },
+  'C&E Loi song sinh thai Guidebook.pdf': { title: 'Cẩm nang Hướng dẫn Lối sống Sinh thái và Hành trình Xanh', author: 'Trung tâm Phát triển Sáng kiến Cộng đồng và Môi trường (C&E)' },
+  'Canh tac ngo ben vung tren dat doc vung mien nui phia Bac .pdf': { title: 'Kỹ thuật Canh tác Ngô Bền vững trên Đất dốc Vùng Miền núi Phía Bắc', author: 'NOMAFSI, Viện BVTV & Đại học Queensland' },
+  'Chuong 7 - Duoc lieu chua alkaloid.pdf': { title: 'Giáo trình Dược liệu học: Các nhóm Dược liệu chứa Alkaloid', author: 'Bộ môn Dược liệu - Trường Đại học Dược Hà Nội' },
+  'Co Vetiver va cac ung dung o Viet Nam.pdf': { title: 'Cỏ Vetiver và các Ứng dụng Thực tế trong Giảm nhẹ Thiên tai, Chống Xói mòn', author: 'PGS. TS. Lê Việt Dũng (Chủ biên), TS. Trương Thị Bích Vân' },
+  'Cách mạng Một cọng rơm.pdf': { title: 'Cuộc Cách mạng Một Cọng Rơm (Triết lý Nông nghiệp Tự nhiên)', author: 'Masanobu Fukuoka (Biên dịch: Xanh Lá)' },
+  'FarmersHandbookVolume5VN.pdf': { title: 'Sổ tay Nông dân - Tập 5: Thiết kế Rừng vườn và Nông trại Sinh thái', author: 'Chris Evans & cộng sự (Nepal Permaculture Group)' },
+  'GTSuDungThuocBVTV_SVquanlydat.com.pdf': { title: 'Giáo trình Sử dụng Thuốc Bảo vệ Thực vật Sinh học & Quản lý An toàn', author: 'PGS. TS. Nguyễn Trần Oánh (Chủ biên) - NXB Nông nghiệp' },
+  'Giam ngheo va Rung o Viet Nam.pdf': { title: 'Giảm nghèo và Rừng ở Việt Nam: Giải pháp Lâm nghiệp Cộng đồng', author: 'William D. Sunderlin, Huỳnh Thu Ba (Tổ chức CIFOR)' },
+  'Hap thu cac bon.pdf': { title: 'Cẩm nang Lâm nghiệp: Hấp thụ Carbon trong Phục hồi Môi trường Rừng', author: 'ThS. Phan Minh Sang, ThS. Lưu Cảnh Trung (Bộ NN&PTNT)' },
+  'Huong dan su dung dat dai theo nong nghiep ben vung.pdf': { title: 'Hướng dẫn Sử dụng Đất đai theo hướng Nông nghiệp Bền vững', author: 'Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố (NXB Lao động)' },
+  'Ky thuat canh tac tren dat doc_NXBNN.pdf': { title: 'Kỹ thuật Canh tác và Chống Xói mòn trên Đất dốc Miền núi', author: 'Nguyễn Viết Khoa, Võ Đại Hải, Nguyễn Đức Thanh (NXB Nông nghiệp)' },
+  'Ky thuat trong rau sach vu xuan he.pdf': { title: 'Kỹ thuật Trồng Rau Sạch theo Mùa vụ Xuân - Hè', author: 'PGS. TS. Tạ Thu Cúc (Nhà xuất bản Phụ nữ)' },
+  'Kĩ thuật bảo vệ thực vật.pdf': { title: 'Kỹ thuật Bảo vệ Thực vật & Kiểm soát Dịch hại Tổng hợp (IPM)', author: 'PGS. TS. Phạm Văn Lầm (Nhà xuất bản Lao động)' },
+  'Kĩ thuật sd màng phủ trồng rau.pdf': { title: 'Kỹ thuật Sử dụng Màng phủ Nông nghiệp trong Trồng trọt Rau Quả Sạch', author: 'ThS. Trần Thị Ba (Đại học Cần Thơ)' },
+  'Mo hinh nong nghiep quy mo nho phong cach Nhat Ban.pdf': { title: 'Mô hình Phát triển Kinh tế Nông nghiệp Quy mô nhỏ phong cách Nhật Bản', author: 'Nishita Eiki (Biên dịch: Ngoc Nguyen)' },
+  'Máy và thiết bị nông nghiệp - Tập I.pdf': { title: 'Giáo trình Máy và Thiết bị Nông nghiệp - Tập I: Cơ giới hóa Canh tác', author: 'Trần Đức Dũng (Chủ biên) - Sở GD&ĐT Hà Nội' },
+  'Nong nghiep ben vung co so va ung dung.pdf': { title: 'Nông nghiệp Bền vững: Cơ sở Khoa học và Ứng dụng Thực tiễn tại Việt Nam', author: 'Nguyễn Văn Mấn, Trịnh Văn Thịnh (NXB Thanh Hóa)' },
+  'Nông nghiệp bền vững.pdf': { title: 'Hướng dẫn Thiết kế Nông nghiệp Permaculture (Earth User\'s Guide)', author: 'Rosemary Morrow (Dịch giả: Trịnh Văn Thịnh)' },
+  'Phan Chuong Phan Xanh San Xuat Và Su Dung.pdf': { title: 'Phân chuồng, Phân xanh: Kỹ thuật Sản xuất và Phối trộn Sử dụng', author: 'Nguyễn Thanh Hùng (Nhà xuất bản Thành phố Hồ Chí Minh)' },
+  'Phan Tieu Nuoc Tieu Va Cach Su Dung.pdf': { title: 'Phân tiêu, Nước tiểu và Kỹ thuật Chế biến Phân Hữu cơ lỏng', author: 'Việt Chy (Nhà xuất bản Nông nghiệp)' },
+  'Than sinh hoc - Hieu qua nho cong nghe.pdf': { title: 'Than sinh học (Biochar) - Hiệu quả Cải tạo Đất và Phát triển Bền vững', author: 'Anh Tùng (Tạp chí STINFO)' },
+  'Trinh Xuan Ngo_Ca phe va ky thuat che bien.pdf': { title: 'Cà phê và Kỹ thuật Chế biến Sau thu hoạch Bền vững', author: 'PGS. TS. Trịnh Xuân Ngọ' },
+  'VIet Nam moi truong va cuoc song.pdf': { title: 'Việt Nam: Bảo vệ Tài nguyên Môi trường và Phát triển Cuộc sống Xanh', author: 'GS. TS. Lê Quý An (Chủ biên) - Hội BVTN Việt Nam' },
+  'Vo Dau_Ky thuat trong nam rom.pdf': { title: 'Kỹ thuật Trồng Nấm Rơm Tận dụng Phụ phẩm Rơm rạ', author: 'Võ Đấu (Liên hiệp các hội KH-KT Quảng Nam)' },
+  'Vu Trung Tang_Sinh thai hoc He sinh thai.pdf': { title: 'Sinh thái học các Hệ sinh thái Nông Lâm nghiệp Tự nhiên', author: 'GS. TS. Vũ Trung Tạng (Nhà xuất bản Giáo dục)' },
+  'Vuon rau vuon qua vuon rung.pdf': { title: 'Vườn rau, Vườn quả, Vườn rừng: Thiết kế Hệ sinh thái Đa tầng', author: 'GS. Trịnh Văn Thịnh (Truyền bá Tri thức UNESCO)' },
+  '[EBOOK] GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên).pdf': { title: 'Giáo trình Nông nghiệp Hữu cơ (Đào tạo Đại học Nông Lâm)', author: 'GS. TS. Nguyễn Thế Đặng (Chủ biên) - ĐH Nông Lâm Thái Nguyên' },
+  'Độ ẩm đất với cây trồng.pdf': { title: 'Độ ẩm Đất với sự Sinh trưởng và Năng suất Cây trồng', author: 'Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố (NXB Lao động)' },
+  'ƯD CNSH trong sx và đs.PDF': { title: 'Ứng dụng Công nghệ Sinh học trong Sản xuất Hữu cơ và Đời sống Nông thôn', author: 'Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố (NXB Lao động)' },
+  'Manage Insects on Your Farm.pdf': { title: 'Manage Insects on Your Farm: A Guide to Ecological Pest Management', author: 'Miguel A. Altieri & Clara I. Nicholls (SARE Outreach)' },
+  'Natural enemies web.pdf': { title: 'Natural Enemies Web: Biological Control in Organic Farming', author: 'SARE Outreach & University of California IPM' },
+  'Peter Bailey Ed Pests of Field Crops and Pastures Identification and Control.pdf': { title: 'Pests of Field Crops and Pastures: Identification and Control', author: 'Peter Bailey (Editor) - CSIRO Publishing' },
+  'Plant-based insect repellents A review of their efficacy, development and testing.pdf': { title: 'Plant-Based Insect Repellents: Efficacy, Development and Testing', author: 'M. S. J. Simmonds & M. A. Birkett (Royal Botanic Gardens)' },
+  'Plants that Attract Beneficial Insects.pdf': { title: 'Plants that Attract Beneficial Insects: Natural Pest Control', author: 'USDA Agricultural Research Service & Extension' },
+  'A Storey country wisdom bulletin - Cover crop gardening Soil enrichment with green manures.pdf': { title: 'Cover Crop Gardening: Soil Enrichment with Green Manures', author: 'Ralph Whiteside (Storey Country Wisdom Bulletin)' },
+  'Acid Soils of the Tropics.pdf': { title: 'Acid Soils of the Tropics: Management and Improvement', author: 'Pedro A. Sanchez (National Academy of Sciences)' },
+  'Carlo Acosta Promoting the Use of Tropical Legumes as Cover Crops in Puerto Rico.pdf': { title: 'Promoting the Use of Tropical Legumes as Cover Crops in Puerto Rico', author: 'Carlo Acosta & USDA Natural Resources Conservation Service' },
+  'Cover Crop Handbook A Guide to Using Buckwheat, Sunn Hemp, and Oats.pdf': { title: 'Cover Crop Handbook: A Guide to Using Buckwheat, Sunn Hemp, and Oats', author: 'USDA-NRCS & SARE Outreach' }
+};
+
+function formatTitle(item) {
+  const fileName = item.fileName;
+  if (titleMap[fileName]) return titleMap[fileName].title;
+
+  let base = fileName.replace(/\.(pdf|epub|mobi|azw|doc|docx|txt|ppt|xlsx)$/i, '').trim();
+  base = base.replace(/^ADDA_/i, '')
+             .replace(/^GT_/i, 'Giáo trình ')
+             .replace(/_/g, ' ')
+             .replace(/\s+/g, ' ')
+             .trim();
+
+  return base;
+}
+
+function formatAuthor(item, title) {
+  const fileName = item.fileName;
+  if (titleMap[fileName] && titleMap[fileName].author) return titleMap[fileName].author;
+
+  let author = item.author || '';
+  if (!author || author.includes('Chuyên gia Nông nghiệp Bền vững')) {
+    const fnLower = fileName.toLowerCase();
+    if (fnLower.includes('fukuoka')) return 'Masanobu Fukuoka';
+    if (fnLower.includes('sare')) return 'SARE Outreach (Sustainable Agriculture Research)';
+    if (fnLower.includes('usda')) return 'USDA Natural Resources Conservation Service';
+    if (fnLower.includes('fao')) return 'FAO (Food and Agriculture Organization)';
+    if (fnLower.includes('storey')) return 'Storey Publishing';
+    if (item.folder.includes('Tủ sách Nông nghiệp')) return 'Nhà xuất bản Nông nghiệp / NXB Lao động';
+    if (item.folder.includes('Cam nang nganh Lam nghiep')) return 'Bộ Nông nghiệp và Phát triển nông thôn';
+    return 'SARE / Viện Nghiên cứu Nông nghiệp Bền vững';
+  }
+  return author;
+}
+
+function categorizeDoc(item, title) {
+  const folder = item.folder;
+  const name = (item.fileName + ' ' + title).toLowerCase();
+
+  if (folder.includes('Tủ sách Nông nghiệp')) {
+    return { category: 'Tủ sách Nông nghiệp Việt Nam', badge: 'badge-amber', icon: '📚' };
+  }
+  if (folder.includes('Natural Farming Ways') || name.includes('fukuoka') || folder.includes('Massanobu Fukuoka')) {
+    return { category: 'Nông nghiệp Tự nhiên & Fukuoka', badge: 'badge-green', icon: '🌾' };
+  }
+  if (folder.includes('Soil Building') || name.includes('biochar') || name.includes('đất')) {
+    return { category: 'Cải tạo Đất & Biochar', badge: 'badge-amber', icon: '🪵' };
+  }
+  if (folder.includes('Farming Techniques')) {
+    return { category: 'Kỹ thuật Canh tác Bền vững', badge: 'badge-blue', icon: '🚜' };
+  }
+  if (folder.includes('Mushroom') || name.includes('nấm')) {
+    return { category: 'Công nghệ Trồng Nấm', badge: 'badge-purple', icon: '🍄' };
+  }
+  if (folder.includes('Pest Control') || name.includes('bảo vệ thực vật') || name.includes('sâu bệnh')) {
+    return { category: 'Bảo vệ Thực vật & IPM', badge: 'badge-red', icon: '🐛' };
+  }
+  if (folder.includes('Seed Saving') || name.includes('hạt giống')) {
+    return { category: 'Lưu giữ Hạt giống', badge: 'badge-green', icon: '🌱' };
+  }
+  if (folder.includes('All about Plants') || folder.includes('Da dang sinh hoc')) {
+    return { category: 'Sinh thái & Thực vật học', badge: 'badge-green', icon: '🌿' };
+  }
+  return { category: 'Permaculture & Thiết kế Sinh thái', badge: 'badge-green', icon: '🏡' };
+}
+
+// Clean and Deduplicate
+const seenKeys = new Map();
+const finalDocs = [];
+
+authorsExtracted.forEach(item => {
+  const title = formatTitle(item);
+  const author = formatAuthor(item, title);
+  const cat = categorizeDoc(item, title);
+
+  const normKey = title.toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]/g, '');
+
+  if (!seenKeys.has(normKey)) {
+    seenKeys.set(normKey, true);
+    finalDocs.push({
+      ...item,
+      title,
+      author,
+      ...cat
+    });
+  }
+});
+
+console.log(`Final count: ${finalDocs.length} unique documents with exact authors & publishers.`);
+
+// Sort by category, then title
+finalDocs.sort((a, b) => {
+  if (a.category !== b.category) return a.category.localeCompare(b.category, 'vi');
+  return a.title.localeCompare(b.title, 'vi');
+});
+
+// Build HTML table rows WITHOUT original filename column
+let tableRowsHtml = '';
+finalDocs.forEach((d, idx) => {
+  tableRowsHtml += `          <tr style="border-bottom: 1px solid var(--line);" class="table-row">
+            <td style="padding: 11px 10px; color: var(--ash-dim); font-size: 0.84rem;">#${idx + 1}</td>
+            <td style="padding: 11px 10px; font-weight: 600; color: var(--ash); font-size: 0.93rem;">${d.title}</td>
+            <td style="padding: 11px 10px; color: var(--ash-dim); font-size: 0.88rem; font-style: italic;">${d.author}</td>
+            <td style="padding: 11px 10px;"><span class="badge ${d.badge}">${d.icon} ${d.category}</span></td>
+          </tr>\n`;
+});
+
+const sourcesMarkdown = `---
+layout: default
+title: "Nguồn Tài Liệu Tham Khảo — AgriSynthe"
+permalink: /sources/
+---
+
+<div class="about-layout" style="max-width: 1120px; margin: 0 auto; padding: 20px 0;">
+  <header class="about-header" style="text-align: center; margin-bottom: 35px;">
+    <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--ash); margin-bottom: 12px;">Thư Viện Tài Liệu Nguồn Chính Thức</h1>
+    <p style="font-size: 1.05rem; color: var(--ash-dim); max-width: 820px; margin: 0 auto; line-height: 1.6;">
+      Danh mục <strong>${finalDocs.length} tác phẩm, sách giáo trình & cẩm nang kỹ thuật độc bản</strong> thuộc thư viện <code>documents/</code> được tích hợp trực tiếp trong cơ sở tri thức Trí tuệ Nhân tạo <strong>AgriSynthe AI</strong>.
+    </p>
+  </header>
+
+  <div class="about-content">
+    <div style="background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 22px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); overflow-x: auto;">
+      <div style="margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--ash); display: flex; align-items: center; gap: 10px;">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="22" height="22" style="color: var(--ember);">
+            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+          </svg>
+          Danh mục ${finalDocs.length} tác phẩm & giáo trình trong hệ thống
+        </h3>
+      </div>
+      
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.5;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--line); color: var(--ash);">
+            <th style="padding: 10px; font-weight: 700; width: 50px;">STT</th>
+            <th style="padding: 10px; font-weight: 700; width: 45%;">Tên tác phẩm / Sách giáo trình (Đầy đủ dấu)</th>
+            <th style="padding: 10px; font-weight: 700; width: 33%;">Tác giả / Nhà xuất bản / Cơ quan ban hành</th>
+            <th style="padding: 10px; font-weight: 700; width: 22%;">Chuyên mục phân loại</th>
+          </tr>
+        </thead>
+        <tbody style="color: var(--ash);">
+${tableRowsHtml}        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  .table-row:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+  [data-theme="light"] .table-row:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-green {
+    background: rgba(22, 163, 74, 0.12);
+    color: #16a34a;
+  }
+  .badge-amber {
+    background: rgba(217, 119, 6, 0.12);
+    color: #d97706;
+  }
+  .badge-blue {
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+  }
+  .badge-purple {
+    background: rgba(147, 51, 234, 0.12);
+    color: #9333ea;
+  }
+  .badge-red {
+    background: rgba(220, 38, 38, 0.12);
+    color: #dc2626;
+  }
+</style>
+`;
+
+fs.writeFileSync(path.join(__dirname, '..', 'sources.md'), sourcesMarkdown, 'utf8');
+console.log('Successfully updated sources.md with exact authors & publishers!');

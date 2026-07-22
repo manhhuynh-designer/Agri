@@ -167,11 +167,8 @@ Với lượng rác thải nhà bếp phát sinh trung bình từ 0.5 đến 1.5
 ---
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> *Các loại phân bón và cách sử dụng*, PGS. TS. Nguyễn Như Hà, NXB Nông nghiệp, Chương 4: Phân hữu cơ và kỹ thuật chế biến phân bón tại hộ gia đình, Trang 95. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> *Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng (Chủ biên), Đại học Nông Lâm Thái Nguyên, Chương 3: Kỹ thuật sản xuất và sử dụng phân hữu cơ vi sinh, Trang 68. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> *Cải tạo đất nông nghiệp bạc màu*, TS. Trần Văn Chính, NXB Nông nghiệp, Chương 3: Ứng dụng phân bón hữu cơ lỏng trong canh tác đô thị, Trang 45. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> *Sử dụng vi sinh vật có ích - Tập I*, PGS. TS. Nguyễn Xuân Thành, NXB Nông nghiệp, Chương 2: Chế phẩm EM và công nghệ lên men chất thải sinh hoạt, Trang 54. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> *Phân hữu cơ vi sinh*, PGS. TS. Đường Hồng Dật, NXB Nông nghiệp, Chương 5: Kiểm soát vi sinh vật gây bệnh trong sản xuất phân hữu cơ kỵ khí, Trang 112. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *Biến rác thành nguồn tài nguyên quý giá nhất: Sản xuất thực phẩm, nhiên liệu, thức ăn gia súc và phân bón quy mô nhỏ*, Paul Olivier, Jozef De Smet, Todd Hyman và Marc Pare. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

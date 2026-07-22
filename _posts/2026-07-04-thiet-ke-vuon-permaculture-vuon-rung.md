@@ -47,11 +47,11 @@ Việc phối hợp ăn ý giữa các tầng tán giúp khu vườn luôn mát 
 ---
 
 ### Tài liệu trích dẫn chi tiết
-- **Tên nguồn:** Giáo trình Thiết kế hệ sinh thái nông nghiệp bền vững.
-- **Tác giả:** Bill Mollison & David Holmgren.
-- **Tác phẩm:** *Permaculture: A Designers' Manual*.
-- **Chương:** Chương 3 - "Nguyên lý thiết kế năng lượng phân khu" & Chương 7 - "Thiết kế nông lâm kết hợp nhiều tầng tán".
-- **Trang:** Trang 88-105.
+
+* <span id="ref-1">**[1]**</span> *QUY TRÌNH ƯƠM CÂY BẢN ĐỊA (Vườn ươm sinh thái HEPA)*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *Biến rác thành nguồn tài nguyên quý giá nhất: Sản xuất thực phẩm, nhiên liệu, thức ăn gia súc và phân bón quy mô nhỏ*, Paul Olivier, Jozef De Smet, Todd Hyman và Marc Pare. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-3">**[3]**</span> *Các Vườn Quốc gia và Khu Bảo tồn thiên nhiên*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-4">**[4]**</span> *Quy trình làm vườn ươm cây con*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 

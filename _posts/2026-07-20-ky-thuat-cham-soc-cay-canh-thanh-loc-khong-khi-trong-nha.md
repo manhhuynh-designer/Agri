@@ -165,17 +165,9 @@ Các tài liệu kỹ thuật phương Tây thường hướng dẫn sử dụng
 Bằng việc chủ động điều chỉnh kết cấu giá thể thoáng khí hơn 15 - 20% so với công thức chuẩn của nước ngoài và áp dụng các biện pháp thông gió chủ động, các hộ gia đình đô thị tại Việt Nam hoàn toàn có thể duy trì các chậu cây cảnh lọc khí sinh trưởng bền vững qua nhiều năm với chi phí vận hành cực kỳ thấp.
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> *Cây lá màu trồng trong phòng*, NXB Nông nghiệp, 2008, Chương 2: Cơ chế sinh lý học của cây trồng trong nhà, Trang 45. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> *Giáo trình Nông nghiệp hữu cơ*, GS. TS. Nguyễn Thế Đặng (Chủ biên), NXB Nông nghiệp, Chương 3: Kỹ thuật giá thể hữu cơ vi sinh, Trang 70. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> *Độ ẩm đất với sự sinh trưởng và năng suất cây trồng*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, NXB Lao động, Chương 3: Động học nước trong chậu trồng và hấp thụ mao quản, Trang 55. <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> *Sử dụng vi sinh vật có ích - Tập I*, PGS. TS. Nguyễn Xuân Thành, NXB Nông nghiệp, Chương 3: Vi sinh vật vùng rễ và sự phân giải độc chất, Trang 92. <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-5">**[5]**</span> *Nông nghiệp bền vững: Cơ sở khoa học và ứng dụng thực tiễn Việt Nam*, Nguyễn Văn Mấn, Trịnh Văn Thịnh, NXB Thanh Hóa, Chương 2: Sự thích nghi khí hậu của cây trồng trong hệ sinh thái đô thị, Trang 88. <a href="#cit-5" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-6">**[6]**</span> *Kỹ thuật bảo vệ thực vật*, PGS. TS. Phạm Văn Lầm, NXB Lao động, Chương 5: Phòng trừ sâu bệnh hại bằng phương pháp sinh học và thảo mộc, Trang 112. <a href="#cit-6" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-7">**[7]**</span> *Nông nghiệp bền vững*, Nhà xuất bản Nông nghiệp, Chương 4: Đa dạng sinh học đất nhiệt đới ẩm, Trang 115. <a href="#cit-7" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-8">**[8]**</span> *Phân chuồng, Phân xanh: Quy trình sản xuất và kỹ thuật phối trộn sử dụng*, Nguyễn Thanh Hùng, NXB Thành phố Hồ Chí Minh, Chương 3: Xử lý phế phụ phẩm xơ dừa, vỏ trấu phục vụ nông nghiệp, Trang 62. <a href="#cit-8" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-9">**[9]**</span> *Giáo trình Nông nghiệp hữu cơ (Giáo trình chính thức đào tạo Đại học)*, GS. TS. Nguyễn Thế Đặng (Chủ biên), Đại học Nông Lâm Thái Nguyên, Chương 5: Phân bón và dinh dưỡng hữu cơ chuyên dụng, Trang 142. <a href="#cit-9" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-10">**[10]**</span> *Độ ẩm đất với cây trồng*, Chu Thị Thơm, Phan Thị Lài, NXB Lao động, Chương 2: Ảnh hưởng của bão hòa ẩm đến bộ rễ thực vật, Trang 98. <a href="#cit-10" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-11">**[11]**</span> *Ứng dụng công nghệ sinh học trong sản xuất hữu cơ và đời sống nông thôn*, Chu Thị Thơm, Phan Thị Lài, Nguyễn Văn Tố, NXB Lao động, Chương 4: Lên men vi sinh bã hữu cơ thô tại nông hộ, Trang 130. <a href="#cit-11" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+
+* <span id="ref-1">**[1]**</span> *CÂY CHÈ VÀ KỸ THUẬT CHẾ BIẾN*, PGS.TS.TRỊNH XUÂN NGỌ. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+* <span id="ref-2">**[2]**</span> *Trong nhà - Sổ tay nông dân*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế
