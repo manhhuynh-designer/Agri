@@ -29,9 +29,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
+# env files
+.env
 .env*
+.env*.local
 
 # vercel
 .vercel
@@ -45,7 +48,9 @@ next-env.d.ts
 /.jekyll-cache/
 /.jekyll-metadata
 
-.vercel
-.env*.local
-
+# RAG & Documents & Extracted Temporary Covers
 /documents/
+/data/
+/temp_covers/
+/scratch/
+*.tmp
