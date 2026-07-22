@@ -48,9 +48,10 @@ next-env.d.ts
 /.jekyll-cache/
 /.jekyll-metadata
 
-# RAG & Documents & Extracted Temporary Covers
+# RAG & Documents & Extracted Temporary Covers & Vectors
 /documents/
 /data/
 /temp_covers/
 /scratch/
 *.tmp
+*.npy
