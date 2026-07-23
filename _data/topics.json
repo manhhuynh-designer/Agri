@@ -267,5 +267,36 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-trong-nam-an-huu-co-tai-nha",
+    "title": "Kỹ thuật trồng nấm ăn hữu cơ tại nhà từ phế phẩm nông nghiệp",
+    "description": "Hướng dẫn chi tiết quy trình trồng các loại nấm ăn phổ biến như nấm rơm, nấm sò tại nhà bằng cách tận dụng rơm rạ, mùn cưa và phế phẩm hữu cơ.",
+    "categories": [
+      "Kỹ thuật trồng trọt",
+      "Nông nghiệp hữu cơ"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "ky-thuat-bao-quan-nong-san-sau-thu-hoach-huu-co",
+    "title": "Kỹ thuật bảo quản nông sản sau thu hoạch theo phương pháp tự nhiên không dùng hóa chất",
+    "description": "Hướng dẫn các giải pháp bảo quản rau củ quả sau thu hoạch bằng công nghệ sinh học và vật liệu tự nhiên, giúp kéo dài thời gian tươi ngon và giữ trọn dinh dưỡng cho nông sản.",
+    "categories": [
+      "Nông nghiệp hữu cơ",
+      "Kỹ thuật nông nghiệp",
+      "Bảo quản nông sản"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "ung-dung-nam-doi-khang-trichoderma-trong-phong-tru-benh-thoi-re-va-cai-tao-dat-huu-co",
+    "title": "Ứng dụng nấm đối kháng Trichoderma trong phòng trừ bệnh thối rễ và cải tạo đất hữu cơ",
+    "description": "Hướng dẫn chi tiết cách sử dụng nấm đối kháng Trichoderma để ức chế nấm bệnh gây hại bộ rễ, đẩy nhanh tốc độ phân hủy chất hữu cơ và nâng cao sức đề kháng cho cây trồng trong nông nghiệp hữu cơ.",
+    "categories": [
+      "Chế phẩm sinh học",
+      "Bảo vệ thực vật"
+    ],
+    "prompt": ""
   }
 ]
