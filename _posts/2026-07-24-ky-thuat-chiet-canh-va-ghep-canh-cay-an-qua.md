@@ -6,7 +6,7 @@ subtitle: "Tổng hợp cơ sở khoa học và hướng dẫn thực hành kỹ
 description: "Tổng hợp cơ sở khoa học và hướng dẫn thực hành kỹ thuật chiết cành, ghép cành cây ăn quả theo phương pháp hữu cơ, tối ưu hóa vật liệu địa phương cho hộ gia đình."
 categories: [Kỹ thuật trồng trọt, Nhân giống cây trồng]
 tags: [Kỹ thuật trồng trọt, Nhân giống cây trồng, Hữu cơ]
-image: /assets/images/generated_ky-thuat-chiet-canh-va-ghep-canh-cay-an-qua.svg
+image: https://images.pexels.com/photos/2987081/pexels-photo-2987081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 ---
 
 <div class="ai-warning-box" style="background: rgba(220, 38, 38, 0.05); border-left: 4px solid #dc2626; padding: 15px; border-radius: 4px; margin-bottom: 25px;">

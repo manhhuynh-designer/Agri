@@ -328,5 +328,65 @@
       "Nông nghiệp hữu cơ"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-cham-soc-monstera-va-kieng-la-trong-nha",
+    "title": "Kỹ thuật chăm sóc Monstera và các dòng kiểng lá (Aroid) trong không gian nội thất",
+    "description": "Hướng dẫn chi tiết cách kiểm soát ánh sáng, độ ẩm và chế độ dinh dưỡng để các dòng kiểng lá cao cấp như Monstera, Philodendron phát triển rực rỡ trong nhà.",
+    "categories": [
+      "Kiểng lá",
+      "Nông nghiệp đô thị"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "cach-phoi-tron-gia-the-soil-mix-cho-kieng-la-cao-cap",
+    "title": "Bí quyết phối trộn giá thể (Soil Mix) siêu thoáng khí cho kiểng lá cao cấp",
+    "description": "Tìm hiểu tỷ lệ phối trộn các thành phần như vỏ thông, đá Perlite, Pumice và rêu mùn Peat moss tạo môi trường rễ hoàn hảo chống úng cho cây kiểng lá.",
+    "categories": [
+      "Kiểng lá",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "nhan-giong-kieng-la-bang-phuong-phap-cat-dot-kham-thuy",
+    "title": "Kỹ thuật nhân giống kiểng lá bằng phương pháp cắt đốt và ươm rễ khảm thủy",
+    "description": "Quy trình cắt ghép, sát khuẩn và kích thích ra rễ trong môi trường nước hoặc rêu dớn (Sphagnum moss) giúp nhân giống kiểng lá an toàn, tỷ lệ sống cao.",
+    "categories": [
+      "Kiểng lá",
+      "Nhân giống cây trồng"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "thiet-ke-vuon-rau-mini-tren-ban-cong-chung-cu",
+    "title": "Thiết kế vườn rau mini trên ban công chung cư: Tối ưu không gian và ánh sáng",
+    "description": "Giải pháp sắp xếp khay chậu, giàn leo và chọn lọc các giống rau phù hợp với điều kiện thiếu nắng, nhiều gió của ban công chung cư cao tầng.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Trồng rau sạch"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "trong-rau-thung-xop-thong-minh-chong-tham-ban-cong",
+    "title": "Ứng dụng chậu ghép và thùng xốp thông minh trồng rau sạch ban công",
+    "description": "Hướng dẫn thiết kế chậu trồng rau có vỉ thoát nước tự động, hệ thống mao dẫn giữ ẩm giúp tiết kiệm công tưới và chống thấm sàn ban công hiệu quả.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "u-phan-rac-nha-bep-khong-mui-cho-vuon-ban-cong",
+    "title": "Quy trình ủ phân hữu cơ từ rác thải nhà bếp không mùi cho vườn ban công",
+    "description": "Phương pháp sử dụng thùng ủ Bokashi và vi sinh EM để xử lý rác thải hữu cơ nhà bếp thành phân bón dinh dưỡng mà không gây mùi hôi ảnh hưởng tới hàng xóm.",
+    "categories": [
+      "Nông nghiệp đô thị",
+      "Phân bón hữu cơ"
+    ],
+    "prompt": ""
   }
 ]

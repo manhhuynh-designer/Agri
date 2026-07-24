@@ -570,28 +570,214 @@ html[data-theme="light"] .sun-icon {
   padding-left: 4px;
 }
 
-/* Post Hero Banner with Fixed Background */
+/* Post Hero Banner */
 .post-hero {
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll; /* Default for mobile */
-  padding: 90px 0 70px;
-  text-align: center;
+  margin-bottom: 0;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
-  .post-hero {
-    background-attachment: fixed; /* Fixed parallax on desktop */
-    padding: 130px 0 100px;
+.post-hero-img-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.post-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.post-hero-card {
+  background-color: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: -56px auto 0 auto;
+  max-width: 800px;
+  padding: 28px 36px 24px;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.post-hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+
+.post-hero-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 36px);
+  line-height: 1.25;
+  margin: 0 0 20px;
+  color: var(--ash);
+  letter-spacing: -0.01em;
+}
+
+.post-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--steel);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.post-hero-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-hero-meta-sep {
+  color: var(--line);
+  margin: 0 2px;
+}
+
+@media (max-width: 768px) {
+
+  .post-hero-card {
+    margin-top: -40px;
+    padding: 20px 18px 18px;
+  }
+  .post-hero-meta {
+    gap: 8px 12px;
+  }
+  .post-cover-img {
+    border-radius: 8px;
+  }
+  .post-hero-meta-sep {
+    display: none;
   }
 }
 
-.post-hero-content {
-  position: relative;
-  z-index: 2;
+/* ==========================================================================
+   SVG DIAGRAM STYLES
+   ========================================================================== */
+.diagram-card {
+  margin: 32px 0;
+  padding: 24px;
+  background-color: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.diagram-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.diagram-note {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--ash-dim);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.diagram-note p {
+  margin: 0;
+}
+
+/* SVG Line & Path Classes */
+.diagram-svg .d-line {
+  stroke: var(--ash);
+  stroke-width: 1.8px;
+  fill: none;
+}
+
+.diagram-svg .d-line-2 {
+  stroke: var(--ash-dim);
+  stroke-width: 1.2px;
+  fill: none;
+}
+
+.diagram-svg .d-ember {
+  stroke: var(--ember);
+  stroke-width: 1.8px;
+  fill: none;
+}
+
+.diagram-svg .d-ember-dash {
+  stroke: var(--ember);
+  stroke-width: 1.5px;
+  stroke-dasharray: 4 3;
+  fill: none;
+}
+
+.diagram-svg .d-dim {
+  stroke: var(--line);
+  stroke-width: 1.2px;
+  fill: none;
+}
+
+.diagram-svg .d-dim-ext {
+  stroke: var(--line);
+  stroke-width: 0.8px;
+  fill: none;
+}
+
+.diagram-svg .d-leader {
+  stroke: var(--ash-dim);
+  stroke-width: 0.8px;
+  stroke-dasharray: 3 3;
+  fill: none;
+}
+
+.diagram-svg .d-frame {
+  stroke: var(--line);
+  stroke-width: 1.5px;
+  stroke-dasharray: 6 4;
+  fill: none;
+}
+
+.diagram-svg .d-check {
+  stroke: var(--char);
+  stroke-width: 2.2px;
+  fill: none;
+}
+
+/* SVG Typography Classes */
+.diagram-svg .d-label-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  fill: var(--ash);
+  letter-spacing: 0.05em;
+}
+
+.diagram-svg .d-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  fill: var(--ash-dim);
+}
+
+.diagram-svg .d-label-em {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  fill: var(--ember);
 }
 
 /* General Post styling */

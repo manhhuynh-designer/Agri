@@ -139,10 +139,10 @@ Mặc dù FAA là nguồn bổ sung nitơ sinh học chất lượng cao, phân 
 
 ## Tài liệu trích dẫn chi tiết
 
-- `<sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>` CẨM NANG NGÀNH LÂM NGHIỆP - Chương ĐẤT VÀ DINH DƯỠNG ĐẤT, GS. TSKH: Đỗ Đình Sâm, PGS. TS: Ngô Đình Quế, TS: Nguyễn Tử Siêm, KS: Nguyễn Ngọc Bình / BỘ NÔNG NGHIỆP VÀ PHÁT TRIỂN NÔNG THÔN - CHƯƠNG TRÌNH HỖ TRỢ NGÀNH LÂM NGHIỆP & ĐỐI TÁC
-- `<sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>` CẨM NANG NGÀNH LÂM NGHIỆP - Chương ĐẤT VÀ DINH DƯỠNG ĐẤT, GS. TSKH: Đỗ Đình Sâm, PGS. TS: Ngô Đình Quế, TS: Nguyễn Tử Siêm, KS: Nguyễn Ngọc Bình / BỘ NÔNG NGHIỆP VÀ PHÁT TRIỂN NÔNG THÔN - CHƯƠNG TRÌNH HỖ TRỢ NGÀNH LÂM NGHIỆP & ĐỐI TÁC
-- `<sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>` TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC
-- `<sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>` TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC
+- <span id="ref-1">**[1]**</span> CẨM NANG NGÀNH LÂM NGHIỆP - Chương ĐẤT VÀ DINH DƯỠNG ĐẤT, GS. TSKH: Đỗ Đình Sâm, PGS. TS: Ngô Đình Quế, TS: Nguyễn Tử Siêm, KS: Nguyễn Ngọc Bình / BỘ NÔNG NGHIỆP VÀ PHÁT TRIỂN NÔNG THÔN - CHƯƠNG TRÌNH HỖ TRỢ NGÀNH LÂM NGHIỆP & ĐỐI TÁC <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-2">**[2]**</span> CẨM NANG NGÀNH LÂM NGHIỆP - Chương ĐẤT VÀ DINH DƯỠNG ĐẤT, GS. TSKH: Đỗ Đình Sâm, PGS. TS: Ngô Đình Quế, TS: Nguyễn Tử Siêm, KS: Nguyễn Ngọc Bình / BỘ NÔNG NGHIỆP VÀ PHÁT TRIỂN NÔNG THÔN - CHƯƠNG TRÌNH HỖ TRỢ NGÀNH LÂM NGHIỆP & ĐỐI TÁC <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-3">**[3]**</span> TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-4">**[4]**</span> TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

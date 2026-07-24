@@ -31,8 +31,15 @@ async function main() {
     process.exit(0);
   }
 
-  const notification = JSON.parse(fs.readFileSync(pendingPath, 'utf8'));
-  console.log(`[Email] Đang gửi thông báo cho bài: "${notification.title}"`);
+  let notifications = JSON.parse(fs.readFileSync(pendingPath, 'utf8'));
+  if (!Array.isArray(notifications)) notifications = [notifications];
+  
+  if (notifications.length === 0) {
+    console.log('[Email] Không có bài viết mới.');
+    process.exit(0);
+  }
+  
+  console.log(`[Email] Đang chuẩn bị gửi thông báo cho ${notifications.length} bài viết.`);
 
   // 2. Lấy API key
   const rawKey = process.env.RESEND_API_KEY || '';
@@ -86,6 +93,21 @@ async function main() {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://agri.manhhuynh.work';
+  
+  const postsHtml = notifications.map(post => `
+        <div style="background-color: #f4ecd8; padding: 16px; border-left: 4px solid #e8590c; border-radius: 4px; margin: 20px 0;">
+          <h2 style="color: #e8590c; margin: 0 0 8px 0; font-size: 18px;">${post.title}</h2>
+          <p style="margin: 0; font-style: italic; color: #5c5346; font-size: 14px;">
+            "${post.description}"
+          </p>
+          <div style="margin-top: 15px;">
+            <a href="${siteUrl}/posts/${post.slug}" style="background-color: #e8590c; color: #ffffff; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 14px;">
+              Đọc bài viết
+            </a>
+          </div>
+        </div>
+  `).join('');
+
   const emailHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #2b1f13; line-height: 1.6;">
       <div style="background-color: #6b8e4e; padding: 24px; text-align: center; border-radius: 8px 8px 0 0;">
@@ -95,18 +117,7 @@ async function main() {
         <p style="font-size: 15px;">Xin chào độc giả,</p>
         <p style="font-size: 15px;">Chúng tôi xin gửi tới bạn ấn phẩm nghiên cứu nông nghiệp tuần hoàn sinh thái mới nhất vừa được xuất bản:</p>
         
-        <div style="background-color: #f4ecd8; padding: 16px; border-left: 4px solid #e8590c; border-radius: 4px; margin: 20px 0;">
-          <h2 style="color: #e8590c; margin: 0 0 8px 0; font-size: 18px;">${notification.title}</h2>
-          <p style="margin: 0; font-style: italic; color: #5c5346; font-size: 14px;">
-            "${notification.description}"
-          </p>
-        </div>
-
-        <div style="margin: 28px 0; text-align: center;">
-          <a href="${siteUrl}/posts/${notification.slug}" style="background-color: #e8590c; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 15px;">
-            Đọc bài viết chi tiết
-          </a>
-        </div>
+        ${postsHtml}
 
         <hr style="border: 0; border-top: 1px solid #dcd3c1; margin: 24px 0;" />
         
@@ -119,10 +130,14 @@ async function main() {
     </div>
   `;
 
+  const subject = notifications.length > 1 
+    ? `[Bài viết mới] ${notifications[0].title} và ${notifications.length - 1} bài viết khác`
+    : `[Bài viết mới] ${notifications[0].title}`;
+
   const batchData = contactsList.map(c => ({
     from: 'AgriSynthe <Agri@manhhuynh.work>',
     to: c.email,
-    subject: `[Bài viết mới] ${notification.title}`,
+    subject: subject,
     html: emailHtml
   }));
 

@@ -62,13 +62,20 @@ async function getPostBySlug(slug: string): Promise<PostData | null> {
     }
 
     // Parse markdown sang HTML
-    const cleanedContent = (data.content || '').replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match: string, svgContent: string) => {
-      const cleanedSvg = svgContent
+    let rawContent = (data.content || '').replace(/```(?:html|xml)?\s*(<div class="diagram-card">[\s\S]*?<\/div>)\s*```/gi, '$1');
+
+    let cleanedContent = rawContent.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match: string, svgContent: string) => {
+      let cleaned = svgContent
         .split("\n")
         .map((line: string) => line.trim())
         .filter((line: string) => line.length > 0)
         .join("\n");
-      return `<div class="diagram-card">\n${cleanedSvg}\n</div>`;
+      
+      if (cleaned.includes('url(#arrow)') && !cleaned.includes('id="arrow"')) {
+        const arrowDef = `<defs><marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--ember)" /></marker></defs>`;
+        cleaned = cleaned.replace(/<svg([^>]*)>/, `<svg$1>\n  ${arrowDef}`);
+      }
+      return `<div class="diagram-card">\n${cleaned}\n</div>`;
     });
 
     let contentHtml = marked(cleanedContent) as string;
@@ -262,77 +269,36 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div id="reading-progress" className="reading-progress-bar"></div>
       </div>
 
-      {/* Post Hero Banner */}
-      <div
-        className="post-hero"
-        style={{
-          backgroundImage: `linear-gradient(rgba(28, 25, 23, 0.65), rgba(28, 25, 23, 0.88)), url('${post.image}')`,
-        }}
-      >
-        {/* Visually hidden img for Image SEO & indexing */}
+      {/* Post Header — Title & Meta */}
+      <div className="post-hero wrap">
+        <div className="post-hero-eyebrow">{categoryName}</div>
+        <h1 className="post-hero-title">{post.title}</h1>
+        <div className="post-hero-meta">
+          <span className="post-hero-meta-item">{post.dateString}</span>
+          <span className="post-hero-meta-sep">·</span>
+          <span className="post-hero-meta-item">{post.readTime}</span>
+          {post.difficulty && (
+            <>
+              <span className="post-hero-meta-sep">·</span>
+              <span className="post-hero-meta-item">{post.difficulty}</span>
+            </>
+          )}
+          {post.author && (
+            <>
+              <span className="post-hero-meta-sep">·</span>
+              <span className="post-hero-meta-item">{post.author}</span>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Cover Image */}
+      <div className="post-cover wrap">
         <img
           src={post.image}
           alt={post.title}
-          style={{ display: "none" }}
-          aria-hidden="true"
+          className="post-cover-img"
         />
-        <div className="wrap post-hero-content">
-          <div
-            className="eyebrow"
-            style={{
-              color: "var(--ember)",
-              textTransform: "uppercase",
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "13px",
-              letterSpacing: "0.15em",
-              marginBottom: "15px",
-            }}
-          >
-            {categoryName}
-          </div>
-          <h1
-            style={{
-              fontFamily: "'Archivo', sans-serif",
-              fontWeight: 900,
-              fontSize: "clamp(28px, 4.5vw, 46px)",
-              lineHeight: 1.2,
-              margin: "0 0 20px",
-              color: "#ffffff",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            {post.title}
-          </h1>
-
-          <div
-            className="post-meta-details"
-            style={{
-              display: "flex",
-              gap: "20px",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              fontSize: "0.88rem",
-              color: "rgba(255, 255, 255, 0.75)",
-            }}
-          >
-            <span>
-              Ngày đăng: <b style={{ color: "#ffffff" }}>{post.dateString}</b>
-            </span>
-            <span>
-              Thời gian đọc: <b style={{ color: "#ffffff" }}>{post.readTime}</b>
-            </span>
-            {post.difficulty && (
-              <span>
-                Độ khó: <b style={{ color: "#ffffff" }}>{post.difficulty}</b>
-              </span>
-            )}
-            {post.author && (
-              <span>
-                Tác giả: <b style={{ color: "#ffffff" }}>{post.author}</b>
-              </span>
-            )}
-          </div>
-        </div>
       </div>
 
       <article className="post-layout wrap">
@@ -406,12 +372,23 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </svg>
               Chế độ đọc
             </button>
-            <button id="ai-verify-sidebar-btn" className="sidebar-action-btn verify-btn" style={{ marginTop: "-12px", marginBottom: "24px" }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "16px", height: "16px" }}>
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              Kiểm chứng bằng AI
-            </button>
+            <div style={{ display: "flex", gap: "8px", marginTop: "-12px", marginBottom: "24px" }}>
+              <button id="ai-verify-sidebar-btn" className="sidebar-action-btn verify-btn" style={{ flex: 1, marginTop: 0, marginBottom: 0, padding: "10px 8px", fontSize: "12.5px" }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "15px", height: "15px" }}>
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Kiểm chứng AI
+              </button>
+              <button id="ai-summary-sidebar-btn" className="sidebar-action-btn summary-btn" style={{ flex: 1, marginTop: 0, marginBottom: 0, padding: "10px 8px", fontSize: "12.5px" }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "15px", height: "15px" }}>
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                Tóm tắt AI
+              </button>
+            </div>
             <div className="toc-card">
               <h4 className="toc-title">Mục lục bài viết</h4>
               <ul id="toc-list" className="toc-list">

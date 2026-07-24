@@ -45,7 +45,6 @@ Trong tự nhiên, các khu rừng tự nhiên duy trì và phát triển độ 
 
 ngược lại, hành động cày xới đất trong nông nghiệp thông thường làm phá vỡ sự cân bằng này. Trên các vùng đất dốc, việc làm đất combined với thảm che phủ bị mất dẫn đến xói mòn nghiêm trọng, cát đá sỏi bị rửa trôi xuống ruột đồng, làm nghèo cạn tầng đất mặt và hư hỏng hệ thống nguồn nước <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
 
-```html
 <div class="diagram-card">
 <svg viewBox="0 0 640 260" width="100%" height="auto" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
 <text x="320" y="35" text-anchor="middle" class="d-label-title">CHU TRÌNH SINH THÁI &amp; DINH DƯỠNG CANH TÁC FUKUOKA</text>
@@ -70,7 +69,6 @@ ngược lại, hành động cày xới đất trong nông nghiệp thông thư
 <p><b>Hình A:</b> Sơ đồ mô tả vòng tuần hoàn khép kín giữa thảm phủ sinh học, vi sinh vật đất, sự cân bằng thiên địch và quá trình chu chuyển dinh dưỡng tự nhiên trong mô hình Fukuoka.</p>
 </div>
 </div>
-```
 
 Trong hệ sinh thái rừng tự nhiên, mật độ và tính đa dạng loài cao ngăn chặn việc bùng phát dịch bệnh độc hại <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. Khi nông nghiệp chuyển sang mô hình độc canh, tính đa dạng bị triệt tiêu, khiến cây trồng mất đi hàng rào sinh học bảo vệ tự nhiên và trở nên phụ thuộc vào hóa chất <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. 
 

@@ -500,6 +500,12 @@ function uploadToR2(bucketName, key, buffer) {
     const accessKeyId = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
     const secretAccessKey = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
     
+    let contentType = 'application/octet-stream';
+    if (key.endsWith('.json')) contentType = 'application/json';
+    else if (key.endsWith('.png')) contentType = 'image/png';
+    else if (key.endsWith('.svg')) contentType = 'image/svg+xml';
+    else if (key.endsWith('.jpg') || key.endsWith('.jpeg')) contentType = 'image/jpeg';
+    
     if (!accountId || !accessKeyId || !secretAccessKey) {
       console.warn('[Cloudflare R2] Warning: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_R2_ACCESS_KEY_ID, or CLOUDFLARE_R2_SECRET_ACCESS_KEY not found in environment.');
       return resolve(false);
@@ -523,7 +529,7 @@ function uploadToR2(bucketName, key, buffer) {
         Bucket: bucketName,
         Key: key,
         Body: buffer,
-        ContentType: 'image/png'
+        ContentType: contentType
       });
 
       s3.send(command)
@@ -603,76 +609,49 @@ function searchYoutubeVideo(query) {
 
 
 
-function generateSvgPlaceholder(topicId, title) {
-  // Curated premium gradients
-  const gradients = [
-    { start: '#11998e', end: '#38ef7d' }, // Emerald
-    { start: '#373B44', end: '#4286f4' }, // Midnight Blue
-    { start: '#8A2387', end: '#E94057' }, // Sunset Violet
-    { start: '#f12711', end: '#f5af19' }, // Warm Sun
-    { start: '#0F2027', end: '#203A43' }, // Dark Forest
-    { start: '#1e3c72', end: '#2a5298' }  // Ocean Blue
-  ];
-  
-  let hash = 0;
-  for (let i = 0; i < topicId.length; i++) {
-    hash = topicId.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const grad = gradients[Math.abs(hash) % gradients.length];
-  
-  const words = title.split(' ');
-  let lines = [];
-  let currentLine = '';
-  words.forEach(word => {
-    if ((currentLine + word).length > 25) {
-      lines.push(currentLine.trim());
-      currentLine = word + ' ';
-    } else {
-      currentLine += word + ' ';
+async function getPexelsFallbackImage(topicId) {
+  return new Promise((resolve) => {
+    const pexelsKey = process.env.PEXELS_API_KEY;
+    if (!pexelsKey) {
+      console.warn('[Pexels Fallback] No PEXELS_API_KEY found, using default favicon.');
+      return resolve('/assets/images/favicon.svg');
     }
+
+    const query = 'agriculture farming organic';
+    const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=15`;
+    
+    https.get(url, {
+      headers: { 'Authorization': pexelsKey }
+    }, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.photos && parsed.photos.length > 0) {
+              // Pick a random photo from the results
+              const randomIndex = Math.floor(Math.random() * parsed.photos.length);
+              const photoUrl = parsed.photos[randomIndex].src.landscape || parsed.photos[randomIndex].src.large;
+              console.log(`[Pexels Fallback] Found image from Pexels: ${photoUrl}`);
+              resolve(photoUrl);
+            } else {
+              resolve('/assets/images/favicon.svg');
+            }
+          } catch (e) {
+            console.error('[Pexels Fallback] JSON parse error:', e.message);
+            resolve('/assets/images/favicon.svg');
+          }
+        } else {
+          console.error(`[Pexels Fallback] API error: ${res.statusCode} - ${data}`);
+          resolve('/assets/images/favicon.svg');
+        }
+      });
+    }).on('error', (err) => {
+      console.error('[Pexels Fallback] Connection error:', err.message);
+      resolve('/assets/images/favicon.svg');
+    });
   });
-  if (currentLine) lines.push(currentLine.trim());
-  
-  let textY = 220 - (lines.length - 1) * 30;
-  let textElements = lines.map((line, idx) => {
-    return `<text x="400" y="${textY + idx * 60}" fill="#ffffff" font-family="'Archivo', 'Segoe UI', sans-serif" font-weight="900" font-size="32" text-anchor="middle">${line}</text>`;
-  }).join('\n    ');
-
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:${grad.start};stop-opacity:1" />
-      <stop offset="100%" style="stop-color:${grad.end};stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
-    </filter>
-  </defs>
-  
-  <rect width="800" height="500" fill="url(#grad)" />
-  <path d="M -50 550 Q 200 400 400 500 T 850 -50 L 850 550 Z" fill="#ffffff" fill-opacity="0.05" />
-  <path d="M -50 550 Q 100 300 300 450 T 850 150 L 850 550 Z" fill="#ffffff" fill-opacity="0.03" />
-  
-  <rect x="80" y="80" width="640" height="340" rx="16" fill="#1c1917" fill-opacity="0.4" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2" filter="url(#shadow)" />
-  
-  <g transform="translate(400, 130) scale(0.6)">
-    <path d="M 0,-40 L 12,-12 L 40,-12 L 18,6 L 26,34 L 0,16 L -26,34 L -18,6 L -40,-12 L -12,-12 Z" fill="#FBBF24" />
-  </g>
-  
-  <g filter="url(#shadow)">
-    ${textElements}
-  </g>
-  
-  <text x="400" y="400" fill="#ffffff" fill-opacity="0.6" font-family="'JetBrains Mono', monospace" font-size="14" letter-spacing="0.2em" text-anchor="middle">AGRISYNTHE JOURNAL</text>
-</svg>`;
-
-  const filename = `generated_${topicId}.svg`;
-  const relativePath = `/assets/images/${filename}`;
-  const absolutePath = path.join(__dirname, '..', 'public', 'assets', 'images', filename);
-  
-  fs.writeFileSync(absolutePath, svgContent);
-  console.log(`[Image Generator] Generated beautiful custom SVG fallback at: ${relativePath}`);
-  return relativePath;
 }
 
 async function generateSinglePost(todayStr) {
@@ -810,7 +789,7 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
       console.log(`[Hero Image] R2 upload failed. Saved AI hero image locally: ${selectedImage}`);
     }
   } else {
-    selectedImage = generateSvgPlaceholder(selectedTopic.id, selectedTopic.title);
+    selectedImage = await getPexelsFallbackImage(selectedTopic.id);
   }
   console.log(`Using post image: ${selectedImage}`);
 
@@ -1028,9 +1007,9 @@ ${citationListInstructions}
 </div>`
   );
 
-  const citationsHeader = '### Tài liệu trích dẫn chi tiết';
-  const citationsIndex = content.indexOf(citationsHeader);
-  if (citationsIndex !== -1) {
+  const citationMatch = content.match(/#{1,3}\s*Tài liệu trích dẫn/i);
+  const citationsIndex = citationMatch ? citationMatch.index : -1;
+  if (citationsIndex !== undefined && citationsIndex !== -1) {
     let body = content.substring(0, citationsIndex);
     let footer = content.substring(citationsIndex);
     
@@ -1042,7 +1021,7 @@ ${citationListInstructions}
     }
     body = parts.join('');
     
-    footer = footer.replace(/^([-*]|\d+\.)\s*(?:`?\[(\d+)\]`?|<sup><a[^>]*>\[(\d+)\]<\/a><\/sup>)\s*(.+)$/gm, (match, prefix, num1, num2, desc) => {
+    footer = footer.replace(/^([-*]|\d+\.)\s*(?:`?\[(\d+)\]`?|`?<sup><a[^>]*>\[(\d+)\]<\/a><\/sup>`?)\s*(.+)$/gm, (match, prefix, num1, num2, desc) => {
       const num = num1 || num2;
       return `${prefix} <span id="ref-${num}">**[${num}]**</span> ${desc.trim()} <a href="#cit-${num}" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>`;
     });
@@ -1051,6 +1030,8 @@ ${citationListInstructions}
   } else {
     content = content.replace(/\[(\d+)\](?!\()/g, '<sup><a href="#ref-$1" class="citation-ref" id="cit-$1">[$1]</a></sup>');
   }
+
+  content = content.replace(/```(?:html|xml)?\s*(<div class="diagram-card">[\s\S]*?<\/div>)\s*```/gi, '$1');
 
   content = content.replace(/<div class="diagram-card">([\s\S]*?)<\/div>/g, (match, svgContent) => {
     const cleanedSvg = svgContent
@@ -1157,11 +1138,16 @@ ${citationListInstructions}
         const https = require('https');
         const fetchExistingIndex = () => new Promise((resolve) => {
           https.get(`${cleanPublicUrl}/posts-index.json`, (res) => {
-            let d = '';
-            res.on('data', c => d += c);
+            const chunks = [];
+            res.on('data', c => chunks.push(c));
             res.on('end', () => {
               if (res.statusCode === 200) {
-                resolve(JSON.parse(d));
+                try {
+                  const dataStr = Buffer.concat(chunks).toString('utf8');
+                  resolve(JSON.parse(dataStr));
+                } catch(e) {
+                  resolve([]);
+                }
               } else {
                 resolve([]);
               }
@@ -1203,14 +1189,24 @@ ${citationListInstructions}
     console.error('[Cloudflare R2] Lỗi khi tạo/upload JSON:', err.message);
   }
 
+  const pendingPath = path.join(__dirname, '..', '_data', 'pending_notification.json');
+  let pendingArray = [];
+  if (fs.existsSync(pendingPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(pendingPath, 'utf8'));
+      pendingArray = Array.isArray(existing) ? existing : [existing];
+    } catch (e) {}
+  }
+  
   const pendingNotification = {
     title: selectedTopic.title,
     description: selectedTopic.description || 'Nghiên cứu khoa học và cẩm nang khuyến nông hữu cơ.',
     slug: selectedTopic.id,
     createdAt: new Date().toISOString()
   };
-  const pendingPath = path.join(__dirname, '..', '_data', 'pending_notification.json');
-  fs.writeFileSync(pendingPath, JSON.stringify(pendingNotification, null, 2), 'utf8');
+  
+  pendingArray.push(pendingNotification);
+  fs.writeFileSync(pendingPath, JSON.stringify(pendingArray, null, 2), 'utf8');
   console.log(`[Email] Đã lưu thông tin bài viết vào pending_notification.json.`);
 
   return true;
@@ -1246,24 +1242,17 @@ async function main() {
     process.exit(0);
   }
 
-  const neededCount = TARGET_POSTS_PER_DAY - todayPostsCount;
-  console.log(`[Daily Scheduler] 🚀 Tiến hành tạo bù ${neededCount} bài viết còn thiếu cho ngày hôm nay...\n`);
+  console.log(`[Daily Scheduler] 🚀 Tiến hành tạo 1 bài viết mới (Đã có ${todayPostsCount}/${TARGET_POSTS_PER_DAY} bài hôm nay)...\n`);
 
-  for (let i = 1; i <= neededCount; i++) {
-    console.log(`--------------------------------------------------`);
-    console.log(`[Daily Scheduler] [Bài ${i}/${neededCount}] Đang tiến hành tạo bài...`);
-    console.log(`--------------------------------------------------`);
-
-    const success = await generateSinglePost(todayStr);
-    if (!success) {
-      console.error(`[Daily Scheduler] ❌ Tạo bài ${i}/${neededCount} thất bại.`);
-    } else {
-      console.log(`[Daily Scheduler] ✅ Hoàn thành bài ${i}/${neededCount} cho ngày ${todayStr}.\n`);
-    }
+  const success = await generateSinglePost(todayStr);
+  if (!success) {
+    console.error(`[Daily Scheduler] ❌ Tạo bài viết thất bại.`);
+  } else {
+    console.log(`[Daily Scheduler] ✅ Hoàn thành tạo 1 bài viết mới cho ngày ${todayStr}.\n`);
   }
 
   console.log(`==================================================`);
-  console.log(`[Daily Scheduler] 🎉 ĐÃ HOÀN THÀNH CHỈ TIÊU BÀI VIẾT CHO NGÀY ${todayStr}!`);
+  console.log(`[Daily Scheduler] 🎉 ĐÃ HOÀN TẤT PHIÊN LÀM VIỆC!`);
   console.log(`==================================================`);
 
   process.exit(0);
