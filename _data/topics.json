@@ -298,5 +298,35 @@
       "Bảo vệ thực vật"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-chiet-canh-va-ghep-canh-cay-an-qua",
+    "title": "Kỹ thuật chiết cành và ghép cành cây ăn quả: Hướng dẫn nhân giống hữu cơ tại nhà",
+    "description": "Hướng dẫn chi tiết quy trình chiết cành và ghép cành cho cây ăn quả bằng vật liệu tự nhiên, giúp giữ trọn đặc tính tốt của cây mẹ và nâng cao tỷ lệ sống.",
+    "categories": [
+      "Kỹ thuật trồng trọt",
+      "Nhân giống cây trồng"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "ky-thuat-u-phan-dam-ca-faa-huu-co-tai-nha",
+    "title": "Kỹ thuật ủ phân đạm cá (FAA) hữu cơ giàu dinh dưỡng tại nhà",
+    "description": "Hướng dẫn chi tiết quy trình ủ phân đạm cá bằng đường mật mía và vi sinh vật giúp cung cấp nguồn đạm sinh học dồi dào, an toàn cho cây trồng.",
+    "categories": [
+      "Phân bón hữu cơ",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "nong-nghiep-tu-nhien-fukuoka-nguyen-ly-va-ung-dung",
+    "title": "Nông nghiệp tự nhiên Fukuoka: Triết lý 4 Không và nghệ thuật canh tác không làm đất",
+    "description": "Khám phá triết lý nông nghiệp tự nhiên của Masanobu Fukuoka dựa trên 4 nguyên tắc cốt lõi giúp khôi phục hệ sinh thái đất và nuôi dưỡng cây trồng tự nhiên mà không cần cày xới hay phân bón hóa hóa học.",
+    "categories": [
+      "Canh tác sinh thái",
+      "Nông nghiệp hữu cơ"
+    ],
+    "prompt": ""
   }
 ]
