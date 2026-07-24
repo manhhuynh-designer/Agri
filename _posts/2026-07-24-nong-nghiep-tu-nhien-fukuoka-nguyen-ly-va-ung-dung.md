@@ -129,10 +129,10 @@ Chuyển đổi hoàn toàn sang nông nghiệp tự nhiên ngay lập tức có
 Triết lý Nông nghiệp tự nhiên của Masanobu Fukuoka không chỉ là một tập hợp các kỹ thuật canh tác không làm đất, mà là một tư duy hệ thống về sự tôn trọng quy luật sinh thái. Trong bối cảnh đất nông nghiệp tại Việt Nam đang bị suy thoái nghiêm trọng do lạm dụng hóa chất và xới xáo quá mức, việc nghiên cứu và vận dụng linh hoạt các nguyên lý "4 Không" cùng giải pháp hạt viên — có điều chỉnh phù hợp với phế phụ phẩm và cây trồng bản địa — chính là hướng đi khoa học để xây dựng một nền nông nghiệp bền vững và tự chủ.
 
 ### Tài liệu trích dẫn chi tiết
-- <span id="ref-1">**[1]**</span> KỸ THUẬT CANH TÁC TRÊN ĐẤT DỐC, CHU THỊ THƠM, PHAN THỊ LÀI, NGUYỄN VĂN TÓ / NHÀ XUẤT BẢN LAO ĐỘNG <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> CANH TÁC HỮU CƠ - Tham khảo cho sản xuất rau, quả và chè. Tài liệu hướng dẫn dành cho giảng viên nông dân, ADDA office in Vietnam <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> KỸ THUẬT CANH TÁC TRÊN ĐẤT DỐC, CHU THỊ THƠM, PHAN THỊ LÀI, NGUYỄN VĂN TÓ / NHÀ XUẤT BẢN LAO ĐỘNG <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> KỸ THUẬT CANH TÁC TRÊN ĐẤT DỐC, CHU THỊ THƠM, PHAN THỊ LÀI, NGUYỄN VĂN TÓ / NHÀ XUẤT BẢN LAO ĐỘNG <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> CUỘC CÁCH MẠNG MỘT-CỌNG-RƠM, Masanobu Fukuoka / Trích: Triết lý Không làm đất và sự tự cân bằng của tự nhiên <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-2">**[2]**</span> CUỘC CÁCH MẠNG MỘT-CỌNG-RƠM, Masanobu Fukuoka / Trích: Kỹ thuật hạt viên (Seed balls) và gieo sạ trực tiếp <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-3">**[3]**</span> The Natural Way of Farming: The Theory and Practice of Green Philosophy, Masanobu Fukuoka <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-4">**[4]**</span> The Road Back to Nature: Regaining the Paradise Lost, Masanobu Fukuoka <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

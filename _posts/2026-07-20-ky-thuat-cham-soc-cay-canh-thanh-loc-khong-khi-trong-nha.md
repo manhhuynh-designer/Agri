@@ -24,9 +24,9 @@ Khả năng làm sạch không khí của thực vật trong nhà vận hành th
 
 Đầu tiên là quá trình hấp thụ trực tiếp qua khí khổng (stomata) trên bề mặt lá. Khi cây mở khí khổng để thực hiện trao đổi khí cho quá trình quang hợp và hô hấp, các phân tử khí độc tự do như formaldehyde và benzene sẽ khuếch tán vào bên trong khoang dưới khí khổng. Tại đây, chúng bị hòa tan vào lớp màng nước bao quanh tế bào nhu mô và bị chuyển hóa bởi các enzyme nội bào thành các axit amin hoặc các hợp chất hữu cơ đơn giản không độc hại để phục vụ cho các chu trình chuyển hóa sơ cấp của cây <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 
-Thứ hai là dòng đối lưu khí sinh ra bởi sự thoát hơi nước (transpiration-driven convection). Sự bốc thoát hơi nước qua lá tạo ra một áp suất âm ở vùng rễ, kéo theo dòng không khí di chuyển từ phía trên mặt chậu xuống sâu dưới các khe hở của giá thể đất trồng. Dòng khí mang theo chất độc này tiếp xúc trực tiếp với bề mặt rễ và các hạt đất, nơi chúng bị giữ lại bằng lực hấp phụ vật lý <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+Thứ hai là dòng đối lưu khí sinh ra bởi sự thoát hơi nước (transpiration-driven convection). Sự bốc thoát hơi nước qua lá tạo ra một áp suất âm ở vùng rễ, kéo theo dòng không khí di chuyển từ phía trên mặt chậu xuống sâu dưới các khe hở của giá thể đất trồng. Dòng khí mang theo chất độc này tiếp xúc trực tiếp với bề mặt rễ và các hạt đất, nơi chúng bị giữ lại bằng lực hấp phụ vật lý [3].
 
-Thứ ba, và cũng là cơ chế chiếm tỷ trọng phân hủy độc chất lớn nhất (thường đạt trên 80% đối với các chất hữu cơ mạch vòng), đó là hoạt động phân giải của hệ vi sinh vật vùng rễ (rhizosphere microbes). Rễ thực vật liên tục tiết ra các chất hữu cơ như đường đơn, axit amin và vitamin vào đất xung quanh. Nguồn năng lượng dễ tiêu này thu hút và nuôi dưỡng một mật độ vi sinh vật cực kỳ đậm đặc. Nhóm vi khuẩn và nấm cộng sinh này sử dụng các enzyme ngoại bào để bẻ gãy cấu trúc carbon phức tạp của các khí độc như benzene, toluene và xylene, biến chúng thành các chất mùn hoặc các ion khoáng dinh dưỡng cho cây trồng hấp thụ ngược lại <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
+Thứ ba, và cũng là cơ chế chiếm tỷ trọng phân hủy độc chất lớn nhất (thường đạt trên 80% đối với các chất hữu cơ mạch vòng), đó là hoạt động phân giải của hệ vi sinh vật vùng rễ (rhizosphere microbes). Rễ thực vật liên tục tiết ra các chất hữu cơ như đường đơn, axit amin và vitamin vào đất xung quanh. Nguồn năng lượng dễ tiêu này thu hút và nuôi dưỡng một mật độ vi sinh vật cực kỳ đậm đặc. Nhóm vi khuẩn và nấm cộng sinh này sử dụng các enzyme ngoại bào để bẻ gãy cấu trúc carbon phức tạp của các khí độc như benzene, toluene và xylene, biến chúng thành các chất mùn hoặc các ion khoáng dinh dưỡng cho cây trồng hấp thụ ngược lại [4].
 
 Khi so sánh giữa việc đặt chậu cây trong trạng thái tĩnh tự nhiên (hấp thụ thụ động) và việc sử dụng các chậu cây có hệ thống sục khí chủ động hoặc giá thể siêu thoáng khí, thực nghiệm cho thấy hiệu suất thanh lọc của hệ thống chủ động có thể tăng từ 3 đến 5 lần. Điều này là do tốc độ lưu chuyển không khí qua vùng rễ được đẩy mạnh, giải quyết được điểm nghẽn về giới hạn tốc độ khuếch tán tự nhiên của các chất khí trong không khí tĩnh.
 
@@ -40,7 +40,7 @@ Một sai lầm phổ biến khi chăm sóc cây cảnh trong nhà là sử dụ
 
 Các thành phần cấu thành giá thể được chia làm hai nhóm chính:
 - **Nhóm giữ ẩm và dinh dưỡng**: Gồm mụn dừa, than bùn (peat moss) và phân hữu cơ hoai mục (như phân trùn quế). Nhóm này cung cấp mùn và giữ các ion dinh dưỡng để giải phóng từ từ cho rễ cây <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
-- **Nhóm tạo thông thoáng (aeration agents)**: Gồm đá trân châu (perlite), xỉ than đập nhỏ, vỏ trấu hun hoặc than sinh học (biochar). Với cấu trúc xốp rỗng, các vật liệu này tạo ra các vi lỗ khí giúp oxy dễ dàng tiếp cận đầu rễ để thực hiện hô hấp hiếu khí <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+- **Nhóm tạo thông thoáng (aeration agents)**: Gồm đá trân châu (perlite), xỉ than đập nhỏ, vỏ trấu hun hoặc than sinh học (biochar). Với cấu trúc xốp rỗng, các vật liệu này tạo ra các vi lỗ khí giúp oxy dễ dàng tiếp cận đầu rễ để thực hiện hô hấp hiếu khí [3].
 
 Bảng dưới đây so sánh tỷ lệ phối trộn tối ưu cho hai nhóm cây cảnh trong nhà có nhu cầu sinh thái khác nhau:
 
@@ -117,12 +117,12 @@ Quy trình hấp thụ, vận chuyển và chuyển hóa các chất hữu cơ d
 
 ![Kỹ thuật chăm sáng và tưới nước cho cây cảnh](pexels: watering indoor plants home)
 
-Sự sống và khả năng hoạt động của bộ lọc sinh học này phụ thuộc trực tiếp vào hai yếu tố: nước tưới và ánh sáng. Khí khổng của cây chỉ mở ra khi tế bào bảo vệ căng nước và nhận đủ năng lượng ánh sáng kích thích. Khi thiếu nước hoặc thiếu sáng, khí khổng sẽ đóng chặt để ngăn thoát hơi nước, kéo theo hiệu suất hấp thụ khí độc giảm xuống bằng không <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+Sự sống và khả năng hoạt động của bộ lọc sinh học này phụ thuộc trực tiếp vào hai yếu tố: nước tưới và ánh sáng. Khí khổng của cây chỉ mở ra khi tế bào bảo vệ căng nước và nhận đủ năng lượng ánh sáng kích thích. Khi thiếu nước hoặc thiếu sáng, khí khổng sẽ đóng chặt để ngăn thoát hơi nước, kéo theo hiệu suất hấp thụ khí độc giảm xuống bằng không [3].
 
 ### Kỹ thuật tưới nước tránh nghẹt rễ
 Tưới quá nhiều nước là nguyên nhân hàng đầu dẫn đến chết cây cảnh trong nhà. Thay vì tưới định kỳ theo lịch cố định, việc tưới nước phải tuân theo quy tắc kiểm tra thực tế: chỉ tưới khi lớp đất mặt sâu khoảng 2 - 3 cm đã khô hoàn toàn. 
 - **Phương pháp tưới bề mặt (top watering)**: Tưới nhẹ nhàng xung quanh gốc bằng vòi chảy chậm cho đến khi nước bắt đầu rỉ ra ở lỗ thoát đáy chậu. Tránh xịt trực tiếp dòng nước mạnh lên mặt đất để ngăn hiện tượng xói mòn và nén chặt bề mặt giá thể.
-- **Phương pháp tưới thấm ngược (bottom watering)**: Đây là giải pháp tối ưu cho các chậu cây mini hoặc cây có tán lá dày bao phủ kín miệng chậu (như đuôi công, măng tây). Đặt chậu cây vào một khay nước cao khoảng 1/4 đến 1/3 chiều cao chậu. Nước sẽ di chuyển ngược lên trên nhờ mao quản của giá thể. Sau 15 - 20 phút, khi mặt đất phía trên ẩm nhẹ, nhấc chậu ra ngoài và để ráo nước. Phương pháp này giữ cho bề mặt chậu khô thoáng, hạn chế nấm mốc phát triển ở cổ rễ <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+- **Phương pháp tưới thấm ngược (bottom watering)**: Đây là giải pháp tối ưu cho các chậu cây mini hoặc cây có tán lá dày bao phủ kín miệng chậu (như đuôi công, măng tây). Đặt chậu cây vào một khay nước cao khoảng 1/4 đến 1/3 chiều cao chậu. Nước sẽ di chuyển ngược lên trên nhờ mao quản của giá thể. Sau 15 - 20 phút, khi mặt đất phía trên ẩm nhẹ, nhấc chậu ra ngoài và để ráo nước. Phương pháp này giữ cho bề mặt chậu khô thoáng, hạn chế nấm mốc phát triển ở cổ rễ [3].
 
 ### Quản lý ánh sáng và quang chu kỳ
 Mặc dù được phân loại là cây trồng trong bóng râm, hầu hết thực vật nội thất vẫn cần ánh sáng gián tiếp cường độ từ 1000 đến 3000 Lux để duy trì khả năng tự dưỡng lâu dài.
@@ -142,7 +142,7 @@ Rệp sáp bám vào các kẽ lá, cuống hoa để hút nhựa cây, đồng 
 
 ### Phòng trừ bệnh nấm hại rễ và lá
 Bệnh thối gốc do nấm *Phytophthora* hoặc *Pythium* thường bùng phát do đất quá ẩm kết hợp môi trường bí khí.
-- **Xử lý**: Cắt bỏ triệt để các lá bị bệnh, nhổ cây ra khỏi chậu để kiểm tra rễ. Cắt tỉa hết các đầu rễ bị thối đen, sau đó ngâm bộ rễ vào dung dịch men vi sinh chứa nấm đối kháng *Trichoderma* hoặc vi khuẩn *Bacillus subtilis* để phục hồi hệ vi sinh có lợi <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. Thay thế toàn bộ giá thể cũ bằng giá thể mới đã được tiệt trùng và tăng tỷ lệ đá Perlite để tạo độ thoáng tối đa.
+- **Xử lý**: Cắt bỏ triệt để các lá bị bệnh, nhổ cây ra khỏi chậu để kiểm tra rễ. Cắt tỉa hết các đầu rễ bị thối đen, sau đó ngâm bộ rễ vào dung dịch men vi sinh chứa nấm đối kháng *Trichoderma* hoặc vi khuẩn *Bacillus subtilis* để phục hồi hệ vi sinh có lợi [4]. Thay thế toàn bộ giá thể cũ bằng giá thể mới đã được tiệt trùng và tăng tỷ lệ đá Perlite để tạo độ thoáng tối đa.
 
 ## Phân Tích Thực Tiễn & Khả Năng Áp Dụng Tại Việt Nam
 
@@ -165,9 +165,8 @@ Các tài liệu kỹ thuật phương Tây thường hướng dẫn sử dụng
 Bằng việc chủ động điều chỉnh kết cấu giá thể thoáng khí hơn 15 - 20% so với công thức chuẩn của nước ngoài và áp dụng các biện pháp thông gió chủ động, các hộ gia đình đô thị tại Việt Nam hoàn toàn có thể duy trì các chậu cây cảnh lọc khí sinh trưởng bền vững qua nhiều năm với chi phí vận hành cực kỳ thấp.
 
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *CÂY CHÈ VÀ KỸ THUẬT CHẾ BIẾN*, PGS.TS.TRỊNH XUÂN NGỌ. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *Trong nhà - Sổ tay nông dân*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> *CÂY CHÈ VÀ KỸ THUẬT CHẾ BIẾN*, PGS.TS.TRỊNH XUÂN NGỌ. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-2">**[2]**</span> *Trong nhà - Sổ tay nông dân*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

@@ -16,9 +16,10 @@ function searchRagIndex(query, topN = 4) {
   const rawData = fs.readFileSync(RAG_INDEX_PATH, 'utf-8');
   const chunks = JSON.parse(rawData);
 
+  const queryLower = query.toLowerCase();
+
   // Clean and tokenize query words (lowercase, remove punctuation, filter short words)
-  const queryTerms = query
-    .toLowerCase()
+  const queryTerms = queryLower
     .replace(/[^\w\sàáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/gi, ' ')
     .split(/\s+/)
     .filter(t => t.length > 2);
@@ -27,18 +28,44 @@ function searchRagIndex(query, topN = 4) {
     return chunks.slice(0, topN);
   }
 
+  // Detect specific author names from query (e.g., fukuoka, sepp holzer)
+  const authorKeywords = ['fukuoka', 'holzer', 'jeavons', 'mollison'];
+  const matchedAuthors = authorKeywords.filter(a => queryLower.includes(a));
+
   // Score each chunk
   const scoredChunks = chunks.map(chunk => {
     const textLower = (chunk.text + ' ' + chunk.title).toLowerCase();
+    const authorLower = (chunk.author || '').toLowerCase();
+    const titleLower = chunk.title.toLowerCase();
+    
     let score = 0;
 
     for (const term of queryTerms) {
       if (textLower.includes(term)) {
         score += 1;
         // Extra weight if term appears in document title
-        if (chunk.title.toLowerCase().includes(term)) {
-          score += 2;
+        if (titleLower.includes(term)) {
+          score += 5;
         }
+      }
+    }
+
+    // MASSIVE BOOST for Author matches
+    for (const author of matchedAuthors) {
+      if (authorLower.includes(author)) {
+        score += 1000;
+      }
+    }
+
+    // MASSIVE BOOST for Exact Title match words
+    if (matchedAuthors.length === 0) {
+      // If no specific author, boost titles that have high overlap
+      let titleOverlap = 0;
+      for (const term of queryTerms) {
+        if (titleLower.includes(term)) titleOverlap++;
+      }
+      if (titleOverlap >= 3) {
+        score += titleOverlap * 20;
       }
     }
 

@@ -16,7 +16,7 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
   <p><img src="https://img.manhhuynh.work/posts/sac-than-sinh-hoc-giam-go-tai-sao-sac.png" alt="Tại sao phải sạc than sinh học" /></p>
   <p class="sec-desc">Than sinh học (biochar) mới ra lò là một cấu trúc carbon cực kỳ rỗng, khô và "đói" dinh dưỡng.</p>
   
-  <p>Nếu bạn bón trực tiếp than sinh học mới đốt vào đất, cấu trúc rỗng xốp xơ của nó sẽ hoạt động giống như một miếng bọt biển khô khổng lồ. Nó sẽ hút sạch nước, phân bón và các vi sinh vật có sẵn trong đất để lấp đầy các khoang trống của nó. Hậu quả là trong mùa vụ đầu tiên, cây trồng của bạn có thể bị còi cọc do thiếu nước và chất dinh dưỡng tạm thời.</p>
+  <p>Nếu bạn bón trực tiếp than sinh học mới đốt vào đất, cấu trúc rỗng xốp xơ của nó sẽ hoạt động giống như một miếng bọt biển khô khổng lồ. Nó sẽ hút sạch nước, phân bón và các vi sinh vật có sẵn trong đất để lấp đầy các khoang trống của nó. Hậu quả là trong mùa vụ đầu tiên, cây trồng của bạn có thể bị còi cọc do thiếu nước và chất dinh dưỡng tạm thời. Ngoài ra, việc bón trực tiếp các hợp chất hữu cơ chưa phân hủy đủ thời gian vào đất có thể phát sinh khí độc hại khiến cây trồng kém phát triển, trong đó các loại cây ăn lá và cây ăn quả đặc biệt mẫn cảm <a href="#ref-1" id="cit-1">[1]</a>.</p>
   
   <p><b>"Sạc" than sinh học (Biochar Activation/Inoculation)</b> là quá trình chủ động bơm đầy dinh dưỡng và cấy vi sinh vật có lợi vào các khoang rỗng này trước khi bón vào đất trồng. Khi đã được nạp đầy, than sinh học sẽ trở thành một "kho pin" bền vững giải phóng chậm dinh dưỡng và là ngôi nhà lý tưởng cho các vi sinh vật đất phát triển trọn đời.</p>
 </section>
@@ -52,7 +52,7 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
       <h3>Bước 4: Ủ yếm khí</h3>
       <ul>
         <li>Đậy đống ủ bằng bạt tối màu hoặc cho vào bao tải dứa để ở nơi râm mát.</li>
-        <li>Ủ hỗn hợp trong vòng <b>10 đến 14 ngày</b> trước khi bón. Lúc này vi sinh vật đã định cư và nhân số lượng lớn trong các lỗ rỗng của than.</li>
+        <li>Ủ hỗn hợp trong vòng <b>10 đến 14 ngày</b> (hoặc 2 đến 3 tuần) trước khi bón, tận dụng điều kiện nhiệt độ cao và độ ẩm tối ưu để rút ngắn thời gian phân hủy, đảm bảo vi sinh vật đã định cư và nhân số lượng lớn trong các lỗ rỗng của than <a href="#ref-3" id="cit-3">[3]</a>.</li>
       </ul>
     </div>
   </div>
@@ -96,24 +96,14 @@ description: "Hướng dẫn chi tiết cách kích hoạt hệ vi sinh cho than
     </div>
     <div class="flow-item">
       <span class="t">TỶ LỆ 1:200 (PHA LOÃNG 200 LẦN)</span>
-      <p>Phun đều lên mặt lá để phòng ngừa và trị các chứng bệnh do nấm tấn công (như đốm lá, phấn trắng) và xua đuổi rầy, rệp, kiến hại bông.</p>
+      <p>Phun đều lên mặt lá để phòng ngừa và trị các chứng bệnh do nấm tấn công (như đốm lá, phấn trắng) và xua đuổi rầy, rệp, kiến hại bông trên các nhóm cây trồng (cây ngũ cốc, cây họ đậu, cây ăn lá, cây lấy rễ, cây ăn quả) <a href="#ref-2" id="cit-2">[2]</a>.</p>
     </div>
     <div class="flow-item">
       <span class="t">TỶ LỆ 1:500 (PHA LOÃNG 500 LẦN)</span>
-      <p>Dùng tưới định kỳ quanh gốc cây hoặc ngâm hạt giống trước khi gieo giúp kích thích hạt nảy mầm nhanh và tăng đề kháng cho rễ cây con phát triển khỏe mạnh.</p>
+      <p>Dùng tưới định kỳ quanh gốc cây hoặc ngâm hạt giống trước khi gieo giúp kích thích hạt nảy mầm nhanh và tăng đề kháng cho rễ cây con phát triển khỏe mạnh trong các mô hình canh tác sinh thái như đa canh, luân canh hay canh tác hỗn hợp <a href="#ref-4" id="cit-4">[4]</a>.</p>
     </div>
   </div>
 </section>
 
----
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *MÔ HÌNH NÔNG NGHIỆP QUY MÔ NHỎ PHONG CÁCH NHẬT BẢN*, Vietup. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-
----
-### Video tham khảo thực tế
-Xem phóng sự hướng dẫn chi tiết quy trình ứng dụng giấm gỗ sinh học bảo vệ thực vật hữu cơ từ YouTube:
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-  <iframe src="https://www.youtube.com/embed/N8I2SYw0nwg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
-</div>
+- <span id="ref-1">**[1]**</span> NHỮNG BÀI HỌC TỪ THIÊN NHIÊN - Hướng dẫn về nông nghiệp sinh thái vùng nhiệt đới, Shimpei Murakami / Trung tâm trồng trọt tự nhiên Nongjok <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>

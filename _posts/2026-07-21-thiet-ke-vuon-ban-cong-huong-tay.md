@@ -23,13 +23,13 @@ Ban công hướng Tây luôn đối mặt với cường độ bức xạ mặt
 
 *   **Hiệu ứng tích nhiệt bê tông:** Các cấu trúc bê tông, gạch đá của tường và sàn ban công có hệ số dẫn nhiệt cao và khả năng tích nhiệt lớn. Lượng nhiệt này hấp thụ liên tục và tỏa ngược ra môi trường xung quanh dưới dạng bức xạ hồng ngoại bước sóng dài, làm nhiệt độ không khí tại ban công tăng thêm từ 3°C đến 6°C so với nhiệt độ môi trường khí tượng <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 *   **Tốc độ thoát hơi nước tăng vọt:** Sự kết hợp giữa nhiệt độ cao, bức xạ trực tiếp và lưu tốc gió lớn ở các tầng cao chung cư đẩy nhanh quá trình bốc hơi nước từ bề mặt lá và giá thể <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Điều này khiến cây rơi vào trạng thái mất nước nhanh chóng, dẫn đến héo rũ nếu hệ thống rễ không cung cấp đủ nước kịp thời.
-*   **Gia nhiệt vùng rễ:** Chậu trồng cây chịu tác động trực tiếp từ ánh nắng và lượng nhiệt tỏa ra từ sàn bê tông. Nhiệt độ của giá thể trong chậu nhựa hoặc chậu đất nung có thể vượt ngưỡng 40°C <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Ở nhiệt độ này, các tế bào lông hút của rễ bị tổn thương vật lý, làm giảm khả năng hấp thụ nước và dinh dưỡng, đồng thời tăng nguy cơ thối rễ do thiếu oxy <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+*   **Gia nhiệt vùng rễ:** Chậu trồng cây chịu tác động trực tiếp từ ánh nắng và lượng nhiệt tỏa ra từ sàn bê tông. Nhiệt độ của giá thể trong chậu nhựa hoặc chậu đất nung có thể vượt ngưỡng 40°C [3]. Ở nhiệt độ này, các tế bào lông hút của rễ bị tổn thương vật lý, làm giảm khả năng hấp thụ nước và dinh dưỡng, đồng thời tăng nguy cơ thối rễ do thiếu oxy [3].
 
 ## Giải Pháp Cách Nhiệt Vật Lý Và Điều Hòa Vi Khí Hậu
 
 ![Lưới che nắng bảo vệ vườn cây trên sân thượng](https://img.manhhuynh.work/posts/thiet-ke-vuon-ban-cong-huong-tay-2-v3.png?v=1784648514907)
 
-Để giảm thiểu tác động của nhiệt độ cao, việc thiết lập các tấm chắn vật lý là bước kỹ thuật tiên quyết. Bảng dưới đây so sánh hai loại vật liệu che nắng phổ biến được sử dụng hiện nay <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>:
+Để giảm thiểu tác động của nhiệt độ cao, việc thiết lập các tấm chắn vật lý là bước kỹ thuật tiên quyết. Bảng dưới đây so sánh hai loại vật liệu che nắng phổ biến được sử dụng hiện nay [3]:
 
 | Tiêu chí | Lưới dệt kim HDPE (High-Density Polyethylene) | Lưới dệt thoi PE/Nylon |
 | :--- | :--- | :--- |
@@ -44,16 +44,16 @@ Bên cạnh việc che chắn phía trên, kỹ thuật cách nhiệt cho chậu
 
 ![Phối trộn đất trồng với các giá thể xốp giữ ẩm](https://img.manhhuynh.work/posts/thiet-ke-vuon-ban-cong-huong-tay-3.png?v=1784610084719)
 
-Giá thể cho ban công hướng Tây đòi hỏi khả năng giữ nước tốt nhưng vẫn phải đảm bảo độ thoáng khí để rễ hô hấp. Việc lạm dụng đất thịt nặng sẽ làm đất bị nén chặt dưới nhiệt độ cao, cản trở sự phát triển của rễ. Ngược lại, các giá thể nhập khẩu như đá trân châu (perlite) hay đá khoáng vermiculite tuy có chất lượng ổn định nhưng chi phí cao và không thân thiện với môi trường <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
+Giá thể cho ban công hướng Tây đòi hỏi khả năng giữ nước tốt nhưng vẫn phải đảm bảo độ thoáng khí để rễ hô hấp. Việc lạm dụng đất thịt nặng sẽ làm đất bị nén chặt dưới nhiệt độ cao, cản trở sự phát triển của rễ. Ngược lại, các giá thể nhập khẩu như đá trân châu (perlite) hay đá khoáng vermiculite tuy có chất lượng ổn định nhưng chi phí cao và không thân thiện với môi trường [4].
 
-Công thức phối trộn tối ưu khuyến nghị cho môi trường nóng hạn bao gồm các thành phần sau <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>:
+Công thức phối trộn tối ưu khuyến nghị cho môi trường nóng hạn bao gồm các thành phần sau [4]:
 
 1.  **Chất giữ ẩm và tạo độ xốp (40%):** Mụn dừa đã xử lý tannin và lignin để tránh hiện tượng keo hóa và nghẹt rễ. Mụn dừa có khả năng giữ nước gấp 8-10 lần trọng lượng khô của nó.
 2.  **Chất cải tạo cấu trúc và thoát nước (30%):** Trấu hun (biochar từ vỏ trấu). Trấu hun giúp ổn định cấu trúc cơ học của giá thể, không bị xẹp lún theo thời gian, đồng thời bổ sung lượng kali dễ tiêu cho cây trồng.
 3.  **Chất dinh dưỡng hữu cơ (20%):** Phân trùn quế hoặc phân bò hoai mục. Các hạt phân hữu cơ này liên kết với mụn dừa tạo thành các phức hệ keo đất, giải phóng dinh dưỡng chậm và giữ ẩm lâu hơn.
 4.  **Chất đệm thông khí (10%):** Vỏ trấu sống hoặc sỏi nhẹ để tạo các khoảng không gian khí lớn, hỗ trợ thoát nước nhanh khi mưa lớn đột ngột.
 
-Để giảm sự bốc hơi nước bề mặt, việc sử dụng lớp phủ hữu cơ (mulching) dày từ 2 cm đến 3 cm từ lục bình khô băm nhỏ hoặc sợi xơ dừa lên bề mặt chậu giúp giảm lượng nước thất thoát do bốc hơi đến 35% <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
+Để giảm sự bốc hơi nước bề mặt, việc sử dụng lớp phủ hữu cơ (mulching) dày từ 2 cm đến 3 cm từ lục bình khô băm nhỏ hoặc sợi xơ dừa lên bề mặt chậu giúp giảm lượng nước thất thoát do bốc hơi đến 35% [4].
 
 ## Thiết Kế Hệ Thống Tưới Và Quản Lý Nguồn Nước
 
@@ -143,13 +143,12 @@ Tại Việt Nam, khí hậu nhiệt đới gió mùa nóng ẩm tạo ra nhữn
     1.  *Mụn xơ dừa:* Cần được ngâm rửa xả chát kỹ (3-4 lần nước) để loại bỏ hoàn toàn tanin và lignin gây nghẹt rễ.
     2.  *Trấu hun nguyên cánh:* Cung cấp kali tự nhiên, tăng độ xốp và tạo môi trường đệm kháng khuẩn tốt cho rễ.
     3.  *Lục bình khô băm nhỏ:* Lục bình khai thác từ các kênh rạch, phơi khô và băm khúc 2-3 cm làm lớp phủ bề mặt giữ ẩm cực tốt nhờ cấu trúc xốp chứa khí bên trong thân.
-    4.  *Bã mía hoai mục:* Phế phẩm từ các cửa hàng nước mía có thể ủ hoai cùng nấm đối kháng *Trichoderma* để làm nguồn mùn hữu cơ dồi dào dinh dưỡng <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
+    4.  *Bã mía hoai mục:* Phế phẩm từ các cửa hàng nước mía có thể ủ hoai cùng nấm đối kháng *Trichoderma* để làm nguồn mùn hữu cơ dồi dào dinh dưỡng [4].
 *   **Thiết kế cho căn hộ chung cư đô thị:** Ban công chung cư Việt Nam thường có diện tích hẹp (rộng từ 0,8 m đến 1,5 m) và thường là nơi đặt cục nóng điều hòa. Nhiệt độ khí thải từ cục nóng có thể lên đến 50°C - 55°C. Để áp dụng thành công kỹ thuật này, bắt buộc phải lắp đặt tấm đổi hướng gió cho cục nóng điều hòa để đẩy khí nóng ra thẳng bên ngoài, không thổi trực tiếp vào vườn cây <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *QUY TRÌNH ƯƠM CÂY BẢN ĐỊA (Vườn ươm sinh thái HEPA)*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *NHỮNG BÀI HỌC TỪ THIÊN NHIÊN - Hướng dẫn về nông nghiệp sinh thái vùng nhiệt đới*, Shimpei Murakami / Trung tâm trồng trọt tự nhiên Nongjok. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> *QUY TRÌNH ƯƠM CÂY BẢN ĐỊA (Vườn ươm sinh thái HEPA)*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-2">**[2]**</span> *NHỮNG BÀI HỌC TỪ THIÊN NHIÊN - Hướng dẫn về nông nghiệp sinh thái vùng nhiệt đới*, Shimpei Murakami / Trung tâm trồng trọt tự nhiên Nongjok. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

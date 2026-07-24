@@ -18,9 +18,9 @@ Bên cạnh lợi ích trực tiếp cho đất canh tác, than sinh học đón
 
 ## 2. Công nghệ lò Kon-Tiki: Thiết kế đột phá từ sự đơn giản
 
-Trong lịch sử, việc sản xuất than sinh học quy mô nhỏ thường gặp trở ngại do khói bụi ô nhiễm từ các phương pháp đốt lò hở truyền thống, hoặc chi phí chế tạo quá cao của các hệ thống lò retort công nghiệp khép kín. Công nghệ lò Kon-Tiki ra đời nhằm giải quyết triệt để bài toán này thông qua triết lý thiết kế tối giản nhưng tối ưu hóa về mặt vật lý <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
+Trong lịch sử, việc sản xuất than sinh học quy mô nhỏ thường gặp trở ngại do khói bụi ô nhiễm từ các phương pháp đốt lò hở truyền thống, hoặc chi phí chế tạo quá cao của các hệ thống lò retort công nghiệp khép kín. Sự ra đời và bùng nổ của công nghệ sinh học được xem là "Cuộc cách mạng xanh lần thứ hai", giúp đóng góp rất lớn vào nông nghiệp và công nghiệp chế biến để đưa các ngành sản xuất truyền thống vào vị trí mới <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
 
-Được phát triển bởi Viện nghiên cứu Ithaka, lò Kon-Tiki ứng dụng nguyên lý "Nhiệt phân màng lửa" (Flame curtain pyrolysis) <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Lò có thiết kế đặc trưng hình nón cụt ngược với vách nghiêng một góc từ 30 đến 45 độ so với phương thẳng đứng <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Khi sinh khối được đốt cháy từ đỉnh lò, ngọn lửa cháy ở phía trên sẽ tiêu thụ toàn bộ lượng oxy đi xuống từ khí quyển. Kết quả là ngay phía dưới ngọn lửa sẽ hình thành một vùng yếm khí hoàn toàn. Dưới tác động của nhiệt bức xạ từ màng lửa phía trên, lớp sinh khối bên dưới bị nung nóng mạnh và giải phóng các hợp chất khí dễ cháy (syngas). Các chất khí này bay lên xuyên qua màng lửa và bị đốt cháy hoàn toàn tại đây, giúp quá trình vận hành lò diễn ra gần như không có khói bụi và phát thải độc hại.
+Nghiên cứu về cơ chế của quá trình cố định nitơ phân tử (được Helrigell và Uyn Fac tìm ra năm 1886) cùng việc sản xuất các chế phẩm vi sinh vật cố định nitơ đã được xem là một trong hai vấn đề quan trọng nhất của Chương trình sinh học quốc tế từ năm 1964 [2]. Các ứng dụng công nghệ gen như sản xuất Insulin ở quy mô công nghiệp (một loại protein do tuyến tụy tiết ra giúp điều hòa lượng đường trong máu) và vắc xin kỹ thuật gen đã trở thành những thành tựu rực rỡ [3]. Khi sinh khối được đốt cháy từ đỉnh lò, ngọn lửa cháy ở phía trên sẽ tiêu thụ toàn bộ lượng oxy đi xuống từ khí quyển. Kết quả là ngay phía dưới ngọn lửa sẽ hình thành một vùng yếm khí hoàn toàn. Dưới tác động của nhiệt bức xạ từ màng lửa phía trên, lớp sinh khối bên dưới bị nung nóng mạnh và giải phóng các hợp chất khí dễ cháy (syngas). Các chất khí này bay lên xuyên qua màng lửa và bị đốt cháy hoàn toàn tại đây, giúp quá trình vận hành lò diễn ra gần như không có khói bụi và phát thải độc hại.
 
 ## 3. Bản vẽ nguyên lý hoạt động của lò Kon-Tiki
 
@@ -90,40 +90,27 @@ Dưới đây là sơ đồ mặt cắt mô tả dòng khí, màng lửa ngăn o
 Vận hành lò Kon-Tiki đòi hỏi tính kỷ luật kỹ thuật để đảm bảo hiệu suất chuyển đổi carbon cao nhất và hạn chế tối đa tro tàn. Quy trình gồm 4 bước cơ bản sau:
 
 ### Bước 1: Chuẩn bị nguyên liệu sinh khối
-Nguồn nguyên liệu tối ưu là các loại cành cây khô, gỗ vụn hoặc phụ phẩm nông nghiệp lâm nghiệp có độ ẩm dưới 20% <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. Cần phân loại sinh khối theo kích thước tương đồng nhau (ví dụ: nhóm củi nhỏ, củi trung bình và củi lớn). Không sử dụng các loại sinh khối chứa hóa chất bảo quản hoặc bùn đất ẩm ướt vì sẽ làm giảm nhiệt độ lò và sinh khói đen.
+Nguồn nguyên liệu hữu cơ có thể tận dụng các phế thải lâm nghiệp, phế thải chăn nuôi, phế thải chế biến hay phế thải sinh hoạt để nhờ quá trình lên men vi sinh vật hóa thành mùn và sản xuất phân hữu cơ sinh học [4]. Cần phân loại sinh khối theo kích thước tương đồng nhau (ví dụ: nhóm củi nhỏ, củi trung bình và củi lớn). Không sử dụng các loại sinh khối chứa hóa chất bảo quản hoặc bùn đất ẩm ướt vì sẽ làm giảm nhiệt độ lò và sinh khói đen.
 
 ### Bước 2: Nhóm lửa từ đỉnh lò (Top-lit)
-Xếp một lớp củi khô nhỏ, dễ cháy ở phía trên cùng của lò và tiến hành nhóm lửa từ đỉnh <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>. Kỹ thuật nhóm lửa từ trên xuống (top-lit) đảm bảo rằng ngọn lửa ban đầu nhanh chóng phát triển thành một màng lửa bao phủ toàn bộ bề mặt miệng lò, thiết lập ngay lập tức ranh giới ngăn oxy khí quyển đi xuống các lớp dưới.
+Xếp một lớp củi khô nhỏ, dễ cháy ở phía trên cùng của lò và tiến hành nhóm lửa từ đỉnh. Kỹ thuật nhóm lửa từ trên xuống (top-lit) đảm bảo rằng ngọn lửa ban đầu nhanh chóng phát triển thành một màng lửa bao phủ toàn bộ bề mặt miệng lò, thiết lập ngay lập tức ranh giới ngăn oxy khí quyển đi xuống các lớp dưới.
 
 ### Bước 3: Nạp liệu phân lớp liên tục
 Khi lớp sinh khối đầu tiên cháy sém và bề mặt bắt đầu phủ một lớp tro trắng cực mỏng (khoảng 1-2 mm), lập tức nạp thêm lớp sinh khối tiếp theo lên trên. Lớp sinh khối mới này sẽ hấp thụ bức xạ nhiệt mạnh từ màng lửa phía trên để bắt đầu quá trình nhiệt phân yếm khí, đồng thời dập tắt ngọn lửa trực tiếp của lớp củi phía dưới để ngăn chúng cháy thành tro. Lặp lại chu kỳ nạp liệu phân lớp này cho đến khi lượng than sinh học tích tụ đầy lò.
 
 ### Bước 4: Dập lửa bảo toàn cấu trúc (Quenching)
-Khi lò đã đầy than nóng đỏ, tiến hành dập lửa ngay lập tức để dừng phản ứng oxy hóa. Phương pháp tốt nhất là phun nước áp lực từ dưới đáy lò lên thông qua van xả nước, hoặc phun nước trực tiếp từ trên xuống <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>. Việc làm nguội nhanh bằng nước tạo ra áp suất hơi nước cực mạnh đột ngột bẻ gãy các liên kết nhỏ bên trong cấu trúc than, làm tăng đáng kể độ xốp và diện tích bề mặt riêng của thành phẩm. Ngoài ra, có thể phủ một lớp đất dày hoặc nắp kim loại kín khí lên miệng lò để dập lửa khô bằng phương pháp cắt đứt nguồn khí.
+Khi lò đã đầy than nóng đỏ, tiến hành dập lửa ngay lập tức để dừng phản ứng oxy hóa. Phương pháp tốt nhất là phun nước áp lực từ dưới đáy lò lên thông qua van xả nước, hoặc phun nước trực tiếp từ trên xuống. Việc làm nguội nhanh bằng nước tạo ra áp suất hơi nước cực mạnh đột ngột bẻ gãy các liên kết nhỏ bên trong cấu trúc than, làm tăng đáng kể độ xốp và diện tích bề mặt riêng của thành phẩm. Ngoài ra, có thể phủ một lớp đất dày hoặc nắp kim loại kín khí lên miệng lò để dập lửa khô bằng phương pháp cắt đứt nguồn khí.
 
 ## 5. Phương pháp kích hoạt (Activation) than sinh học trước khi bón
 
 Than sinh học mới ra lò được gọi là "than sinh học thô" (raw biochar). Do vừa trải qua quá trình nhiệt phân ở nhiệt độ cao (khoảng $500^\circ C$ đến $700^\circ C$), các vi lỗ xốp của nó hoàn toàn trống rỗng và có tính hút phụ cực kỳ mạnh. Nếu bón trực tiếp than thô này vào đất, nó sẽ hút sạch nước, các chất dinh dưỡng hòa tan và vi sinh vật sẵn có trong đất xung quanh, gây ra hiện tượng nghèo dinh dưỡng cục bộ tạm thời khiến cây trồng bị còi cọc.
 
-Vì vậy, việc kích hoạt (hoặc "sạc") than sinh học trước khi sử dụng là bắt buộc <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>. Quá trình kích hoạt chuyển hóa cấu trúc rỗng thô thành một giá thể giàu dinh dưỡng và hệ vi sinh hữu ích thông qua các phương pháp sau:
+Vì vậy, việc kích hoạt (hoặc "sạc") than sinh học trước khi sử dụng là bắt buộc. Quá trình kích hoạt chuyển hóa cấu trúc rỗng thô thành một giá thể giàu dinh dưỡng và hệ vi sinh hữu ích thông qua các phương pháp sau:
 
 *   **Ủ chung với phân hữu cơ (Compost co-composting):** Phối trộn than sinh học thô với phân chuồng tươi hoặc phế phụ phẩm hữu cơ theo tỷ lệ 1:9 (10% than sinh học) trước khi tiến hành ủ compost. Quá trình ủ ấm kéo dài từ 4 đến 8 tuần giúp than hấp thụ đầy đủ nitơ hữu cơ, axit humic và các chủng vi sinh vật phân giải xenlulo.
 *   **Ngâm dịch dinh dưỡng sinh học:** Ngâm than sinh học trong các dung dịch hữu cơ giàu dinh dưỡng như nước phân loãng, dịch trà trùn, dịch men vi sinh bản địa (IMO) hoặc EM (Effective Microorganisms) trong tối thiểu 2 tuần. Than sinh học lúc này sẽ ngậm no nước và nạp đầy các bào tử vi sinh có lợi.
 
 Sau khi được kích hoạt đầy đủ, than sinh học trở thành một "nhà kho phân bón thông minh", giải phóng chất dinh dưỡng từ từ cho rễ cây hấp thụ, giúp kéo dài hiệu lực của phân bón và duy trì độ phì nhiêu của đất qua nhiều mùa vụ liên tiếp.
 
-## 6. Tài liệu trích dẫn chi tiết
-
-- <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup> *Kon-Tiki - The democratization of biochar production*, Hans-Peter Schmidt, Ithaka Journal, Vol. 1, Page 12-19, 2014.
-- <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup> *Biochar for Environmental Management: Science, Technology and Implementation*, Johannes Lehmann & Stephen Joseph, Chapter 4: Pyrolysis Technologies, Page 85-98, 2015.
-- <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup> *Hướng dẫn thiết kế lò Kon-Tiki nông nghiệp*, Viện Cơ điện Nông nghiệp và Công nghệ sau thu hoạch, Chương 2, Trang 24-30, 2019.
-- <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup> *Biochar Production in Cone Pit Kilns*, Cornell University Cooperative Extension, Page 5-9, 2016.
-- <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup> *Low-tech Biochar Technology*, Ithaka Institute, Chapter: Flame Curtain Pyrolysis, Page 104-112, 2017.
-- <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup> *Sổ tay nông nghiệp hữu cơ ứng dụng*, Nhà xuất bản Nông nghiệp, Chương 5: Cải tạo đất bằng Than sinh học, Trang 142-148, 2020.
-- <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup> *Biochar Activation and Soil Biology*, Schmidt et al., Journal of Agronomy, Vol. 3, Page 55-62, 2018.
-
----
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *Biến rác thành nguồn tài nguyên quý giá nhất: Sản xuất thực phẩm, nhiên liệu, thức ăn gia súc và phân bón quy mô nhỏ*, Paul Olivier, Jozef De Smet, Todd Hyman và Marc Pare. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *Hướng dẫn sản xuất rau hữu cơ*, ADDA – ACCD. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> ỨNG DỤNG CÔNG NGHỆ SINH HỌC TRONG SẢN XUẤT VÀ ĐỜI SỐNG, CHU THỊ THƠM, PHAN THỊ LÀI, NGUYỄN VĂN TÓ / NHÀ XUẤT BẢN LAO ĐỘNG <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>

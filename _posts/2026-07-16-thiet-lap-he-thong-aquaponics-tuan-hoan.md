@@ -106,7 +106,7 @@ Cây được trồng trên các tấm xốp nổi trực tiếp trên các mán
 
 ![Hệ thống lọc nước và giá thể sinh học](https://img.manhhuynh.work/posts/thiet-lap-he-thong-aquaponics-tuan-hoan-3.png?v=1784185262748)
 
-Việc xử lý chất thải rắn (chất thải thô từ cá và thức ăn thừa) là yếu tố quyết định sự ổn định của hệ thống Aquaponics. Nếu chất thải rắn không được tách lọc hiệu quả và đi trực tiếp vào khu vực trồng rau, chúng sẽ bám dính vào rễ cây, cản trở quá trình hấp thụ oxy và dinh dưỡng, đồng thời phân hủy yếm khí làm giảm pH và DO của nước <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Do đó, hệ thống cần được trang bị các bộ phận lọc cơ học và lọc sinh học phù hợp.
+Việc xử lý chất thải rắn (chất thải thô từ cá và thức ăn thừa) là yếu tố quyết định sự ổn định của hệ thống Aquaponics. Nếu chất thải rắn không được tách lọc hiệu quả và đi trực tiếp vào khu vực trồng rau, chúng sẽ bám dính vào rễ cây, cản trở quá trình hấp thụ oxy và dinh dưỡng, đồng thời phân hủy yếm khí làm giảm pH và DO của nước <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, [3]. Do đó, hệ thống cần được trang bị các bộ phận lọc cơ học và lọc sinh học phù hợp.
 
 ### 1. Bộ lọc cơ học (Mechanical Filter)
 Mục tiêu là loại bỏ tối đa các hạt chất thải rắn có kích thước lớn trước khi dòng nước đi vào bộ lọc sinh học hoặc khay trồng.
@@ -190,17 +190,16 @@ Khí hậu Việt Nam có mùa hè nhiệt độ cao kéo dài (ở miền Bắc
 
 ### 2. Giải pháp thay thế vật liệu bản địa nhằm tối ưu chi phí
 Các tài liệu kỹ thuật nước ngoài thường hướng dẫn sử dụng sỏi nhẹ Keramzit làm giá thể trồng cây <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Tuy nhiên, chi phí nhập khẩu hoặc mua sỏi nhẹ công nghiệp tại Việt Nam tương đối cao đối với quy mô nông hộ nhỏ. Để giải quyết vấn đề này, các phế phụ phẩm nông nghiệp địa phương có thể được ứng dụng hiệu quả:
-- **Đất nung thủ công và gạch đỏ vụn**: Gạch đỏ đập nhỏ kích thước 1-2 cm sau khi được mài nhẵn cạnh là vật liệu thay thế sỏi nhẹ có giá thành rất rẻ, khả năng giữ nước và diện tích bề mặt bám vi sinh tương đương, dù khối lượng nặng hơn <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
-- **Xơ dừa xử lý và trấu hun**: Thay vì dùng hoàn toàn giá thể vô cơ trơ, nông hộ có thể trộn trấu hun (đã rửa sạch tạp chất) với xơ dừa (đã ngâm khử tannin) để làm bầu ươm hoặc giá thể lót trong các cốc nhựa trồng cây của hệ NFT nhằm giữ ẩm tốt và kích thích rễ phát triển ở giai đoạn đầu <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
-- **Lục bình khô và bã mía**: Có thể ủ nóng hoai mục cùng phân trùn quế để làm lớp đệm lọc hữu cơ bổ sung dinh dưỡng vi lượng, hoặc dùng làm vật liệu phủ bề mặt xung quanh bể nuôi cá để ổn định nhiệt độ <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+- **Đất nung thủ công và gạch đỏ vụn**: Gạch đỏ đập nhỏ kích thước 1-2 cm sau khi được mài nhẵn cạnh là vật liệu thay thế sỏi nhẹ có giá thành rất rẻ, khả năng giữ nước và diện tích bề mặt bám vi sinh tương đương, dù khối lượng nặng hơn [4].
+- **Xơ dừa xử lý và trấu hun**: Thay vì dùng hoàn toàn giá thể vô cơ trơ, nông hộ có thể trộn trấu hun (đã rửa sạch tạp chất) với xơ dừa (đã ngâm khử tannin) để làm bầu ươm hoặc giá thể lót trong các cốc nhựa trồng cây của hệ NFT nhằm giữ ẩm tốt và kích thích rễ phát triển ở giai đoạn đầu [4].
+- **Lục bình khô và bã mía**: Có thể ủ nóng hoai mục cùng phân trùn quế để làm lớp đệm lọc hữu cơ bổ sung dinh dưỡng vi lượng, hoặc dùng làm vật liệu phủ bề mặt xung quanh bể nuôi cá để ổn định nhiệt độ [3].
 
 ### 3. Đánh giá tính khả thi theo quy mô nông hộ
 Với diện tích tối thiểu chỉ từ 5 - 10 m² trên sân thượng hoặc góc sân vườn, mô hình Aquaponics tuần hoàn hoàn toàn khả thi cho các gia đình đô thị. Hệ thống này giúp cung cấp nguồn thực phẩm sạch, an toàn và tạo cảnh quan sinh thái thư giãn. Đối với quy mô trang trại lớn hơn, mô hình đòi hỏi quản lý dòng chảy chặt chẽ, tối ưu hóa chi phí năng lượng bơm nước bằng cách tích hợp hệ thống điện mặt trời áp mái để đảm bảo hiệu quả kinh tế lâu dài.
 
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *CANH TÁC HỮU CƠ - Tham khảo cho sản xuất rau, quả và chè. Tài liệu hướng dẫn dành cho giảng viên nông dân*, ADDA office in Vietnam. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *Hướng dẫn sản xuất rau hữu cơ*, ADDA – ACCD. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> *CANH TÁC HỮU CƠ - Tham khảo cho sản xuất rau, quả và chè. Tài liệu hướng dẫn dành cho giảng viên nông dân*, ADDA office in Vietnam. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-2">**[2]**</span> *Hướng dẫn sản xuất rau hữu cơ*, ADDA – ACCD. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

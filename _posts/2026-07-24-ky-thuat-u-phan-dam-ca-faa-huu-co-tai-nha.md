@@ -112,7 +112,7 @@ Nhằm giảm tối đa chi phí đầu vào cho các nông hộ nhỏ, các ngu
 - **Chất đệm hút ẩm và giữ vi sinh:** Sau khi thu hoạch dung dịch đạm cá FAA lỏng, phần bã xương và vây cá còn lại có thể trộn phối với vỏ trấu hun (biochar), xơ dừa nghiền nhỏ, hoặc bã mía khô và lục bình băm phơi héo để tiếp tục ủ hiếu khí tạo thành phân bón lót hữu cơ vi sinh dạng rắn rất giàu canxi và lân.
 
 ### Tích hợp trong mô hình nông nghiệp tuần hoàn V-A-C và cải tạo đất
-Kỹ thuật ủ phân đạm cá thể hiện sự tương thích cao khi lồng ghép vào mô hình sinh thái Vườn - Ao - Chuồng (VAC) truyền thống của Việt Nam <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Trong hệ sinh thái VAC, phế phụ phẩm từ hoạt động nuôi trồng thủy sản hoặc chế biến cá (thành phần A) được thu gom để sản xuất phân bón đạm cá phục vụ trực tiếp cho cây trồng trong vườn (thành phần V) <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. 
+Kỹ thuật ủ phân đạm cá thể hiện sự tương thích cao khi lồng ghép vào mô hình sinh thái Vườn - Ao - Chuồng (VAC) truyền thống của Việt Nam [3]. Trong hệ sinh thái VAC, phế phụ phẩm từ hoạt động nuôi trồng thủy sản hoặc chế biến cá (thành phần A) được thu gom để sản xuất phân bón đạm cá phục vụ trực tiếp cho cây trồng trong vườn (thành phần V) [4]. 
 
 Nguồn đạm hữu cơ hòa tan này đóng vai trò quan trọng trong việc cải tạo các chất đất bạc màu, đất cát ven biển (nơi thường xuyên bị rửa trôi dinh dưỡng) khi canh tác kết hợp với các dòng cây cố định đạm như phi lao hay keo lá tràm nhằm nâng cao độ phì nhiêu <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Đồng thời, việc ứng dụng đạm cá giúp giảm bớt sự phụ thuộc vào phân bón hóa học, góp phần bảo vệ chất lượng nguồn nước và hạn chế hiện tượng phèn hóa, mặn hóa ở các vùng sinh thái nhạy cảm <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
 
@@ -135,14 +135,9 @@ Dung dịch đạm cá sau khi ủ thành công có màu nâu cánh gián, mùi 
 ### 5.3. Phối hợp dinh dưỡng cân đối
 Mặc dù FAA là nguồn bổ sung nitơ sinh học chất lượng cao, phân đạm cá lại có hàm lượng Kali ($\text{K}$) và Canxi ($\text{Ca}$) tương đối thấp. Do đó, trong giai đoạn cây nuôi trái hoặc chuẩn bị ra hoa, cần phối hợp tưới FAA chung với dịch chuối ủ (giàu Kali) hoặc dung dịch vỏ trứng ngâm giấm (giàu Canxi/Magie) để đảm bảo cân đối tỷ lệ N-P-K sinh học.
 
----
-
-## Tài liệu trích dẫn chi tiết
-
+### Tài liệu trích dẫn chi tiết
 - <span id="ref-1">**[1]**</span> CẨM NANG NGÀNH LÂM NGHIỆP - Chương ĐẤT VÀ DINH DƯỠNG ĐẤT, GS. TSKH: Đỗ Đình Sâm, PGS. TS: Ngô Đình Quế, TS: Nguyễn Tử Siêm, KS: Nguyễn Ngọc Bình / BỘ NÔNG NGHIỆP VÀ PHÁT TRIỂN NÔNG THÔN - CHƯƠNG TRÌNH HỖ TRỢ NGÀNH LÂM NGHIỆP & ĐỐI TÁC <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-2">**[2]**</span> CẨM NANG NGÀNH LÂM NGHIỆP - Chương ĐẤT VÀ DINH DƯỠNG ĐẤT, GS. TSKH: Đỗ Đình Sâm, PGS. TS: Ngô Đình Quế, TS: Nguyễn Tử Siêm, KS: Nguyễn Ngọc Bình / BỘ NÔNG NGHIỆP VÀ PHÁT TRIỂN NÔNG THÔN - CHƯƠNG TRÌNH HỖ TRỢ NGÀNH LÂM NGHIỆP & ĐỐI TÁC <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-2">**[2]**</span> TÀI LIỆU TẬP HUẤN Trong khuôn khổ dự án UNJP/VIE/039/SPA "Lồng ghép dinh dưỡng và an ninh lương thực cho trẻ em và các nhóm có nguy cơ tại Việt Nam (MDGF-2007)", VIỆN KHOA HỌC KỸ THUẬT NÔNG LÂM NGHIỆP MIỀN NÚI PHÍA BẮC / TỔ CHỨC NÔNG NGHIỆP VÀ LƯƠNG THỰC LIÊN HỢP QUỐC <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

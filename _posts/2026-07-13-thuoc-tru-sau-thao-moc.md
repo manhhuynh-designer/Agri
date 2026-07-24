@@ -10,15 +10,15 @@ description: Hướng dẫn chi tiết quy trình chiết xuất thuốc trừ s
 > [!WARNING]
 > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
 
-Trong canh tác hữu cơ, việc bảo vệ cây trồng khỏi dịch hại mà không sử dụng hóa chất tổng hợp là một thách thức lớn. Việc tự chế biến thuốc trừ sâu từ thảo mộc không chỉ tận dụng nguồn nguyên liệu sẵn có mà còn đảm bảo an toàn cho sức khỏe người sản xuất và người tiêu dùng <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Bài viết này sẽ hướng dẫn bạn kỹ thuật chiết xuất và sử dụng các loại thuốc trừ sâu thảo mộc hiệu quả nhất.
+Trong canh tác hữu cơ, việc bảo vệ cây trồng khỏi dịch hại mà không sử dụng hóa chất tổng hợp là một thách thức lớn. Việc ứng dụng các sinh vật có ích trong tự nhiên giúp phòng trừ sâu hại và bảo vệ hệ sinh thái nông nghiệp <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, đồng thời tham khảo các cẩm nang kỹ thuật trồng, chăm sóc và phòng trừ sâu bệnh sẽ giúp người sản xuất đạt kết quả tốt [2]. Bài viết này sẽ hướng dẫn bạn kỹ thuật chiết xuất và sử dụng các loại thuốc trừ sâu thảo mộc hiệu quả nhất.
 
 ## Cơ sở khoa học của thuốc trừ sâu thảo mộc
 
 ![Cơ sở khoa học của thuốc trừ sâu thảo mộc](https://img.manhhuynh.work/posts/thuoc-tru-sau-thao-moc-co-so-khoa-hoc.png)
 
-Thuốc trừ sâu thảo mộc dựa trên nguyên lý sử dụng các thành phần độc hại tự nhiên có sẵn trong thực vật để tiêu diệt hoặc xua đuổi côn trùng <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Các thành phần này thường gây độc thông qua đường tiếp xúc, hô hấp hoặc tiêu hóa của dịch hại <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Ưu điểm lớn nhất của nhóm thuốc này là khả năng phân rã sinh học rất nhanh, thường hết tác dụng trong vòng vài giờ hoặc vài ngày, giúp giảm thiểu tác động tiêu cực đến môi trường và sinh vật có ích <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+Thuốc trừ sâu thảo mộc dựa trên nguyên lý sử dụng các thành phần độc hại tự nhiên có sẵn trong thực vật để tiêu diệt hoặc xua đuổi côn trùng. Các thành phần này thường gây độc thông qua đường tiếp xúc, hô hấp hoặc tiêu hóa của dịch hại. Ưu điểm lớn nhất của nhóm thuốc này là khả năng phân rã sinh học rất nhanh, giúp giảm thiểu tác động tiêu cực đến môi trường và bảo vệ các vi sinh vật có ích trong đất, đặc biệt là duy trì mối liên kết nấm rễ cộng sinh giúp cây trồng chống chịu trong điều kiện khắc nghiệt [3].
 
-Tuy nhiên, cần hiểu rằng thuốc thảo mộc thường không có tính chọn lọc cao, có thể ảnh hưởng đến cả thiên địch nếu không áp dụng đúng cách <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>. Vì vậy, chúng nên được coi là biện pháp cứu chữa cuối cùng khi các biện pháp phòng ngừa như luân canh hay khuyến khích thiên địch không đủ hiệu quả <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>.
+Ngoài ra, việc ưu tiên dung dịch thảo mộc an toàn còn giúp hạn chế việc sử dụng các loại thuốc bảo vệ thực vật hóa học hoặc thuốc trừ cỏ – những chất có thể gây hiện tượng "chai" đất do phá vỡ cấu trúc keo đất và ức chế hoạt tính sinh học của đất [4]. Tuy nhiên, cần hiểu rằng thuốc thảo mộc thường không có tính chọn lọc cao, có thể ảnh hưởng đến cả thiên địch nếu không áp dụng đúng cách. Vì vậy, chúng nên được coi là biện pháp hỗ trợ khi các biện pháp phòng ngừa như luân canh hay khuyến khích thiên địch không đủ hiệu quả.
 
 ## Các nguyên liệu thảo mộc phổ biến và công dụng
 
@@ -26,10 +26,10 @@ Tuy nhiên, cần hiểu rằng thuốc thảo mộc thường không có tính 
 
 Nhiều loại thực vật bản địa tại Việt Nam chứa các hoạt chất có khả năng kháng sâu bệnh mạnh mẽ:
 
-*   **Tỏi, ớt, gừng:** Chứa các chất gây hắc và dầu thơm giúp xua đuổi rầy, rệp và các loại côn trùng thân mềm <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>.
-*   **Xoan (Xoan Ấn Độ/Xoan ta):** Chứa hoạt chất Azadirachtin, có tác dụng gây ngán ăn, ức chế sự lột xác và biến thái của sâu non bộ cánh phấn <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>.
-*   **Cây dây mật (Ruốc cá):** Chứa Rotenon, một chất độc tiếp xúc mạnh có thể diệt trừ rệp muội, bọ trĩ và thậm chí cả cá dữ trong ao nuôi <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>.
-*   **Hoa cúc khô:** Chứa Pyrethrin, tác động mạnh đến hệ thần kinh, gây tê liệt nhanh chóng các loại côn trùng bay và sâu hại lá <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>.
+*   **Tỏi, ớt, gừng:** Chứa các chất gây hắc và dầu thơm giúp xua đuổi rầy, rệp và các loại côn trùng thân mềm.
+*   **Xoan (Xoan Ấn Độ/Xoan ta):** Chứa hoạt chất Azadirachtin, có tác dụng gây ngán ăn, ức chế sự lột xác và biến thái của sâu non bộ cánh phấn.
+*   **Cây dây mật (Ruốc cá):** Chứa Rotenon, một chất độc tiếp xúc mạnh có thể diệt trừ rệp muội, bọ trĩ và thậm chí cả cá dữ trong ao nuôi.
+*   **Hoa cúc khô:** Chứa Pyrethrin, tác động mạnh đến hệ thần kinh, gây tê liệt nhanh chóng các loại côn trùng bay và sâu hại lá.
 
 <div class="diagram-card">
 <div class="mermaid">
@@ -83,11 +83,11 @@ graph TD
 
 Để thu được dịch chiết có hoạt tính sinh học cao nhất, bạn cần thực hiện theo các bước kỹ thuật sau:
 
-1.  **Chuẩn bị:** Lựa chọn các bộ phận chứa nhiều hoạt chất nhất (lá xoan già, quả ớt chín, củ tỏi ta) <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>.
-2.  **Sơ chế:** Nghiền nát hoặc giã nhỏ nguyên liệu để phá vỡ cấu trúc tế bào, giúp hoạt chất dễ dàng hòa tan vào dung môi <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>.
-3.  **Chiết xuất:** Cho nguyên liệu đã nghiền vào xô, đổ thêm nước sạch theo tỷ lệ nhất định. Có thể thêm một chút đường để hỗ trợ quá trình trích ly hoặc dùng rượu nếu muốn chiết xuất mạnh hơn <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>. 
-4.  **Thời gian ngâm:** Để hỗn hợp nghỉ ít nhất 12 - 24 tiếng <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>, <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>. Lưu ý không nên ngâm quá lâu dẫn đến dịch chiết bị thối, có mùi hôi <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>.
-5.  **Lọc:** Sử dụng vải màn sạch để lọc bỏ bã, thu lấy phần nước cốt trong <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>.
+1.  **Chuẩn bị:** Lựa chọn các bộ phận chứa nhiều hoạt chất nhất (lá xoan già, quả ớt chín, củ tỏi ta).
+2.  **Sơ chế:** Nghiền nát hoặc giã nhỏ nguyên liệu để phá vỡ cấu trúc tế bào, giúp hoạt chất dễ dàng hòa tan vào dung môi.
+3.  **Chiết xuất:** Cho nguyên liệu đã nghiền vào xô, đổ thêm nước sạch theo tỷ lệ nhất định. Có thể thêm một chút đường để hỗ trợ quá trình trích ly hoặc dùng rượu nếu muốn chiết xuất mạnh hơn.
+4.  **Thời gian ngâm:** Để hỗn hợp nghỉ ít nhất 12 - 24 tiếng. Lưu ý không nên ngâm quá lâu dẫn đến dịch chiết bị thối, có mùi hôi.
+5.  **Lọc:** Sử dụng vải màn sạch để lọc bỏ bã, thu lấy phần nước cốt trong.
 
 ## Kỹ thuật pha loãng và phun thuốc hiệu quả
 
@@ -95,25 +95,23 @@ graph TD
 
 Dung dịch sau khi lọc thường là dạng đậm đặc, cần được pha loãng trước khi sử dụng để tránh gây cháy lá:
 
-*   **Tỷ lệ pha:** Thông thường lấy 1 lít dịch chiết đậm đặc pha với 10 - 25 lít nước sạch tùy theo loại thảo mộc <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>. Đối với các loại dầu khoáng hỗ trợ bám dính, tỷ lệ pha thường là 5ml cho 1 lít nước (tương đương 0.5%) <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>.
-*   **Thời điểm phun:** Nên phun vào sáng sớm hoặc chiều mát khi trời không quá nắng nóng hoặc không có gió lớn <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup>. Phun vào chiều mát thường mang lại hiệu quả cao hơn do côn trùng bắt đầu ra khỏi nơi ẩn nấp để tìm ăn, đồng thời thuốc ít bị phân hủy bởi ánh nắng mặt trời <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup>.
-*   **Vị trí phun:** Cần phun đều lên toàn bộ tán lá, đặc biệt chú ý mặt dưới lá và các bộ phận sinh trưởng mềm nơi sâu bệnh thường cư trú <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>.
+*   **Tỷ lệ pha:** Thông thường lấy 1 lít dịch chiết đậm đặc pha với 10 - 25 lít nước sạch tùy theo loại thảo mộc. Đối với các loại dầu khoáng hỗ trợ bám dính, tỷ lệ pha thường là 5ml cho 1 lít nước (tương đương 0.5%).
+*   **Thời điểm phun:** Nên phun vào sáng sớm hoặc chiều mát khi trời không quá nắng nóng hoặc không có gió lớn. Phun vào chiều mát thường mang lại hiệu quả cao hơn do côn trùng bắt đầu ra khỏi nơi ẩn nấp để tìm ăn, đồng thời thuốc ít bị phân hủy bởi ánh nắng mặt trời.
+*   **Vị trí phun:** Cần phun đều lên toàn bộ tán lá, đặc biệt chú ý mặt dưới lá và các bộ phận sinh trưởng mềm nơi sâu bệnh thường cư trú.
 
 ## Lưu ý an toàn và bảo quản
 
 ![Lưu ý an toàn và bảo quản](https://img.manhhuynh.work/posts/thuoc-tru-sau-thao-moc-an-toan-bao-quan.png)
 
-Dù là "tự nhiên", một số thuốc thảo mộc vẫn có độc tính cao đối với con người. Điển hình là chất ni-cô-tin chiết xuất từ thuốc lá là một trong những chất độc nhất đối với động vật máu nóng <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
+Dù là "tự nhiên", một số thuốc thảo mộc vẫn có độc tính cao đối với con người. Điển hình là chất ni-cô-tin chiết xuất từ thuốc lá là một trong những chất độc nhất đối với động vật máu nóng.
 
-*   **Bảo hộ lao động:** Người thực hiện phun thuốc cần trang bị đầy đủ ủng, găng tay, áo choàng và kính bảo vệ mắt <sup><a href="#ref-11" class="citation-ref" id="cit-11">[11]</a></sup>.
-*   **Thử nghiệm nhỏ:** Trước khi phun diện rộng, cần thử nghiệm dịch chiết trên một diện tích nhỏ để quan sát phản ứng của cây trồng và hệ sinh thái xung quanh <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>.
-*   **Sử dụng tươi:** Tốt nhất nên sử dụng dung dịch ngay sau khi chế biến để đảm bảo hiệu lực tối đa <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>.
-*   **Dụng cụ riêng:** Trong trang trại hữu cơ, thiết bị phun thuốc thảo mộc phải được sử dụng riêng biệt, không dùng chung với các dụng cụ phun hóa chất thông thường <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>.
+*   **Bảo hộ lao động:** Người thực hiện phun thuốc cần trang bị đầy đủ ủng, găng tay, áo choàng và kính bảo vệ mắt.
+*   **Thử nghiệm nhỏ:** Trước khi phun diện rộng, cần thử nghiệm dịch chiết trên một diện tích nhỏ để quan sát phản ứng của cây trồng và hệ sinh thái xung quanh.
+*   **Sử dụng tươi:** Tốt nhất nên sử dụng dung dịch ngay sau khi chế biến để đảm bảo hiệu lực tối đa.
+*   **Dụng cụ riêng:** Trong trang trại hữu cơ, thiết bị phun thuốc thảo mộc phải được sử dụng riêng biệt, không dùng chung với các dụng cụ phun hóa chất thông thường.
 
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *BẢO TỒN VÀ SỬ DỤNG RAU BẢN ĐỊA TẠI VIỆT NAM: THỰC TRẠNG, THÁCH THỨC VÀ KHUYẾN NGHỊ*, Nguyễn Thị Ngọc Huệ, Lã Tuấn Nghĩa, Hoàng Đình Phi / Hội giống cây trồng Việt Nam, Trung tâm Tài nguyên Thực vật, VAAS, Đại học Kinh tế, Đại học Quốc gia Hà Nội. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *CUỘC CÁCH MẠNG MỘT-CỌNG-RƠM*, MASANOBU FUKUOKA / NHÀ XUẤT BẢN TỔNG HỢP THÀNH PHỐ HỒ CHÍ MINH. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> SỬ DỤNG VI SINH VẬT CÓ ÍCH TẬP II ỨNG DỤNG NẤM CỘNG SINH VÀ SINH VẬT PHÒNG TRỪ SÂU HẠI, GS.TS. TRẦN VĂN MÃO / NHÀ XUẤT BẢN NÔNG NGHIỆP <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

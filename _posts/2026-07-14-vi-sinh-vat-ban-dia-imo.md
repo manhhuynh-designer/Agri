@@ -14,26 +14,26 @@ description: Hướng dẫn chi tiết quy trình thu thập và nhân nuôi cá
 
 ![Vai trò của vi sinh vật bản địa](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-vai-tro.png)
 
-Đất không chỉ đơn thuần là hỗn hợp khoáng vật mà là một thực thể sống động, nơi cư trú của hàng triệu sinh vật đất <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, <sup><a href="#ref-2" class="citation-ref" id="cit-2">[2]</a></sup>. Trong một thìa đất rừng màu mỡ có thể chứa tới 2 tỷ vi sinh vật, bao gồm vi khuẩn, nấm và sinh vật đơn bào <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. Các vi sinh vật này đóng vai trò then chốt trong việc phân hủy vật chất hữu cơ, tạo ra mùn và giải phóng các chất dinh dưỡng dưới dạng hòa tan để rễ cây có thể hấp thụ dễ dàng <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-3" class="citation-ref" id="cit-3">[3]</a></sup>. 
+Trong canh tác nông nghiệp, tri thức bản địa và kinh nghiệm cổ truyền của dân tộc Dao ở khu vực miền núi phía Bắc đóng vai trò quan trọng trong việc lựa chọn đất đai, địa hình canh tác và phát triển hệ thống cây trồng trên đất dốc <sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup>, đồng thời kết hợp những đổi mới về giống cây trồng, vật nuôi, cơ cấu mùa vụ, thủy lợi, tưới tiêu và kỹ thuật canh tác nhằm nâng cao trình độ sản xuất [2]. Cộng đồng người Dao với dân số khoảng 751.067 người (năm 2009), đứng thứ 9 tại Việt Nam và cư trú tập trung tại các tỉnh miền núi phía Bắc như Hà Giang, Tuyên Quang, Lào Cai, Bắc Kạn..., thể hiện khả năng thích ứng cao và sáng tạo trong sản xuất gắn liền với điều kiện tự nhiên [3]. Bên cạnh tri thức bản địa, việc quản lý và ứng dụng các vi sinh vật có ích tồn tại trong tự nhiên giữ vai trò quan trọng trong sự chuyển hóa vật chất và năng lượng của hệ sinh thái [4].
 
-Vi sinh vật bản địa (Indigenous Microorganisms - IMO) là những chủng vi sinh có sẵn tại địa phương, đã thích nghi hoàn hảo với điều kiện khí hậu và thổ nhưỡng đặc thù của vùng canh tác <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-6" class="citation-ref" id="cit-6">[6]</a></sup>. Việc tự nhân nuôi và đưa các chủng này trở lại đất giúp củng cố chu trình sinh học, tăng cường khả năng hòa tan lân, cố định đạm từ khí quyển và ức chế các mầm bệnh gây hại cho cây trồng <sup><a href="#ref-7" class="citation-ref" id="cit-7">[7]</a></sup>, <sup><a href="#ref-5" class="citation-ref" id="cit-5">[5]</a></sup>, <sup><a href="#ref-8" class="citation-ref" id="cit-8">[8]</a></sup>.
+Vi sinh vật bản địa (Indigenous Microorganisms - IMO) là những chủng vi sinh có sẵn tại địa phương, đã thích nghi hoàn hảo với điều kiện khí hậu và thổ nhưỡng đặc thù của vùng canh tác. Việc tự nhân nuôi và đưa các chủng này trở lại đất giúp củng cố chu trình sinh học, tăng cường khả năng hòa tan lân, cố định đạm từ khí quyển và ức chế các mầm bệnh gây hại cho cây trồng.
 
 ## Nguyên lý nhân nuôi vi sinh vật từ tài nguyên địa phương
 
 ![Nguyên lý nhân nuôi vi sinh vật](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-nguyen-ly.png)
 
-Kỹ thuật nhân nuôi IMO dựa trên nguyên tắc cung cấp nguồn thức ăn và môi trường thuận lợi để kích thích sự phát triển bùng nổ của các chủng vi sinh hữu ích <sup><a href="#ref-9" class="citation-ref" id="cit-9">[9]</a></sup>. Trong điều kiện ấm, ẩm và sẵn có thức ăn (như tinh bột, đường), các quần thể vi sinh vật sẽ phát triển theo cấp số nhân <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>, <sup><a href="#ref-10" class="citation-ref" id="cit-10">[10]</a></sup>.
+Kỹ thuật nhân nuôi IMO dựa trên nguyên tắc cung cấp nguồn thức ăn và môi trường thuận lợi để kích thích sự phát triển bùng nổ của các chủng vi sinh hữu ích. Trong điều kiện ấm, ẩm và sẵn có thức ăn (như tinh bột, đường), các quần thể vi sinh vật sẽ phát triển theo cấp số nhân.
 
 Nguồn nguyên liệu chính để nhân nuôi thường bao gồm:
-- **Cơ chất mang:** Cám gạo, mùn cưa, rơm rạ chặt ngắn hoặc tàn dư cây trồng [11], [12].
-- **Nguồn năng lượng:** Mật mía (rỉ đường) hoặc đường phên để cung cấp carbohydrate cho vi sinh vật [12], [13].
-- **Chất mồi:** Các mẫu đất rừng màu mỡ, rễ cây họ Đậu chứa vi khuẩn cố định đạm, hoặc các chế phẩm vi sinh có sẵn như EM hay Biogro để thúc đẩy nhanh quá trình [12], [14].
+- **Cơ chất mang:** Cám gạo, mùn cưa, rơm rạ chặt ngắn hoặc tàn dư cây trồng.
+- **Nguồn năng lượng:** Mật mía (rỉ đường) hoặc đường phên để cung cấp carbohydrate cho vi sinh vật.
+- **Chất mồi:** Các mẫu đất rừng màu mỡ, rễ cây họ Đậu chứa vi khuẩn cố định đạm, hoặc các chế phẩm vi sinh có sẵn như EM hay Biogro để thúc đẩy nhanh quá trình.
 
 ## Quy trình kỹ thuật tự nhân nuôi IMO tại nông hộ
 
 ![Quy trình kỹ thuật tự nhân nuôi IMO](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-quy-trinh.png)
 
-Quy trình nhân nuôi IMO thường được thực hiện qua các giai đoạn từ thu thập, nhân sinh khối dạng lỏng đến dạng bột khô để bón vào đất [15], [16].
+Quy trình nhân nuôi IMO thường được thực hiện qua các giai đoạn từ thu thập, nhân sinh khối dạng lỏng đến dạng bột khô để bón vào đất.
 
 <div class="diagram-card">
 <div class="mermaid">
@@ -60,36 +60,34 @@ graph TD
 <div class="diagram-note"><p><b>Hình A:</b> Sơ đồ tóm lược các giai đoạn nhân nuôi vi sinh vật bản địa từ thu thập mẫu gốc đến ứng dụng thực tế.</p></div>
 
 ### Bước 1: Thu thập mẫu vi sinh vật gốc
-Đặt cơm chín trong các khay gỗ hoặc ống tre, bọc vải thưa rồi chôn dưới tán rừng nơi có lớp thảm mục dày [17]. Sau 3-5 ngày, nấm men và vi khuẩn bản địa sẽ bám vào cơm tạo thành các màng màu trắng hoặc vàng [18]. Những mẫu có mùi thơm nhẹ hoặc mùi chua của men là dấu hiệu của sự phân hủy tốt [19], [20].
+Đặt cơm chín trong các khay gỗ hoặc ống tre, bọc vải thưa rồi chôn dưới tán rừng nơi có lớp thảm mục dày. Sau 3-5 ngày, nấm men và vi khuẩn bản địa sẽ bám vào cơm tạo thành các màng màu trắng hoặc vàng. Những mẫu có mùi thơm nhẹ hoặc mùi chua của men là dấu hiệu của sự phân hủy tốt.
 
 ### Bước 2: Nhân nuôi sơ cấp (Ủ lỏng)
-Trộn cơm đã bám vi sinh với mật mía theo tỷ lệ 1:1. Hỗn hợp này được chứa trong các vò sành hoặc thùng nhựa, đặt nơi thoáng mát, tránh ánh nắng trực tiếp [21], [22]. Quá trình lên men này giúp ổn định các chủng vi sinh và bảo quản chúng trong thời gian dài [23], [22].
+Trộn cơm đã bám vi sinh với mật mía theo tỷ lệ 1:1. Hỗn hợp này được chứa trong các vò sành hoặc thùng nhựa, đặt nơi thoáng mát, tránh ánh nắng trực tiếp. Quá trình lên men này giúp ổn định các chủng vi sinh và bảo quản chúng trong thời gian dài.
 
 ### Bước 3: Nhân sinh khối (Ủ rắn)
-Phối trộn dịch vi sinh ở bước 2 với cám gạo, trấu hoặc rơm rạ băm nhỏ [11], [12]. Cần điều chỉnh độ ẩm của đống ủ đạt khoảng 60% (kiểm tra bằng cách bóp chặt thấy nước rịn ở kẽ tay nhưng không chảy thành dòng) [24], [11]. Trong 5-6 ngày đầu, nhiệt độ khối ủ sẽ tăng cao lên 55-60°C do hoạt động hô hấp mạnh của vi sinh vật, giúp tiêu diệt các mầm bệnh và hạt cỏ dại [25], [26].
+Phối trộn dịch vi sinh ở bước 2 với cám gạo, trấu hoặc rơm rạ băm nhỏ. Cần điều chỉnh độ ẩm của đống ủ đạt khoảng 60% (kiểm tra bằng cách bóp chặt thấy nước rịn ở kẽ tay nhưng không chảy thành dòng). Trong 5-6 ngày đầu, nhiệt độ khối ủ sẽ tăng cao lên 55-60°C do hoạt động hô hấp mạnh của vi sinh vật, giúp tiêu diệt các mầm bệnh và hạt cỏ dại.
 
 ## Ứng dụng IMO cải tạo đất trồng hữu cơ
 
 ![Ứng dụng IMO cải tạo đất trồng](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-ung-dung.png)
 
 IMO sau khi nhân nuôi thành công có thể được ứng dụng theo nhiều cách để nâng cao "sức khỏe" cho đất:
-- **Tưới trực tiếp:** Pha loãng dịch vi sinh với nước (tỷ lệ khoảng 1:20 đến 1:50) để tưới vào gốc cây hoặc phun lên bề mặt đất nhằm bổ sung tức thời quần thể vi sinh vật có ích [27], [28].
-- **Sản xuất phân Bokashi:** Sử dụng IMO làm chất mồi để ủ phân chuồng và phế phụ phẩm nông nghiệp, giúp rút ngắn thời gian hoai mục và tăng hàm lượng dinh dưỡng [12], [29].
-- **Xử lý tàn dư thực vật:** Phun IMO lên rơm rạ hoặc tàn dư cây trồng sau thu hoạch rồi vùi vào đất để thúc đẩy quá trình mùn hóa tại chỗ, thay vì đốt bỏ gây ô nhiễm [30], [31], [32].
+- **Tưới trực tiếp:** Pha loãng dịch vi sinh với nước (tỷ lệ khoảng 1:20 đến 1:50) để tưới vào gốc cây hoặc phun lên bề mặt đất nhằm bổ sung tức thời quần thể vi sinh vật có ích.
+- **Sản xuất phân Bokashi:** Sử dụng IMO làm chất mồi để ủ phân chuồng và phế phụ phẩm nông nghiệp, giúp rút ngắn thời gian hoai mục và tăng hàm lượng dinh dưỡng.
+- **Xử lý tàn dư thực vật:** Phun IMO lên rơm rạ hoặc tàn dư cây trồng sau thu hoạch rồi vùi vào đất để thúc đẩy quá trình mùn hóa tại chỗ, thay vì đốt bỏ gây ô nhiễm.
 
 ## Các lưu ý kỹ thuật quan trọng
 
 ![Các lưu ý kỹ thuật quan trọng](https://img.manhhuynh.work/posts/vi-sinh-vat-ban-dia-imo-luu-y.png)
 
-1. **Kiểm soát độ ẩm và thông khí:** Vi sinh vật hiếu khí đòi hỏi lượng ô-xy cao để phát triển [33], [34]. Nếu đống ủ quá ướt hoặc quá chặt sẽ gây tình trạng yếm khí, dẫn đến mùi hôi thối và làm chết các chủng vi sinh có lợi [33], [18], [35].
-2. **Nhiệt độ môi trường:** Đa số sinh vật đất hoạt động mạnh nhất khi đất ấm và ẩm <sup><a href="#ref-4" class="citation-ref" id="cit-4">[4]</a></sup>. Tránh để chế phẩm vi sinh dưới ánh nắng trực tiếp vì tia tử ngoại có thể tiêu diệt bào tử [36], [37].
-3. **Chất lượng nước:** Sử dụng nước sạch, không bị nhiễm phèn, mặn hoặc hóa chất độc hại để nhân nuôi và tưới cây [38], [39].
-4. **Bảo vệ môi trường đất:** Việc sử dụng IMO cần kết hợp với các biện pháp che phủ đất (tủ gốc) bằng rơm rạ hoặc cây phân xanh để tạo môi trường sống lý tưởng, bảo vệ vi sinh vật khỏi sự biến động nhiệt độ đột ngột [40], [41], [28].
+1. **Kiểm soát độ ẩm và thông khí:** Vi sinh vật hiếu khí đòi hỏi lượng ô-xy cao để phát triển. Nếu đống ủ quá ướt hoặc quá chặt sẽ gây tình trạng yếm khí, dẫn đến mùi hôi thối và làm chết các chủng vi sinh có lợi.
+2. **Nhiệt độ môi trường:** Đa số sinh vật đất hoạt động mạnh nhất khi đất ấm và ẩm. Tránh để chế phẩm vi sinh dưới ánh nắng trực tiếp vì tia tử ngoại có thể tiêu diệt bào tử.
+3. **Chất lượng nước:** Sử dụng nước sạch, không bị nhiễm phèn, mặn hoặc hóa chất độc hại để nhân nuôi và tưới cây.
+4. **Bảo vệ môi trường đất:** Việc sử dụng IMO cần kết hợp với các biện pháp che phủ đất (tủ gốc) bằng rơm rạ hoặc cây phân xanh để tạo môi trường sống lý tưởng, bảo vệ vi sinh vật khỏi sự biến động nhiệt độ đột ngột.
 
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *TRI THỨC BẢN ĐỊA CỦA DÂN TỘC DAO KHU VỰC MIỀN NÚI PHÍA BẮC TRONG VIỆC LỰA CHỌN ĐẤT ĐAI, ĐỊA HÌNH CANH TÁC VÀ HỆ THỐNG CÂY TRỒNG*, ĐẶNG THỊ NHUẦN, DƯƠNG QUỲNH PHƯƠNG / Tạp chí KHOA HỌC ĐHSP TPHCM. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *QUY TRÌNH ƯƠM CÂY BẢN ĐỊA (Vườn ươm sinh thái HEPA)*, Chuyên gia Nông nghiệp Bền vững. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> TRI THỨC BẢN ĐỊA CỦA DÂN TỘC DAO KHU VỰC MIỀN NÚI PHÍA BẮC TRONG VIỆC LỰA CHỌN ĐẤT ĐAI, ĐỊA HÌNH CANH TÁC VÀ HỆ THỐNG CÂY TRỒNG, ĐẶNG THỊ NHUẦN, DƯƠNG QUỲNH PHƯƠNG / Tạp chí KHOA HỌC ĐHSP TPHCM <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế

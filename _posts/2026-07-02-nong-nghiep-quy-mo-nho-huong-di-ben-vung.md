@@ -11,7 +11,7 @@ description: Tìm hiểu mô hình canh tác đa dạng kết hợp chế biến
 > [!WARNING]
 > **⚠️ Lưu ý:** Nội dung bài viết này được hỗ trợ khởi tạo bởi AI, vui lòng kiểm chứng lại các thông tin kỹ thuật trước khi áp dụng vào thực tế sản xuất.
 
-Trào lưu "bỏ phố về quê" làm nông nghiệp sạch đang thu hút rất nhiều người trẻ năng động. Tuy nhiên, để tồn tại và sống khỏe với nghề nông, tư duy canh tác thâm canh sản lượng lớn (độc canh) không còn là lựa chọn an toàn. Thay vào đó, mô hình **Nông nghiệp quy mô nhỏ (Small-scale Farming)** kết hợp chế biến nông sản sâu đang nổi lên như một hướng đi kinh tế bền vững và bền bỉ nhất.
+Trào lưu "bỏ phố về quê" làm nông nghiệp sạch đang thu hút rất nhiều người trẻ năng động. Tuy nhiên, để tồn tại và sống khỏe với nghề nông, tư duy canh tác thâm canh sản lượng lớn (độc canh) không còn là lựa chọn an toàn. Thay vào đó, mô hình **Nông nghiệp quy mô nhỏ (Small-scale Farming)** kết hợp chế biến nông sản sâu đang nổi lên như một hướng đi kinh tế bền vững và bền bỉ nhất, bởi để con người tồn tại và phát triển bền vững thì môi trường sống—bao gồm khí quyển, thủy quyển, thạch quyển và sinh quyển—luôn cần được bảo vệ <a href="#ref-1" id="cit-1"><sup><sup><a href="#ref-1" class="citation-ref" id="cit-1">[1]</a></sup></sup></a>.
 
 ![Thu hoạch rau củ hữu cơ](https://img.manhhuynh.work/posts/nong-nghiep-quy-mo-nho-huong-di-ben-vung-hero.png)
 
@@ -21,28 +21,23 @@ Trào lưu "bỏ phố về quê" làm nông nghiệp sạch đang thu hút rấ
 
 Trong tiếng Nhật cổ, từ chỉ nông dân là **Hyakushou (百姓 - Bách Tính)**, mang ý nghĩa sâu sắc là *"người có một trăm kỹ năng"*. Một nông dân thực thụ không chỉ biết gieo hạt, mà họ là những người thợ rèn, thợ mộc tự làm dụng cụ, thợ xây tự dựng nhà, và là chuyên gia chế biến thực phẩm bảo quan:
 
-- **Sản xuất đa dạng:** Trồng đa chủng loại rau, cây ăn trái kết hợp nuôi gà, thả cá thay vì chỉ trồng một loại nông sản duy nhất. Việc đa dạng hóa này giúp giảm thiểu 90% rủi ro mất giá thị trường hoặc thiên tai dịch bệnh quét sạch cả vụ mùa.
+- **Sản xuất đa dạng:** Trồng đa chủng loại rau, cây ăn trái kết hợp nuôi gà, thả cá thay vì chỉ trồng một loại nông sản duy nhất. Việc theo dõi các yếu tố môi trường như ánh sáng, nhiệt độ, thức ăn và bệnh tật giúp đánh giá chính xác chất lượng môi trường xung quanh nhằm duy trì cơ chế tồn tại của sinh quyển <a href="#ref-3" id="cit-3"><sup>[3]</sup></a>. Việc đa dạng hóa này giúp giảm thiểu 90% rủi ro mất giá thị trường hoặc thiên tai dịch bệnh quét sạch cả vụ mùa.
 - **Chế biến sâu tại chỗ:** Thay vì bán cà chua tươi giá rẻ lúc rộ vụ, nông dân quy mô nhỏ chọn cách làm mứt cà chua, tương cà, hoặc muối chua. Việc này nâng cao giá trị gia tăng của nông sản lên gấp nhiều lần và kéo dài thời gian lưu trữ hàng hóa, giúp chủ động phân phối.
 
 ## Phương thức tối ưu hóa kinh tế hộ gia đình
 
 ![Phương thức tối ưu hóa kinh tế](https://img.manhhuynh.work/posts/nong-nghiep-quy-mo-nho-huong-di-ben-vung-toi-uu-hoa.png)
 
-Để mô hình nông nghiệp nhỏ đạt hiệu quả kinh tế tối đa, người làm nông cần thay đổi cách tính toán tài chính:
+Để mô hình nông nghiệp nhỏ đạt hiệu quả kinh tế tối đa, người làm nông cần hiểu rằng tất cả các nền sản xuất từ nông nghiệp đến công nghiệp đều sử dụng các nguồn tài nguyên thiên nhiên như đất, nước, không khí do môi trường cung cấp <a href="#ref-4" id="cit-4"><sup>[4]</sup></a>. Do đó, người làm nông cần thay đổi cách tính toán tài chính:
 
-1. **Giảm thiểu tối đa chi phí đầu vào (Inputs):** Tận dụng phế phụ phẩm tại chỗ để ủ phân hữu cơ, tự chế tạo lò retort làm than sinh học (Biochar) bồi bổ đất, thu hoạch giấm gỗ làm thuốc phòng trừ sâu thảo mộc. Càng ít mua phân thuốc công nghiệp bên ngoài, nông hộ càng giữ được nhiều lợi nhuận thực tế.
+1. **Giảm thiểu tối đa chi phí đầu vào (Inputs):** Tận dụng phế phụ phẩm tại chỗ để ủ phân hữu cơ, tự chế tạo lò retort làm than sinh học (Biochar) bồi bổ đất, thu hoạch giấm gỗ làm thuốc phòng trừ sâu thảo mộc. Trong thạch quyển, đất là thành phần quan trọng nhất, cùng với nguồn nước sông hồ và nước ngầm trong thủy quyển đòi hỏi việc khai thác, sử dụng phải hợp lý nhằm tránh ô nhiễm và suy thoái <a href="#ref-2" id="cit-2"><sup>[2]</sup></a>. Càng ít mua phân thuốc công nghiệp bên ngoài, nông hộ càng giữ được nhiều lợi nhuận thực tế.
 2. **Ưu tiên chất lượng thay vì số lượng:** Nông sản quy mô nhỏ khó cạnh tranh giá rẻ với trang trại lớn ở chợ đầu mối. Vì thế, hãy tập trung vào phân khúc chất lượng cao: nông sản không hóa chất, kể câu chuyện canh tác sinh thái chân thực và phân phối trực tiếp đến tay người tiêu dùng qua đăng ký định kỳ hàng tuần.
 3. **Liên kết cộng đồng hỗ trợ nông nghiệp (CSA):** Hợp tác với các hộ gia đình đô thị, những người sẵn sàng trả tiền trước cho cả mùa vụ để đổi lấy nguồn rau quả tươi sạch hàng tuần. Phương thức này giúp nông dân có vốn sản xuất ổn định mà không lo đầu ra bấp bênh.
 
----
-
 ### Tài liệu trích dẫn chi tiết
-
-* <span id="ref-1">**[1]**</span> *CANH TÁC HỮU CƠ - Tham khảo cho sản xuất rau, quả và chè. Tài liệu hướng dẫn dành cho giảng viên nông dân*, ADDA office in Vietnam. <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-* <span id="ref-2">**[2]**</span> *MÔ HÌNH NÔNG NGHIỆP QUY MÔ NHỎ PHONG CÁCH NHẬT BẢN*, Vietup. <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-1">**[1]**</span> HƯỚNG DẪN SỬ DỤNG ĐẤT ĐAI THEO NÔNG NGHIỆP BỀN VỮNG, CHU THỊ THƠM, PHAN THỊ LÀI, NGUYỄN VĂN TÓ / NHÀ XUẤT BẢN LAO ĐỘNG <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
-
 ### Video tham khảo thực tế
 Xem video phân tích mô hình kinh doanh và chiến lược phân phối rau củ trực tiếp từ các nông trại hữu cơ quy mô nhỏ:
 
