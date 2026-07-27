@@ -76,7 +76,7 @@ export default async function Home() {
       posts = rawPosts.map((p: any) => {
         let readTime = 5;
         if (p.readTime) {
-          readTime = parseInt(p.readTime.replace(' phút', '')) || 5;
+          readTime = parseInt(String(p.readTime).replace(' phút', '').replace(' min', '').trim()) || 5;
         }
         return {
           slug: p.slug,

@@ -147,7 +147,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   let publishedTime: string | undefined = undefined;
   if (post.dateString) {
-    const parts = post.dateString.split('/');
+    const parts = String(post.dateString).split('/');
     if (parts.length === 3) {
       publishedTime = `${parts[2]}-${parts[1]}-${parts[0]}T00:00:00.000Z`;
     }
@@ -218,7 +218,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   let publishedTime: string | undefined = undefined;
   if (post.dateString) {
-    const parts = post.dateString.split('/');
+    const parts = String(post.dateString).split('/');
     if (parts.length === 3) {
       publishedTime = `${parts[2]}-${parts[1]}-${parts[0]}T00:00:00.000Z`;
     }

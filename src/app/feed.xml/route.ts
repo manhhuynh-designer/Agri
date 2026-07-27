@@ -6,8 +6,26 @@ export async function GET() {
   const postsDirectory = path.join(process.cwd(), "_posts");
   let posts: any[] = [];
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://agri.manhhuynh.work').replace(/\/$/, '');
+  const publicUrl = (process.env.CLOUDFLARE_R2_PUBLIC_URL || 'https://img.manhhuynh.work').replace(/\/$/, '');
 
-  if (fs.existsSync(postsDirectory)) {
+  try {
+    const res = await fetch(`${publicUrl}/posts-index.json`, { next: { revalidate: 60 } });
+    if (res.ok) {
+      const rawPosts = await res.json();
+      posts = rawPosts.map((p: any) => ({
+        slug: p.slug,
+        title: p.title || p.slug,
+        description: p.description || p.subtitle || '',
+        dateString: p.dateString || (p.date ? String(p.date).split(' ')[0] : ''),
+        author: p.author || 'AgriSynthe AI',
+        tags: Array.isArray(p.tags) ? p.tags : [],
+      }));
+    }
+  } catch (e) {
+    console.error("Error fetching posts for RSS feed from R2:", e);
+  }
+
+  if (posts.length === 0 && fs.existsSync(postsDirectory)) {
     const filenames = fs.readdirSync(postsDirectory);
     posts = filenames
       .filter((filename) => filename.endsWith(".md"))
