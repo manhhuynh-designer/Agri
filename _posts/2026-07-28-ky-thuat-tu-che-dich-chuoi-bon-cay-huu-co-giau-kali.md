@@ -142,8 +142,8 @@ Trong quá trình tự ủ dịch chuối tại nhà, nông dân thường gặp
 ### Tài liệu trích dẫn chi tiết
 - <span id="ref-1">**[1]**</span> HƯỚNG DẪN TRỒNG, THU HOẠCH, BẢO QUẢN & CHẾ BIẾN TRÁI CÂY, KS. HÀ THỊ HIẾN (Biên soạn) / NHÀ XUẤT BẢN VĂN HOÁ DÂN TỘC <a href="#cit-1" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 - <span id="ref-2">**[2]**</span> GIÁO TRÌNH NÔNG NGHIỆP HỮU CƠ, GS.TS. NGUYỄN THẾ ĐẶNG (Chủ biên), PGS.TS. NGUYỄN TUẤN ANH / NHÀ XUẤT BẢN NÔNG NGHIỆP <a href="#cit-2" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-3">**[3]**</span> CANH TÁC HỮU CƠ - HƯỚNG DẪN SẢN XUẤT RAU VÀ QUẢ HỮU CƠ, ADDA – ACCD <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
-- <span id="ref-4">**[4]**</span> BẢO VỆ THỰC VẬT THEO PHƯƠNG PHÁP TỰ NHIÊN, DỰ ÁN PHÁT TRIỂN NÔNG NGHIỆP HỮU CƠ ADDA - VIỆT NAM <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-3">**[3]**</span> QUY TRÌNH LÀM VÒNG TRÒN CHUỐI (BANANA CIRCLE), SPERI-FFS / TRUNG TÂM NÔNG NGHIỆP HỮU CƠ <a href="#cit-3" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
+- <span id="ref-4">**[4]**</span> SẢN XUẤT THỰC PHẨM VÀ PHÂN BÓN QUY MÔ NHỎ TỪ PHẾ PHẨM HỮU CƠ, PAUL OLIVIER, JOZEF DE SMET <a href="#cit-4" class="back-to-citation" title="Quay lại câu viết">&crarr;</a>
 
 ---
 ### Video tham khảo thực tế
