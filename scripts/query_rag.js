@@ -3,6 +3,12 @@ const path = require('path');
 
 const RAG_INDEX_PATH = path.join(__dirname, '..', 'data', 'rag_index.json');
 
+const STOP_WORDS = new Set([
+  'kỹ', 'thuật', 'chế', 'biến', 'cách', 'hướng', 'dẫn', 'phương', 'pháp', 
+  'quy', 'trình', 'giúp', 'cho', 'với', 'trong', 'theo', 'như', 'bằng', 
+  'các', 'của', 'về', 'và', 'hoặc', 'những', 'đã', 'được', 'khi', 'sau', 'từ'
+]);
+
 /**
  * Perform RAG Retrieval for a given topic/query string
  * Returns top N matching chunks with exact document title & author
@@ -18,15 +24,15 @@ function searchRagIndex(query, topN = 4) {
 
   const queryLower = query.toLowerCase();
 
-  // Clean and tokenize query words (lowercase, remove punctuation, filter short words)
-  const queryTerms = queryLower
+  // Clean and tokenize query terms
+  const allTerms = queryLower
     .replace(/[^\w\sàáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/gi, ' ')
     .split(/\s+/)
-    .filter(t => t.length > 2);
+    .filter(t => t.length > 1);
 
-  if (queryTerms.length === 0) {
-    return chunks.slice(0, topN);
-  }
+  // Filter out stop words
+  const domainTerms = allTerms.filter(t => !STOP_WORDS.has(t));
+  const searchTerms = domainTerms.length > 0 ? domainTerms : allTerms;
 
   // Detect specific author names from query (e.g., fukuoka, sepp holzer)
   const authorKeywords = ['fukuoka', 'holzer', 'jeavons', 'mollison'];
@@ -40,12 +46,13 @@ function searchRagIndex(query, topN = 4) {
     
     let score = 0;
 
-    for (const term of queryTerms) {
+    for (const term of searchTerms) {
       if (textLower.includes(term)) {
-        score += 1;
-        // Extra weight if term appears in document title
+        score += 10;
+
+        // Boost if term appears in title
         if (titleLower.includes(term)) {
-          score += 5;
+          score += 30;
         }
       }
     }
@@ -54,18 +61,6 @@ function searchRagIndex(query, topN = 4) {
     for (const author of matchedAuthors) {
       if (authorLower.includes(author)) {
         score += 1000;
-      }
-    }
-
-    // MASSIVE BOOST for Exact Title match words
-    if (matchedAuthors.length === 0) {
-      // If no specific author, boost titles that have high overlap
-      let titleOverlap = 0;
-      for (const term of queryTerms) {
-        if (titleLower.includes(term)) titleOverlap++;
-      }
-      if (titleOverlap >= 3) {
-        score += titleOverlap * 20;
       }
     }
 
@@ -79,7 +74,6 @@ function searchRagIndex(query, topN = 4) {
     .slice(0, topN)
     .map(item => item.chunk);
 
-  // If no match found, pick topN chunks from index to avoid empty context
   if (matches.length === 0) {
     return chunks.slice(0, topN);
   }
@@ -90,3 +84,4 @@ function searchRagIndex(query, topN = 4) {
 module.exports = {
   searchRagIndex
 };
+
