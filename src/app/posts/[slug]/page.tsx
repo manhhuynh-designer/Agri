@@ -19,6 +19,7 @@ interface PostData {
 }
 
 export const revalidate = 60; // Tự động làm mới cache (ISR) sau mỗi 60 giây
+export const dynamicParams = true; // Cho phép render on-demand đối với các bài viết mới tạo chưa có ở thời điểm build
 
 const publicUrl = (process.env.CLOUDFLARE_R2_PUBLIC_URL || 'https://img.manhhuynh.work').replace(/\/$/, '');
 
@@ -26,36 +27,49 @@ async function getPostBySlug(slug: string): Promise<PostData | null> {
   try {
     let data: any = null;
 
-    // In local development mode, read directly from local _posts directory for instant updates
-    const fs = require('fs');
-    const path = require('path');
-    const matter = require('gray-matter');
-    const postsDir = path.join(process.cwd(), '_posts');
-    
-    if (fs.existsSync(postsDir)) {
-      const files = fs.readdirSync(postsDir);
-      const targetFile = files.find((f: string) => f.endsWith(`${slug}.md`) || f.endsWith(`${slug}.html`));
-      if (targetFile) {
-        const fileContent = fs.readFileSync(path.join(postsDir, targetFile), 'utf8');
-        const parsed = matter(fileContent);
-        data = {
-          title: parsed.data.title || slug,
-          description: parsed.data.description || parsed.data.subtitle || '',
-          image: parsed.data.image || '/assets/images/favicon.svg',
-          categories: parsed.data.categories || (parsed.data.category ? [parsed.data.category] : ['Khác']),
-          dateString: parsed.data.date ? String(parsed.data.date).split(' ')[0] : '',
-          readTime: parsed.data.read_time || '5 phút',
-          difficulty: parsed.data.difficulty,
-          author: parsed.data.author || 'AgriSynthe AI',
-          content: parsed.content,
-          tags: parsed.data.tags || []
-        };
+    // Trong môi trường Local Dev, ưu tiên đọc trực tiếp từ thư mục _posts nếu file tồn tại
+    if (process.env.NODE_ENV === 'development') {
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const matter = require('gray-matter');
+        const postsDir = path.join(process.cwd(), '_posts');
+        
+        if (fs.existsSync(postsDir)) {
+          const files = fs.readdirSync(postsDir);
+          const targetFile = files.find((f: string) => f.endsWith(`${slug}.md`) || f.endsWith(`${slug}.html`));
+          if (targetFile) {
+            const fileContent = fs.readFileSync(path.join(postsDir, targetFile), 'utf8');
+            const parsed = matter(fileContent);
+            
+            let dateStr = parsed.data.date ? String(parsed.data.date).split(' ')[0] : '';
+            if (dateStr && dateStr.includes('-')) {
+              const [year, month, day] = dateStr.split('-');
+              dateStr = `${day}/${month}/${year}`;
+            }
+
+            data = {
+              title: parsed.data.title || slug,
+              description: parsed.data.description || parsed.data.subtitle || '',
+              image: parsed.data.image || '/assets/images/favicon.svg',
+              categories: parsed.data.categories || (parsed.data.category ? [parsed.data.category] : ['Khác']),
+              dateString: dateStr,
+              readTime: parsed.data.read_time || '5 phút',
+              difficulty: parsed.data.difficulty,
+              author: parsed.data.author || 'AgriSynthe AI',
+              content: parsed.content,
+              tags: parsed.data.tags || []
+            };
+          }
+        }
+      } catch (localErr) {
+        console.warn(`[Local Posts Read] Skip reading local file for ${slug}:`, localErr);
       }
     }
 
     if (!data) {
       const res = await fetch(`${publicUrl}/posts/${slug}.json`, {
-        cache: 'no-store'
+        next: { revalidate: 60 }
       });
       if (!res.ok) return null;
       data = await res.json();
@@ -147,9 +161,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   let publishedTime: string | undefined = undefined;
   if (post.dateString) {
-    const parts = String(post.dateString).split('/');
-    if (parts.length === 3) {
-      publishedTime = `${parts[2]}-${parts[1]}-${parts[0]}T00:00:00.000Z`;
+    const str = String(post.dateString);
+    if (str.includes('/')) {
+      const parts = str.split('/');
+      if (parts.length === 3) {
+        publishedTime = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}T00:00:00.000Z`;
+      }
+    } else if (str.includes('-')) {
+      const parts = str.split('-');
+      if (parts.length === 3) {
+        publishedTime = `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}T00:00:00.000Z`;
+      }
     }
   }
 
@@ -218,9 +240,17 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   let publishedTime: string | undefined = undefined;
   if (post.dateString) {
-    const parts = String(post.dateString).split('/');
-    if (parts.length === 3) {
-      publishedTime = `${parts[2]}-${parts[1]}-${parts[0]}T00:00:00.000Z`;
+    const str = String(post.dateString);
+    if (str.includes('/')) {
+      const parts = str.split('/');
+      if (parts.length === 3) {
+        publishedTime = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}T00:00:00.000Z`;
+      }
+    } else if (str.includes('-')) {
+      const parts = str.split('-');
+      if (parts.length === 3) {
+        publishedTime = `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}T00:00:00.000Z`;
+      }
     }
   }
 

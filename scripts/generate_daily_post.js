@@ -56,6 +56,42 @@ function slugify(text) {
     .replace(/-+/g, '-');
 }
 
+// Helper to rebuild post index from local _posts directory if R2 fetch fails
+function buildIndexFromLocal() {
+  const postsDir = path.join(__dirname, '..', '_posts');
+  if (!fs.existsSync(postsDir)) return [];
+  const files = fs.readdirSync(postsDir);
+  const matter = require('gray-matter');
+  const index = [];
+  for (const file of files) {
+    if (!file.endsWith('.md') && !file.endsWith('.html')) continue;
+    const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.(md|html)$/, '');
+    const filePath = path.join(postsDir, file);
+    const content = fs.readFileSync(filePath, 'utf8');
+    const { data } = matter(content);
+    const dateMatch = file.match(/^(\d{4}-\d{2}-\d{2})/);
+    const dateStr = dateMatch ? dateMatch[1] : '';
+    let formattedDate = '';
+    if (dateStr) {
+      const [year, month, day] = dateStr.split('-');
+      formattedDate = `${day}/${month}/${year}`;
+    }
+    index.push({
+      slug,
+      title: data.title || slug,
+      description: data.description || data.subtitle || '',
+      subtitle: data.subtitle || data.description || '',
+      date: data.date || `${dateStr} 12:00:00 +0700`,
+      dateString: data.dateString || formattedDate,
+      categories: Array.isArray(data.categories) ? data.categories : (data.category ? [data.category] : ['Hướng dẫn']),
+      tags: Array.isArray(data.tags) ? data.tags : ['Hữu cơ'],
+      image: data.image || `/assets/images/generated_${slug}.svg`,
+      readTime: data.read_time || '5 phút'
+    });
+  }
+  return index;
+}
+
 // Validation Gate: kiểm tra cấu trúc bắt buộc của bài viết
 function validateArticleStructure(content) {
   const errors = [];
@@ -775,7 +811,7 @@ Trả về DUY NHẤT một khối JSON hợp lệ theo đúng format sau, khôn
     const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'agrisynthe';
     const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, heroBuffer);
     if (uploadSuccess) {
-      const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+      const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://img.manhhuynh.work`;
       const cleanPublicUrl = publicUrl.replace(/\/$/, '');
       selectedImage = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
       console.log(`[Hero Image] AI hero image generated and uploaded to R2: ${selectedImage}`);
@@ -1072,7 +1108,7 @@ ${citationListInstructions}
       const uploadSuccess = await uploadToR2(bucketName, `posts/${imageName}`, imageBuffer);
       
       if (uploadSuccess) {
-        const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+        const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://img.manhhuynh.work`;
         const cleanPublicUrl = publicUrl.replace(/\/$/, '');
         resolvedImageUrl = `${cleanPublicUrl}/posts/${imageName}?v=${Date.now()}`;
         console.log(`[Content Images] AI image generated and uploaded to R2: ${resolvedImageUrl}`);
@@ -1130,7 +1166,7 @@ ${citationListInstructions}
       console.log(`[Cloudflare R2] ✅ Upload bài viết posts/${selectedTopic.id}.json thành công!`);
 
       console.log(`[Cloudflare R2] Đang đồng bộ posts-index.json trên R2...`);
-      const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://pub-agrisynthe.r2.dev`;
+      const publicUrl = process.env.CLOUDFLARE_R2_PUBLIC_URL || `https://img.manhhuynh.work`;
       const cleanPublicUrl = publicUrl.replace(/\/$/, '');
       
       let postsIndex = [];
@@ -1156,7 +1192,12 @@ ${citationListInstructions}
         });
         postsIndex = await fetchExistingIndex();
       } catch (e) {
-        console.warn('[Cloudflare R2] Không tải được index hiện tại, sử dụng mảng rỗng.');
+        console.warn('[Cloudflare R2] Không tải được index hiện tại từ R2.');
+      }
+
+      if (!Array.isArray(postsIndex) || postsIndex.length === 0) {
+        console.log('[Cloudflare R2] Khôi phục index từ thư mục local _posts/...');
+        postsIndex = buildIndexFromLocal();
       }
 
       postsIndex = postsIndex.filter(p => p.slug !== selectedTopic.id);

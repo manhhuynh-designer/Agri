@@ -388,5 +388,25 @@
       "Phân bón hữu cơ"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-tu-che-dich-chuoi-bon-cay-huu-co-giau-kali",
+    "title": "Kỹ thuật tự chế dịch chuối bón cây hữu cơ giàu kali giúp kích hoa và đậu quả",
+    "description": "Hướng dẫn chi tiết quy trình ủ dịch chuối bón cây tại nhà bằng chế phẩm vi sinh, cung cấp nguồn kali sinh học dồi dào giúp cây ra hoa đồng loạt và nâng cao chất lượng nông sản.",
+    "categories": [
+      "Phân bón hữu cơ",
+      "Kỹ thuật trồng trọt"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "ky-thuat-nhan-nuoi-nam-xanh-nam-trang-phong-tru-sau-benh-huu-co",
+    "title": "Kỹ thuật nhân nuôi và ứng dụng nấm xanh, nấm trắng trong phòng trừ sâu bệnh hữu cơ",
+    "description": "Hướng dẫn chi tiết quy trình nhân nuôi và sử dụng các chủng nấm ký sinh côn trùng Beauveria và Metarhizium để tiêu diệt rầy rệp, bọ xít và sâu hại an toàn, hiệu quả.",
+    "categories": [
+      "Chế phẩm sinh học",
+      "Bảo vệ thực vật"
+    ],
+    "prompt": ""
   }
 ]
