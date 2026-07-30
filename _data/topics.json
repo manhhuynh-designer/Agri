@@ -439,5 +439,15 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-nuoi-trun-que-san-xuat-phan-bon-huu-co",
+    "title": "Kỹ thuật nuôi trùn quế sản xuất phân bón hữu cơ và cải tạo đất",
+    "description": "Hướng dẫn quy trình nuôi trùn quế xử lý phế phẩm nông nghiệp, kỹ thuật thu hoạch phân trùn và dịch trùn bón cho cây trồng.",
+    "categories": [
+      "Phân bón hữu cơ",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
   }
 ]
