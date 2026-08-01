@@ -459,5 +459,15 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-quan-ly-co-dai-tu-nhien-trong-canh-tac-huu-co",
+    "title": "Kỹ thuật quản lý cỏ dại tự nhiên trong canh tác hữu cơ không dùng hóa chất",
+    "description": "Hướng dẫn các giải pháp quản lý cỏ dại bền vững như che phủ sinh học, nhổ cơ học, xen canh ức chế và tận dụng cỏ dại thành nguồn phân bón cho đất.",
+    "categories": [
+      "Quản lý cỏ dại",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
   }
 ]
