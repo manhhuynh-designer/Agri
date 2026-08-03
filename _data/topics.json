@@ -499,5 +499,25 @@
       "Rau Sạch Hữu Cơ"
     ],
     "prompt": ""
+  },
+  {
+    "id": "mo-hinh-nong-lam-ket-hop-agroforestry-giai-phap-canh-tac-ben-vung",
+    "title": "Mô hình Nông Lâm Kết Hợp (Agroforestry): Kỹ thuật canh tác đa tầng và giải pháp phát triển sinh thái bền vững",
+    "description": "Hướng dẫn thiết kế và ứng dụng mô hình Nông Lâm Kết Hợp (Agroforestry) giúp tối ưu hóa diện tích đất đai, gia tăng đa dạng sinh học và bảo vệ nguồn tài nguyên đất đồi núi bền vững.",
+    "categories": [
+      "Nông nghiệp sinh thái",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
+  },
+  {
+    "id": "ky-thuat-thuy-canh-huu-co-bioponics-tu-nguon-dinh-duong-tu-nhien",
+    "title": "Kỹ thuật thủy canh hữu cơ (Bioponics) từ nguồn dinh dưỡng tự nhiên",
+    "description": "Hướng dẫn chi tiết quy trình thủy canh hữu cơ Bioponics, chuyển hóa dinh dưỡng tự nhiên nhờ hệ vi sinh vật để trồng rau sạch bền vững mà không cần phân bón hóa học tổng hợp.",
+    "categories": [
+      "Kỹ thuật canh tác",
+      "Nông nghiệp đô thị"
+    ],
+    "prompt": ""
   }
 ]
