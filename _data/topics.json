@@ -519,5 +519,15 @@
       "Nông nghiệp đô thị"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-xu-ly-phe-phu-pham-rom-ra-thanh-phan-bon-huu-co-ngay-tai-dong-ruong",
+    "title": "Kỹ thuật xử lý phế phụ phẩm rơm rạ thành phân bón hữu cơ ngay tại đồng ruộng",
+    "description": "Hướng dẫn quy trình ứng dụng chế phẩm vi sinh phân giải cellulose để ủ rơm rạ sau thu hoạch thành phân bón hữu cơ, giúp tái tạo độ phì nhiêu cho đất và hạn chế ô nhiễm môi trường.",
+    "categories": [
+      "Nông nghiệp hữu cơ",
+      "Xử lý phế phụ phẩm"
+    ],
+    "prompt": ""
   }
 ]
