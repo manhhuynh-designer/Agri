@@ -529,5 +529,15 @@
       "Xử lý phế phụ phẩm"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-u-phan-banh-dau-giau-dam-huu-co",
+    "title": "Kỹ thuật ủ phân bánh dầu giàu đạm hữu cơ an toàn không mùi cho cây trồng",
+    "description": "Hướng dẫn từng bước ủ bánh dầu đậu phụng và đậu nành bằng vi sinh vật, giúp tạo nguồn phân bón đạm hữu cơ đậm đặc kích thích cây phát triển bứt phá mà không gây mùi hôi.",
+    "categories": [
+      "Phân bón hữu cơ",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
   }
 ]
