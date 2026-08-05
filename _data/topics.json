@@ -539,5 +539,15 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-quan-ly-do-am-va-giu-nuoc-cho-dat-trong-canh-tac-huu-co",
+    "title": "Kỹ thuật quản lý độ ẩm và giữ nước cho đất trong canh tác hữu cơ mùa khô",
+    "description": "Hướng dẫn các biện pháp sinh học và kỹ thuật phủ đất tự nhiên giúp duy trì độ ẩm tối ưu cho đất, giảm thiểu thất thoát nước và bảo vệ hệ vi sinh vật trong điều kiện nắng nóng.",
+    "categories": [
+      "Kỹ thuật canh tác",
+      "Cải tạo đất"
+    ],
+    "prompt": ""
   }
 ]
