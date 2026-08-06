@@ -569,5 +569,15 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-nhan-nuoi-vi-khuan-quang-hop-psb-cai-tao-dat",
+    "title": "Kỹ thuật nhân nuôi vi khuẩn quang hợp (PSB) cải tạo đất và kích thích sinh trưởng cây trồng",
+    "description": "Hướng dẫn quy trình nhân nuôi vi khuẩn quang hợp (Photosynthetic Bacteria - PSB) tại nhà giúp xử lý chất độc trong đất, cải tạo hệ vi sinh và kích thích cây trồng phát triển mạnh mẽ.",
+    "categories": [
+      "Vi Sinh Vật Nông Nghiệp",
+      "Cải Tạo Đất"
+    ],
+    "prompt": ""
   }
 ]
