@@ -639,5 +639,15 @@
       "Phòng trừ sâu bệnh"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-pha-che-thuoc-tru-nam-jadam-sulfur-va-chat-dinh-bam-jwa",
+    "title": "Kỹ thuật pha chế thuốc trừ nấm sinh học JADAM Sulfur (JS) và chất dính bám JWA từ dầu thực vật",
+    "description": "Hướng dẫn quy trình tự chế dung dịch dính bám sinh học JWA và thuốc trừ nấm gốc lưu huỳnh JADAM JS giúp phòng trừ nấm bệnh hiệu quả cao với chi phí tối ưu cho canh tác hữu cơ.",
+    "categories": [
+      "Bảo vệ thực vật",
+      "Chế phẩm sinh học"
+    ],
+    "prompt": ""
   }
 ]
