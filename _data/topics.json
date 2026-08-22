@@ -830,5 +830,15 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-ung-dung-bio-slurry-tu-ham-biogas-lam-phan-bon-huu-co",
+    "title": "Kỹ thuật ứng dụng dung dịch bã hầm Biogas (Bio-slurry) làm phân bón hữu cơ và cải tạo đất",
+    "description": "Hướng dẫn quy trình xử lý, pha chế và sử dụng bã hầm Biogas (bio-slurry) làm nguồn phân bón lỏng giàu dinh dưỡng và cải tạo độ phì nhiêu cho đất trồng hữu cơ.",
+    "categories": [
+      "Phân bón hữu cơ",
+      "Nông nghiệp tuần hoàn"
+    ],
+    "prompt": ""
   }
 ]
