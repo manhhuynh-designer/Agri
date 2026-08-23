@@ -851,5 +851,15 @@
       "Tiết kiệm nước"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-ung-dung-thuoc-nam-phong-tri-benh-cho-vat-nuoi-huu-co",
+    "title": "Kỹ thuật ứng dụng thuốc Nam và thảo mộc trong phòng trị bệnh cho vật nuôi hữu cơ",
+    "description": "Hướng dẫn sử dụng các bài thuốc Nam tự nhiên và cây thảo mộc gia truyền để phòng và điều trị bệnh phổ biến ở gia súc, gia cầm trong chăn nuôi hữu cơ an toàn không kháng sinh.",
+    "categories": [
+      "Chăn nuôi hữu cơ",
+      "Bảo vệ vật nuôi"
+    ],
+    "prompt": ""
   }
 ]
