@@ -861,5 +861,15 @@
       "Bảo vệ vật nuôi"
     ],
     "prompt": ""
+  },
+  {
+    "id": "bao-ton-va-phat-trien-cac-loai-rau-ban-dia-trong-canh-tac-huu-co",
+    "title": "Kỹ thuật bảo tồn và phát triển các loài rau bản địa trong canh tác hữu cơ",
+    "description": "Hướng dẫn nhận biết, nhân giống và ứng dụng các loài rau bản địa có khả năng chống chịu sâu bệnh cao và giàu dinh dưỡng nhằm gia tăng đa dạng sinh học cho vườn hữu cơ.",
+    "categories": [
+      "Nông nghiệp sinh thái",
+      "Bảo tồn giống"
+    ],
+    "prompt": ""
   }
 ]
