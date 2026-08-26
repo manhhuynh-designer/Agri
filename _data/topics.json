@@ -921,5 +921,15 @@
       "Nông nghiệp sinh thái"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-thiet-ke-luong-vuon-lo-khoa-keyhole-garden",
+    "title": "Kỹ thuật thiết kế luống vườn lỗ khóa (Keyhole Garden): Giải pháp canh tác giữ ẩm và phân hủy rác tại chỗ theo nguyên lý Permaculture",
+    "description": "Hướng dẫn chi tiết quy trình thiết kế và xây dựng luống vườn lỗ khóa (Keyhole Garden) tích hợp hố ủ phân sinh học tại trung tâm, giúp giữ ẩm tự nhiên và tối ưu hóa diện tích canh tác.",
+    "categories": [
+      "Permaculture",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
   }
 ]
