@@ -941,5 +941,15 @@
       "Kỹ thuật canh tác"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-che-tao-va-su-dung-khung-chu-a-a-frame-xac-dinh-duong-dong-muc",
+    "title": "Kỹ thuật chế tạo và sử dụng khung chữ A (A-frame) xác định đường đồng mức canh tác đất dốc",
+    "description": "Hướng dẫn chi tiết cách tự làm và vận hành khung chữ A đơn giản để định vị chính xác các đường đồng mức trên địa hình đồi dốc, tạo tiền đề thiết kế mương giữ nước swale và luống cây chống xói mòn.",
+    "categories": [
+      "Permaculture",
+      "Kỹ thuật canh tác"
+    ],
+    "prompt": ""
   }
 ]
