@@ -981,5 +981,15 @@
       "Kỹ thuật"
     ],
     "prompt": ""
+  },
+  {
+    "id": "ky-thuat-ung-dung-bai-loc-sinh-hoc-xu-ly-nuoc-thai-nong-nghiep",
+    "title": "Kỹ thuật ứng dụng bãi lọc sinh học (constructed wetland) xử lý nước thải nông nghiệp và chăn nuôi hữu cơ",
+    "description": "Hướng dẫn thiết kế và vận hành hệ thống bãi lọc sinh học trồng cây thủy sinh giúp lọc sạch nước thải chăn nuôi và nông nghiệp, bảo vệ nguồn nước và tái sử dụng an toàn.",
+    "categories": [
+      "Bảo vệ môi trường",
+      "Mô hình bền vững"
+    ],
+    "prompt": ""
   }
 ]
